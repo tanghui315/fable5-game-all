@@ -10,7 +10,7 @@ permissions: {}
 
 concurrency:
   group: submission-${{ github.event.issue.number || github.event.pull_request.number }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   enrich:
@@ -51,7 +51,11 @@ jobs:
 
       - name: Parse submission and open candidate PR
         env:
+          # Reads (external repo metadata) use the workflow token.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Branch/PR writes use BOT_TOKEN so `pull_request` workflows (validate) run.
+          # Without it the PR is opened by the Actions bot and validate must be dispatched manually.
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: >
@@ -117,5 +121,14 @@ jobs:
             echo "data/rejected.yaml unchanged"
           else
             git commit -m "chore: record rejected submission"
-            git push origin main
+            for attempt in 1 2; do
+              git pull --rebase origin main
+              if git push origin main; then
+                exit 0
+              fi
+              echo "::warning::push failed (attempt $attempt); rebasing and retrying"
+              sleep 5
+            done
+            echo "::error::failed to push data/rejected.yaml after 2 attempts"
+            exit 1
           fi

@@ -1,5 +1,51 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
+import { parse as parseYaml } from 'yaml';
 import { parseIssueForm } from '../src/issue-form.js';
+
+const SUBMIT_TEMPLATE = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '../../../.github/ISSUE_TEMPLATE/submit-game.yml',
+);
+
+interface FormField {
+  type: string;
+  attributes?: {
+    label?: string;
+    options?: Array<string | { label: string }>;
+  };
+}
+
+function submitFields(): FormField[] {
+  const template = parseYaml(readFileSync(SUBMIT_TEMPLATE, 'utf8')) as { body: FormField[] };
+  return template.body;
+}
+
+/** Render the body the way GitHub renders an issue form submission. */
+function renderSubmitBody(): string {
+  const values: Record<string, string> = {
+    在线地址: 'https://example.github.io/test-game/',
+    仓库地址: 'https://github.com/example/test-game',
+    作者联系方式: '@example on GitHub',
+    依据: 'README says "made with Fable 5.2".',
+    是否本人作品: '是',
+  };
+  return submitFields()
+    .filter((field) => field.type !== 'markdown' && field.attributes?.label !== undefined)
+    .map((field) => {
+      const label = field.attributes?.label as string;
+      if (field.type === 'checkboxes') {
+        const options = (field.attributes?.options ?? []).map((option) =>
+          typeof option === 'string' ? option : option.label,
+        );
+        return `### ${label}\n\n${options.map((option) => `- [X] ${option}`).join('\n')}\n`;
+      }
+      return `### ${label}\n\n${values[label] ?? '_No response_'}\n`;
+    })
+    .join('\n');
+}
 
 const body = `### 在线地址
 
@@ -61,6 +107,26 @@ describe('parseIssueForm', () => {
       contact: null,
       evidence: null,
       ownWork: null,
+    });
+  });
+
+  it('parses a body rendered from the real submit-game.yml labels', () => {
+    const labels = submitFields()
+      .map((field) => field.attributes?.label)
+      .filter((label): label is string => label !== undefined);
+    expect(labels).toEqual([
+      '在线地址',
+      '仓库地址',
+      '作者联系方式',
+      '依据',
+      '是否本人作品',
+      '确认不是仿冒作品',
+    ]);
+
+    expect(parseIssueForm(renderSubmitBody())).toMatchObject({
+      onlineUrl: 'https://example.github.io/test-game/',
+      repoUrl: 'https://github.com/example/test-game',
+      ownWork: true,
     });
   });
 });

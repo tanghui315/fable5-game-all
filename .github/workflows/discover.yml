@@ -44,6 +44,8 @@ jobs:
         env:
           # Fine-grained read-only PAT keeps code search in its own quota.
           GITHUB_TOKEN: ${{ secrets.GH_SEARCH_TOKEN || github.token }}
+          # Branch/PR writes use BOT_TOKEN so `pull_request` workflows (validate) run.
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: pnpm --filter crawler crawler discover --limit 10
@@ -61,5 +63,14 @@ jobs:
             echo "seen state unchanged"
           else
             git commit -m "chore: update crawler seen state"
-            git push origin main
+            for attempt in 1 2; do
+              git pull --rebase origin main
+              if git push origin main; then
+                exit 0
+              fi
+              echo "::warning::push failed (attempt $attempt); rebasing and retrying"
+              sleep 5
+            done
+            echo "::error::failed to push seen state after 2 attempts"
+            exit 1
           fi

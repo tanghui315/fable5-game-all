@@ -1,9 +1,11 @@
 /** Create or update the candidate branch + PR with drafts and media. */
 
-import type { Octokit } from '@octokit/rest';
+import { Octokit } from '@octokit/rest';
 import { repoKey } from './github-url.js';
 
 export type OctokitLike = Octokit;
+
+const WRITE_TIMEOUT_MS = 20_000;
 
 export interface DraftFile {
   /** Repository-relative path, e.g. `data/games/foo.yaml`. */
@@ -21,6 +23,27 @@ export interface CandidatePrInput {
   title: string;
   body: string;
   labels: readonly string[];
+  /** Explicit write client; overrides `BOT_TOKEN`. */
+  writeClient?: OctokitLike;
+}
+
+/**
+ * Branch pushes and PR creation need a token that triggers `pull_request`
+ * workflows. `GITHUB_TOKEN` does not, so the workflows pass `BOT_TOKEN`
+ * (a fine-grained PAT or GitHub App token) for writes. Reads keep using the
+ * caller's client, which may be a separate read-only search token.
+ */
+export function resolveWriteClient(
+  fallback: OctokitLike,
+  env: NodeJS.ProcessEnv = process.env,
+): OctokitLike {
+  const token = env.BOT_TOKEN?.trim();
+  if (token === undefined || token === '') return fallback;
+  return new Octokit({
+    auth: token,
+    userAgent: 'fable5-game-all-crawler/0.1',
+    request: { timeout: WRITE_TIMEOUT_MS },
+  });
 }
 
 export interface CandidatePrResult {
@@ -144,8 +167,9 @@ async function ensureLabels(
  * One repository gets one candidate PR.
  */
 export async function createCandidatePr(input: CandidatePrInput): Promise<CandidatePrResult> {
-  const { client, owner, repo } = input;
-  const { commitSha } = await commitDrafts(input);
+  const { owner, repo } = input;
+  const client = input.writeClient ?? resolveWriteClient(input.client);
+  const { commitSha } = await commitDrafts({ ...input, client });
   await ensureLabels(client, owner, repo, input.labels);
 
   const existing = await client.pulls.list({

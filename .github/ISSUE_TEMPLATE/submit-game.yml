@@ -1,0 +1,65 @@
+name: 投稿游戏
+description: 推荐一个用 Fable 5.x 做的可玩网页游戏（游戏或技术演示）
+title: '[投稿] '
+labels: [submission]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢投稿！请尽量填写可核查的信息。提交后机器人会探测作品、生成候选 PR，管理员审核后上架。
+        本站是非官方社区收录，只链接和嵌入作品，不复制代码。
+
+  - type: input
+    id: online-url
+    attributes:
+      label: 在线地址
+      description: 能直接在浏览器里玩的地址（作者自己的站点或 GitHub Pages）。
+      placeholder: https://example.github.io/my-game/
+    validations:
+      required: true
+
+  - type: input
+    id: repo-url
+    attributes:
+      label: 仓库地址
+      description: 开源仓库地址；未开源可留空。
+      placeholder: https://github.com/owner/repo
+
+  - type: input
+    id: contact
+    attributes:
+      label: 作者联系方式
+      description: 作者主页、X/GitHub 用户名或邮箱；如果你不是作者，请说明来源。
+      placeholder: '@username on GitHub / https://x.com/username'
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 依据
+      description: 说明为什么判断它是用 Fable 5.x 做的（链接或文字）。例如 README 声明、模型徽章、提示词文件、成本数据。
+      placeholder: |
+        README 写着 "made with Fable 5.2"
+        prompts/main.md 公开了提示词
+        data/metrics.tsv 有轮数和成本
+    validations:
+      required: true
+
+  - type: dropdown
+    id: own-work
+    attributes:
+      label: 是否本人作品
+      description: 你是这个作品的作者吗？
+      options:
+        - 是
+        - 否
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: not-ip-clone
+    attributes:
+      label: 确认不是仿冒作品
+      description: 仿冒现有商业游戏或 IP（名字、角色、美术、关卡）的作品会被驳回。
+      options:
+        - label: 我确认这个作品不是现有商业游戏或 IP 的仿冒，也不包含恶意代码或成人内容。
+          required: true

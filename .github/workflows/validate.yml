@@ -7,6 +7,14 @@ on:
       - 'media/**'
       - 'packages/schema/**'
       - '.github/workflows/validate.yml'
+  # Fallback when a bot-created PR did not trigger `pull_request`:
+  # Actions -> validate -> Run workflow, ref = refs/pull/<N>/merge or the branch.
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Git ref to validate (e.g. refs/pull/42/merge or candidate/owner--repo)'
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -17,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
 
       - uses: pnpm/action-setup@v4
         with:

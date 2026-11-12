@@ -54,7 +54,16 @@ jobs:
             echo "health data unchanged"
           else
             git commit -m "chore: update health data"
-            git push origin main
+            for attempt in 1 2; do
+              git pull --rebase origin main
+              if git push origin main; then
+                exit 0
+              fi
+              echo "::warning::push failed (attempt $attempt); rebasing and retrying"
+              sleep 5
+            done
+            echo "::error::failed to push health data after 2 attempts"
+            exit 1
           fi
 
       - name: Open a deduplicated issue for games failing twice

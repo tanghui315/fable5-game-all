@@ -1,0 +1,35 @@
+name: 下架 / 纠错申请
+description: 作者申请下架作品，或报告仿冒、恶意代码、坏链等问题
+title: '[下架] '
+labels: [takedown]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        如果你是作品作者，不希望作品被本站收录，请在这里提交。我们会移除作品并记录为作者主动下架，
+        以后不再重复提名。报告坏链、仿冒或恶意代码也使用这个表单。
+
+  - type: input
+    id: work-url
+    attributes:
+      label: 作品链接
+      description: 本站作品页地址，或作品的在线地址 / 仓库地址。
+      placeholder: https://fable5-game-all.pages.dev/g/example
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: 原因
+      description: 下架、仿冒、恶意代码、坏链或其他问题，请简单说明。
+      placeholder: 我是作者，希望从本站移除这个作品。
+    validations:
+      required: true
+
+  - type: input
+    id: relationship
+    attributes:
+      label: 你和作品的关系
+      description: 作者本人、维护者、版权方，或只是发现问题的人。
+      placeholder: 作者本人 / 路过的玩家

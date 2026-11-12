@@ -45,6 +45,8 @@ export default function GamePlayer({
     setStarted(true);
     document.documentElement.dataset.theater = 'on';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // The stage is capped to the viewport while dimmed; bring it fully into view.
+    stageRef.current?.scrollIntoView({ block: 'start', behavior: reduceMotion ? 'auto' : 'smooth' });
     if (reduceMotion) {
       setMounted(true);
       return;
@@ -119,7 +121,6 @@ export default function GamePlayer({
             title={`${title} 游戏画面`}
             allow="fullscreen; pointer-lock; gamepad; autoplay"
             sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups"
-            loading="lazy"
             referrerPolicy="no-referrer"
           />
         ) : (

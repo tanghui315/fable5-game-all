@@ -1,6 +1,11 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Octokit } from '@octokit/rest';
-import { candidateBranchName, createCandidatePr } from '../src/pr.js';
+import {
+  candidateBranchName,
+  createCandidatePr,
+  resolveWriteClient,
+  type OctokitLike,
+} from '../src/pr.js';
 
 function notFound(): Error & { status: number } {
   return Object.assign(new Error('Not Found'), { status: 404 });
@@ -96,7 +101,24 @@ describe('candidateBranchName', () => {
   });
 });
 
+describe('resolveWriteClient', () => {
+  it('uses BOT_TOKEN for writes and falls back to the caller client otherwise', () => {
+    const fallback = {} as OctokitLike;
+    expect(resolveWriteClient(fallback, {})).toBe(fallback);
+    expect(resolveWriteClient(fallback, { BOT_TOKEN: '   ' })).toBe(fallback);
+    expect(resolveWriteClient(fallback, { BOT_TOKEN: 'bot-token' })).not.toBe(fallback);
+  });
+});
+
 describe('createCandidatePr', () => {
+  beforeEach(() => {
+    vi.stubEnv('BOT_TOKEN', '');
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
   it('creates a branch, commits drafts through the Git data API and opens a PR', async () => {
     const { client, calls } = mockClient();
     const result = await createCandidatePr({
@@ -153,5 +175,28 @@ describe('createCandidatePr', () => {
     expect(calls.pullsCreate).toHaveLength(0);
     expect((calls.pullsUpdate[0] as { pull_number: number }).pull_number).toBe(7);
     expect((calls.addLabels[0] as { issue_number: number }).issue_number).toBe(7);
+  });
+
+  it('sends branch and PR writes through writeClient when provided', async () => {
+    const reader = mockClient();
+    const writer = mockClient();
+    const result = await createCandidatePr({
+      client: reader.client,
+      writeClient: writer.client,
+      owner: 'wquguru',
+      repo: 'fable52-fps-repro',
+      branch: candidateBranchName('wquguru', 'fable52-fps-repro'),
+      files,
+      title: 'Candidate: write token',
+      body: 'review body',
+      labels: ['candidate'],
+    });
+
+    expect(result).toMatchObject({ number: 12, created: true });
+    expect(reader.calls.createRef).toHaveLength(0);
+    expect(reader.calls.pullsCreate).toHaveLength(0);
+    expect(writer.calls.createRef).toHaveLength(1);
+    expect(writer.calls.commits).toHaveLength(1);
+    expect(writer.calls.pullsCreate).toHaveLength(1);
   });
 });

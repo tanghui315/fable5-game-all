@@ -113,22 +113,17 @@
   margin-top: var(--space-4);
 }
 
-/* The stage is often taller than the viewport, so keep the exit controls
-   permanently visible while the room is dimmed. */
+/* While dimmed, cap the stage so it and the controls below it fit in one
+   viewport; the controls never overlay the game's own HUD. */
+html[data-theater="on"] .player-stage:not(:fullscreen) {
+  width: min(100%, calc((100dvh - 96px) * 1.6));
+  margin-inline: auto;
+  scroll-margin-top: var(--space-4);
+}
+
 html[data-theater="on"] .player-controls {
-  position: fixed;
-  bottom: max(var(--space-5), env(safe-area-inset-bottom));
-  left: 50%;
-  z-index: 30;
-  width: max-content;
-  max-width: calc(100vw - 2 * var(--gutter));
-  margin: 0;
-  padding: 10px 14px;
-  border: 1px solid rgba(220, 223, 232, 0.35);
-  border-radius: var(--radius);
-  background: rgba(15, 19, 32, 0.92);
-  transform: translateX(-50%);
   justify-content: center;
+  margin-top: var(--space-3);
 }
 
 .player-hint {

@@ -76,7 +76,8 @@ export default function mediaIntegration() {
   return {
     name: 'fable5-media-copy',
     hooks: {
-      'astro:config:setup': copy,
+      // `astro preview` also runs config:setup; copying then would delete the built dist/media.
+      'astro:config:setup': ({ command }) => (command === 'preview' ? undefined : copy()),
       'astro:server:setup': copy,
     },
   };
