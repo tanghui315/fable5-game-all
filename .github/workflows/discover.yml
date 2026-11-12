@@ -1,0 +1,65 @@
+name: discover
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: discover
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    name: search and enrich candidates
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.3
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build schema
+        run: pnpm --filter @fable5/schema build
+
+      - name: Install Playwright chromium
+        run: pnpm --filter crawler exec playwright install --with-deps chromium
+
+      - name: Search and open candidate PRs
+        env:
+          # Fine-grained read-only PAT keeps code search in its own quota.
+          GITHUB_TOKEN: ${{ secrets.GH_SEARCH_TOKEN || github.token }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: pnpm --filter crawler crawler discover --limit 10
+
+      - name: Commit crawler seen state
+        run: |
+          if [ ! -f data/_state/seen.json ]; then
+            echo "no seen state to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/_state/seen.json
+          if git diff --cached --quiet; then
+            echo "seen state unchanged"
+          else
+            git commit -m "chore: update crawler seen state"
+            git push origin main
+          fi

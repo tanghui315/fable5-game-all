@@ -1,0 +1,241 @@
+/* Styles for the React islands (and the server-rendered fallbacks they share). */
+
+/* ---------- FilterBar ---------- */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  margin-bottom: var(--space-6);
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--crease);
+  border-bottom: 1px solid var(--crease);
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.filter-sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+  color: var(--lead);
+  font-size: var(--text-13);
+}
+
+.filter-sort select {
+  padding: 4px 8px;
+  border: 1px solid var(--crease);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: var(--text-13);
+}
+
+.filter-empty {
+  display: flex;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  padding-top: var(--space-1);
+}
+
+.filter-empty p {
+  color: var(--lead);
+}
+
+@media (max-width: 720px) {
+  .filter-sort {
+    margin-left: 0;
+  }
+}
+
+/* ---------- GamePlayer ---------- */
+
+.game-player {
+  margin-bottom: var(--space-3);
+}
+
+.player-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--theater);
+}
+
+.player-stage:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  aspect-ratio: auto;
+}
+
+.player-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 19, 32, 0.35);
+}
+
+.player-overlay .btn {
+  padding: 14px 28px;
+  font-size: var(--text-20);
+}
+
+.player-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+}
+
+.player-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* The stage is often taller than the viewport, so keep the exit controls
+   permanently visible while the room is dimmed. */
+html[data-theater="on"] .player-controls {
+  position: fixed;
+  bottom: max(var(--space-5), env(safe-area-inset-bottom));
+  left: 50%;
+  z-index: 30;
+  width: max-content;
+  max-width: calc(100vw - 2 * var(--gutter));
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(220, 223, 232, 0.35);
+  border-radius: var(--radius);
+  background: rgba(15, 19, 32, 0.92);
+  transform: translateX(-50%);
+  justify-content: center;
+}
+
+.player-hint {
+  color: var(--lead);
+  font-size: var(--text-13);
+}
+
+html[data-theater="on"] .player-hint {
+  color: var(--glow-text);
+}
+
+.player-message {
+  margin-top: var(--space-4);
+  font-size: var(--text-16);
+}
+
+.player-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.player-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--theater);
+  color: var(--glow-text);
+  font-size: var(--text-16);
+}
+
+/* ---------- SearchBox ---------- */
+
+.search-panel {
+  max-width: 720px;
+}
+
+.search-field {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.search-field input[type="search"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--crease);
+  border-radius: var(--radius);
+  background: var(--receipt);
+  color: var(--ink);
+  font-size: var(--text-20);
+}
+
+.search-field input[type="search"]::placeholder {
+  color: var(--lead);
+}
+
+.search-status {
+  color: var(--lead);
+  font-size: var(--text-13);
+}
+
+.search-results {
+  display: grid;
+  gap: var(--space-5);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-results a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.search-result-title {
+  display: block;
+  color: var(--ink);
+  font-size: var(--text-20);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.search-results a:hover .search-result-title {
+  color: var(--cobalt);
+  text-decoration: underline;
+}
+
+.search-result-url {
+  display: block;
+  margin-top: 2px;
+  color: var(--lead);
+  font-size: var(--text-13);
+}
+
+.search-result-excerpt {
+  margin-top: 6px;
+  color: var(--lead);
+  font-size: var(--text-16);
+}
+
+.search-result-excerpt mark {
+  background: transparent;
+  color: var(--ink);
+  font-weight: 700;
+}

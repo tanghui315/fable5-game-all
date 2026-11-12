@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: wquguru--fable52-fps-repro--02-materials
+slug: night-dock-materials
+kind: demo
+status: published
+title:
+  zh: 雨夜码头 · 程序化材质
+  en: Rainy Night Dock — Procedural Materials
+summary:
+  zh: 只引入 Three.js、零外部图片，用代码生成湿混凝土积水反射、生锈集装箱、镀锌钢与黄铜铭牌的单文件材质展示。
+  en: Single-file material showcase with Three.js only — shader-generated wet concrete with puddle reflections, rusted containers, galvanized steel and brass plaques.
+author: wquguru
+
+repo:
+  url: https://github.com/wquguru/fable52-fps-repro
+  path: demos/02-materials
+  license: MIT
+
+play:
+  url: https://wquguru.github.io/fable52-fps-repro/demos/02-materials/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/wquguru--fable52-fps-repro--02-materials/cover.webp
+  preview: media/wquguru--fable52-fps-repro--02-materials/preview.webp
+
+genre: showcase
+tags: [materials, threejs, webgl, shaders, procedural, single-file]
+controls: [mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: README 有 "Model-Fable_5.2" 模型徽章；prompts/02-materials.md 公开提示词原文；data/metrics.tsv 的 02-materials 行记录 25 轮、$8.56 与 claude-fable-5-2。
+
+generation:
+  tool: claude-code
+  prompt_url: https://github.com/wquguru/fable52-fps-repro/blob/main/prompts/02-materials.md
+  turns: 25
+  cost_usd: 8.56
+  duration_min: 23.9
+
+source:
+  discovered_by: seed
+  discovered_at: 2026-11-12
+  published_at: 2026-11-12

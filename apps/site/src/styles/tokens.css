@@ -1,0 +1,47 @@
+/* Design tokens — design.md §8.2 (palette) and §8.3 (type scale). */
+
+:root {
+  /* 展厅（浏览状态） */
+  --paper: #E9EAE4;
+  --ink: #1D2433;
+  --lead: #5A6170;
+  --crease: #C9CBC3;
+  --cobalt: #3046E8;
+  --receipt: #F8F8F4;
+
+  /* 放映厅（游玩状态） */
+  --theater: #0F1320;
+  --glow-text: #DCDFE8;
+  --cobalt-on-dark: #8C9BFF;
+
+  /* 字体（§8.3） */
+  --font-ui: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --text-13: 0.8125rem;
+  --text-16: 1rem;
+  --text-20: 1.25rem;
+  --text-25: 1.5625rem;
+  --text-31: 1.9375rem;
+  --text-39: 2.4375rem;
+  --text-49: 3.0625rem;
+  --leading-body: 1.7;
+  --measure: 36em;
+
+  /* 版式与间距（§8.4） */
+  --container: 1200px;
+  --gutter: 24px;
+  --radius: 6px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* 焦点环与「灯光调暗」（§8.5、§8.6） */
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  --theater-duration: 400ms;
+}

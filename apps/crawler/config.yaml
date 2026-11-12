@@ -1,0 +1,21 @@
+# Crawler runtime configuration. Model ids and token caps live here so they
+# can be changed without touching code.
+ai:
+  # Cheap model used for pre-review; the AI only suggests, it never decides.
+  model: claude-haiku-5-5
+  max_tokens: 1600
+  # README text is truncated before it is sent as untrusted data.
+  max_readme_chars: 8000
+
+probe:
+  viewport_width: 1280
+  viewport_height: 800
+  # 150 KB, mirrors packages/schema COVER_MAX_BYTES.
+  cover_max_bytes: 153600
+  cover_quality: 82
+  navigation_timeout_ms: 30000
+  min_render_wait_ms: 4000
+  max_render_wait_ms: 25000
+
+limits:
+  max_entries_per_repo: 20

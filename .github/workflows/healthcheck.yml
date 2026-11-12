@@ -1,0 +1,92 @@
+name: healthcheck
+
+on:
+  schedule:
+    - cron: '23 4 * * 1'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: healthcheck
+  cancel-in-progress: false
+
+jobs:
+  health:
+    name: check published games
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.3
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build schema
+        run: pnpm --filter @fable5/schema build
+
+      - name: Check links and repositories
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >
+          pnpm --filter crawler crawler health --write
+          --failures-file "$RUNNER_TEMP/failures.json"
+
+      - name: Commit generated health data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/_generated/health.json data/_generated/repos.json
+          if git diff --cached --quiet; then
+            echo "health data unchanged"
+          else
+            git commit -m "chore: update health data"
+            git push origin main
+          fi
+
+      - name: Open a deduplicated issue for games failing twice
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          count=$(jq 'length' "$RUNNER_TEMP/failures.json")
+          if [ "$count" -eq 0 ]; then
+            echo "no games failing twice"
+            exit 0
+          fi
+          gh label create healthcheck \
+            --description "Weekly health check failures" \
+            --color B60205 --force || true
+          existing=$(gh issue list --state open --label healthcheck --limit 100 \
+            --json number,title \
+            --jq '.[] | select(.title | startswith("Health check: games failing twice")) | .number' \
+            | head -n 1)
+          if [ -n "$existing" ]; then
+            echo "open healthcheck issue already exists: #$existing"
+            exit 0
+          fi
+          {
+            echo "The weekly health check found games that failed two checks in a row."
+            echo ""
+            echo "| id | title | play.url | HTTP | consecutive failures |"
+            echo "|---|---|---|---|---|"
+            jq -r '.[] | "| `\(.id)` | \(.title) | \(.playUrl) | \(.httpStatus // "—") | \(.consecutiveFailures) |"' "$RUNNER_TEMP/failures.json"
+            echo ""
+            echo "See \`data/_generated/health.json\` for the full report."
+          } > "$RUNNER_TEMP/issue.md"
+          gh issue create \
+            --title "Health check: games failing twice ($(date -u +%F))" \
+            --label healthcheck \
+            --body-file "$RUNNER_TEMP/issue.md"

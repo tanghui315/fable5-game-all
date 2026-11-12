@@ -1,0 +1,155 @@
+---
+import '@fontsource/jetbrains-mono/latin-400.css';
+import '@fontsource/jetbrains-mono/latin-700.css';
+import type { Game } from '@fable5/schema';
+import { formatCost, formatDuration } from '../lib/data';
+
+interface Props {
+  game: Game;
+}
+
+const { game } = Astro.props;
+const generation = game.generation;
+const hasNumbers =
+  generation?.turns !== undefined ||
+  generation?.duration_min !== undefined ||
+  generation?.cost_usd !== undefined;
+---
+
+{
+  generation ? (
+    <aside class="receipt" aria-label="生成小票">
+      <h2 class="receipt-title">生成小票</h2>
+      <dl class="receipt-rows">
+        <div class="receipt-row">
+          <dt>模型</dt>
+          <dd>{game.model.name}</dd>
+        </div>
+        {generation.tool && (
+          <div class="receipt-row">
+            <dt>工具</dt>
+            <dd>{generation.tool}</dd>
+          </div>
+        )}
+      </dl>
+      {generation.prompt_url && (
+        <>
+          <div class="receipt-divider" />
+          <div class="receipt-prompt">
+            <p class="receipt-label">提示词</p>
+            <a class="receipt-link" href={generation.prompt_url} target="_blank" rel="noopener noreferrer">
+              查看完整提示词
+            </a>
+          </div>
+        </>
+      )}
+      {hasNumbers && (
+        <>
+          <div class="receipt-divider" />
+          <dl class="receipt-rows">
+            {generation.turns !== undefined && (
+              <div class="receipt-row">
+                <dt>轮数</dt>
+                <dd class="num">{generation.turns}</dd>
+              </div>
+            )}
+            {generation.duration_min !== undefined && (
+              <div class="receipt-row">
+                <dt>耗时</dt>
+                <dd>{formatDuration(generation.duration_min)}</dd>
+              </div>
+            )}
+            {generation.cost_usd !== undefined && (
+              <div class="receipt-row receipt-total">
+                <dt>合计（API 折算）</dt>
+                <dd class="num">{formatCost(generation.cost_usd)}</dd>
+              </div>
+            )}
+          </dl>
+        </>
+      )}
+    </aside>
+  ) : (
+    <p class="no-generation">作者没有公开生成过程</p>
+  )
+}
+
+<style>
+  .receipt {
+    --tooth: 8px;
+    width: 100%;
+    padding: 20px 20px calc(20px + var(--tooth));
+    border-radius: 2px 2px 0 0;
+    background: var(--receipt);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-13);
+    line-height: 1.5;
+    -webkit-mask:
+      linear-gradient(#000 0 0) top / 100% calc(100% - var(--tooth)) no-repeat,
+      conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / calc(var(--tooth) * 2) var(--tooth) repeat-x;
+    mask:
+      linear-gradient(#000 0 0) top / 100% calc(100% - var(--tooth)) no-repeat,
+      conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / calc(var(--tooth) * 2) var(--tooth) repeat-x;
+  }
+
+  .receipt-title {
+    margin-bottom: 12px;
+    font-size: var(--text-16);
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .receipt-rows {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+  }
+
+  .receipt-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .receipt-row dt {
+    color: var(--lead);
+  }
+
+  .receipt-row dd {
+    margin: 0;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .receipt-total {
+    padding-top: 4px;
+    font-weight: 700;
+  }
+
+  .receipt-divider {
+    margin: 12px 0;
+    border-top: 1px dashed var(--crease);
+  }
+
+  .receipt-label {
+    margin-bottom: 4px;
+    color: var(--lead);
+  }
+
+  .receipt-link {
+    color: var(--cobalt);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .no-generation {
+    color: var(--lead);
+    font-size: var(--text-13);
+    line-height: var(--leading-body);
+  }
+</style>

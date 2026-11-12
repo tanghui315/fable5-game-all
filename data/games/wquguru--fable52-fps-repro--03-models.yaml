@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: wquguru--fable52-fps-repro--03-models
+slug: harbor-model-viewer
+kind: demo
+status: published
+title:
+  zh: 硬表面建模台
+  en: Hard-Surface Model Viewer
+summary:
+  zh: 纯代码拼出带装卸动画的岸桥、215 米货船和红点步枪，可在单文件查看器里切换、旋转、缩放。
+  en: Procedural STS crane with loading animation, a 215 m cargo ship and a red-dot rifle in a switchable single-file viewer (orbit and zoom).
+author: wquguru
+
+repo:
+  url: https://github.com/wquguru/fable52-fps-repro
+  path: demos/03-models
+  license: MIT
+
+play:
+  url: https://wquguru.github.io/fable52-fps-repro/demos/03-models/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/wquguru--fable52-fps-repro--03-models/cover.webp
+  preview: media/wquguru--fable52-fps-repro--03-models/preview.webp
+
+genre: showcase
+tags: [3d, modeling, threejs, webgl, procedural, single-file]
+controls: [mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: README 有 "Model-Fable_5.2" 模型徽章；prompts/03-models.md 公开提示词原文；data/metrics.tsv 的 03-models 行记录 19 轮、$10.38 与 claude-fable-5-2。
+
+generation:
+  tool: claude-code
+  prompt_url: https://github.com/wquguru/fable52-fps-repro/blob/main/prompts/03-models.md
+  turns: 19
+  cost_usd: 10.38
+  duration_min: 28.7
+
+source:
+  discovered_by: seed
+  discovered_at: 2026-11-12
+  published_at: 2026-11-12

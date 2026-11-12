@@ -1,0 +1,72 @@
+---
+import { EVIDENCE_LABELS, evidenceLabel } from '../lib/data';
+
+interface Props {
+  level: 'L1' | 'L2' | 'L3';
+  notes?: string;
+}
+
+const { level, notes } = Astro.props;
+const count = level === 'L1' ? 1 : level === 'L2' ? 2 : 3;
+const label = evidenceLabel(level, notes);
+const tooltip = notes ? `${level} ${EVIDENCE_LABELS[level]}：${notes}` : `${level} ${EVIDENCE_LABELS[level]}`;
+---
+
+<span class="evidence" role="img" aria-label={label} tabindex="0" data-tooltip={tooltip}>
+  <span class="evidence-dots" aria-hidden="true">
+    {Array.from({ length: count }).map(() => <span class="evidence-dot"></span>)}
+  </span>
+</span>
+
+<style>
+  .evidence {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px;
+    border-radius: 2px;
+    cursor: help;
+  }
+
+  .evidence-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .evidence-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+
+  .evidence::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    z-index: 20;
+    width: max-content;
+    max-width: 280px;
+    padding: 6px 8px;
+    border: 1px solid var(--crease);
+    border-radius: var(--radius);
+    background: var(--receipt);
+    color: var(--ink);
+    font-size: var(--text-13);
+    line-height: 1.5;
+    white-space: normal;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 120ms ease;
+    pointer-events: none;
+  }
+
+  .evidence:hover::after,
+  .evidence:focus-visible::after {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>

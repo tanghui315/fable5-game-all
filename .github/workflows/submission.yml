@@ -1,0 +1,121 @@
+name: submission
+
+on:
+  issues:
+    types: [opened, edited, labeled, reopened]
+  pull_request:
+    types: [closed]
+
+permissions: {}
+
+concurrency:
+  group: submission-${{ github.event.issue.number || github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  enrich:
+    name: enrich submission issue
+    if: >
+      github.event_name == 'issues' &&
+      contains(github.event.issue.labels.*.name, 'submission')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.3
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build schema
+        run: pnpm --filter @fable5/schema build
+
+      - name: Install Playwright chromium
+        run: pnpm --filter crawler exec playwright install --with-deps chromium
+
+      - name: Save issue form body
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$ISSUE_BODY" > "$RUNNER_TEMP/issue-body.md"
+
+      - name: Parse submission and open candidate PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: >
+          pnpm --filter crawler crawler submission
+          --body "$RUNNER_TEMP/issue-body.md"
+          --issue "${{ github.event.issue.number }}"
+          --pr
+
+  reject:
+    name: record rejected PR
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == false &&
+      contains(github.event.pull_request.labels.*.name, 'rejected')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.3
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build schema
+        run: pnpm --filter @fable5/schema build
+
+      - name: Save PR body
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: printf '%s' "$PR_BODY" > "$RUNNER_TEMP/pr-body.md"
+
+      - name: Read rejection reason label
+        id: reason
+        env:
+          LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: |
+          REASON=$(node -e 'const labels = JSON.parse(process.env.LABELS || "[]"); const hit = labels.find((name) => name.startsWith("reason:")); process.stdout.write(hit ? hit.slice(7) : "not-a-game");')
+          echo "reason=$REASON" >> "$GITHUB_OUTPUT"
+
+      - name: Append to data/rejected.yaml
+        run: >
+          pnpm --filter crawler crawler reject-from-pr
+          --body-file "$RUNNER_TEMP/pr-body.md"
+          --reason "${{ steps.reason.outputs.reason }}"
+
+      - name: Commit rejection to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/rejected.yaml
+          if git diff --cached --quiet; then
+            echo "data/rejected.yaml unchanged"
+          else
+            git commit -m "chore: record rejected submission"
+            git push origin main
+          fi

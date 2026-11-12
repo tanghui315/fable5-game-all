@@ -1,20 +1,130 @@
 ---
-import { GameSchema } from '@fable5/schema';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GameCard from '../components/GameCard.astro';
+import Receipt from '../components/Receipt.astro';
+import FilterBar from '../components/FilterBar';
+import {
+  SITE_NAME,
+  authorName,
+  cardMeta,
+  featuredGame,
+  gameTitle,
+  latestGames,
+  type GameView,
+} from '../lib/data';
 
-const schemaStatus = GameSchema.safeParse({}).success ? 'invalid' : 'ready';
+const games = latestGames();
+const hero = featuredGame();
+const heroMeta = hero ? cardMeta(hero) : null;
+const heroPreview = hero?.previewUrl ?? hero?.coverUrl ?? null;
+const items = games.map((view: GameView) => ({
+  id: view.game.id,
+  kind: view.game.kind,
+  tags: view.game.tags,
+  controls: view.game.controls,
+  mobile: view.game.mobile,
+  stars: view.repoStats?.stars ?? null,
+  date: Date.parse(view.date) || 0,
+}));
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>fable5-game-all</title>
-  </head>
-  <body>
-    <main>
-      <h1>fable5-game-all</h1>
-      <p>站点骨架已就绪（schema {schemaStatus}）。</p>
-    </main>
-  </body>
-</html>
+<BaseLayout title={SITE_NAME}>
+  {
+    hero && heroMeta ? (
+      <section class="hero grid-12" aria-labelledby="hero-title">
+        <div class="hero-main">
+          <a class="hero-media" href={`/g/${hero.game.slug}`} tabindex="-1" aria-hidden="true">
+            <img
+              src={heroPreview ?? hero.coverUrl}
+              data-cover-src={hero.previewUrl ? hero.coverUrl : undefined}
+              alt=""
+              width="1200"
+              height="750"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <h1 class="hero-title" id="hero-title">
+            {gameTitle(hero)}
+          </h1>
+          <p class="hero-meta">
+            {hero.author ? (
+              <a href={`/a/${hero.author.id}`}>作者 {authorName(hero)}</a>
+            ) : (
+              <span>作者 {authorName(hero)}</span>
+            )}
+            {heroMeta.extra && <span>{heroMeta.extra}</span>}
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href={`/g/${hero.game.slug}`}>
+              开始游戏
+            </a>
+          </div>
+        </div>
+        <div class="hero-aside">
+          <Receipt game={hero.game} />
+        </div>
+      </section>
+    ) : (
+      <section class="empty-page">
+        <h1>还没有收录作品</h1>
+        <p>
+          这里会收录用 Fable 5.x 生成、可以直接在浏览器里玩的网页游戏，并展示提示词、轮数和成本。
+          第一批作品正在整理中。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/submit">提交游戏</a>
+          <a class="btn btn-ghost" href="/about">了解收录标准</a>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    games.length > 0 && (
+      <section class="catalogue" aria-labelledby="catalogue-title">
+        <h2 class="section-title" id="catalogue-title">
+          全部作品
+        </h2>
+        <FilterBar client:load items={items} />
+        <noscript>
+          <p class="noscript-note">筛选和排序需要 JavaScript；全部作品已列出。</p>
+        </noscript>
+        <div class="grid-12 game-grid" data-game-grid>
+          {games.map((view) => (
+            <GameCard view={view} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
+
+<script>
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (reduceMotion.matches) {
+    document.querySelectorAll<HTMLImageElement>('img[data-cover-src]').forEach((image) => {
+      const cover = image.dataset.coverSrc;
+      if (cover) image.src = cover;
+    });
+  }
+
+  if (finePointer.matches && !reduceMotion.matches) {
+    document.querySelectorAll<HTMLElement>('[data-preview-src]').forEach((preview) => {
+      const card = preview.closest<HTMLElement>('.game-card');
+      if (!card) return;
+      card.addEventListener('pointerenter', () => {
+        if (!preview.getAttribute('src')) {
+          const source = preview.dataset.previewSrc;
+          if (source) preview.setAttribute('src', source);
+        }
+        card.classList.add('is-previewing');
+      });
+      card.addEventListener('pointerleave', () => {
+        card.classList.remove('is-previewing');
+      });
+    });
+  }
+</script>

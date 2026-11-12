@@ -1,0 +1,41 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+import '../styles/components.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_NAME } from '../lib/data';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Marks the page body as the Pagefind search scope (detail pages). */
+  pagefindBody?: boolean;
+}
+
+const {
+  title,
+  description = '非官方社区收录：用 Fable 5.x 生成的网页游戏，可以直接在浏览器里试玩，并查看提示词、轮数和成本。',
+  pagefindBody = false,
+} = Astro.props;
+
+const fullTitle = title === SITE_NAME ? title : `${title} - ${SITE_NAME}`;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <Header />
+    <main class="site-main container" id="main" data-pagefind-body={pagefindBody ? '' : undefined}>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

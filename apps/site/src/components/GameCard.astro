@@ -1,0 +1,117 @@
+---
+import type { GameView } from '../lib/data';
+import { authorName, cardMeta, gameTitle, kindLabel } from '../lib/data';
+
+interface Props {
+  view: GameView;
+}
+
+const { view } = Astro.props;
+const { game } = view;
+const meta = cardMeta(view);
+const dateValue = Date.parse(view.date);
+---
+
+<a
+  class="game-card"
+  href={`/g/${game.slug}`}
+  data-game-card
+  data-game-id={game.id}
+  data-kind={game.kind}
+  data-tags={game.tags.join(',')}
+  data-controls={game.controls.join(',')}
+  data-mobile={String(game.mobile)}
+  data-stars={view.repoStats?.stars ?? ''}
+  data-date={Number.isNaN(dateValue) ? 0 : dateValue}
+>
+  <span class="card-media">
+    <img
+      class="card-cover"
+      src={view.coverUrl}
+      alt={`${gameTitle(view)} 封面`}
+      width="800"
+      height="500"
+      loading="lazy"
+      decoding="async"
+    />
+    {
+      view.previewUrl && (
+        <img
+          class="card-preview"
+          data-preview-src={view.previewUrl}
+          alt=""
+          width="800"
+          height="500"
+          loading="lazy"
+          decoding="async"
+        />
+      )
+    }
+  </span>
+  <span class="card-title">{gameTitle(view)}</span>
+  <span class="card-meta">
+    {game.kind === 'demo' && <span>{kindLabel(game.kind)}</span>}
+    <span>作者 {meta.author}</span>
+    {meta.extra && <span>{meta.extra}</span>}
+  </span>
+</a>
+
+<style>
+  .game-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .card-media {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--crease);
+  }
+
+  .card-cover,
+  .card-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-preview {
+    opacity: 0;
+    transition: opacity 160ms ease;
+  }
+
+  .game-card.is-previewing .card-preview {
+    opacity: 1;
+  }
+
+  .card-title {
+    display: block;
+    margin-top: 12px;
+    font-size: var(--text-20);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .game-card:hover .card-title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 4px;
+    color: var(--lead);
+    font-size: var(--text-13);
+    line-height: 1.5;
+  }
+</style>

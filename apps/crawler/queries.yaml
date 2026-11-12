@@ -1,0 +1,20 @@
+# Search terms for `crawler discover`. Add terms here, never in code.
+# GitHub code search is limited to about 10 requests/minute.
+code_search:
+  - claude-fable-5-2
+  - '"Fable 5.2"'
+  - fable52
+  - fable-5-2
+
+repo_search:
+  - 'fable52 in:name,description'
+  - '"Fable 5.2" in:name,description,readme'
+  - 'fable-5-2 in:name,description,readme'
+  - 'topic:claude-code topic:webgl-game'
+  - 'topic:claude-code topic:threejs game'
+  - 'topic:claude-code game webgl'
+
+hn:
+  - fable 5.2
+  - claude-fable-5-2
+  - fable52

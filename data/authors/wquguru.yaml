@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: wquguru
+name: WquGuru
+github: wquguru
+x: wquguru
+website: https://wqu.guru
+avatar: https://github.com/wquguru.png
+claimed: false

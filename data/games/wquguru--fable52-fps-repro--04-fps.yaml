@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: wquguru--fable52-fps-repro--04-fps
+slug: sublevel-07
+kind: game
+status: published
+title:
+  zh: SUBLEVEL 07
+  en: SUBLEVEL 07
+summary:
+  zh: 潮湿地下变电站里，持红点卡宾枪击退三波悬浮无人机的单文件 FPS。
+  en: Single-file FPS — fight three waves of hovering drones with a red-dot carbine in a wet underground substation.
+author: wquguru
+
+repo:
+  url: https://github.com/wquguru/fable52-fps-repro
+  path: demos/04-fps
+  license: MIT
+
+play:
+  url: https://wquguru.github.io/fable52-fps-repro/demos/04-fps/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/wquguru--fable52-fps-repro--04-fps/cover.webp
+  preview: media/wquguru--fable52-fps-repro--04-fps/preview.webp
+
+genre: shooter
+tags: [fps, threejs, webgl, single-file]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: README 有 "Model-Fable_5.2" 模型徽章；prompts/04-fps.md 公开提示词原文；data/metrics.tsv 的 04-fps 行给了 73 轮、$15.96 与 claude-fable-5-2 模型 ID。
+
+generation:
+  tool: claude-code
+  prompt_url: https://github.com/wquguru/fable52-fps-repro/blob/main/prompts/04-fps.md
+  turns: 73
+  cost_usd: 15.96
+  duration_min: 40.8
+
+source:
+  discovered_by: seed
+  discovered_at: 2026-11-12
+  published_at: 2026-11-12

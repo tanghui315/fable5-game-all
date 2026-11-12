@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: wquguru--fable52-fps-repro--01-audio
+slug: fps-audio-soundboard
+kind: demo
+status: published
+title:
+  zh: 程序化 FPS 音效台
+  en: Procedural FPS Soundboard
+summary:
+  zh: 纯代码合成 14 个 FPS 音效（室内外步枪、三段换弹、弹壳、三种脚步、雨雷与 30 秒配乐）的单文件音效台。
+  en: Single-file soundboard synthesizing 14 FPS sounds in code — indoor/outdoor rifle, three-stage reload, shell casings, three footsteps, rain, thunder and a 30-second score.
+author: wquguru
+
+repo:
+  url: https://github.com/wquguru/fable52-fps-repro
+  path: demos/01-audio
+  license: MIT
+
+play:
+  url: https://wquguru.github.io/fable52-fps-repro/demos/01-audio/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/wquguru--fable52-fps-repro--01-audio/cover.webp
+  preview: media/wquguru--fable52-fps-repro--01-audio/preview.webp
+
+genre: audio-tool
+tags: [audio, webaudio, sound-design, procedural, single-file]
+controls: [mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: README 有 "Model-Fable_5.2" 模型徽章；prompts/01-audio.md 公开提示词原文；data/metrics.tsv 的 01-audio-5m / 01-audio-1h 两行都记录 claude-fable-5-2。
+
+generation:
+  tool: claude-code
+  prompt_url: https://github.com/wquguru/fable52-fps-repro/blob/main/prompts/01-audio.md
+  turns: 16
+  cost_usd: 4.66
+  duration_min: 16.6
+  runs: 2
+  notes: "合并 01-audio 与 01-audio-1h 两次运行。本入口 demos/01-audio 为 5 分钟缓存那次：16 轮、$4.66、16.6 分钟、缓存命中 88.6%（metrics.tsv 行 01-audio-5m）；同一提示词用 1 小时缓存重跑，产物另存为 demos/01-audio-1h：16 轮、$6.97、18.8 分钟、缓存命中 78.6%（metrics.tsv 行 01-audio-1h）。"
+
+source:
+  discovered_by: seed
+  discovered_at: 2026-11-12
+  published_at: 2026-11-12

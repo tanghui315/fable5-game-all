@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GamePlayer from '../../components/GamePlayer.tsx';
+import Receipt from '../../components/Receipt.astro';
+import EvidenceDots from '../../components/EvidenceDots.astro';
+import {
+  authorName,
+  controlsLabel,
+  formatMonthDay,
+  gameTitle,
+  getSiteData,
+  kindLabel,
+  sameRepoGames,
+  type GameView,
+} from '../../lib/data';
+
+export function getStaticPaths() {
+  return getSiteData().games.map((view) => ({
+    params: { slug: view.game.slug },
+    props: { id: view.game.id },
+  }));
+}
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+const data = getSiteData();
+const view = data.byId.get(id);
+if (!view) throw new Error(`unknown game id: ${id}`);
+
+const game = view.game;
+const title = gameTitle(view);
+const author = view.author;
+const related: GameView[] = sameRepoGames(view);
+const checkedAt = formatMonthDay(view.health?.checked_at);
+const tags = game.tags;
+---
+
+<BaseLayout
+  title={title}
+  description={game.summary.zh}
+  pagefindBody
+>
+  <a class="detail-back" href="/" data-pagefind-ignore>← 全部游戏</a>
+
+  {
+    view.isBroken ? (
+      <div class="game-player" data-pagefind-ignore>
+        <div class="player-stage">
+          <img
+            class="player-cover"
+            src={view.coverUrl}
+            alt={`${title} 封面`}
+            width="1200"
+            height="750"
+            decoding="async"
+          />
+        </div>
+        <p class="player-message">
+          原地址暂时打不开{checkedAt ? `（上次检查：${checkedAt}）` : ''}。
+        </p>
+        {game.repo && (
+          <div class="player-actions">
+            <a class="btn btn-ghost" href={game.repo.url} target="_blank" rel="noopener noreferrer">
+              查看源码
+            </a>
+          </div>
+        )}
+      </div>
+    ) : (
+      <GamePlayer
+        client:load
+        title={title}
+        coverUrl={view.coverUrl}
+        playUrl={game.play.url}
+        embeddable={view.embeddable}
+        controls={game.controls}
+      />
+      <noscript data-pagefind-ignore>
+        <p class="player-message">
+          播放器需要 JavaScript。你可以<a href={game.play.url}>新窗口打开</a>。
+        </p>
+      </noscript>
+    )
+  }
+
+  <div class="detail-layout grid-12">
+    <div class="detail-main">
+      <h1 class="detail-title" data-pagefind-meta="title">{title}</h1>
+      <p class="detail-summary">{game.summary.zh}</p>
+
+      <div class="detail-facts">
+        <p class="fact">
+          <span class="fact-label">类型</span>
+          <span class="fact-value">{kindLabel(game.kind)}</span>
+        </p>
+        <p class="fact">
+          <span class="fact-label">模型</span>
+          <span class="fact-value">{game.model.name}</span>
+        </p>
+        <p class="fact">
+          <span class="fact-label">证据</span>
+          <EvidenceDots level={game.model.evidence} notes={game.model.evidence_notes} />
+        </p>
+        {
+          game.controls.length > 0 && (
+            <p class="fact">
+              <span class="fact-label">操作</span>
+              <span class="fact-value">{controlsLabel(game.controls)}</span>
+            </p>
+          )
+        }
+        {
+          tags.length > 0 && (
+            <p class="fact">
+              <span class="fact-label">标签</span>
+              <span class="tag-list">
+                {tags.map((tag) => (
+                  <a
+                    class="tag"
+                    href={`/?${game.kind === 'demo' ? 'kind=demo&' : ''}tag=${encodeURIComponent(tag)}`}
+                  >
+                    {tag}
+                  </a>
+                ))}
+              </span>
+            </p>
+          )
+        }
+      </div>
+
+      <div class="repo-card">
+        <h2>源码</h2>
+        {
+          game.repo ? (
+            <>
+              <p>
+                <a
+                  class="repo-link"
+                  href={game.repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  查看源码
+                </a>
+              </p>
+              {game.repo.license && <p>协议 {game.repo.license}</p>}
+              {game.repo.path && <p>目录 {game.repo.path}</p>}
+              {view.repoStats?.stars !== undefined && <p>star {view.repoStats.stars}</p>}
+            </>
+          ) : (
+            <p>未开源</p>
+          )
+        }
+      </div>
+    </div>
+
+    <aside class="detail-aside">
+      <section class="author-card" aria-label="作者">
+        <div class="author-card-head">
+          {author?.avatar && (
+            <img
+              class="author-avatar"
+              src={author.avatar}
+              alt=""
+              width="48"
+              height="48"
+              loading="lazy"
+            />
+          )}
+          <h2>{author ? `作者 ${author.name}` : `作者 ${authorName(view)}`}</h2>
+        </div>
+        {author && (
+          <div class="author-links">
+            <a href={`/a/${author.id}`}>全部作品</a>
+            {author.github && (
+              <a href={`https://github.com/${author.github}`} target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            )}
+            {author.x && (
+              <a href={`https://x.com/${author.x}`} target="_blank" rel="noopener noreferrer">
+                X
+              </a>
+            )}
+            {author.website && (
+              <a href={author.website} target="_blank" rel="noopener noreferrer">
+                个人网站
+              </a>
+            )}
+          </div>
+        )}
+      </section>
+
+      <Receipt game={game} />
+    </aside>
+  </div>
+
+  {
+    related.length > 0 && (
+      <section class="related" aria-labelledby="related-title" data-pagefind-ignore>
+        <h2 id="related-title">同仓库的其他作品</h2>
+        <ul>
+          {related.map((other) => (
+            <li>
+              <a href={`/g/${other.game.slug}`}>{gameTitle(other)}</a>
+              <span class="related-kind">{kindLabel(other.game.kind)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</BaseLayout>

@@ -1,0 +1,9 @@
+# Content-Security-Policy is completed at build time by
+# src/integrations/headers.mjs: Astro emits its island runtime inline, so the
+# final build adds sha256 hashes for those scripts and the astro-island style.
+/*
+  Content-Security-Policy: __CSP__
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+*/
