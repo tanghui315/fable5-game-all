@@ -1,0 +1,37 @@
+{
+  "name": "@fable5/schema",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Data schemas, types and loader/validator for fable5-game-all",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./json/game.schema.json": "./json/game.schema.json",
+    "./json/author.schema.json": "./json/author.schema.json"
+  },
+  "files": [
+    "dist",
+    "json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsx scripts/build-json-schema.ts",
+    "test": "vitest run",
+    "json-schema": "tsx scripts/build-json-schema.ts"
+  },
+  "dependencies": {
+    "yaml": "^2.9.1",
+    "zod": "^3.25.76",
+    "zod-to-json-schema": "^3.25.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.0"
+  }
+}

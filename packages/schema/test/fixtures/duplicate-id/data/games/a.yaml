@@ -1,0 +1,15 @@
+id: dup--repo--entry
+slug: dup-slug-a
+kind: game
+status: published
+title: { zh: 重复 }
+summary: { zh: 重复 id }
+author: wquguru
+play: { url: "https://example.com/dup-a/", embeddable: true }
+media: { cover: media/dup--repo--entry/cover.webp }
+genre: puzzle
+tags: []
+controls: [mouse]
+mobile: false
+model: { name: fable-5.2, evidence: L1 }
+source: { discovered_by: manual, discovered_at: 2026-11-12 }

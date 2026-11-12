@@ -302,7 +302,7 @@ i18n：数据字段从第一天起就按 `zh` / `en` 存；界面 MVP 先做中�
 
 | 角色 | 字体 | 说明 |
 |---|---|---|
-| 界面和正文 | 思源黑体（Noto Sans SC），400 / 700 / 900 | 中英文统一用它；开源（OFL），可以按页面用到的字做子集化 |
+| 界面和正文 | 系统黑体栈：PingFang SC / Microsoft YaHei / Noto Sans SC，400 / 700 / 900 | 中文字体包太大（几十 MB），MVP 不自托管；以后需要统一观感时再做子集化 |
 | 游戏标题 | 同上，900 字重，大字号，字距收紧 −0.02em | 用字重和字号做出层次，而不是另换一种花哨字体 |
 | 生成小票 | JetBrains Mono | 只用在小票里；小票本来就是等宽打印的 |
 
@@ -409,7 +409,7 @@ i18n：数据字段从第一天起就按 `zh` / `en` 存；界面 MVP 先做中�
   - React 组件只用在需要交互的地方：`FilterBar`（筛选和排序）、`GamePlayer`（点击加载、调暗、全屏、退出）、`SearchBox`（调用 Pagefind）。
   - 好处：首页加载快；React 组件以后迁移到方案 A（Next.js）时可以直接复用。
 - **样式**：设计变量集中写在 `apps/site/src/styles/tokens.css`（CSS 自定义属性，名字和 §8.2 一致），组件用 Astro 的作用域样式。不引入 Tailwind，变量就是唯一的设计来源。
-- **字体**：思源黑体在构建时按全站用到的字做子集化，自己托管，不走 Google Fonts。
+- **字体**：中文用系统黑体栈；JetBrains Mono 用 `@fontsource/jetbrains-mono` 自己托管，不走 Google Fonts。
 - **图片**：封面用 Astro 的 `<Image>` 生成多种尺寸，懒加载。
 
 ## 9. 安全与合规

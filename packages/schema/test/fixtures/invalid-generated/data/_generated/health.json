@@ -1,0 +1,6 @@
+{
+  "https://example.com/game/": {
+    "status": "ok",
+    "console_errors": -1
+  }
+}

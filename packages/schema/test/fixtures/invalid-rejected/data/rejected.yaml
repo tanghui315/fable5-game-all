@@ -1,0 +1,4 @@
+- repo: https://github.com/someone/some-repo
+  reason: looks-suspicious
+  note: 仿冒现有商业游戏
+  date: 2026-11-20

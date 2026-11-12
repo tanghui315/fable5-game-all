@@ -1,0 +1,23 @@
+id: schema--error--bad
+slug: Bad_Slug
+kind: not-a-kind
+status: published
+title: {}
+summary:
+  zh: 示例
+author: wquguru
+play:
+  url: nope
+  embeddable: "yes"
+media:
+  cover: media/schema--error--bad/cover.webp
+genre: ""
+tags: [1]
+controls: [keyboard, dance]
+mobile: false
+model:
+  name: fable-4
+  evidence: L9
+source:
+  discovered_by: unknown
+  discovered_at: 2026-11-12

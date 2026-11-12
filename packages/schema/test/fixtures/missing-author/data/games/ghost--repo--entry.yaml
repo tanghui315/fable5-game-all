@@ -1,0 +1,15 @@
+id: ghost--repo--entry
+slug: ghost-game
+kind: game
+status: published
+title: { zh: 幽灵 }
+summary: { zh: 作者不存在 }
+author: ghost-author
+play: { url: "https://example.com/ghost/", embeddable: true }
+media: { cover: media/ghost--repo--entry/cover.webp }
+genre: puzzle
+tags: []
+controls: [mouse]
+mobile: false
+model: { name: fable-5.2, evidence: L1 }
+source: { discovered_by: manual, discovered_at: 2026-11-12 }

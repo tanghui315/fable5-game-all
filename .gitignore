@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+apps/site/dist/
+*.tsbuildinfo
+
+# env
+.env
+.env.*
+!.env.example
+
+# playwright
+playwright-report/
+test-results/
+playwright/.cache/
+blob-report/
+
+# test scratch space
+packages/schema/test/.tmp/
+
+# misc
+.DS_Store
+*.log
