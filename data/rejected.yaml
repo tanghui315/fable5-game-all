@@ -1,3 +1,4 @@
+# 驳回记录：命中这些仓库的候选不会再被提名（见 docs/admin.md）。
 - repo: https://github.com/lauramionel/cayley-flight-simulator
   reason: no-evidence
   note: 'README 未提模型；提交记录带 "Co-Authored-By: Claude Opus 5.5"，与整理列表所称 Fable 5.2 冲突，证据不足。'
