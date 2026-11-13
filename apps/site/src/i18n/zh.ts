@@ -34,6 +34,7 @@ export const zh: Record<MessageKey, string> = {
   'footer.submit': '提交游戏',
   'footer.takedown': '申请下架',
   'footer.form': '投稿表单',
+  'footer.repo': 'GitHub 源码',
 
   'action.play': '开始游戏',
   'action.playNow': '开始游戏',

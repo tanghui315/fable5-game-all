@@ -32,6 +32,7 @@ export const en = {
   'footer.submit': 'Submit a game',
   'footer.takedown': 'Request removal',
   'footer.form': 'Submission form',
+  'footer.repo': 'Source on GitHub',
 
   'action.play': 'Play',
   'action.playNow': 'Play now',

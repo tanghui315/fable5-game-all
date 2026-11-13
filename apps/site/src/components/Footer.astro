@@ -1,5 +1,5 @@
 ---
-import { SUBMIT_URL, TAKEDOWN_URL } from '../lib/data';
+import { GITHUB_REPO, SUBMIT_URL, TAKEDOWN_URL } from '../lib/data';
 import { localePath, t, type Lang } from '../i18n';
 
 interface Props {
@@ -17,6 +17,9 @@ const { lang } = Astro.props;
       <a href={localePath(lang, '/submit')}>{t(lang, 'footer.submit')}</a>
       <a href={TAKEDOWN_URL} rel="noopener noreferrer">{t(lang, 'footer.takedown')}</a>
       <a href={SUBMIT_URL} rel="noopener noreferrer">{t(lang, 'footer.form')}</a>
+      <a class="footer-repo" href={GITHUB_REPO} rel="noopener noreferrer"
+        >{t(lang, 'footer.repo')}<span aria-hidden="true"> ↗</span></a
+      >
     </nav>
   </div>
 </footer>
