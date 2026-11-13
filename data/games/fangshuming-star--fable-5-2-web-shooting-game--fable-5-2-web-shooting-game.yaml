@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: fangshuming-star--fable-5-2-web-shooting-game--fable-5-2-web-shooting-game
+slug: jimao-3a
+kind: game
+status: published
+title:
+  zh: 几猫3A大作
+  en: Jimao 3A
+summary:
+  zh: 港区防御系统失控：潜入库区、切断三处中继、突破封锁后登船撤离。
+  en: A first-person shooter set in a rain-soaked port — cut three relays, break the blockade, reach the boat.
+author: fangshuming-star
+repo:
+  url: https://github.com/fangshuming-star/fable-5.2-web-shooting-game
+play:
+  url: https://fangshuming-star.github.io/fable-5.2-Web-shooting-game/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/fangshuming-star--fable-5-2-web-shooting-game--fable-5-2-web-shooting-game/cover.webp
+genre: shooter
+tags:
+  - fable
+  - web
+  - shooting
+  - game
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 页面底部标注「使用 Fable5.2 自主研发 · 国产第一人称射击游戏 · 开发体验版」。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
