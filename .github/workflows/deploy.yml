@@ -8,6 +8,9 @@ on:
       - 'media/**'
       - 'apps/site/**'
       - 'packages/schema/**'
+      # A workflow edit can break the build or the deploy step itself; redeploy
+      # so that change is exercised instead of waiting for the next data push.
+      - '.github/workflows/**'
   workflow_dispatch:
   # Bot pushes use GITHUB_TOKEN, which does not trigger `push` workflows.
   # Re-deploy after the data-writing workflows finish on main instead.
