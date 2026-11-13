@@ -40,7 +40,14 @@ function collectHashes(files) {
 }
 
 function buildCsp({ scripts, styles }) {
-  const scriptSources = ["'self'", ...scripts.map((value) => `'${value}'`), "'wasm-unsafe-eval'"];
+  // Cloudflare Pages injects its Web Analytics beacon into every response; without
+  // these two origins the browser blocks it and logs a CSP violation on each page.
+  const scriptSources = [
+    "'self'",
+    'https://static.cloudflareinsights.com',
+    ...scripts.map((value) => `'${value}'`),
+    "'wasm-unsafe-eval'",
+  ];
   // Pagefind compiles WebAssembly; the hash list covers Astro's inline
   // hydration runtime and the astro-island display rule.
   const styleSources = ["'self'", ...styles.map((value) => `'${value}'`)];
@@ -50,7 +57,7 @@ function buildCsp({ scripts, styles }) {
     `style-src ${styleSources.join(' ')}`,
     "img-src 'self' https: data:",
     "font-src 'self'",
-    "connect-src 'self'",
+    "connect-src 'self' https://cloudflareinsights.com",
     'frame-src https:',
     "object-src 'none'",
     "base-uri 'self'",

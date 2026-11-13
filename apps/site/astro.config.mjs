@@ -3,6 +3,7 @@ import react from '@astrojs/react';
 import mediaIntegration from './src/integrations/media.mjs';
 import headersIntegration from './src/integrations/headers.mjs';
 import cleanIntegration from './src/integrations/clean.mjs';
+import sitemapIntegration from './src/integrations/sitemap.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +16,13 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [react(), cleanIntegration(), mediaIntegration(), headersIntegration()],
+  integrations: [
+    react(),
+    cleanIntegration(),
+    mediaIntegration(),
+    headersIntegration(),
+    sitemapIntegration(),
+  ],
   build: {
     // Keep all CSS in external files so the CSP can use style-src 'self'.
     inlineStylesheets: 'never',
