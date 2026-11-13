@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: nilni--thimble-knights--web
+slug: thimble-knights
+kind: game
+status: published
+title:
+  zh: 顶针骑士
+  en: Thimble Knights
+summary:
+  zh: 实时的动物卡牌对战：上场、连锁、看牌自己打起来。
+  en: 'A real-time animal card battle: field creatures, chain their effects and watch the fight play out.'
+author: nilni
+play:
+  url: https://www.aigameshare.com/games/animal-card-battle-game?play=1&mode=fullscreen
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/nilni--thimble-knights--web/cover.webp
+genre: card-battle
+tags:
+  - fable
+  - web
+  - cards
+  - animals
+controls:
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/_nilni/status/2120435983032447382），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: loktar00--thunder-valley--web
+slug: thunder-valley
+kind: game
+status: published
+title:
+  zh: 雷谷恐龙追逐
+  en: Thunder Valley dino chase
+summary:
+  zh: 纯 JS 加自研 WebGL 渲染器，恐龙、树木和地形都由一层层 2D 像素切片堆出立体感。
+  en: 'Vanilla JavaScript with its own WebGL renderer: dinos, trees and terrain are stacked 2D pixel slices.'
+author: loktar00
+play:
+  url: https://loktar00.github.io/llm-test-pages/fable52-dino-chase/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/loktar00--thunder-valley--web/cover.webp
+genre: action
+tags:
+  - fable
+  - web
+  - webgl
+  - dinosaur
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/loktar00/status/2120905457380507991），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: positronx--hitofude--web
+slug: hitofude
+kind: game
+status: published
+title:
+  zh: 一筆 HITOFUDE
+  en: HITOFUDE
+summary:
+  zh: 每一帧都是代码刷出来的水墨：Boss 会一步步擦掉关卡，而你的刀就是画笔。
+  en: Every frame is brushed in code as sumi ink on paper. The boss erases the level as you fight; your sword is a paintbrush.
+author: positronx
+play:
+  url: https://shubhu121.github.io/hitdude/play/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/positronx--hitofude--web/cover.webp
+genre: action
+tags:
+  - fable
+  - web
+  - sumi-e
+  - boss-fight
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/positronx_/status/2120374208043876422），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

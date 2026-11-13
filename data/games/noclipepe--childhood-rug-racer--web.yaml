@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: noclipepe--childhood-rug-racer--web
+slug: childhood-rug-racer
+kind: game
+status: published
+title:
+  zh: 童年地毯赛车
+  en: Childhood Rug Racer
+summary:
+  zh: 在童年游戏地毯上飙车：沙发腿是赛道障碍，整张地毯被做成了俯视 3D 赛场。
+  en: A racing game set on the childhood play rug under the sofa legs, with the same prompt run against another model for comparison.
+author: noclipepe
+play:
+  url: https://noclipepe.pages.dev/rug/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/noclipepe--childhood-rug-racer--web/cover.webp
+genre: driving
+tags:
+  - fable
+  - web
+  - racing
+  - nostalgia
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/noclipepe/status/2119728047754547326），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: rehan-shei--ringfall--web
+slug: ringfall
+kind: game
+status: published
+title:
+  zh: Ringfall
+  en: Ringfall
+summary:
+  zh: 受《命运》启发的第一人称射击，开源、可在 Patch 上直接 remix。
+  en: A Destiny-inspired first-person shooter, open source and remixable on Patch.
+author: rehan-shei
+play:
+  url: https://patch.gg/games/rehan/ringfall
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/rehan-shei--ringfall--web/cover.webp
+genre: shooter
+tags:
+  - fable
+  - web
+  - fps
+  - destiny-inspired
+  - open-source
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/rehan_shei/status/2119994607291584962），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

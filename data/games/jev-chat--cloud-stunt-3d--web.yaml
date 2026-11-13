@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: jev-chat--cloud-stunt-3d--web
+slug: cloud-stunt-3d
+kind: game
+status: published
+title:
+  zh: 云上叠罗汉 · 3D
+  en: Cloud Stunt 3D
+summary:
+  zh: 一架双翼机驮着一摞叠得老高的货物，穿过云层往前飞。
+  en: 'One HTML file: a biplane carrying a stack of cargo across the clouds.'
+author: jev-chat
+play:
+  url: https://finderchangchang.github.io/cloud-stunt-3d/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/jev-chat--cloud-stunt-3d--web/cover.webp
+genre: arcade
+tags:
+  - fable
+  - web
+  - flying
+  - stunt
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/jev_chat/status/2120015641151426838），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

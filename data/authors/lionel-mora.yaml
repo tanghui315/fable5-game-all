@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: lionel-mora
+name: lionel_mora
+github: null
+x: lionel_mora
+website: null
+avatar: https://unavatar.io/x/lionel_mora
+claimed: false

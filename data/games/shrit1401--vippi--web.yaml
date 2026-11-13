@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: shrit1401--vippi--web
+slug: vippi
+kind: demo
+status: published
+title:
+  zh: Vippi
+  en: Vippi
+summary:
+  zh: 一个惊悚向的小样，试试模型能把氛围做到什么程度。
+  en: A short creepy-game test — a small experiment in atmosphere.
+author: shrit1401
+play:
+  url: https://vippi.vercel.app/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/shrit1401--vippi--web/cover.webp
+genre: horror
+tags:
+  - fable
+  - web
+  - horror
+  - short
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/Shrit1401/status/2120060593763926314），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

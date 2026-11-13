@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: vista8
+name: vista8
+github: null
+x: vista8
+website: null
+avatar: https://unavatar.io/x/vista8
+claimed: false

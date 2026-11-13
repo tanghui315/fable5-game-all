@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: nilni--great-wave--web
+slug: great-wave
+kind: game
+status: published
+title:
+  zh: 巨浪
+  en: Great Wave
+summary:
+  zh: 冲进北斋的《神奈川冲浪里》：绕过风神雷神，朝着富士山划过去。
+  en: Surf into Hokusai’s Great Wave, row past the wind and thunder gods and head for Mount Fuji.
+author: nilni
+play:
+  url: https://www.aigameshare.com/games/great-wave-off-kanagawa?play=1&mode=fullscreen
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/nilni--great-wave--web/cover.webp
+genre: adventure
+tags:
+  - fable
+  - web
+  - hokusai
+  - surfing
+controls:
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/_nilni/status/2120797996610994355），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

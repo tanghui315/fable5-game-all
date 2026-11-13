@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: vista8--irondusk--web
+slug: irondusk
+kind: game
+status: published
+title:
+  zh: IRONDUSK — 7 号船坞
+  en: IRONDUSK — Yard 7
+summary:
+  zh: 3D 打砖块：挡板、铁球，一堵要清空的砖墙。
+  en: 'A 3D brick breaker: paddle, ball and a wall of bricks to clear.'
+author: vista8
+play:
+  url: https://qiaomu.t5t6.com/irondusk-yard-7/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/vista8--irondusk--web/cover.webp
+genre: arcade
+tags:
+  - fable
+  - web
+  - brick-breaker
+  - 3d
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 清单标注作者为 @vista8，未找到作者本人推文；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

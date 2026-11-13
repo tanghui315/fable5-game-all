@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: lionel-mora--cayley--web
+slug: cayley
+kind: game
+status: published
+title:
+  zh: Cayley 飞行模拟器
+  en: Cayley flight simulator
+summary:
+  zh: 一夜做出来的塞斯纳 172 飞行模拟：机翼分段计算升力和阻力，而不是用一组假参数糊过去。
+  en: 'A Cessna 172 sim built in one overnight run: wing lift and drag are computed per wing segment rather than faked.'
+author: lionel-mora
+play:
+  url: https://lauramionel.github.io/cayley-flight-simulator/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/lionel-mora--cayley--web/cover.webp
+genre: simulation
+tags:
+  - fable
+  - web
+  - flight-sim
+  - physics
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/lionel_mora/status/2120554787812860294），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

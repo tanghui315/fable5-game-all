@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: goncalo-canhoto--cozy-bakery--web
+slug: cozy-bakery
+kind: game
+status: published
+title:
+  zh: 惬意烘焙坊
+  en: Cozy Bakery
+summary:
+  zh: 《胡闹厨房》式的合作烘焙：环游葡萄牙各地的小厨房，1–4 人一起忙，手机也能玩。
+  en: An Overcooked-style co-op kitchen game set around Portugal, one to four players, playable on mobile.
+author: goncalo-canhoto
+play:
+  url: https://cozybakery.vercel.app
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/goncalo-canhoto--cozy-bakery--web/cover.webp
+genre: co-op
+tags:
+  - fable
+  - web
+  - cooking
+  - multiplayer
+  - mobile
+controls:
+  - keyboard
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/goncalo_canhoto/status/2120530199649432063），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

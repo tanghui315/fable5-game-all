@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: tetriss112--harbor-lights-grand-prix--web
+slug: harbor-lights-grand-prix
+kind: game
+status: published
+title:
+  zh: 港湾灯光大奖赛
+  en: Harbor Lights Grand Prix
+summary:
+  zh: 单个 HTML 文件：20 辆像素赛车跑 22 个弯的街道赛道，每场开跑前还能用玩票下注。
+  en: 'One HTML file: 20 pixel cars on a 22-corner street circuit, with a play-money betting window before each race.'
+author: tetriss112
+play:
+  url: https://tetriss22.github.io/harbor-gp/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/tetriss112--harbor-lights-grand-prix--web/cover.webp
+genre: driving
+tags:
+  - fable
+  - web
+  - racing
+  - pixel-art
+  - single-file
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/Tetriss112/status/2120946576663134308），清单 awesome-fable-5.2 收录；2026-11-13 用无头浏览器实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'
