@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: wonkylamp
+name: wonkylamp
+github: wonkylamp
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/344880807?v=4
+claimed: false
