@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: gamingnews5--awesome-opus-5-5-games--awesome-opus-5-5-games
+slug: ai-games-feed-claude-vs-chatgpt
+kind: game
+status: published
+title:
+  zh: AI Games Feed — Claude vs ChatGPT
+  en: AI Games Feed — Claude vs ChatGPT
+summary:
+  zh: 3031 source-verified AI-built games from 2724 repos, attributed to GPT-6 Astra, GPT-6.1 Sol, Gemini 4 Argon, Claude Opus, Claude Sonnet and Claude Fable
+  en: 3031 source-verified AI-built games from 2724 repos, attributed to GPT-6 Astra, GPT-6.1 Sol, Gemini 4 Argon, Claude Opus, Claude Sonnet and Claude Fable
+author: gamingnews5
+repo:
+  url: https://github.com/gamingnews5/awesome-opus-5.5-games
+play:
+  url: https://games.omgithub.com/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/gamingnews5--awesome-opus-5-5-games--awesome-opus-5-5-games/cover.webp
+genre: procedural-demo
+tags:
+  - ai-games
+  - ai-generated
+  - awesome-list
+  - browser-games
+  - claude
+  - claude-opus
+  - claude-opus-5-5
+  - game-development
+  - gemini
+  - gemini-4
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.1
+  evidence: L2
+  evidence_notes: README/描述引用：3031 source-verified AI-built games from 2724 repos, attributed to GPT-6 Astra, GPT-6.1 Sol, Gemini 4 Argon, Claude Opus, Claude Sonnet and Claude Fable | Browse source-backed games attributed to GPT-6 Astra, GPT-6.1 Sol, Gemini 4 Argon, Claude Opus, Claude Sonnet, or Claude Fable.**<br /> | | [Claude Fable 5.1](models/claude-fable-5-1.md) | **333** | 265 |
+generation:
+  prompt_url: https://github.com/gamingnews5/awesome-opus-5.5-games/blob/main/games/obscura-one-photograph-seven-prompts-one-guess/readme.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
