@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zqingdut--awesome-fable5-2-game--awesome-fable5-2-game
+slug: awesome-fable5-2-game-ai
+kind: game
+status: published
+title:
+  zh: Awesome-Fable5.2-Game — AI 生成网页游戏案例索引
+  en: Awesome-Fable5.2-Game — AI 生成网页游戏案例索引
+summary:
+  zh: AI 生成网页游戏案例索引 — 点开即玩 · 分类 · 提示词原文
+  en: AI 生成网页游戏案例索引 — 点开即玩 · 分类 · 提示词原文
+author: zqingdut
+repo:
+  url: https://github.com/zqingdut/awesome-fable5.2-game
+  license: NOASSERTION
+play:
+  url: https://zqingdut.github.io/Awesome-Fable5.2-Game/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zqingdut--awesome-fable5-2-game--awesome-fable5-2-game/cover.webp
+genre: shooter
+tags:
+  - awesome
+  - fable5
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Awesome-Fable5.2-Game | 🌐 瀑布流站：https://zqingdut.github.io/Awesome-Fable5.2-Game/ | 📥 提交游戏：[Issue 表单](https://github.com/zqingdut/Awesome-Fable5.2-Game/issues/new?template=submit_case.yml)
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
