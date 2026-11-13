@@ -20,6 +20,7 @@ export const zh: Record<MessageKey, string> = {
   'header.demos': '技术演示',
   'header.submit': '提交游戏',
   'header.about': '关于',
+  'header.githubLabel': 'GitHub 源码',
   'header.langLabel': '语言',
   'header.langEn': 'EN',
   'header.langZh': '中文',

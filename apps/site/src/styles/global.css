@@ -334,6 +334,28 @@ ol {
   color: var(--line-strong);
 }
 
+.header-github {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 29px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: var(--muted);
+}
+
+.header-github:hover,
+.header-github:focus-visible {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.header-github svg {
+  display: block;
+}
+
 .lang-hint {
   display: flex;
   align-items: center;
@@ -406,6 +428,10 @@ ol {
   .lang-switch {
     order: 2;
     margin-left: auto;
+  }
+
+  .header-github {
+    order: 2;
   }
 }
 

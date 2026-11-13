@@ -18,6 +18,7 @@ export const en = {
   'header.demos': 'Tech demos',
   'header.submit': 'Submit a game',
   'header.about': 'About',
+  'header.githubLabel': 'Source on GitHub',
   'header.langLabel': 'Language',
   'header.langEn': 'EN',
   'header.langZh': '中文',
