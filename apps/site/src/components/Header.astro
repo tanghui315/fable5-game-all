@@ -1,25 +1,82 @@
 ---
-import { SITE_NAME } from '../lib/data';
+import { localePath, t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  /** Locale-neutral path of the current page, for the language switch. */
+  path: string;
+}
+
+const { lang, path } = Astro.props;
+const siteName = t(lang, 'site.name');
+const tagline = t(lang, 'site.tagline');
+const enPath = localePath('en', path);
+const zhPath = localePath('zh', path);
+const homePath = localePath(lang, '/');
+const gamesActive = path === '/' || path.startsWith('/g/');
 ---
 
 <header class="site-header" data-pagefind-ignore>
   <div class="container header-inner">
-    <a class="brand" href="/">{SITE_NAME}</a>
+    <a class="brand" href={homePath} aria-label={t(lang, 'header.brandAria', { name: siteName, tagline })}>
+      <svg class="brand-mark" viewBox="0 0 62 40" width="37" height="24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="M10 4H37A4.5 4.5 0 0 0 46 4H52L58 8L52 12L58 16L52 20L58 24L52 28L58 32L52 36H46A4.5 4.5 0 0 0 37 36H10A6 6 0 0 1 4 30V10A6 6 0 0 1 10 4ZM15 12.5L28 20L15 27.5ZM40.5 12h2v3.5h-2ZM40.5 18.25h2v3.5h-2ZM40.5 24.5h2v3.5h-2Z"
+        />
+      </svg>
+      <span class="brand-name">{siteName}</span>
+      <span class="brand-tagline">{tagline}</span>
+    </a>
     <div class="header-search">
-      <form class="search-form" action="/search" method="get" role="search">
-        <label class="visually-hidden" for="header-search-input">搜索游戏</label>
+      <form class="search-form" action={localePath(lang, '/search')} method="get" role="search">
+        <label class="visually-hidden" for="header-search-input">{t(lang, 'header.searchLabel')}</label>
+        <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true">
+          <circle cx="8.5" cy="8.5" r="5.75" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+          <path d="m13 13 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+        </svg>
         <input
           id="header-search-input"
           type="search"
           name="q"
-          placeholder="搜索游戏……"
+          placeholder={t(lang, 'header.searchPlaceholder')}
           autocomplete="off"
         />
       </form>
     </div>
-    <nav class="header-nav" aria-label="站点导航">
-      <a href="/submit">提交游戏</a>
-      <a href="/about">关于</a>
+    <nav class="header-nav" aria-label={t(lang, 'header.navLabel')}>
+      <a class:list={['nav-link', gamesActive && 'on']} href={homePath} aria-current={gamesActive ? 'page' : undefined}>
+        {t(lang, 'header.games')}
+      </a>
+      <a href={`${homePath}?kind=demo`}>{t(lang, 'header.demos')}</a>
+      <a href={localePath(lang, '/submit')}>{t(lang, 'header.submit')}</a>
+      <a href={localePath(lang, '/about')}>{t(lang, 'header.about')}</a>
     </nav>
+    <div class="lang-switch" role="group" aria-label={t(lang, 'header.langLabel')}>
+      {
+        lang === 'en' ? (
+          <span class="lang-switch-current" lang="en" aria-current="true">
+            {t(lang, 'header.langEn')}
+          </span>
+        ) : (
+          <a href={enPath} data-lang-switch data-lang-target="en" data-href={enPath} lang="en">
+            {t(lang, 'header.langEn')}
+          </a>
+        )
+      }
+      <span class="lang-switch-separator" aria-hidden="true">/</span>
+      {
+        lang === 'zh' ? (
+          <span class="lang-switch-current" lang="zh-CN" aria-current="true">
+            {t(lang, 'header.langZh')}
+          </span>
+        ) : (
+          <a href={zhPath} data-lang-switch data-lang-target="zh" data-href={zhPath} lang="zh-CN">
+            {t(lang, 'header.langZh')}
+          </a>
+        )
+      }
+    </div>
   </div>
 </header>

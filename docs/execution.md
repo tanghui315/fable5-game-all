@@ -41,7 +41,7 @@
 - 包管理 pnpm 9，Node ≥ 22（本机 23），TypeScript strict，ESM。
 - 依赖只在阶段 1 安装；之后的子代理需要新依赖时在汇报里写明，由主控统一处理，防止并发改 lockfile。
 - 数据字段以 `packages/schema` 为准；站点和爬虫都从它 import 类型。
-- 默认占位：域名 `fable5-games.example`；CODEOWNERS `@tanghui315`；`01-audio` 与 `01-audio-1h` 合并成一条。
+- 域名 `stubhall.com`（Cloudflare Pages 自定义域名）；CODEOWNERS `@tanghui315`；`01-audio` 与 `01-audio-1h` 合并成一条。
 
 ## 状态
 

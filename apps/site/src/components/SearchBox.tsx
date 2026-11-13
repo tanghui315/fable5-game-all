@@ -1,5 +1,19 @@
 import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react';
 
+export type Lang = 'en' | 'zh';
+
+/** Localized copy handed to the island so it ships no dictionary of its own. */
+export interface SearchStrings {
+  inputLabel: string;
+  placeholder: string;
+  submit: string;
+  loading: string;
+  idle: string;
+  error: string;
+  found: string;
+  none: string;
+}
+
 interface PagefindResultData {
   url: string;
   excerpt: string;
@@ -28,9 +42,17 @@ function loadPagefind(): Promise<PagefindModule> {
   return pagefindPromise;
 }
 
+function fill(template: string, values: Record<string, string | number>): string {
+  let result = template;
+  for (const [name, value] of Object.entries(values)) {
+    result = result.split(`{${name}}`).join(String(value));
+  }
+  return result;
+}
+
 type Status = 'idle' | 'loading' | 'ready' | 'error';
 
-export default function SearchBox() {
+export default function SearchBox({ lang, strings }: { lang: Lang; strings: SearchStrings }) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<PagefindResultData[] | null>(null);
   const [status, setStatus] = useState<Status>('idle');
@@ -48,6 +70,9 @@ export default function SearchBox() {
     const requestId = ++requestRef.current;
     setStatus('loading');
     try {
+      // Pagefind keeps one index per `<html lang>` and `init()` selects the
+      // index matching the current document, so this island only ever searches
+      // the language of the page it is rendered on.
       const pagefind = await loadPagefind();
       const search = await pagefind.search(trimmed);
       const data = await Promise.all(search.results.slice(0, 20).map((result) => result.data()));
@@ -97,33 +122,33 @@ export default function SearchBox() {
   };
 
   return (
-    <div className="search-panel">
+    <div className="search-panel" data-lang={lang}>
       <form className="search-field" role="search" onSubmit={onSubmit}>
         <label className="visually-hidden" htmlFor="search-page-input">
-          搜索游戏
+          {strings.inputLabel}
         </label>
         <input
           id="search-page-input"
           type="search"
           name="q"
           value={query}
-          placeholder="搜索标题、作者或标签"
+          placeholder={strings.placeholder}
           autoComplete="off"
           onChange={(event) => onChange(event.target.value)}
         />
         <button type="submit" className="btn btn-primary">
-          搜索
+          {strings.submit}
         </button>
       </form>
 
       <p className="search-status" role="status" aria-live="polite">
-        {status === 'loading' && '正在搜索……'}
-        {status === 'idle' && '输入关键词，搜索收录的作品。'}
-        {status === 'error' && '搜索索引暂时不可用，可能还没有完成构建。'}
+        {status === 'loading' && strings.loading}
+        {status === 'idle' && strings.idle}
+        {status === 'error' && strings.error}
         {status === 'ready' &&
           (results && results.length > 0
-            ? `找到 ${results.length} 个结果。`
-            : `没有找到与“${searched}”相关的作品。`)}
+            ? fill(strings.found, { count: results.length })
+            : fill(strings.none, { query: searched }))}
       </p>
 
       {status === 'ready' && results && results.length > 0 && (

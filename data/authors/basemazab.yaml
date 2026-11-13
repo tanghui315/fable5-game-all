@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: basemazab
+name: basemazab
+github: basemazab
+x: null
+website: null
+avatar: https://github.com/basemazab.png
+claimed: false

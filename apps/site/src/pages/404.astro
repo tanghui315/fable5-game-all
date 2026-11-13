@@ -1,14 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n';
 ---
 
-<BaseLayout title="页面不存在">
-  <section class="empty-page">
-    <h1>页面不存在</h1>
-    <p>这个地址没有对应的页面。可能是作品换了地址，或者已经被下架。</p>
+<BaseLayout title={t('en', 'notFound.title')} lang="en" path="/404">
+  <section class="empty-page" lang="en">
+    <h1>{t('en', 'notFound.title')}</h1>
+    <p>{t('en', 'notFound.body')}</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="/">浏览全部游戏</a>
-      <a class="btn btn-ghost" href="/search">搜索</a>
+      <a class="btn btn-primary" href="/">{t('en', 'action.browseAll')}</a>
+      <a class="btn btn-ghost" href="/search">{t('en', 'notFound.search')}</a>
+    </div>
+  </section>
+
+  <section class="empty-page" lang="zh-CN">
+    <h2>{t('zh', 'notFound.title')}</h2>
+    <p>{t('zh', 'notFound.body')}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/zh/">{t('zh', 'action.browseAll')}</a>
+      <a class="btn btn-ghost" href="/zh/search">{t('zh', 'notFound.search')}</a>
     </div>
   </section>
 </BaseLayout>

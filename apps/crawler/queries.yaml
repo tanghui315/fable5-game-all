@@ -5,16 +5,28 @@ code_search:
   - '"Fable 5.2"'
   - fable52
   - fable-5-2
+  - 'claude-fable-5-1'
+  - '"made with Fable 5.2"'
+  - 'fable52 game'
+  - 'fable-5-2 index.html'
 
 repo_search:
   - 'fable52 in:name,description'
   - '"Fable 5.2" in:name,description,readme'
   - 'fable-5-2 in:name,description,readme'
+  - 'fable-5-1 in:name,description,readme'
   - 'topic:claude-code topic:webgl-game'
   - 'topic:claude-code topic:threejs game'
   - 'topic:claude-code game webgl'
+  - 'fable 5.2 game in:name,description'
+  - 'claude-fable-5-2 game in:name,description'
+  - 'one prompt game fable in:name,description'
+  - 'awesome fable games in:name,description'
+  - 'fable game threejs in:name,description'
 
 hn:
   - fable 5.2
   - claude-fable-5-2
   - fable52
+  - fable 5.2 game
+  - claude fable game

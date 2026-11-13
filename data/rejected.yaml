@@ -1,1 +1,81 @@
-[]
+# 驳回记录：命中这些仓库的候选不会再被提名（见 docs/admin.md）。
+- repo: https://github.com/lauramionel/cayley-flight-simulator
+  reason: no-evidence
+  note: 'README 未提模型；提交记录带 "Co-Authored-By: Claude Opus 5.5"，与整理列表所称 Fable 5.2 冲突，证据不足。'
+  date: 2026-11-13
+- repo: https://github.com/finderchangchang/cloud-stunt-3d
+  reason: no-evidence
+  note: '页面只标注 "CLAUDE 导演作品"，未说明是 Fable 5.x；同仓库的 dafeiyu 入口又注明改编自他人的《几猫》。'
+  date: 2026-11-13
+- repo: https://github.com/starknightt/valley-ride
+  reason: broken
+  note: '页面可访问，但 3D 场景在探测中报 shader 错误并渲染为全黑（26 条控制台错误），无法确认可玩。'
+  date: 2026-11-13
+- repo: https://github.com/s77ffy/daedalus
+  reason: broken
+  note: '仓库开启了 Pages，但 https://s77ffy.github.io/daedalus/ 返回 GitHub Pages 404，没有可玩地址。'
+  date: 2026-11-13
+- repo: https://github.com/emollick/fable-refinery
+  reason: ip-clone
+  note: '重建 Maxis/Chevron 的 SimRefinery（点名致敬的现有商业作品）；且最后提交早于 Fable 5.2 发布，证据也对不上。'
+  date: 2026-11-13
+- repo: https://github.com/rossinek/cold-boot
+  reason: ip-clone
+  note: '作者自述是以 Doom 3 为蓝本的 FPS 恐怖游戏，按收录标准 3 作为商业 IP 复刻驳回。'
+  date: 2026-11-13
+- repo: https://github.com/marvijo-code/leonida-stories-3d
+  reason: ip-clone
+  note: 'GTA 风格开放世界，"Leonida" 直接取自主流商业作品的设定地名。'
+  date: 2026-11-13
+- repo: https://github.com/github30/fable52-gta6
+  reason: ip-clone
+  note: '以 GTA 6 为卖点的同人城市游戏。'
+  date: 2026-11-13
+- repo: https://github.com/andreteow/farm-ca
+  reason: ip-clone
+  note: '自述为 "Fable 5.2 farm inspired CS game"，仿 Counter-Strike；homepage 指向的 vercel 站点也已不可访问。'
+  date: 2026-11-13
+- repo: https://github.com/nickthelegend/hydra-minecraft
+  reason: ip-clone
+  note: 'Minecraft 风格的方块游戏，且每个方块操作都依赖 Cardano Hydra 链上服务，无法作为普通网页游戏稳定游玩。'
+  date: 2026-11-13
+- repo: https://github.com/hero88go/melee-unlocked
+  reason: ip-clone
+  note: 'Super Smash Bros. Melee 的源码移植（Windows 可执行文件），既涉及商业 IP 也不是浏览器游戏。'
+  date: 2026-11-13
+- repo: https://github.com/andyhuo520/grandma-gta
+  reason: no-evidence
+  note: '仓库只说明 "code by Claude Code"，没有 Fable 5.x 的任何表述。'
+  date: 2026-11-13
+- repo: https://github.com/jbang2004/long-wind
+  reason: no-evidence
+  note: 'README 明确写代码由 Claude Opus 5.5 完成，不是 Fable 5.x。'
+  date: 2026-11-13
+- repo: https://github.com/1873575791/saltline-fable-5.2
+  reason: duplicate
+  note: 'Saltline 源码镜像，原作者是 Felix Rieseberg；原作的在线地址需要 Claude 登录才能打开。'
+  date: 2026-11-13
+- repo: https://github.com/kdayinsummer/saltline-fable-5.2
+  reason: duplicate
+  note: '同上，Saltline 源码镜像，不是独立作品。'
+  date: 2026-11-13
+- repo: https://github.com/fengyiqicoder/awesome-fable-5.2
+  reason: not-a-game
+  note: '作品清单仓库，本身没有可玩内容；已作为候选来源使用。'
+  date: 2026-11-13
+- repo: https://github.com/ummydev/awesome-claude-fable-games
+  reason: not-a-game
+  note: '作品清单仓库，本身没有可玩内容；已作为候选来源使用。'
+  date: 2026-11-13
+- repo: https://github.com/virattt/ai-hedge-fund
+  reason: not-a-game
+  note: '多 agent 金融分析示例，没有任何可玩内容。'
+  date: 2026-11-13
+- repo: https://github.com/lappemic/awesome-ai-built-games
+  reason: not-a-game
+  note: '清单仓库，本身不可玩。'
+  date: 2026-11-13
+- repo: https://github.com/killedbyapixel/littlejs-ai
+  reason: not-a-game
+  note: 'LittleJS 的 AI 辅助工具包，没有独立可玩作品。'
+  date: 2026-11-13

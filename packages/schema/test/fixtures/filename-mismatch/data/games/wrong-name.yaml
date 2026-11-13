@@ -2,8 +2,8 @@ id: mismatch--repo--entry
 slug: file-name-mismatch
 kind: game
 status: published
-title: { zh: 文件名不匹配 }
-summary: { zh: 文件名不匹配 }
+title: { zh: 文件名不匹配, en: File name mismatch }
+summary: { zh: 文件名不匹配, en: File name mismatch }
 author: wquguru
 play: { url: "https://example.com/mismatch/", embeddable: true }
 media: { cover: media/mismatch--repo--entry/cover.webp }

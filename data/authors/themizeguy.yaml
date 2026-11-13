@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: themizeguy
+name: TheMizeGuy
+github: themizeguy
+x: null
+website: null
+avatar: https://github.com/themizeguy.png
+claimed: false

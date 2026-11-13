@@ -1,7 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
 
+export type Lang = 'en' | 'zh';
+
+/** Localized copy handed to the island so it ships no dictionary of its own. */
+export interface GamePlayerStrings {
+  coverAlt: string;
+  iframeTitle: string;
+  start: string;
+  fullscreen: string;
+  open: string;
+  exit: string;
+  escHint: string;
+  loading: string;
+  loaded: string;
+  notEmbeddable: string;
+  needsDesktop: string;
+  openAnyway: string;
+}
+
 export interface GamePlayerProps {
-  title: string;
+  lang: Lang;
+  strings: GamePlayerStrings;
   coverUrl: string;
   playUrl: string;
   embeddable: boolean;
@@ -9,7 +28,8 @@ export interface GamePlayerProps {
 }
 
 export default function GamePlayer({
-  title,
+  lang,
+  strings,
   coverUrl,
   playUrl,
   embeddable,
@@ -46,7 +66,7 @@ export default function GamePlayer({
     document.documentElement.dataset.theater = 'on';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // The stage is capped to the viewport while dimmed; bring it fully into view.
-    stageRef.current?.scrollIntoView({ block: 'start', behavior: reduceMotion ? 'auto' : 'smooth' });
+    stageRef.current?.scrollIntoView({ block: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
     if (reduceMotion) {
       setMounted(true);
       return;
@@ -80,30 +100,28 @@ export default function GamePlayer({
 
   if (unavailable || needsDesktop) {
     return (
-      <div className="game-player" data-pagefind-ignore>
+      <div className="game-player" data-pagefind-ignore data-lang={lang}>
         <div className="player-stage">
           <img
             className="player-cover"
             src={coverUrl}
-            alt={`${title} 封面`}
+            alt={strings.coverAlt}
             width="1200"
             height="750"
             decoding="async"
           />
         </div>
         <p className="player-message">
-          {unavailable
-            ? '作者的网站不允许嵌入播放。'
-            : '这个游戏需要键盘和鼠标，建议在电脑上玩。'}
+          {unavailable ? strings.notEmbeddable : strings.needsDesktop}
         </p>
         <div className="player-actions">
           {unavailable ? (
             <a className="btn btn-primary" href={playUrl} target="_blank" rel="noopener noreferrer">
-              新窗口打开
+              {strings.open}
             </a>
           ) : (
             <a className="btn btn-ghost" href={playUrl} target="_blank" rel="noopener noreferrer">
-              仍然打开
+              {strings.openAnyway}
             </a>
           )}
         </div>
@@ -112,13 +130,13 @@ export default function GamePlayer({
   }
 
   return (
-    <div className="game-player" data-pagefind-ignore>
+    <div className="game-player" data-pagefind-ignore data-lang={lang}>
       <div className="player-stage" ref={stageRef}>
         {mounted ? (
           <iframe
             className="player-frame"
             src={playUrl}
-            title={`${title} 游戏画面`}
+            title={strings.iframeTitle}
             allow="fullscreen; pointer-lock; gamepad; autoplay"
             sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups"
             referrerPolicy="no-referrer"
@@ -128,7 +146,7 @@ export default function GamePlayer({
             <img
               className="player-cover"
               src={coverUrl}
-              alt={`${title} 封面`}
+              alt={strings.coverAlt}
               width="1200"
               height="750"
               decoding="async"
@@ -136,7 +154,7 @@ export default function GamePlayer({
             {!started && (
               <div className="player-overlay">
                 <button ref={startRef} type="button" className="btn btn-primary" onClick={start}>
-                  开始游戏
+                  {strings.start}
                 </button>
               </div>
             )}
@@ -147,7 +165,7 @@ export default function GamePlayer({
       {started && (
         <div className="player-controls">
           <button type="button" className="btn btn-on-dark" onClick={goFullscreen}>
-            全屏
+            {strings.fullscreen}
           </button>
           <a
             className="btn btn-on-dark"
@@ -155,14 +173,14 @@ export default function GamePlayer({
             target="_blank"
             rel="noopener noreferrer"
           >
-            新窗口打开
+            {strings.open}
           </a>
           <button type="button" className="btn btn-on-dark" onClick={exit}>
-            退出游戏
+            {strings.exit}
           </button>
-          <span className="player-hint">按 Esc 释放鼠标</span>
+          <span className="player-hint">{strings.escHint}</span>
           <span className="visually-hidden" aria-live="polite">
-            {mounted ? '游戏已加载' : '正在加载游戏'}
+            {mounted ? strings.loaded : strings.loading}
           </span>
         </div>
       )}

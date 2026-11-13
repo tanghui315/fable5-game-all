@@ -2,8 +2,8 @@ id: nomedia--repo--entry
 slug: no-media
 kind: game
 status: published
-title: { zh: 缺图 }
-summary: { zh: 媒体文件缺失 }
+title: { zh: 缺图, en: Missing media }
+summary: { zh: 媒体文件缺失, en: Media files are missing }
 author: wquguru
 play: { url: "https://example.com/nomedia/", embeddable: true }
 media:

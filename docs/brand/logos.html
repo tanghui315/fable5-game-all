@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>品牌 logo 候选</title>
+<style>
+:root{
+  --paper:#E9EAE4;--ink:#1D2433;--lead:#5A6170;--crease:#C9CBC3;--cobalt:#3046E8;--receipt:#F8F8F4;
+  --theater:#0F1320;--glow-text:#DCDFE8;--cobalt-on-dark:#8C9BFF;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.7 "PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif}
+main{max-width:1200px;margin:0 auto;padding:40px 24px 64px}
+h1{font-size:31px;font-weight:900;letter-spacing:-.02em;margin:0 0 4px}
+.lead{color:var(--lead);margin:0 0 32px}
+section{border-top:1px solid var(--crease);padding:28px 0 36px}
+h2{font-size:20px;margin:0 0 4px}
+h2 small{font-weight:400;color:var(--lead);font-size:16px;margin-left:8px}
+.why{color:var(--lead);margin:0 0 20px;max-width:720px}
+.row{display:grid;grid-template-columns:1fr 1fr 220px;gap:16px}
+.tile{border-radius:6px;padding:32px;display:flex;align-items:center;min-height:180px}
+.tile.light{background:var(--paper);border:1px solid var(--crease)}
+.tile.dark{background:var(--theater);color:var(--glow-text)}
+.tile.small{flex-direction:column;justify-content:center;gap:16px;background:var(--receipt);border:1px solid var(--crease)}
+.sizes{display:flex;align-items:end;gap:18px}
+.sizes span{display:block;text-align:center;font-size:13px;color:var(--lead)}
+.lockup{display:flex;align-items:center;gap:14px}
+.lockup .name{font-size:39px;font-weight:900;letter-spacing:-.02em;line-height:1}
+.lockup .en{font-size:16px;color:var(--lead);font-weight:700;margin-top:6px}
+.dark .lockup .en{color:#9AA1B4}
+/* Header mock, same proportions as the live site header */
+.header{margin-top:16px;display:flex;align-items:center;gap:24px;background:var(--paper);
+  border:1px solid var(--crease);border-radius:6px;padding:14px 24px}
+.header .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;letter-spacing:-.01em}
+.header .brand small{font-weight:400;font-size:13px;color:var(--lead);margin-left:2px}
+.header .search{flex:1;max-width:360px;margin-left:auto;border:1px solid var(--crease);background:var(--receipt);
+  border-radius:6px;padding:8px 12px;color:var(--lead);font-size:14px}
+.header nav{display:flex;gap:20px;font-size:15px}
+/* Mark colors: currentColor is the ink, --accent the brand color */
+.light,.small,.header{--accent:var(--cobalt);--dim:var(--theater)}
+.dark{--accent:var(--cobalt-on-dark);--dim:#05070D}
+svg{display:block;overflow:visible}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- 1. 票根：锯齿撕边的票，中间镂空播放三角 -->
+    <symbol id="stub" viewBox="0 0 62 40">
+      <path fill="var(--accent)" fill-rule="evenodd"
+        d="M10 4H37A4.5 4.5 0 0 0 46 4H52L58 8L52 12L58 16L52 20L58 24L52 28L58 32L52 36H46A4.5 4.5 0 0 0 37 36H10A6 6 0 0 1 4 30V10A6 6 0 0 1 10 4Z
+           M15 12.5L28 20L15 27.5Z
+           M40.5 12h2v3.5h-2Z M40.5 18.25h2v3.5h-2Z M40.5 24.5h2v3.5h-2Z"/>
+    </symbol>
+    <!-- 2. 一句话：命令行提示符，光标是播放三角 -->
+    <symbol id="oneline" viewBox="0 0 56 40">
+      <path d="M7 10L19 20L7 30" fill="none" stroke="currentColor" stroke-width="5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M27 9.5L46 20L27 30.5Z" fill="var(--accent)" stroke="var(--accent)"
+        stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="25" y="34.5" width="23" height="3" rx="1.5" fill="currentColor"/>
+    </symbol>
+    <!-- 3. 暗场：屏幕下半部分被调暗，交界处留一道亮边 -->
+    <clipPath id="screen"><rect x="7" y="7" width="46" height="26" rx="3"/></clipPath>
+    <symbol id="dimroom" viewBox="0 0 60 40">
+      <rect x="2.5" y="2.5" width="55" height="35" rx="7" fill="none" stroke="currentColor" stroke-width="3"/>
+      <g clip-path="url(#screen)">
+        <rect x="7" y="19" width="46" height="14" fill="var(--dim)"/>
+        <rect x="7" y="17" width="46" height="2" fill="var(--accent)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<main>
+  <h1>品牌 logo 候选</h1>
+  <p class="lead">三个方向各一版：浅色展厅、深色放映厅、小尺寸图标，以及放进站点顶栏的样子。颜色全部取自 design.md §8.2。</p>
+
+  <section>
+    <h2>票根<small>Stub · 推荐</small></h2>
+    <p class="why">锯齿撕边和站上的生成小票是同一段锯齿；上下两个缺口加一条打孔线，让它读作"票"而不是播放器按钮；票面镂空的播放三角就是"开始游戏"。三角是镂空的，放在任何背景上都透出底色。</p>
+    <div class="row">
+      <div class="tile light"><div class="lockup"><svg width="93" height="60"><use href="#stub"/></svg>
+        <div><div class="name">票根</div><div class="en">Stub</div></div></div></div>
+      <div class="tile dark"><div class="lockup"><svg width="93" height="60"><use href="#stub"/></svg>
+        <div><div class="name">票根</div><div class="en">Stub</div></div></div></div>
+      <div class="tile small"><div class="sizes">
+        <div><svg width="48" height="31"><use href="#stub"/></svg><span>48</span></div>
+        <div><svg width="32" height="21"><use href="#stub"/></svg><span>32</span></div>
+        <div><svg width="16" height="10"><use href="#stub"/></svg><span>16</span></div></div></div>
+    </div>
+    <div class="header"><div class="brand"><svg width="37" height="24"><use href="#stub"/></svg>票根<small>Fable 5.x 网页游戏收录</small></div>
+      <div class="search">搜索游戏……</div><nav><span>提交游戏</span><span>关于</span></nav></div>
+  </section>
+
+  <section>
+    <h2>一句话游戏厅<small>OneLine Arcade</small></h2>
+    <p class="why">命令行提示符后面的光标换成播放三角：一行提示词，回车就能玩。名字最好懂，代价是长。</p>
+    <div class="row">
+      <div class="tile light"><div class="lockup"><svg width="84" height="60"><use href="#oneline"/></svg>
+        <div><div class="name">一句话游戏厅</div><div class="en">OneLine Arcade</div></div></div></div>
+      <div class="tile dark"><div class="lockup"><svg width="84" height="60"><use href="#oneline"/></svg>
+        <div><div class="name">一句话游戏厅</div><div class="en">OneLine Arcade</div></div></div></div>
+      <div class="tile small"><div class="sizes">
+        <div><svg width="48" height="34"><use href="#oneline"/></svg><span>48</span></div>
+        <div><svg width="32" height="23"><use href="#oneline"/></svg><span>32</span></div>
+        <div><svg width="16" height="11"><use href="#oneline"/></svg><span>16</span></div></div></div>
+    </div>
+    <div class="header"><div class="brand"><svg width="34" height="24"><use href="#oneline"/></svg>一句话游戏厅<small>Fable 5.x 网页游戏收录</small></div>
+      <div class="search">搜索游戏……</div><nav><span>提交游戏</span><span>关于</span></nav></div>
+  </section>
+
+  <section>
+    <h2>暗场<small>Dimroom</small></h2>
+    <p class="why">屏幕下半部分被调暗，交界处留一道钴蓝亮边，就是点"开始游戏"后灯光暗下来的那一刻。最有气质，但第一眼看不出是游戏站。</p>
+    <div class="row">
+      <div class="tile light"><div class="lockup"><svg width="90" height="60"><use href="#dimroom"/></svg>
+        <div><div class="name">暗场</div><div class="en">Dimroom</div></div></div></div>
+      <div class="tile dark"><div class="lockup"><svg width="90" height="60"><use href="#dimroom"/></svg>
+        <div><div class="name">暗场</div><div class="en">Dimroom</div></div></div></div>
+      <div class="tile small"><div class="sizes">
+        <div><svg width="48" height="32"><use href="#dimroom"/></svg><span>48</span></div>
+        <div><svg width="32" height="21"><use href="#dimroom"/></svg><span>32</span></div>
+        <div><svg width="16" height="11"><use href="#dimroom"/></svg><span>16</span></div></div></div>
+    </div>
+    <div class="header"><div class="brand"><svg width="36" height="24"><use href="#dimroom"/></svg>暗场<small>Fable 5.x 网页游戏收录</small></div>
+      <div class="search">搜索游戏……</div><nav><span>提交游戏</span><span>关于</span></nav></div>
+  </section>
+</main>
+</body>
+</html>

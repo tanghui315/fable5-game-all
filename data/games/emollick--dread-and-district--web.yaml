@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: emollick--dread-and-district--web
+slug: dread-and-district
+kind: game
+status: published
+title:
+  zh: Dread & District
+  en: Dread & District
+summary:
+  zh: 拿着一张王家特许状开运输公司：铺线路、组车队，把孤立的村镇连到集市；每隔五十年复活一次的黑暗领主，靠把路修通来拖住它。
+  en: A fantasy transport company that starts with a royal charter — draw routes, crew coaches, join isolated villages to their market, and quietly starve the Dark Lord who rises every fifty years.
+author: emollick
+
+play:
+  url: https://dread-and-district.netlify.app/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/emollick--dread-and-district--web/cover.webp
+
+genre: management
+tags: [transport, management, fantasy, narrative, single-file]
+controls: [mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者 X 帖记录了“一段模糊设定 → 一群 agent 争论美术与设定”的过程：https://x.com/emollick/status/2120248525254742318（awesome-fable-5.2 收录）；页面本身未标注模型。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

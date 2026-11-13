@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: ebbyamir
+name: Ebby Amir
+github: null
+x: ebbyamir
+website: null
+avatar: null
+claimed: false

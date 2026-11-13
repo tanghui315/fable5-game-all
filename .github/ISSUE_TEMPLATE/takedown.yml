@@ -14,7 +14,7 @@ body:
     attributes:
       label: 作品链接
       description: 本站作品页地址，或作品的在线地址 / 仓库地址。
-      placeholder: https://fable5-game-all.pages.dev/g/example
+      placeholder: https://stubhall.com/g/example
     validations:
       required: true
 

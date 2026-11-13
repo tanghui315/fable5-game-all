@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: webking021
+name: Krutarth Raychura
+github: webking021
+x: null
+website: null
+avatar: https://github.com/webking021.png
+claimed: false

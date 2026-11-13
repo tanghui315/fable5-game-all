@@ -10,7 +10,7 @@ import {
 import type { PlayableEntry } from './entries.js';
 import type { EntryReview } from './heuristics.js';
 import type { ProbeResult } from './probe.js';
-import { todayIso, idSegment, slugify } from './util.js';
+import { todayIso, hasLatinScript, humanizeIdentifier, idSegment, slugify } from './util.js';
 
 export interface DraftInput {
   owner: string;
@@ -113,6 +113,22 @@ export function buildGameDraft(input: DraftInput): GameDraft {
       ? `README/描述引用：${review.evidence_quotes.join(' | ')}`.slice(0, 500)
       : undefined;
 
+  // `title.en` and `summary.en` are required by the schema, even when the AI
+  // review or the page only produced Chinese copy. Fall back to the entry name /
+  // repository name (which are ASCII ids) so a draft always validates.
+  const titleEn =
+    review.title.en ??
+    (hasLatinScript(review.title.zh)
+      ? review.title.zh
+      : humanizeIdentifier(
+          entry.key !== 'root' && hasLatinScript(entry.key) ? entry.key : input.repoName,
+        ));
+  const summaryEn =
+    review.summary.en ??
+    (hasLatinScript(review.summary.zh)
+      ? review.summary.zh
+      : `A browser ${review.kind === 'demo' ? 'technical demo' : 'game'} built with Fable 5.x — ${titleEn}.`);
+
   const game: Game = {
     id,
     slug,
@@ -120,11 +136,11 @@ export function buildGameDraft(input: DraftInput): GameDraft {
     status: 'published',
     title: {
       zh: review.title.zh,
-      ...(review.title.en !== undefined ? { en: review.title.en } : {}),
+      en: titleEn,
     },
     summary: {
       zh: review.summary.zh,
-      ...(review.summary.en !== undefined ? { en: review.summary.en } : {}),
+      en: summaryEn,
     },
     author: idSegment(input.owner),
     ...(input.repoUrlValue !== null

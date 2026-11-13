@@ -13,10 +13,14 @@ export const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
 const isoDate = z.string().regex(ISO_DATE_PATTERN, 'must be a YYYY-MM-DD date');
 
+/**
+ * Copy shown on the site. Both languages are required: the site defaults to
+ * English and switches to Chinese, so every entry needs both.
+ */
 export const LocalizedTextSchema = z
   .object({
     zh: z.string().min(1),
-    en: z.string().min(1).optional(),
+    en: z.string().min(1),
   })
   .strict();
 

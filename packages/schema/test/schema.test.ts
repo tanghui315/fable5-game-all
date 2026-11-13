@@ -12,8 +12,8 @@ id: wquguru--fable52-fps-repro--04-fps
 slug: sublevel-07
 kind: game
 status: published
-title: { zh: SUBLEVEL 07 }
-summary: { zh: 单文件 FPS }
+title: { zh: SUBLEVEL 07, en: SUBLEVEL 07 }
+summary: { zh: 单文件 FPS, en: Single-file FPS }
 author: wquguru
 play: { url: "https://example.com/game/", embeddable: true, mirror_url: null }
 media: { cover: media/x/cover.webp }
@@ -41,6 +41,31 @@ source: { discovered_by: seed, discovered_at: 2026-11-12 }
       slug: 'ok-slug',
       kind: 'game',
       status: 'published',
+      title: { zh: '标题', en: 'Title' },
+      summary: { zh: '简介', en: 'Summary' },
+      author: 'wquguru',
+      play: { url: 'https://example.com/', embeddable: true },
+      media: { cover: 'media/x/cover.webp' },
+      genre: 'puzzle',
+      tags: [],
+      controls: [],
+      mobile: false,
+      model: { name: 'fable-5.2', evidence: 'L1' },
+      source: { discovered_by: 'manual', discovered_at: '2026-11-12' },
+    });
+
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues[0]?.path).toEqual(['id']);
+    }
+  });
+
+  it('requires English copy for title and summary', () => {
+    const result = GameSchema.safeParse({
+      id: 'owner--repo--entry',
+      slug: 'no-english',
+      kind: 'game',
+      status: 'published',
       title: { zh: '标题' },
       summary: { zh: '简介' },
       author: 'wquguru',
@@ -56,7 +81,9 @@ source: { discovered_by: seed, discovered_at: 2026-11-12 }
 
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.error.issues[0]?.path).toEqual(['id']);
+      const paths = result.error.issues.map((issue) => issue.path.join('.'));
+      expect(paths).toContain('title.en');
+      expect(paths).toContain('summary.en');
     }
   });
 

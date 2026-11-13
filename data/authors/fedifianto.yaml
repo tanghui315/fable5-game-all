@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: fedifianto
+name: fedifianto
+github: fedifianto
+x: null
+website: null
+avatar: https://github.com/fedifianto.png
+claimed: false

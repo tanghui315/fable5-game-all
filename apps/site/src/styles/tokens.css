@@ -1,36 +1,56 @@
-/* Design tokens — design.md §8.2 (palette) and §8.3 (type scale). */
+/* Design tokens — design.md §8.1–§8.7, direction "A · Night box office". */
 
 :root {
-  /* 展厅（浏览状态） */
-  --paper: #E9EAE4;
-  --ink: #1D2433;
-  --lead: #5A6170;
-  --crease: #C9CBC3;
-  --cobalt: #3046E8;
-  --receipt: #F8F8F4;
+  color-scheme: dark;
 
-  /* 放映厅（游玩状态） */
-  --theater: #0F1320;
-  --glow-text: #DCDFE8;
-  --cobalt-on-dark: #8C9BFF;
+  /* ---------- palette (§8.2) ---------- */
+  --bg: #111016; /* page, warm black with a violet cast */
+  --surface: #1a1920; /* inputs, author card, panels */
+  --surface-2: #23222b; /* hover, popovers, tooltips */
+  --line: rgba(237, 233, 225, 0.1); /* hairlines and card rings */
+  --line-strong: rgba(237, 233, 225, 0.2);
+  --ink: #ede9e1; /* warm white text and primary button fill */
+  --ink-bright: #fffdf7; /* primary button hover */
+  --muted: #9a96a3; /* secondary text, ≥ 6:1 on --bg */
+  --signal: #8c9bff; /* links, focus rings, logo */
+  --paper: #f1ece1; /* ticket paper */
+  --paper-ink: #1d1b22;
+  --paper-muted: #6e6979;
+  --paper-prompt: #4a4553;
+  --theater: #07070a; /* play state */
 
-  /* 字体（§8.3） */
-  --font-ui: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  /* Text that sits on the hero image. --muted is too dark there, so the
+     scrim gets a dedicated, lighter text colour. */
+  --hero-copy: #d9d5df;
+
+  /* ---------- type (§8.3) ---------- */
+  --font-display:
+    "Archivo Variable", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans SC", system-ui, sans-serif;
+  --font-ui:
+    "Archivo Variable", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans SC", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --text-13: 0.8125rem;
-  --text-16: 1rem;
-  --text-20: 1.25rem;
-  --text-25: 1.5625rem;
-  --text-31: 1.9375rem;
-  --text-39: 2.4375rem;
-  --text-49: 3.0625rem;
-  --leading-body: 1.7;
-  --measure: 36em;
 
-  /* 版式与间距（§8.4） */
+  --text-13: 0.8125rem;
+  --text-15: 0.9375rem;
+  --text-18: 1.125rem;
+  --text-22: 1.375rem;
+  --text-30: 1.875rem;
+  --text-44: 2.75rem;
+  --text-84: 5.25rem;
+
+  --leading-body: 1.5;
+  --leading-body-zh: 1.7;
+  --measure: 72ch;
+  --measure-zh: 36em;
+
+  /* ---------- layout (§8.4) ---------- */
   --container: 1200px;
   --gutter: 24px;
-  --radius: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -39,8 +59,9 @@
   --space-6: 32px;
   --space-7: 48px;
   --space-8: 64px;
+  --space-9: 88px;
 
-  /* 焦点环与「灯光调暗」（§8.5、§8.6） */
+  /* ---------- focus and the one choreographed transition (§8.5, §8.6) ---------- */
   --focus-width: 2px;
   --focus-offset: 2px;
   --theater-duration: 400ms;

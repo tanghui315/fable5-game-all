@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: nipale-ai--fable-5-1-one-prompt-game--fable
+slug: neon-warden
+kind: game
+status: published
+title:
+  zh: NEON WARDEN
+  en: NEON WARDEN
+summary:
+  zh: 一句提示词、24 分钟一次性生成的霓虹竞技场射击：守住核心，对着涌来的机器打满一波又一波，用 Shift 冲刺拉开距离。
+  en: A neon arena shooter generated from a single prompt in 24 minutes — hold the core, cut down wave after wave of machines and dash out of trouble with Shift.
+author: nipale-ai
+
+repo:
+  url: https://github.com/nipale-ai/fable-5-1-one-prompt-game
+  path: fable
+
+play:
+  url: https://nipale-ai.github.io/fable-5-1-one-prompt-game/fable/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/nipale-ai--fable-5-1-one-prompt-game--fable/cover.webp
+  preview: media/nipale-ai--fable-5-1-one-prompt-game--fable/preview.webp
+
+genre: shooter
+tags: [arena-shooter, wave-defense, threejs, webgl, single-file, one-shot]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.1
+  evidence: L3
+  evidence_notes: README 表格写明模型 claude-fable-5-1（effort high）、75 轮、$9.90、24 分钟；prompt.txt 公开提示词原文，模型还自己调用了 Blender、FLUX.2、LTX 与 ACE-Step 生成素材。
+
+generation:
+  prompt_url: https://github.com/nipale-ai/fable-5-1-one-prompt-game/blob/main/prompt.txt
+  turns: 75
+  cost_usd: 9.9
+  duration_min: 24
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

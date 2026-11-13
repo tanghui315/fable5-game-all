@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: sharpwizard--ironvale--ironvale
+slug: ironvale
+kind: game
+status: published
+title:
+  zh: Ironvale
+  en: Ironvale
+summary:
+  zh: 浏览器里的 3D 即时战略：采金伐木、升级三个时代，指挥四个章节的战役守住 Green Vale，或在五种地形上打遭遇战。
+  en: A 3D real-time strategy game in the browser — mine, build, climb three ages and hold the Green Vale across a four-chapter campaign, or skirmish on five map types.
+author: sharpwizard
+
+repo:
+  url: https://github.com/sharpwizard/ironvale
+
+play:
+  url: https://sharpwizard.github.io/ironvale/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/sharpwizard--ironvale--ironvale/cover.webp
+  preview: media/sharpwizard--ironvale--ironvale/preview.webp
+
+genre: strategy
+tags: [rts, threejs, campaign, skirmish, singleplayer]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: README 写“Every line of this game was written by Claude Fable 5.2 in Claude Code, from 21 short plain-language requests”，PROMPTS.md 公开全部提示词原文，故记 L3。
+
+generation:
+  tool: claude-code
+  prompt_url: https://github.com/sharpwizard/ironvale/blob/main/PROMPTS.md
+  turns: 21
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

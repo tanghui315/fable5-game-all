@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: emollick--portals-endless-worlds--web
+slug: portals-endless-worlds
+kind: demo
+status: published
+title:
+  zh: Portals：无尽世界
+  en: 'Portals: Endless Worlds'
+summary:
+  zh: 两个相扣的传送环里各装着一座空间站，可以调速度、调“地球化”的程度和镜头，看它们一圈圈转下去。
+  en: Two interlocking portal rings, each holding its own space station — adjust the pace, how earthly it feels and the camera, then let the loops run.
+author: emollick
+
+play:
+  url: https://portals-endless-worlds.netlify.app/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/emollick--portals-endless-worlds--web/cover.webp
+
+genre: showcase
+tags: [procedural, threejs, webgl, space, generative]
+controls: [mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者 X 帖与配套短文记录了两版生成过程：https://x.com/emollick/status/2119918307457577163（awesome-fable-5.2 收录）；页面本身未标注模型。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

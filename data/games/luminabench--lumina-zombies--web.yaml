@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: luminabench--lumina-zombies--web
+slug: lumina-zombies
+kind: game
+status: published
+title:
+  zh: Lumina Zombies
+  en: Lumina Zombies
+summary:
+  zh: 在废弃研究站里守波次的第一人称僵尸射击，三张地图各有机关和彩蛋；那一版优化把延迟和硬件占用一起砍了一半。
+  en: A first-person zombie-wave shooter in abandoned research stations, with three maps of their own tricks and easter eggs — the update that added this map also halved latency and hardware load on the other two.
+author: luminabench
+
+play:
+  url: https://luminazombies.com/
+  embeddable: false
+  mirror_url: null
+
+media:
+  cover: media/luminabench--lumina-zombies--web/cover.webp
+
+genre: shooter
+tags: [fps, zombies, wave-survival, webgl, easter-eggs]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者 X 帖说明新地图与优化由 Fable 5.2 在几轮提示词内完成：https://x.com/LuminaBench/status/2120660076927099048（awesome-fable-5.2 收录）；页面本身未标注模型。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

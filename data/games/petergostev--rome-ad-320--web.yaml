@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: petergostev--rome-ad-320--web
+slug: rome-ad-320
+kind: demo
+status: published
+title:
+  zh: 罗马，公元 320 年
+  en: Rome, AD 320
+summary:
+  zh: 一句提示词重建的公元 320 年罗马：可以自由飞行、按地名跳转，也能让一整天在 30 秒里过完。
+  en: A single-prompt reconstruction of Rome in AD 320 — fly anywhere, jump to named places, or let a whole day pass in thirty seconds.
+author: petergostev
+
+play:
+  url: https://fable-rome.surge.sh/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/petergostev--rome-ad-320--web/cover.webp
+
+genre: showcase
+tags: [rome, history, city, threejs, webgl, procedural]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: 页面左下角的 build-info 面板写明 “Claude Fable 5.2 (Max)” 与估算构建成本 $2,618.48（含主会话、追问和子代理）；作者 X 帖：https://x.com/petergostev/status/2120167560700383572。
+
+generation:
+  cost_usd: 2618.48
+  notes: 页面 build-info 面板给出的估算成本（主会话 + 追问 + 子代理合计）；作者说跑了一夜，没有给出准确时长。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

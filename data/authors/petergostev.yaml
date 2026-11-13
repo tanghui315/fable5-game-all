@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: petergostev
+name: Peter Gostev
+github: petergostev
+x: petergostev
+website: null
+avatar: https://github.com/petergostev.png
+claimed: false

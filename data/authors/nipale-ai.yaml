@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: nipale-ai
+name: Niklas Lenz
+github: nipale-ai
+x: niklaslenz_ai
+website: null
+avatar: https://github.com/nipale-ai.png
+claimed: false

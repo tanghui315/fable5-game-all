@@ -1,41 +1,83 @@
 ---
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource/jetbrains-mono/latin-400.css';
+import '@fontsource/jetbrains-mono/latin-700.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
 import '../styles/components.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_NAME } from '../lib/data';
+import { SITE_URL } from '../lib/data';
+import { HTML_LANG, localePath, t, type Lang } from '../i18n';
 
 interface Props {
+  /** Page title without the site suffix. */
   title: string;
   description?: string;
+  lang: Lang;
+  /** Locale-neutral path, used for canonical and hreflang links. */
+  path: string;
+  /** Renders `<title>` as "Site - tagline" instead of "Title - Site". */
+  isHome?: boolean;
   /** Marks the page body as the Pagefind search scope (detail pages). */
   pagefindBody?: boolean;
 }
 
 const {
   title,
-  description = '非官方社区收录：用 Fable 5.x 生成的网页游戏，可以直接在浏览器里试玩，并查看提示词、轮数和成本。',
+  description,
+  lang,
+  path,
+  isHome = false,
   pagefindBody = false,
 } = Astro.props;
 
-const fullTitle = title === SITE_NAME ? title : `${title} - ${SITE_NAME}`;
+const metaDescription = description ?? t(lang, 'site.description');
+
+const siteName = t(lang, 'site.name');
+const fullTitle = isHome ? `${siteName} - ${t(lang, 'site.tagline')}` : `${title} - ${siteName}`;
+const canonical = `${SITE_URL}${localePath(lang, path)}`;
+const enHref = `${SITE_URL}${localePath('en', path)}`;
+const zhHref = `${SITE_URL}${localePath('zh', path)}`;
+const zhPath = localePath('zh', path);
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={HTML_LANG[lang]} data-lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     <title>{fullTitle}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="zh-CN" href={zhHref} />
+    <link rel="alternate" hreflang="x-default" href={enHref} />
+    <script is:inline src="/lang.js" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">跳到主要内容</a>
-    <Header />
-    <main class="site-main container" id="main" data-pagefind-body={pagefindBody ? '' : undefined}>
+    <a class="skip-link" href="#main">{t(lang, 'site.skip')}</a>
+    <Header lang={lang} path={path} />
+    {
+      lang === 'en' && (
+        <aside class="lang-hint" data-lang-hint hidden>
+          <a href={zhPath} data-lang-hint-link data-href={zhPath}>
+            {t(lang, 'langHint')}
+          </a>
+          <button type="button" class="lang-hint-close" data-lang-hint-close aria-label={t(lang, 'langHintClose')}>
+            ×
+          </button>
+        </aside>
+      )
+    }
+    <main
+      class="site-main container"
+      id="main"
+      data-pagefind-body={pagefindBody ? '' : undefined}
+    >
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>

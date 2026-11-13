@@ -1,0 +1,12 @@
+---
+import AuthorView from '../../../views/AuthorView.astro';
+import { authorStaticPaths } from '../../../lib/paths';
+
+export function getStaticPaths() {
+  return authorStaticPaths();
+}
+
+const { id } = Astro.props;
+---
+
+<AuthorView lang="zh" id={id} />

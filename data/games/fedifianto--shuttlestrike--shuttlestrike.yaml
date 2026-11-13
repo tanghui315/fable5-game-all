@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: fedifianto--shuttlestrike--shuttlestrike
+slug: shuttlestrike
+kind: game
+status: published
+title:
+  zh: Shuttle Strike
+  en: Shuttle Strike
+summary:
+  zh: 第一人称羽毛球：手就是球拍，握拳、挥拍，快挥杀球、慢挥吊球；没有摄像头也可以用鼠标玩。
+  en: First-person badminton where your hand is the racket — close your fist, swing fast to smash, swing soft to drop, or play with the mouse instead of a webcam.
+author: fedifianto
+
+repo:
+  url: https://github.com/fedifianto/shuttlestrike
+
+play:
+  url: https://fedifianto.github.io/shuttlestrike/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/fedifianto--shuttlestrike--shuttlestrike/cover.webp
+
+genre: sports
+tags: [badminton, first-person, webcam, motion-control, webgl]
+controls: [mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 仓库描述写 “simple badminton game with claude fable 5.2”；仓库没有公开提示词或运行数据，故记 L1。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

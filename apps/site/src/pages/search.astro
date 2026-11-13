@@ -1,12 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SearchBox from '../components/SearchBox.tsx';
+import SearchView from '../views/SearchView.astro';
 ---
 
-<BaseLayout title="搜索" description="搜索收录的 Fable 5.x 网页游戏。">
-  <h1 class="page-title">搜索</h1>
-  <SearchBox client:load />
-  <noscript>
-    <p class="prose">搜索需要 JavaScript。你可以在<a href="/">首页</a>浏览全部作品。</p>
-  </noscript>
-</BaseLayout>
+<SearchView lang="en" />

@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: op7418--guizang-game-skill--guizang-game-skill
+slug: wumen-gate
+kind: game
+status: published
+title:
+  zh: 雾锁山门
+  en: Mist-Locked Mountain Gate
+summary:
+  zh: 雪夜山门前的一场仙侠遭遇战：三段连招、格挡弹反、御剑与大招万剑归宗，打完小怪再迎战二阶段 Boss，带剧情和配音。
+  en: A wuxia encounter at a snowbound mountain gate — three-hit combos, parries, sword flight and a "ten thousand blades" ultimate, then a two-phase boss, with story beats and voice acting.
+author: op7418
+
+repo:
+  url: https://github.com/op7418/guizang-game-skill
+  license: AGPL-3.0
+
+play:
+  url: https://op7418.github.io/guizang-game-skill/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/op7418--guizang-game-skill--guizang-game-skill/cover.webp
+
+genre: action
+tags: [wuxia, threejs, webgl, boss-fight, single-file]
+controls: [keyboard, mouse, touch]
+mobile: true
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README 自述“我用 Fable 5.2 花一个下午做出《雾锁山门》”，并给出规模：约 6 小时、4.5 亿 Token（部分测试用 Opus 5.5）。仓库没有公开提示词原文，故记 L1。
+
+generation:
+  tool: claude-code
+  duration_min: 360
+  notes: README 写约 6 小时、4.5 亿 Token（含 Opus 5.5 跑测试的部分）；作者没有给出美元成本，故不填 cost_usd。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

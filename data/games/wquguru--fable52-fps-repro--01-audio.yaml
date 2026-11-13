@@ -42,7 +42,7 @@ generation:
   cost_usd: 4.66
   duration_min: 16.6
   runs: 2
-  notes: "合并 01-audio 与 01-audio-1h 两次运行。本入口 demos/01-audio 为 5 分钟缓存那次：16 轮、$4.66、16.6 分钟、缓存命中 88.6%（metrics.tsv 行 01-audio-5m）；同一提示词用 1 小时缓存重跑，产物另存为 demos/01-audio-1h：16 轮、$6.97、18.8 分钟、缓存命中 78.6%（metrics.tsv 行 01-audio-1h）。"
+  notes: '合并 01-audio 与 01-audio-1h 两次运行。本入口 demos/01-audio 为 5 分钟缓存那次：16 轮、$4.66、16.6 分钟、缓存命中 88.6%（metrics.tsv 行 01-audio-5m）；同一提示词用 1 小时缓存重跑，产物另存为 demos/01-audio-1h：16 轮、$6.97、18.8 分钟、缓存命中 78.6%（metrics.tsv 行 01-audio-1h）。'
 
 source:
   discovered_by: seed

@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: op7418
+name: 歸藏（Guizang）
+github: op7418
+x: op7418
+website: null
+avatar: https://github.com/op7418.png
+claimed: false

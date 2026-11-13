@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: loktar00--lanternfall--lanternfall
+slug: lanternfall
+kind: game
+status: published
+title:
+  zh: LANTERNFALL
+  en: LANTERNFALL
+summary:
+  zh: 一盏提灯守荒原的自动战斗：小队自行迎战从黑暗里涌出的怪物，你负责换人、花掉战利品，并在扛不住时放照明弹。
+  en: An idle battler on a lantern-lit moor — the party fights the dark on its own while you swap heroes, spend the loot and fire flares when a wave starts to break.
+author: loktar00
+
+repo:
+  url: https://github.com/loktar00/lanternfall
+
+play:
+  url: https://loktar00.github.io/lanternfall/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/loktar00--lanternfall--lanternfall/cover.webp
+  preview: media/loktar00--lanternfall--lanternfall/preview.webp
+
+genre: tactics
+tags: [idle, auto-battler, threejs, webgl, fantasy]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者在 X 发帖自述整作（动画、模型等）由 Fable 生成：https://x.com/loktar00/status/2120192761542615271（awesome-fable-5.2 收录并引原文）；仓库 README 只注明 three.js，未写模型，故记 L1。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

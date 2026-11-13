@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: nipale-ai--blocks-openworld--spiel
+slug: blocks
+kind: game
+status: published
+title:
+  zh: BLOCKS
+  en: BLOCKS
+summary:
+  zh: 一个通宵做出来的第三人称开放世界：黄昏城市里开车、下车、开枪，通缉等级涨到五颗星还能叫机甲。
+  en: A third-person open world built overnight — drive, step out, shoot your way around a city at dusk, and call in a mech once the wanted level hits five stars.
+author: nipale-ai
+
+repo:
+  url: https://github.com/nipale-ai/blocks-openworld
+  path: spiel
+
+play:
+  url: https://nipale-ai.github.io/blocks-openworld/spiel/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/nipale-ai--blocks-openworld--spiel/cover.webp
+  preview: media/nipale-ai--blocks-openworld--spiel/preview.webp
+
+genre: action
+tags: [open-world, third-person, driving, shooting, single-file]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.1
+  evidence: L3
+  evidence_notes: README 写明 “Built by Claude Fable 5.1 on 1–2 September 2026, from written briefs”，并把每轮的书面 brief、自动 gate、构建日志和测量数据全部放在 vorgehen/ 下。
+
+generation:
+  prompt_url: https://github.com/nipale-ai/blocks-openworld/blob/main/vorgehen/BAUPROTOKOLL-spiel.md
+  cost_usd: 199.37
+  duration_min: 563
+  notes: README 的轮次表列了 12 轮，全部一次通过；其中 10 轮标了成本，合计 $199.37（另两轮未给金额），耗时合计 563 分钟。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

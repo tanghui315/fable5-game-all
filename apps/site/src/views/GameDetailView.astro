@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GamePlayer from '../components/GamePlayer.tsx';
+import Receipt from '../components/Receipt.astro';
+import EvidenceDots from '../components/EvidenceDots.astro';
+import GameCard from '../components/GameCard.astro';
+import {
+  authorName,
+  controlsLabel,
+  formatMonthDay,
+  gameSummary,
+  gameTitle,
+  getSiteData,
+  sameRepoGames,
+  type GameView,
+} from '../lib/data';
+import { gamePath, kindLabel, localePath, t, tagLabel, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  id: string;
+}
+
+const { lang, id } = Astro.props;
+const data = getSiteData();
+const view = data.byId.get(id);
+if (!view) throw new Error(`unknown game id: ${id}`);
+
+const game = view.game;
+const title = gameTitle(view, lang);
+const summary = gameSummary(view, lang);
+const author = view.author;
+const related: GameView[] = sameRepoGames(view);
+const checkedAt = formatMonthDay(view.health?.checked_at, lang);
+const tags = game.tags;
+const homeHref = localePath(lang, '/');
+const tagHref = (tag: string) =>
+  `${homeHref}?${game.kind === 'demo' ? 'kind=demo&' : ''}tag=${encodeURIComponent(tag)}`;
+
+const playerStrings = {
+  coverAlt: t(lang, 'common.coverAlt', { title }),
+  iframeTitle: t(lang, 'player.iframeTitle', { title }),
+  start: t(lang, 'player.start'),
+  fullscreen: t(lang, 'action.fullscreen'),
+  open: t(lang, 'action.openNewTab'),
+  exit: t(lang, 'action.exitGame'),
+  escHint: t(lang, 'player.escHint'),
+  loading: t(lang, 'player.loading'),
+  loaded: t(lang, 'player.loaded'),
+  notEmbeddable: t(lang, 'player.notEmbeddable'),
+  needsDesktop: t(lang, 'player.needsDesktop'),
+  openAnyway: t(lang, 'action.openAnyway'),
+};
+---
+
+<BaseLayout
+  title={title}
+  description={summary}
+  lang={lang}
+  path={gamePath(game.slug)}
+  pagefindBody
+>
+  <a class="detail-back" href={homeHref} data-pagefind-ignore>{t(lang, 'common.backToAll')}</a>
+
+  {
+    view.isBroken ? (
+      <div class="game-player" data-pagefind-ignore>
+        <div class="player-stage">
+          <img
+            class="player-cover"
+            src={view.coverUrl}
+            alt={t(lang, 'common.coverAlt', { title })}
+            width="1200"
+            height="750"
+            decoding="async"
+          />
+        </div>
+        <p class="player-message">
+          {checkedAt
+            ? t(lang, 'player.brokenChecked', { date: checkedAt })
+            : t(lang, 'player.broken')}
+        </p>
+        {game.repo && (
+          <div class="player-actions">
+            <a class="btn btn-ghost" href={game.repo.url} target="_blank" rel="noopener noreferrer">
+              {t(lang, 'action.viewSource')}
+            </a>
+          </div>
+        )}
+      </div>
+    ) : (
+      <GamePlayer
+        client:load
+        lang={lang}
+        strings={playerStrings}
+        coverUrl={view.coverUrl}
+        playUrl={game.play.url}
+        embeddable={view.embeddable}
+        controls={game.controls}
+      />
+    )
+  }
+  <noscript data-pagefind-ignore>
+    <p class="player-message">
+      {t(lang, 'player.noscriptBefore')}<a href={game.play.url}>{t(lang, 'player.noscriptLink')}</a>{t(lang, 'player.noscriptAfter')}
+    </p>
+  </noscript>
+
+  <div class="detail-layout">
+    <div class="detail-main">
+      <h1 class="detail-title marquee" data-pagefind-meta="title">{title}</h1>
+      <p class="detail-summary">{summary}</p>
+
+      <div class="detail-facts">
+        <p class="fact">
+          <span class="fact-label">{t(lang, 'common.type')}</span>
+          <span class="fact-value">{kindLabel(lang, game.kind)}</span>
+        </p>
+        <p class="fact">
+          <span class="fact-label">{t(lang, 'common.model')}</span>
+          <span class="fact-value">{game.model.name}</span>
+        </p>
+        <p class="fact">
+          <span class="fact-label">{t(lang, 'common.evidence')}</span>
+          <span class="fact-value">
+            <EvidenceDots level={game.model.evidence} notes={game.model.evidence_notes} lang={lang} />
+          </span>
+        </p>
+        {
+          game.controls.length > 0 && (
+            <p class="fact">
+              <span class="fact-label">{t(lang, 'common.controls')}</span>
+              <span class="fact-value">{controlsLabel(lang, game.controls)}</span>
+            </p>
+          )
+        }
+        {
+          tags.length > 0 && (
+            <div class="fact fact-tags">
+              <span class="fact-label">{t(lang, 'common.tags')}</span>
+              <span class="tag-list">
+                {tags.map((tag) => (
+                  <a class="tag" href={tagHref(tag)}>
+                    {tagLabel(lang, tag)}
+                  </a>
+                ))}
+              </span>
+            </div>
+          )
+        }
+      </div>
+
+      <div class="repo-card">
+        <h2>{t(lang, 'common.source')}</h2>
+        {
+          game.repo ? (
+            <>
+              <p>
+                <a
+                  class="repo-link"
+                  href={game.repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t(lang, 'action.viewSource')}
+                </a>
+              </p>
+              {game.repo.license && <p>{t(lang, 'common.license', { license: game.repo.license })}</p>}
+              {game.repo.path && <p>{t(lang, 'common.directory', { path: game.repo.path })}</p>}
+              {view.repoStats?.stars !== undefined && (
+                <p>
+                  {t(
+                    lang,
+                    view.repoStats.stars === 1 ? 'common.starsOne' : 'common.stars',
+                    { count: view.repoStats.stars },
+                  )}
+                </p>
+              )}
+            </>
+          ) : (
+            <p>{t(lang, 'common.notOpenSource')}</p>
+          )
+        }
+      </div>
+    </div>
+
+    <aside class="detail-aside">
+      <section class="author-card" aria-label={t(lang, 'common.byAuthor', { author: authorName(view) })}>
+        <div class="author-card-head">
+          {author?.avatar && (
+            <img
+              class="author-avatar"
+              src={author.avatar}
+              alt=""
+              width="44"
+              height="44"
+              loading="lazy"
+            />
+          )}
+          <h2>{t(lang, 'common.byAuthor', { author: author?.name ?? authorName(view) })}</h2>
+        </div>
+        {author && (
+          <div class="author-links">
+            <a href={localePath(lang, `/a/${author.id}`)}>{t(lang, 'common.allGames')}</a>
+            {author.github && (
+              <a href={`https://github.com/${author.github}`} target="_blank" rel="noopener noreferrer">
+                {t(lang, 'common.github')}
+              </a>
+            )}
+            {author.x && (
+              <a href={`https://x.com/${author.x}`} target="_blank" rel="noopener noreferrer">
+                {t(lang, 'common.x')}
+              </a>
+            )}
+            {author.website && (
+              <a href={author.website} target="_blank" rel="noopener noreferrer">
+                {t(lang, 'common.personalSite')}
+              </a>
+            )}
+          </div>
+        )}
+      </section>
+
+      <Receipt game={game} lang={lang} />
+    </aside>
+  </div>
+
+  {
+    related.length > 0 && (
+      <section class="related" aria-labelledby="related-title" data-pagefind-ignore>
+        <h2 id="related-title">{t(lang, 'detail.related')}</h2>
+        <div class="related-grid">
+          {related.map((other) => (
+            <GameCard view={other} lang={lang} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>

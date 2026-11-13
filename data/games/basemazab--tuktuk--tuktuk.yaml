@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: basemazab--tuktuk--tuktuk
+slug: tuktuk
+kind: game
+status: published
+title:
+  zh: 嘟嘟车
+  en: Tuk-tuk
+summary:
+  zh: 开一辆埃及街头的嘟嘟车，在面包车、出租车和西瓜车之间钻过去，收够车费还要躲开路障。
+  en: Drive a tuk-tuk down an Egyptian street — weave between minibuses, taxis and watermelon carts, collect the fares and stay out of the potholes.
+author: basemazab
+
+repo:
+  url: https://github.com/basemazab/tuktuk
+  license: MIT
+
+play:
+  url: https://basemazab.github.io/tuktuk/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/basemazab--tuktuk--tuktuk/cover.webp
+  preview: media/basemazab--tuktuk--tuktuk/preview.webp
+
+genre: driving
+tags: [driving, arcade, egypt, threejs, procedural, no-assets]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 阿拉伯语 README 末尾写 “كتبها Claude Fable 5.2”（由 Claude Fable 5.2 编写），并说明所有形状、贴图、声音都由代码生成、没有任何现成素材；游戏标题页同样标注 Claude Fable 5.2。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

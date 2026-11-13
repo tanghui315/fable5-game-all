@@ -1,24 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { GITHUB_REPO, SUBMIT_URL } from '../lib/data';
+import SubmitView from '../views/SubmitView.astro';
 ---
 
-<BaseLayout title="提交游戏" description="通过 GitHub Issue 向 fable5-game-all 提交用 Fable 5.x 生成的网页游戏。">
-  <h1 class="page-title">提交游戏</h1>
-
-  <div class="prose">
-    <p class="lede">投稿通过 GitHub Issue 完成，不需要账号系统，也不需要上传文件。</p>
-    <p>提交前请先确认：作品可以直接在浏览器里玩，原地址可以访问，并且能说明是用 Fable 5.x 制作的。</p>
-    <p>表单里需要填写在线地址（必填）、仓库地址、作者联系方式，以及“用 Fable 5.x 做的”依据。如果你不是作者本人，也请注明来源。</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href={SUBMIT_URL} target="_blank" rel="noopener noreferrer">
-        提交游戏
-      </a>
-      <a class="btn btn-ghost" href="/about">查看收录标准</a>
-    </div>
-    <p>
-      投稿表单托管在
-      <a href={GITHUB_REPO} rel="noopener noreferrer">GitHub 仓库</a>。如果表单打不开，可以直接在仓库里提 Issue。
-    </p>
-  </div>
-</BaseLayout>
+<SubmitView lang="en" />

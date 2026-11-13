@@ -1,23 +1,67 @@
-/* Styles for the React islands (and the server-rendered fallbacks they share). */
+/* Styles for the React islands and the pieces they share. */
 
-/* ---------- FilterBar ---------- */
+/* ---------- FilterBar: two pill rows that scale past forty games ---------- */
 
 .filter-bar {
   display: flex;
+  flex: 1 1 620px;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.filter-top {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-3) var(--space-5);
-  margin-bottom: var(--space-6);
-  padding-block: var(--space-3);
-  border-top: 1px solid var(--crease);
-  border-bottom: 1px solid var(--crease);
+  gap: var(--space-2);
+  min-width: 0;
 }
 
 .filter-group {
   display: flex;
+  flex: 0 1 auto;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-2);
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Tag and control chips wrap onto as many rows as they need; the tag list is
+   collapsed to the most-used chips by FilterBar, with the rest kept in the DOM
+   for no-JS visitors and revealed by the "More tags" toggle. */
+.filter-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+html.js .filter-tags:not(.is-expanded) .chip-extra {
+  display: none;
+}
+
+html:not(.js) .filter-more {
+  display: none;
+}
+
+.filter-more {
+  border-style: dashed;
+  color: var(--ink);
+}
+
+.filter-more[aria-expanded="true"] {
+  border-style: solid;
+}
+
+.filter-divider {
+  flex: none;
+  width: 1px;
+  height: 16px;
+  margin-inline: var(--space-1);
+  background: var(--line);
 }
 
 .filter-sort {
@@ -25,35 +69,73 @@
   align-items: center;
   gap: var(--space-2);
   margin-left: auto;
-  color: var(--lead);
+  color: var(--muted);
   font-size: var(--text-13);
+  white-space: nowrap;
 }
 
 .filter-sort select {
-  padding: 4px 8px;
-  border: 1px solid var(--crease);
-  border-radius: var(--radius);
-  background: var(--paper);
+  appearance: none;
+  padding: 7px 30px 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background-color: var(--surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239A96A3' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 11px center;
   color: var(--ink);
   font-size: var(--text-13);
 }
 
+.filter-sort select:hover {
+  border-color: var(--line-strong);
+}
+
+.filter-sort select option {
+  background: var(--surface);
+  color: var(--ink);
+}
+
 .filter-empty {
   display: flex;
-  flex-basis: 100%;
   flex-wrap: wrap;
+  flex-basis: 100%;
   align-items: center;
   gap: var(--space-2) var(--space-4);
   padding-top: var(--space-1);
 }
 
 .filter-empty p {
-  color: var(--lead);
+  color: var(--muted);
+  font-size: var(--text-15);
 }
 
-@media (max-width: 720px) {
-  .filter-sort {
-    margin-left: 0;
+.filter-empty .btn {
+  padding: 9px 18px;
+  font-size: var(--text-13);
+}
+
+@media (max-width: 760px) {
+  .filter-bar {
+    flex-basis: 100%;
+  }
+
+  .chip {
+    padding: 6px 11px;
+    font-size: 12px;
+  }
+
+  .filter-top {
+    width: 100%;
+  }
+
+  .filter-divider {
+    display: none;
+  }
+
+  .filter-sort select {
+    padding: 6px 28px 6px 11px;
+    font-size: 12px;
   }
 }
 
@@ -68,8 +150,9 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   background: var(--theater);
+  box-shadow: 0 0 0 1px var(--line);
 }
 
 .player-stage:fullscreen {
@@ -77,6 +160,7 @@
   height: 100vh;
   border-radius: 0;
   aspect-ratio: auto;
+  box-shadow: none;
 }
 
 .player-cover {
@@ -90,12 +174,12 @@
   inset: 0;
   display: grid;
   place-items: center;
-  background: rgba(15, 19, 32, 0.35);
+  background: rgba(7, 7, 10, 0.32);
 }
 
 .player-overlay .btn {
-  padding: 14px 28px;
-  font-size: var(--text-20);
+  padding: 16px 34px;
+  font-size: var(--text-18);
 }
 
 .player-frame {
@@ -109,6 +193,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: var(--space-3);
   margin-top: var(--space-4);
 }
@@ -116,7 +201,7 @@
 /* While dimmed, cap the stage so it and the controls below it fit in one
    viewport; the controls never overlay the game's own HUD. */
 html[data-theater="on"] .player-stage:not(:fullscreen) {
-  width: min(100%, calc((100dvh - 96px) * 1.6));
+  width: min(100%, calc((100dvh - 140px) * 1.6));
   margin-inline: auto;
   scroll-margin-top: var(--space-4);
 }
@@ -127,17 +212,14 @@ html[data-theater="on"] .player-controls {
 }
 
 .player-hint {
-  color: var(--lead);
+  color: var(--muted);
   font-size: var(--text-13);
-}
-
-html[data-theater="on"] .player-hint {
-  color: var(--glow-text);
 }
 
 .player-message {
   margin-top: var(--space-4);
-  font-size: var(--text-16);
+  color: var(--ink);
+  font-size: var(--text-15);
 }
 
 .player-actions {
@@ -153,14 +235,30 @@ html[data-theater="on"] .player-hint {
   display: grid;
   place-items: center;
   background: var(--theater);
-  color: var(--glow-text);
-  font-size: var(--text-16);
+  color: var(--ink);
+  font-size: var(--text-15);
+}
+
+@media (max-width: 760px) {
+  .player-stage {
+    border-radius: var(--radius);
+  }
+
+  .player-controls .btn {
+    padding: 10px 16px;
+    font-size: var(--text-13);
+  }
+
+  .player-hint {
+    flex-basis: 100%;
+    text-align: center;
+  }
 }
 
 /* ---------- SearchBox ---------- */
 
 .search-panel {
-  max-width: 720px;
+  max-width: 760px;
 }
 
 .search-field {
@@ -172,33 +270,51 @@ html[data-theater="on"] .player-hint {
 .search-field input[type="search"] {
   flex: 1 1 auto;
   min-width: 0;
-  padding: 10px 14px;
-  border: 1px solid var(--crease);
-  border-radius: var(--radius);
-  background: var(--receipt);
+  padding: 13px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
   color: var(--ink);
-  font-size: var(--text-20);
+  font-size: var(--text-18);
 }
 
 .search-field input[type="search"]::placeholder {
-  color: var(--lead);
+  color: var(--muted);
+}
+
+.search-field input[type="search"]:hover {
+  border-color: var(--line-strong);
+}
+
+.search-field .btn {
+  flex: none;
+  padding-inline: var(--space-5);
 }
 
 .search-status {
-  color: var(--lead);
+  color: var(--muted);
   font-size: var(--text-13);
 }
 
 .search-results {
   display: grid;
-  gap: var(--space-5);
+  gap: 0;
   margin: var(--space-5) 0 0;
   padding: 0;
   list-style: none;
 }
 
+.search-results li {
+  border-top: 1px solid var(--line);
+}
+
+.search-results li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
 .search-results a {
   display: block;
+  padding: 18px 2px;
   color: inherit;
   text-decoration: none;
 }
@@ -206,31 +322,55 @@ html[data-theater="on"] .player-hint {
 .search-result-title {
   display: block;
   color: var(--ink);
-  font-size: var(--text-20);
+  font-family: var(--font-display);
+  font-size: var(--text-22);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  font-stretch: 108%;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+:lang(zh) .search-result-title {
+  font-stretch: 100%;
+  letter-spacing: 0;
 }
 
 .search-results a:hover .search-result-title {
-  color: var(--cobalt);
-  text-decoration: underline;
+  color: var(--signal);
 }
 
 .search-result-url {
   display: block;
-  margin-top: 2px;
-  color: var(--lead);
-  font-size: var(--text-13);
+  margin-top: var(--space-1);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
 }
 
 .search-result-excerpt {
-  margin-top: 6px;
-  color: var(--lead);
-  font-size: var(--text-16);
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: var(--text-15);
 }
 
 .search-result-excerpt mark {
   background: transparent;
   color: var(--ink);
   font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .search-field input[type="search"] {
+    padding: 11px 16px;
+    font-size: var(--text-15);
+  }
+
+  .search-field .btn {
+    padding: 12px 18px;
+    font-size: var(--text-13);
+  }
+
+  .search-result-title {
+    font-size: var(--text-18);
+  }
 }

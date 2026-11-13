@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: loktar00
+name: Jason
+github: loktar00
+x: loktar00
+website: https://somethinghitme.com
+avatar: https://github.com/loktar00.png
+claimed: false

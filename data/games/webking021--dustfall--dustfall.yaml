@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: webking021--dustfall--dustfall
+slug: dustfall
+kind: game
+status: published
+title:
+  zh: Dustfall
+  en: Dustfall
+summary:
+  zh: 1887 年的西部开放世界：驯一匹野马、打猎钓鱼、在酒馆打牌，六个章节之后还能继续追赏金。
+  en: An open-world western set in 1887 — tame a wild mare, hunt, fish and play cards at the saloon, then keep taking bounties after the six-chapter story ends.
+author: webking021
+
+repo:
+  url: https://github.com/webking021/dustfall
+
+play:
+  url: https://dustfalls.netlify.app/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/webking021--dustfall--dustfall/cover.webp
+  preview: media/webking021--dustfall--dustfall/preview.webp
+
+genre: adventure
+tags: [open-world, western, threejs, story, hunting, procedural]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README 有 “Built with Claude Fable 5.2” 徽章，并写明“The whole game, from the story to the shaders, was written by the model in Claude Code from chat prompts”；没有公开提示词原文，故记 L1。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

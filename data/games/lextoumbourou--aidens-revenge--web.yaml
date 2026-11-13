@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: lextoumbourou--aidens-revenge--web
+slug: aidens-revenge
+kind: game
+status: published
+title:
+  zh: Aiden's Revenge
+  en: Aiden's Revenge
+summary:
+  zh: 侄子画设定、叔叔用 Fable 5.2 一晚做完的像素清版动作：五个家人英雄各有一套招式，十二个 Boss，支持 1–4 人同玩。
+  en: A pixel-art beat 'em up drawn up by a kid named Aiden and finished overnight with Fable 5.2 — five family heroes with their own moves, twelve bosses, 1–4 players.
+author: lextoumbourou
+
+play:
+  url: https://aidens-revenge.pages.dev/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/lextoumbourou--aidens-revenge--web/cover.webp
+
+genre: beat-em-up
+tags: [pixel-art, co-op, side-scroller, retro, boss-fight]
+controls: [keyboard, gamepad]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: 作者博文《Fable 5.2 One-Shotted My Nephew's Dream Game》公开了原提示词和过程，并说明早前版本用 Opus 4.8 与 Fable 5，最终版由 Fable 5.2 一次跑完：https://notesbylex.com/fable-5-2-one-shotted-my-nephews-dream-game
+
+generation:
+  prompt_url: https://notesbylex.com/fable-5-2-one-shotted-my-nephews-dream-game
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

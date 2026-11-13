@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: sharpwizard
+name: SharpWizard
+github: sharpwizard
+x: null
+website: null
+avatar: https://github.com/sharpwizard.png
+claimed: false

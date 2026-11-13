@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GameCard from '../components/GameCard.astro';
+import { gamesByAuthor, getSiteData } from '../lib/data';
+import { authorPath, t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  id: string;
+}
+
+const { lang, id } = Astro.props;
+const author = getSiteData().authorById.get(id);
+if (!author) throw new Error(`unknown author id: ${id}`);
+
+const games = gamesByAuthor(author.id);
+---
+
+<BaseLayout
+  title={author.name}
+  description={t(lang, 'author.description', { name: author.name })}
+  lang={lang}
+  path={authorPath(author.id)}
+>
+  <header class="author-header">
+    {
+      author.avatar && (
+        <img
+          class="author-avatar author-avatar-large"
+          src={author.avatar}
+          alt=""
+          width="72"
+          height="72"
+          loading="lazy"
+        />
+      )
+    }
+    <div>
+      <h1 class="page-title author-title">{author.name}</h1>
+      <div class="author-links">
+        {
+          author.github && (
+            <a href={`https://github.com/${author.github}`} target="_blank" rel="noopener noreferrer">
+              {t(lang, 'common.github')}
+            </a>
+          )
+        }
+        {
+          author.x && (
+            <a href={`https://x.com/${author.x}`} target="_blank" rel="noopener noreferrer">
+              {t(lang, 'common.x')}
+            </a>
+          )
+        }
+        {
+          author.website && (
+            <a href={author.website} target="_blank" rel="noopener noreferrer">
+              {t(lang, 'common.personalSite')}
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </header>
+
+  {
+    games.length > 0 ? (
+      <section aria-labelledby="author-games-title">
+        <div class="sec-head">
+          <h2 class="section-title" id="author-games-title">
+            {t(lang, 'author.games')}
+          </h2>
+        </div>
+        <div class="game-grid">
+          {games.map((view) => (
+            <GameCard view={view} lang={lang} />
+          ))}
+        </div>
+      </section>
+    ) : (
+      <p class="empty-note">{t(lang, 'author.empty')}</p>
+    )
+  }
+</BaseLayout>

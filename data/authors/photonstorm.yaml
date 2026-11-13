@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: photonstorm
+name: Richard Davey
+github: photonstorm
+x: photonstorm
+website: https://www.photonstorm.com
+avatar: https://github.com/photonstorm.png
+claimed: false

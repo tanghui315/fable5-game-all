@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: emollick
+name: Ethan Mollick
+github: emollick
+x: emollick
+website: null
+avatar: https://github.com/emollick.png
+claimed: false

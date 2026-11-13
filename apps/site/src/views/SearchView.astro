@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBox from '../components/SearchBox.tsx';
+import { localePath, t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const strings = {
+  inputLabel: t(lang, 'search.inputLabel'),
+  placeholder: t(lang, 'search.placeholder'),
+  submit: t(lang, 'action.search'),
+  loading: t(lang, 'search.loading'),
+  idle: t(lang, 'search.idle'),
+  error: t(lang, 'search.error'),
+  found: t(lang, 'search.found'),
+  none: t(lang, 'search.none'),
+};
+---
+
+<BaseLayout
+  title={t(lang, 'search.title')}
+  description={t(lang, 'search.description')}
+  lang={lang}
+  path="/search"
+>
+  <h1 class="page-title">{t(lang, 'search.title')}</h1>
+  <SearchBox client:load lang={lang} strings={strings} />
+  <noscript>
+    <p class="prose">
+      {t(lang, 'search.noscriptBefore')}<a href={localePath(lang, '/')}
+        >{t(lang, 'search.noscriptLink')}</a
+      >{t(lang, 'search.noscriptAfter')}
+    </p>
+  </noscript>
+</BaseLayout>

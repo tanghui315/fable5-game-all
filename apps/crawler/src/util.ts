@@ -21,6 +21,29 @@ export function idSegment(input: string, fallback = 'x'): string {
   return value === '' ? fallback : value;
 }
 
+/** True when the text contains at least one ASCII letter (`zh` copy usually does not). */
+export function hasLatinScript(value: string): boolean {
+  return /[a-z]/i.test(value);
+}
+
+/**
+ * Turn an identifier into display text: `04-fps` / `my_game` / `fable52Game`
+ * become `04 FPS`, `My Game`, `Fable52 Game`. Returns the trimmed input when it
+ * has no letters.
+ */
+export function humanizeIdentifier(value: string): string {
+  const words = value
+    .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+    .replace(/[_\-.]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter((word) => word !== '');
+  if (words.length === 0) return value.trim();
+  return words
+    .map((word) => (/^[a-z][a-z0-9]*$/.test(word) ? word[0]!.toUpperCase() + word.slice(1) : word))
+    .join(' ');
+}
+
 export function todayIso(now = new Date()): string {
   return now.toISOString().slice(0, 10);
 }

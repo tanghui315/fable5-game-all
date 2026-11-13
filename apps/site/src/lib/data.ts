@@ -1,20 +1,31 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import {
   loadData,
   type Author,
   type Control,
   type Game,
-  type GameKind,
   type HealthRecord,
   type RepoRecord,
 } from '@fable5/schema';
 import { resolveDataRoot } from './data-root.mjs';
+import { t, tagLabel, type Lang } from '../i18n';
 
 export const DATA_ROOT = resolveDataRoot();
 
-export const SITE_NAME = 'fable5-game-all';
+export const SITE_URL = 'https://stubhall.com';
 export const GITHUB_REPO = 'https://github.com/tanghui315/fable5-game-all';
 export const SUBMIT_URL = `${GITHUB_REPO}/issues/new?template=submit-game.yml`;
 export const TAKEDOWN_URL = `${GITHUB_REPO}/issues/new?template=takedown.yml`;
+
+/** Shown when an entry references media the build cannot find. */
+const COVER_PLACEHOLDER = '/cover-placeholder.svg';
+
+/** True when a site-relative media URL has a file under the data root. */
+function mediaFileExists(url: string): boolean {
+  if (!url.startsWith('/media/')) return true;
+  return existsSync(path.join(DATA_ROOT, url.slice(1)));
+}
 
 export interface GameView {
   game: Game;
@@ -47,19 +58,24 @@ export function getSiteData(): SiteData {
   const views: GameView[] = games.map((game) => {
     const health = generated.health[game.play.url] ?? null;
     const repoStats = game.repo ? (generated.repos[game.repo.url] ?? null) : null;
+    const cover = mediaUrl(game.media.cover);
+    const preview = mediaUrl(game.media.preview);
     return {
       game,
       author: authorById.get(game.author) ?? null,
       health,
       repoStats,
-      coverUrl: mediaUrl(game.media.cover) ?? '',
-      previewUrl: mediaUrl(game.media.preview),
+      coverUrl: cover && mediaFileExists(cover) ? cover : COVER_PLACEHOLDER,
+      previewUrl: preview && mediaFileExists(preview) ? preview : null,
       isBroken: health?.status === 'broken',
       embeddable: game.play.embeddable,
       date: game.source.published_at ?? game.source.discovered_at,
     };
   });
-  views.sort((a, b) => b.date.localeCompare(a.date) || a.game.title.zh.localeCompare(b.game.title.zh, 'zh-CN'));
+  views.sort(
+    (a, b) =>
+      b.date.localeCompare(a.date) || a.game.title.en.localeCompare(b.game.title.en, 'en'),
+  );
   cached = {
     authors,
     games: views,
@@ -88,95 +104,126 @@ export function listedGames(): GameView[] {
 }
 
 export function byLatest(a: GameView, b: GameView): number {
-  return b.date.localeCompare(a.date) || a.game.title.zh.localeCompare(b.game.title.zh, 'zh-CN');
+  return b.date.localeCompare(a.date) || a.game.title.en.localeCompare(b.game.title.en, 'en');
 }
 
 export function latestGames(): GameView[] {
   return listedGames().sort(byLatest);
 }
 
-/** The featured hero: the most recent listed game, falling back to any entry. */
+/** How many receipt fields a generation must publish to anchor the hero. */
+const HERO_RECEIPT_FIELDS = ['turns', 'cost_usd', 'duration_min'] as const;
+
+/** Number of published receipt fields (0–3). */
+function receiptFields(view: GameView): number {
+  const generation = view.game.generation;
+  if (!generation) return 0;
+  return HERO_RECEIPT_FIELDS.filter((field) => generation[field] !== undefined).length;
+}
+
+/** The featured hero: the most recent listed game with real cover art and a
+    receipt worth showing — at least two of turns / cost / duration. Ties on
+    date go to the fuller receipt. Falls back progressively. */
 export function featuredGame(): GameView | null {
   const listed = listedGames();
   const gamesOnly = listed.filter((view) => view.game.kind === 'game');
-  return gamesOnly[0] ?? listed[0] ?? null;
+  const documented = gamesOnly
+    .filter((view) => hasCoverArt(view) && receiptFields(view) >= 2)
+    .map((view, index) => ({ view, index }))
+    .sort(
+      (a, b) =>
+        b.view.date.localeCompare(a.view.date) ||
+        receiptFields(b.view) - receiptFields(a.view) ||
+        a.index - b.index,
+    )
+    .map(({ view }) => view);
+  return (
+    documented[0] ??
+    gamesOnly.find(hasCoverArt) ??
+    gamesOnly[0] ??
+    listed[0] ??
+    null
+  );
+}
+
+/** False when the entry references art the build could not find. */
+export function hasCoverArt(view: GameView): boolean {
+  return view.coverUrl !== COVER_PLACEHOLDER;
 }
 
 export function authorName(view: GameView): string {
   return view.author?.name ?? view.game.author;
 }
 
-export function gameTitle(view: GameView): string {
-  return view.game.title.zh;
+export function gameTitle(view: GameView, lang: Lang): string {
+  return view.game.title[lang] || view.game.title.zh;
 }
 
-export function kindLabel(kind: GameKind): string {
-  return kind === 'game' ? '游戏' : '技术演示';
+export function gameSummary(view: GameView, lang: Lang): string {
+  return view.game.summary[lang] || view.game.summary.zh;
 }
 
-export const CONTROL_LABELS: Record<Control, string> = {
-  keyboard: '键盘',
-  mouse: '鼠标',
-  touch: '触屏',
-  gamepad: '手柄',
-};
-
-export function controlsLabel(controls: Control[]): string {
-  return controls.map((control) => CONTROL_LABELS[control]).join('、');
+export function controlsLabel(lang: Lang, controls: Control[]): string {
+  const separator = lang === 'zh' ? '、' : ', ';
+  return controls.map((control) => t(lang, `control.${control}` as const)).join(separator);
 }
 
-export const EVIDENCE_LABELS = {
-  L1: '作者自述',
-  L2: '有可检查的痕迹',
-  L3: '公开了生成过程',
-} as const;
-
-export function evidenceLabel(level: 'L1' | 'L2' | 'L3', notes?: string): string {
-  return notes ? `证据等级 ${level}（${EVIDENCE_LABELS[level]}）：${notes}` : `证据等级 ${level}（${EVIDENCE_LABELS[level]}）`;
+export function evidenceLabel(
+  lang: Lang,
+  level: 'L1' | 'L2' | 'L3',
+  notes?: string,
+): string {
+  const name = t(lang, `evidence.${level}` as const);
+  return notes
+    ? t(lang, 'evidence.labelNotes', { level, name, notes })
+    : t(lang, 'evidence.label', { level, name });
 }
 
-export function formatMonthDay(value: string | undefined): string {
+export function formatMonthDay(value: string | undefined, lang: Lang): string {
   if (!value) return '';
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return '';
-  const parts = new Intl.DateTimeFormat('zh-CN', {
-    month: 'numeric',
+  return new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : 'en-US', {
+    month: 'short',
     day: 'numeric',
     timeZone: 'UTC',
-  }).formatToParts(date);
-  const month = parts.find((part) => part.type === 'month')?.value;
-  const day = parts.find((part) => part.type === 'day')?.value;
-  if (!month || !day) return '';
-  return `${month} 月 ${day} 日`;
+  }).format(date);
 }
 
 export function formatCost(value: number): string {
   return `$${value.toFixed(2)}`;
 }
 
-export function formatDuration(value: number): string {
-  return `${value} 分钟`;
+export function formatDuration(value: number, lang: Lang): string {
+  const amount = new Intl.NumberFormat(lang === 'zh' ? 'zh-CN' : 'en-US', {
+    maximumFractionDigits: 1,
+  }).format(value);
+  return t(lang, 'units.minute', { value: amount });
 }
 
 /** One meta line for a cover: author plus turns/cost when published. */
-export function cardMeta(view: GameView): { author: string; extra: string | null } {
+export function cardMeta(view: GameView, lang: Lang): { author: string; extra: string | null } {
   const generation = view.game.generation;
   const extra =
     generation?.turns !== undefined
-      ? `${generation.turns} 轮`
+      ? t(lang, 'common.turns', { turns: generation.turns })
       : generation?.cost_usd !== undefined
         ? formatCost(generation.cost_usd)
         : null;
   return { author: authorName(view), extra };
 }
 
-export function tagsFor(games: GameView[]): string[] {
+export function tagsFor(games: GameView[], lang: Lang): string[] {
   const counts = new Map<string, number>();
   for (const view of games) {
     for (const tag of view.game.tags) counts.set(tag, (counts.get(tag) ?? 0) + 1);
   }
   return [...counts.entries()]
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'zh-CN'))
+    .sort(
+      (a, b) =>
+        b[1] - a[1] ||
+        tagLabel(lang, a[0]).localeCompare(tagLabel(lang, b[0]), lang === 'zh' ? 'zh-CN' : 'en'),
+    )
     .map(([tag]) => tag);
 }
 

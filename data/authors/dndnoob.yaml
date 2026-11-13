@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: dndnoob
+name: dndnoob
+github: dndnoob
+x: null
+website: null
+avatar: https://github.com/dndnoob.png
+claimed: false

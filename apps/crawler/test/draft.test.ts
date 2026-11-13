@@ -101,6 +101,40 @@ describe('buildGameDraft', () => {
     expect(draft.author.id).toBe('some-owner');
     expect(() => GameSchema.parse(draft.game)).not.toThrow();
   });
+
+  it('fills required English copy when the review only has Chinese', () => {
+    const draft = buildGameDraft(
+      input({
+        repoName: 'My_Game.v2',
+        review: { ...review, title: { zh: '测试游戏' }, summary: { zh: '一个测试。' } },
+      }),
+    );
+    expect(draft.game.title.en).toBe('04 Fps');
+    expect(draft.game.summary.en).toBe('A browser game built with Fable 5.x — 04 Fps.');
+    expect(() => GameSchema.parse(draft.game)).not.toThrow();
+  });
+
+  it('uses the repository name for English copy when the entry name is not ASCII', () => {
+    const draft = buildGameDraft(
+      input({
+        owner: 'owner',
+        repoName: 'wumen-game',
+        entry: {
+          key: 'root',
+          path: '',
+          playUrl: 'https://owner.github.io/wumen-game/',
+          source: 'tree',
+        },
+        review: {
+          ...review,
+          title: { zh: '雾锁山门' },
+          summary: { zh: '雾锁山门是一个动作游戏。' },
+        },
+      }),
+    );
+    expect(draft.game.title.en).toBe('Wumen Game');
+    expect(draft.game.summary.en).toBe('A browser game built with Fable 5.x — Wumen Game.');
+  });
 });
 
 describe('gameId', () => {

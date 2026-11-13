@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GameCard from '../components/GameCard.astro';
+import Receipt from '../components/Receipt.astro';
+import FilterBar from '../components/FilterBar';
+import {
+  cardMeta,
+  featuredGame,
+  gameSummary,
+  gameTitle,
+  latestGames,
+  type GameView,
+} from '../lib/data';
+import { gamePath, kindLabel, localePath, t, tagLabel, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const games = latestGames();
+const hero = featuredGame();
+const heroMeta = hero ? cardMeta(hero, lang) : null;
+const heroTitle = hero ? gameTitle(hero, lang) : '';
+const heroSummary = hero ? gameSummary(hero, lang) : '';
+const heroPreview = hero?.previewUrl ?? hero?.coverUrl ?? null;
+const heroHref = hero ? localePath(lang, gamePath(hero.game.slug)) : '#';
+const authorHref = hero?.author ? localePath(lang, `/a/${hero.author.id}`) : null;
+const items = games.map((view: GameView) => ({
+  id: view.game.id,
+  kind: view.game.kind,
+  tags: view.game.tags,
+  controls: view.game.controls,
+  mobile: view.game.mobile,
+  stars: view.repoStats?.stars ?? null,
+  date: Date.parse(view.date) || 0,
+}));
+
+const usedTags = [...new Set(games.flatMap((view) => view.game.tags))];
+const tagLabels = Object.fromEntries(usedTags.map((tag) => [tag, tagLabel(lang, tag)]));
+const controlValues = ['keyboard', 'mouse', 'touch', 'gamepad'] as const;
+const filterStrings = {
+  kindLabel: t(lang, 'filter.kindLabel'),
+  all: t(lang, 'filter.all'),
+  game: kindLabel(lang, 'game'),
+  demo: kindLabel(lang, 'demo'),
+  tagsLabel: t(lang, 'filter.tagsLabel'),
+  moreTags: t(lang, 'filter.moreTags'),
+  fewerTags: t(lang, 'filter.fewerTags'),
+  controlsLabel: t(lang, 'filter.controlsLabel'),
+  mobile: t(lang, 'filter.mobile'),
+  sort: t(lang, 'filter.sort'),
+  latest: t(lang, 'filter.latest'),
+  stars: t(lang, 'filter.stars'),
+  empty: t(lang, 'filter.empty'),
+  clear: t(lang, 'filter.clear'),
+  controls: controlValues.map((value) => ({
+    value,
+    label: t(lang, `control.${value}`),
+  })),
+  tagLabels,
+};
+---
+
+<BaseLayout title={t(lang, 'site.name')} lang={lang} path="/" isHome>
+  {
+    hero && heroMeta ? (
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-panel">
+          <a class="hero-media" href={heroHref} tabindex="-1" aria-hidden="true">
+            <img
+              class="hero-bg"
+              src={heroPreview ?? hero.coverUrl}
+              data-cover-src={hero.previewUrl ? hero.coverUrl : undefined}
+              alt=""
+              width="1600"
+              height="1000"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <div class="hero-copy">
+            <p class="hero-kicker">
+              <span>{t(lang, 'home.featured')}</span>
+              <span class="hero-kicker-separator" aria-hidden="true">·</span>
+              {authorHref ? (
+                <a href={authorHref}>{t(lang, 'common.byAuthor', { author: heroMeta.author })}</a>
+              ) : (
+                <span>{t(lang, 'common.byAuthor', { author: heroMeta.author })}</span>
+              )}
+            </p>
+            <h1 class="hero-title marquee" id="hero-title">
+              <a href={heroHref}>{heroTitle}</a>
+            </h1>
+            <p class="hero-summary">{heroSummary}</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href={heroHref}>{t(lang, 'action.playNow')}</a>
+              {
+                hero.game.repo && (
+                  <a
+                    class="btn btn-ghost"
+                    href={hero.game.repo.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t(lang, 'action.viewSource')}
+                  </a>
+                )
+              }
+            </div>
+          </div>
+        </div>
+        <div class="hero-ticket">
+          <Receipt game={hero.game} lang={lang} variant="hero" />
+        </div>
+      </section>
+    ) : (
+      <section class="empty-page">
+        <h1>{t(lang, 'home.emptyTitle')}</h1>
+        <p>{t(lang, 'home.emptyBody')}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={localePath(lang, '/submit')}>
+            {t(lang, 'action.submitGame')}
+          </a>
+          <a class="btn btn-ghost" href={localePath(lang, '/about')}>
+            {t(lang, 'home.emptyAbout')}
+          </a>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    games.length > 0 && (
+      <section class="catalogue" aria-labelledby="catalogue-title">
+        <div class="sec-head">
+          <h2 class="section-title" id="catalogue-title">
+            {t(lang, 'home.nowPlaying')}
+          </h2>
+          <FilterBar client:load items={items} lang={lang} strings={filterStrings} />
+        </div>
+        <noscript>
+          <p class="noscript-note">{t(lang, 'home.noscript')}</p>
+        </noscript>
+        <div class="game-grid" data-game-grid>
+          {games.map((view) => (
+            <GameCard view={view} lang={lang} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
+
+<script>
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (reduceMotion.matches) {
+    document.querySelectorAll<HTMLImageElement>('img[data-cover-src]').forEach((image) => {
+      const cover = image.dataset.coverSrc;
+      if (cover) image.src = cover;
+    });
+  }
+
+  if (finePointer.matches && !reduceMotion.matches) {
+    document.querySelectorAll<HTMLElement>('[data-preview-src]').forEach((preview) => {
+      const card = preview.closest<HTMLElement>('.game-card');
+      if (!card) return;
+      card.addEventListener('pointerenter', () => {
+        if (!preview.getAttribute('src')) {
+          const source = preview.dataset.previewSrc;
+          if (source) preview.setAttribute('src', source);
+        }
+        card.classList.add('is-previewing');
+      });
+      card.addEventListener('pointerleave', () => {
+        card.classList.remove('is-previewing');
+      });
+    });
+  }
+</script>

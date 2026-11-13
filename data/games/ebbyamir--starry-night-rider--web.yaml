@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ebbyamir--starry-night-rider--web
+slug: starry-night-rider
+kind: game
+status: published
+title:
+  zh: 星夜骑士
+  en: Starry Nightrider
+summary:
+  zh: 骑进梵高《星月夜》的立体世界：一路捡起光球，再赶在天亮前把它们送进教堂尖顶。
+  en: Ride into a 3D Van Gogh's Starry Night, gather the orbs along the way and carry them into the steeple before the night ends.
+author: ebbyamir
+
+play:
+  url: https://starrynightrider.com/
+  embeddable: false
+  mirror_url: null
+
+media:
+  cover: media/ebbyamir--starry-night-rider--web/cover.webp
+  preview: media/ebbyamir--starry-night-rider--web/preview.webp
+
+genre: adventure
+tags: [van-gogh, painting, collectathon, threejs, webgl]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者 X 帖自述并附演示：https://x.com/ebbyamir/status/2120284261089673376（awesome-fable-5.2 收录）；页面本身未标注模型。美术取自公有领域的《星月夜》，不是商业 IP 复刻。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

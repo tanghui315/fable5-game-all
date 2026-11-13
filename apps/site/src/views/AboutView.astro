@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EvidenceDots from '../components/EvidenceDots.astro';
+import { GITHUB_REPO, TAKEDOWN_URL } from '../lib/data';
+import { t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<BaseLayout
+  title={t(lang, 'about.title')}
+  description={t(lang, 'about.description')}
+  lang={lang}
+  path="/about"
+>
+  <h1 class="page-title">{t(lang, 'about.title')}</h1>
+
+  <div class="prose">
+    <p class="lede">{t(lang, 'about.lede')}</p>
+    <p>
+      {t(lang, 'about.introBefore')}<a href={GITHUB_REPO} rel="noopener noreferrer"
+        >{t(lang, 'about.introLink')}</a
+      >{t(lang, 'about.introAfter')}
+    </p>
+
+    <h2>{t(lang, 'about.criteriaTitle')}</h2>
+    <ol>
+      <li>{t(lang, 'about.criteria1')}</li>
+      <li>{t(lang, 'about.criteria2')}</li>
+      <li>{t(lang, 'about.criteria3')}</li>
+      <li>{t(lang, 'about.criteria4')}</li>
+      <li>{t(lang, 'about.criteria5')}</li>
+    </ol>
+
+    <h2>{t(lang, 'about.evidenceTitle')}</h2>
+    <p>{t(lang, 'about.evidenceIntro')}</p>
+    <ul class="evidence-levels">
+      <li class="evidence-level">
+        <span class="evidence-level-label"><EvidenceDots level="L1" lang={lang} />L1</span>
+        <p>{t(lang, 'about.evidenceL1')}</p>
+      </li>
+      <li class="evidence-level">
+        <span class="evidence-level-label"><EvidenceDots level="L2" lang={lang} />L2</span>
+        <p>{t(lang, 'about.evidenceL2')}</p>
+      </li>
+      <li class="evidence-level">
+        <span class="evidence-level-label"><EvidenceDots level="L3" lang={lang} />L3</span>
+        <p>{t(lang, 'about.evidenceL3')}</p>
+      </li>
+    </ul>
+    <p>{t(lang, 'about.evidenceOutro')}</p>
+
+    <h2>{t(lang, 'about.receiptTitle')}</h2>
+    <p>{t(lang, 'about.receiptBody')}</p>
+
+    <h2>{t(lang, 'about.takedownTitle')}</h2>
+    <p>
+      {t(lang, 'about.takedownBefore')}<a href={TAKEDOWN_URL} rel="noopener noreferrer"
+        >{t(lang, 'about.takedownLink')}</a
+      >{t(lang, 'about.takedownAfter')}
+    </p>
+    <p>
+      {t(lang, 'about.reportBefore')}<a href={`${GITHUB_REPO}/issues/new`} rel="noopener noreferrer"
+        >{t(lang, 'about.reportLink')}</a
+      >{t(lang, 'about.reportAfter')}
+    </p>
+
+    <h2>{t(lang, 'about.disclaimerTitle')}</h2>
+    <p>{t(lang, 'about.disclaimer')}</p>
+  </div>
+</BaseLayout>

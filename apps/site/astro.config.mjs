@@ -6,6 +6,15 @@ import cleanIntegration from './src/integrations/clean.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://stubhall.com',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh'],
+    routing: {
+      // English is the default and lives at `/`; Chinese is mirrored under `/zh/`.
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [react(), cleanIntegration(), mediaIntegration(), headersIntegration()],
   build: {
     // Keep all CSS in external files so the CSP can use style-src 'self'.

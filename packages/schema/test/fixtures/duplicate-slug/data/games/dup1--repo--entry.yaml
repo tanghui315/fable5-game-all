@@ -2,8 +2,8 @@ id: dup1--repo--entry
 slug: same-slug
 kind: game
 status: published
-title: { zh: 重复 slug }
-summary: { zh: 重复 slug }
+title: { zh: 重复 slug, en: Duplicate slug }
+summary: { zh: 重复 slug, en: Duplicate slug }
 author: wquguru
 play: { url: "https://example.com/dup1/", embeddable: true }
 media: { cover: media/dup1--repo--entry/cover.webp }

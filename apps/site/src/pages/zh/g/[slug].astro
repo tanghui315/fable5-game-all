@@ -1,0 +1,12 @@
+---
+import GameDetailView from '../../../views/GameDetailView.astro';
+import { gameStaticPaths } from '../../../lib/paths';
+
+export function getStaticPaths() {
+  return gameStaticPaths();
+}
+
+const { id } = Astro.props;
+---
+
+<GameDetailView lang="zh" id={id} />

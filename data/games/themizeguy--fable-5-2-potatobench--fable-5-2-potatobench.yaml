@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: themizeguy--fable-5-2-potatobench--fable-5-2-potatobench
+slug: the-county
+kind: game
+status: published
+title:
+  zh: The County
+  en: The County
+summary:
+  zh: 马铃薯农场经营：租地、雇人、安排四季轮作，扛住银行那笔要还到年底的贷款。
+  en: A potato-farming year — rent fields, hire hands, plan the seasons and survive the bank loan that comes due at harvest.
+author: themizeguy
+
+repo:
+  url: https://github.com/themizeguy/fable-5.2-potatobench
+  license: MIT
+
+play:
+  url: https://themizeguy.github.io/fable-5.2-potatobench/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/themizeguy--fable-5-2-potatobench--fable-5-2-potatobench/cover.webp
+
+genre: strategy
+tags: [farming, management, economy, single-file, browser]
+controls: [mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "仓库描述写 “The County: a potato farming strategy game. Fable 5.2's entry in PotatoBench”，即同一个基准任务里 Fable 5.2 的参赛作品；仓库没有公开提示词，故记 L1。"
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

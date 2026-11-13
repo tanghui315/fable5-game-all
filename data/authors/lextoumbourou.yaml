@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: lextoumbourou
+name: Lex Toumbourou
+github: lextoumbourou
+x: null
+website: https://notesbylex.com
+avatar: https://github.com/lextoumbourou.png
+claimed: false

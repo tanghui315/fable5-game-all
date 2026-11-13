@@ -2,7 +2,7 @@
 
 import type { Control, EvidenceLevel, GameKind } from '@fable5/schema';
 import type { ProbeResult } from './probe.js';
-import { dedupeStrings, slugify } from './util.js';
+import { dedupeStrings, hasLatinScript, humanizeIdentifier, slugify } from './util.js';
 
 export interface LocalizedDraft {
   zh: string;
@@ -170,15 +170,26 @@ export function heuristicReview(context: HeuristicContext): EntryReview {
   const titleText = (context.pageTitle ?? '').trim();
   const fallbackTitle = context.entryKey === 'root' ? context.repoName : context.entryKey;
   const title = titleText !== '' && titleText.length <= 90 ? titleText : fallbackTitle;
+  // The schema requires English copy. A Chinese page title or entry key (e.g.
+  // 雾锁山门) gets the humanised entry name / repository name instead.
+  const fallbackTitleEn = humanizeIdentifier(
+    context.entryKey !== 'root' && hasLatinScript(context.entryKey)
+      ? context.entryKey
+      : context.repoName,
+  );
+  const titleEn = hasLatinScript(title) ? title : fallbackTitleEn;
   const summaryParts =
     context.description !== null && context.description.trim() !== ''
       ? splitSummary(context.description)
       : { zh: `Fable 5.x 网页作品：${title}` };
   const summary: LocalizedDraft = {
     zh: summaryParts.zh,
-    ...(summaryParts.en !== undefined && /[a-z]/i.test(summaryParts.en)
-      ? { en: summaryParts.en }
-      : {}),
+    en:
+      summaryParts.en !== undefined && hasLatinScript(summaryParts.en)
+        ? summaryParts.en
+        : hasLatinScript(summaryParts.zh)
+          ? summaryParts.zh
+          : `A browser ${kind === 'game' ? 'game' : 'technical demo'} built with Fable 5.x — ${titleEn}.`,
   };
   const tags = dedupeStrings([
     ...context.topics.map((topic) => slugify(topic, 'topic', 30)),
@@ -216,7 +227,7 @@ export function heuristicReview(context: HeuristicContext): EntryReview {
     tags,
     controls: kind === 'game' ? ['keyboard', 'mouse'] : ['mouse'],
     mobile: /\b(mobile|touch|phone|responsive)\b/i.test(haystack),
-    title: { zh: title, ...(/[a-z]/i.test(title) ? { en: title } : {}) },
+    title: { zh: title, en: titleEn },
     summary,
     evidence_level: detectEvidence(evidenceText),
     evidence_quotes: extractEvidenceQuotes(evidenceText),

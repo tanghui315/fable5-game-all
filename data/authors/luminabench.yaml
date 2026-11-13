@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: luminabench
+name: Lumina
+github: LuminaBench
+x: LuminaBench
+website: null
+avatar: https://github.com/LuminaBench.png
+claimed: false

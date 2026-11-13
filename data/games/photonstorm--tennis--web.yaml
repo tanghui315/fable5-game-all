@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: photonstorm--tennis--web
+slug: tennis
+kind: game
+status: published
+title:
+  zh: Tennis
+  en: Tennis
+summary:
+  zh: 看着像 Pong，玩起来才发现不是：发球、旋球、落点和跑位都得自己管，一分一分磨下来。
+  en: It looks like Pong until you actually play it — serve, spin, placement and footwork are all yours to manage, one point at a time.
+author: photonstorm
+
+play:
+  url: https://tennis.sixfingerpunch.com/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/photonstorm--tennis--web/cover.webp
+  preview: media/photonstorm--tennis--web/preview.webp
+
+genre: sports
+tags: [tennis, sports, canvas, 1v1, single-file]
+controls: [keyboard, mouse]
+mobile: false
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 页面自己的 description 写着 "I asked Fable 5.2 … to make a game"（og:description 同文）；作者 @photonstorm 的原帖：https://x.com/photonstorm/status/2120330010112434313。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13

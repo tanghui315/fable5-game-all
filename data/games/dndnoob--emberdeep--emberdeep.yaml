@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: dndnoob--emberdeep--emberdeep
+slug: emberdeep
+kind: game
+status: published
+title:
+  zh: Emberdeep
+  en: Emberdeep
+summary:
+  zh: 举着会烧完的火把往地牢深处走：每次下潜都是新迷宫，集齐三块蓝晶才能开下一层，闪光弹是你唯一的保命手段。
+  en: Descend a torch-lit dungeon that never repeats — every dive is a fresh maze, three blue shards open the next floor, and a flash bomb is the only thing between you and the dark.
+author: dndnoob
+
+repo:
+  url: https://github.com/dndnoob/emberdeep
+
+play:
+  url: https://dndnoob.github.io/EmberDeep/
+  embeddable: true
+  mirror_url: null
+
+media:
+  cover: media/dndnoob--emberdeep--emberdeep/cover.webp
+
+genre: dungeon-crawler
+tags: [first-person, roguelike, procedural, dungeon-crawler, single-file]
+controls: [keyboard, mouse, touch]
+mobile: true
+
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 仓库描述写 “Testing the Limits of Fable 5.2 Game Design”，游戏内也标注 Claude 出品；仓库没有公开提示词或运行数据，故记 L1。
+
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
+  published_at: 2026-11-13
