@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: exaroth--liveboat-github-runner--docs
+slug: page-not-found-github-pages
+kind: game
+status: published
+title:
+  zh: Page not found · GitHub Pages
+  en: Page not found · GitHub Pages
+summary:
+  zh: Setup your own personalized RSS feed site on Github Pages
+  en: Setup your own personalized RSS feed site on Github Pages
+author: exaroth
+repo:
+  url: https://github.com/exaroth/liveboat-github-runner
+  path: docs
+  license: MIT
+play:
+  url: https://konrad.website/liveboat-github-runner/docs/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/exaroth--liveboat-github-runner--docs/cover.webp
+genre: procedural-demo
+tags:
+  - docs
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
