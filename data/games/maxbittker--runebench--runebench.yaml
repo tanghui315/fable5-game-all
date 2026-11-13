@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: maxbittker--runebench--runebench
+slug: runescape-bench-ai-agent-benchmark-for-runescape
+kind: demo
+status: published
+title:
+  zh: "runescape-bench: AI Agent Benchmark for RuneScape"
+  en: "runescape-bench: AI Agent Benchmark for RuneScape"
+summary:
+  zh: Bench mark long horizon problem solving in an MMO
+  en: Bench mark long horizon problem solving in an MMO
+author: maxbittker
+repo:
+  url: https://github.com/maxbittker/runebench
+play:
+  url: https://maxbittker.github.io/runebench/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/maxbittker--runebench--runebench/cover.webp
+genre: procedural-demo
+tags:
+  - runebench
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/maxbittker/runebench/blob/main/agents/opencode_prompts/anthropic.txt
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
