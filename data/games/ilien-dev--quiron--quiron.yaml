@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ilien-dev--quiron--quiron
+slug: quiro-n-ai-humanizer-skill-for-claude-code-codex-and-cursor
+kind: demo
+status: published
+title:
+  zh: "Quirón: AI humanizer skill for Claude Code, Codex and Cursor"
+  en: "Quirón: AI humanizer skill for Claude Code, Codex and Cursor"
+summary:
+  zh: AI humanizer skill for Claude Code, Codex and Cursor. Removes AI slop and the signs of AI writing, then measures the rewrite against human baselines.
+  en: AI humanizer skill for Claude Code, Codex and Cursor. Removes AI slop and the signs of AI writing, then measures the rewrite against human baselines.
+author: ilien-dev
+repo:
+  url: https://github.com/ilien-dev/quiron
+  license: AGPL-3.0
+play:
+  url: https://quiron.ilien.dev/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/ilien-dev--quiron--quiron/cover.webp
+genre: audio-demo
+tags:
+  - agent-skills
+  - ai-humanizer
+  - ai-slop
+  - ai-writing
+  - anti-slop
+  - claude-code
+  - claude-code-plugin
+  - claude-code-skill
+  - claude-skills
+  - codex
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
