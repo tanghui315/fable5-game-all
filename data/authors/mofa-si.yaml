@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: mofa-si
+name: mofa-si
+github: mofa-si
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/18311639?v=4
+claimed: false

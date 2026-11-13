@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: mofa-si--awesome-fable-5-2-videos--fable-5-2
+slug: claude-fable-5-2-prompts-videos-real-examples-you-can-try-dr
+kind: game
+status: published
+title:
+  zh: Claude Fable 5.2 Prompts & Videos — real examples you can try | DramaSo
+  en: Claude Fable 5.2 Prompts & Videos — real examples you can try | DramaSo
+summary:
+  zh: A curated collection of videos made with Claude Fable 5.2 (Anthropic) and shared on X — launch films, 3D scenes in Blender and Three.js, browser games, interactive toys, music and short films written entirely in code, plus same-prompt model comparisons — with original files, creator credits and verb
+  en: A curated collection of videos made with Claude Fable 5.2 (Anthropic) and shared on X — launch films, 3D scenes in Blender and Three.js, browser games, interactive toys, music and short films written entirely in code, plus same-prompt model comparisons — with original files, creator credits and verb
+author: mofa-si
+repo:
+  url: https://github.com/mofa-si/awesome-fable-5-2-videos
+  path: prompts/fable-5-2
+  license: MIT
+play:
+  url: https://drama.so/prompts/fable-5-2/?utm_source=github&utm_medium=readme&utm_campaign=awesome-fable-5-2-videos
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/mofa-si--awesome-fable-5-2-videos--fable-5-2/cover.webp
+genre: audio-demo
+tags:
+  - ai-short-drama
+  - ai-video
+  - anthropic
+  - awesome
+  - awesome-list
+  - blender
+  - claude
+  - claude-code
+  - claude-fable
+  - creative-coding
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Awesome Claude Fable 5.2 Videos | If this helps, a ⭐ keeps it coming — new Claude Fable 5.2 work is still appearing daily and we keep adding it. | <a href="https://drama.so/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=awesome-fable-5-2-videos&amp;utm_content=sponsor"><img src="https://bibigpt-apps.chatvid.ai/dramaso/home/en/og-image.jpg" alt="DramaSo" width="600"></a>
+generation:
+  prompt_url: https://github.com/mofa-si/awesome-fable-5-2-videos/blob/main/prompts/0kncn-543073.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
