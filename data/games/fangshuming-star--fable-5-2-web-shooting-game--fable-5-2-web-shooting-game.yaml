@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: fangshuming-star--fable-5-2-web-shooting-game--fable-5-2-web-shooting-game
+slug: 3a
+kind: game
+status: published
+title:
+  zh: 几猫3A大作
+  en: 几猫3A大作
+summary:
+  zh: 此仓库用于一键打开使用
+  en: A browser game built with Fable 5.x — 几猫3A大作.
+author: fangshuming-star
+repo:
+  url: https://github.com/fangshuming-star/fable-5.2-web-shooting-game
+play:
+  url: https://fangshuming-star.github.io/fable-5.2-Web-shooting-game/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/fangshuming-star--fable-5-2-web-shooting-game--fable-5-2-web-shooting-game/cover.webp
+genre: arcade
+tags:
+  - fable
+  - web
+  - shooting
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：fable-5.2-Web-shooting-game
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13

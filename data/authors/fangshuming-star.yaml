@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: fangshuming-star
+name: fangshuming-star
+github: fangshuming-star
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/315212058?v=4
+claimed: false
