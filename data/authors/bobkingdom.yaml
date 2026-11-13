@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: bobkingdom
+name: bobkingdom
+github: bobkingdom
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/858715?v=4
+claimed: false
