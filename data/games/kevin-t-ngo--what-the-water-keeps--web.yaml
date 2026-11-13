@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: kevin-t-ngo--what-the-water-keeps--web
+slug: what-the-water-keeps
+kind: game
+status: published
+title:
+  zh: 水留下的东西
+  en: What the Water Keeps
+summary:
+  zh: 开着一条小船穿过八个梦一样的世界，全程在浏览器里。
+  en: A boat ride through eight dreamlike worlds, playable in the browser.
+author: kevin-t-ngo
+play:
+  url: https://what-the-water-keeps.vercel.app/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/kevin-t-ngo--what-the-water-keeps--web/cover.webp
+genre: adventure
+tags:
+  - fable
+  - web
+  - boat
+  - dreamlike
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/kevin_t_ngo/status/2119868968307695818），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

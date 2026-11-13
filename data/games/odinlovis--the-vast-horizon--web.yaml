@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: odinlovis--the-vast-horizon--web
+slug: the-vast-horizon
+kind: game
+status: published
+title:
+  zh: 辽阔地平线
+  en: The Vast Horizon
+summary:
+  zh: 在同一片湖面上一起冲浪的多人小游戏，输入一个词，世界就跟着变。
+  en: A multiplayer surf game on a shared lake; type a word and the world changes.
+author: odinlovis
+play:
+  url: https://the-vast-horizon.vercel.app
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/odinlovis--the-vast-horizon--web/cover.webp
+genre: sports
+tags:
+  - fable
+  - web
+  - surfing
+  - multiplayer
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/OdinLovis/status/2120198469755503091），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

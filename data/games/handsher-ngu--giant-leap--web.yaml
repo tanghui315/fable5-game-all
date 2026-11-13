@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: handsher-ngu--giant-leap--web
+slug: giant-leap
+kind: game
+status: published
+title:
+  zh: 巨大的一跃
+  en: Giant Leap
+summary:
+  zh: 从月球跳回地球——你要做的只有跳。
+  en: Jump from the Moon to the Earth. You just jump.
+author: handsher-ngu
+play:
+  url: https://giant-leap.vercel.app
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/handsher-ngu--giant-leap--web/cover.webp
+genre: arcade
+tags:
+  - fable
+  - web
+  - space
+  - one-button
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/handsher_NGU/status/2120287667141374212），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

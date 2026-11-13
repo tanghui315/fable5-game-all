@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: kieranklaassen--first-crush--web
+slug: first-crush
+kind: game
+status: published
+title:
+  zh: 初榨
+  en: First Crush
+summary:
+  zh: 酿酒游戏：刷洗发酵罐、压碎 250 公斤葡萄、看比重计、下酵母，一整套流程都要自己来。
+  en: 'A winemaking game: scrub the vat, crush 250 kg of fruit, read the hydrometer and pitch the yeast.'
+author: kieranklaassen
+play:
+  url: https://frontier.every.to/experiments/first-crush
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/kieranklaassen--first-crush--web/cover.webp
+genre: simulation
+tags:
+  - fable
+  - web
+  - winemaking
+  - simulation
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/kieranklaassen/status/2119871673294037280），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

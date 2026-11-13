@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: flxrnc--the-waking-river--web
+slug: the-waking-river
+kind: game
+status: published
+title:
+  zh: 醒来的河
+  en: The Waking River
+summary:
+  zh: 一句提示词加几次追问：驾船穿过五个沉睡的世界，它们随着你的到来醒来，配乐也由代码生成。
+  en: 'One prompt and a few follow-ups: five sleeping worlds wake as you sail through them, scored by music generated in code.'
+author: flxrnc
+play:
+  url: https://rivergame-kappa.vercel.app
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/flxrnc--the-waking-river--web/cover.webp
+genre: adventure
+tags:
+  - fable
+  - web
+  - boat
+  - music
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/flxrnc/status/2120494277528580110），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

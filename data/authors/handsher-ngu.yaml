@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: handsher-ngu
+name: handsher_NGU
+github: null
+x: handsher_NGU
+website: null
+avatar: https://unavatar.io/x/handsher_NGU
+claimed: false

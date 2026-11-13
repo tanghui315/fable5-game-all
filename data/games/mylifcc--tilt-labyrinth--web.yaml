@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: mylifcc--tilt-labyrinth--web
+slug: tilt-labyrinth
+kind: game
+status: published
+title:
+  zh: 倾斜迷宫
+  en: Tilt Labyrinth
+summary:
+  zh: 2000 行 three.js 写的木球滚迷宫，作者把单帧耗时从 55 毫秒优化到了 9 毫秒。
+  en: A wooden ball maze in 2,000 lines of three.js; the author profiled it from 55 ms to 9 ms per frame.
+author: mylifcc
+play:
+  url: https://blog.silencestar.com/posts/tilt-labyrinth/play/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/mylifcc--tilt-labyrinth--web/cover.webp
+genre: puzzle
+tags:
+  - fable
+  - web
+  - maze
+  - physics
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/mylifcc/status/2120054646282870910），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

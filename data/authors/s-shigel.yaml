@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: s-shigel
+name: s_shigel
+github: null
+x: s_shigel
+website: null
+avatar: https://unavatar.io/x/s_shigel
+claimed: false

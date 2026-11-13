@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: mattshumer--voxel-engine--web
+slug: voxel-engine
+kind: demo
+status: published
+title:
+  zh: 体素引擎
+  en: Voxel Engine
+summary:
+  zh: 一句话提示词生成的体素引擎：进入程序生成的方块世界。记得开声音。
+  en: A voxel engine built from a single prompt — enter a generated block world. Sound on.
+author: mattshumer
+play:
+  url: https://www.spawn.co/@mattshumer/voxel-engine
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/mattshumer--voxel-engine--web/cover.webp
+genre: showcase
+tags:
+  - fable
+  - web
+  - voxel
+  - engine
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/mattshumer_/status/2119870965106483384），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

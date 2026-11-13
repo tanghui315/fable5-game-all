@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: s-shigel--ignition--web
+slug: ignition
+kind: game
+status: published
+title:
+  zh: IGNITION · 零界
+  en: IGNITION
+summary:
+  zh: 2D 格斗：招式、配音和音效都是生成的，还带对战记录和回放。
+  en: A 2D fighting game with generated voices and sound, play logs and replays.
+author: s-shigel
+play:
+  url: https://fighting-game-ignition.saito-931.workers.dev
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/s-shigel--ignition--web/cover.webp
+genre: fighting
+tags:
+  - fable
+  - web
+  - fighting
+  - replays
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/s_shigel/status/2120895161890914336），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

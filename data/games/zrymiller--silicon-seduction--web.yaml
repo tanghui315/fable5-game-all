@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zrymiller--silicon-seduction--web
+slug: silicon-seduction
+kind: game
+status: published
+title:
+  zh: 硅之诱惑
+  en: Silicon Seduction
+summary:
+  zh: 一段很短的第一人称叙事：你能不被诱惑，自己走出去吗？
+  en: 'A short first-person story game: can you make it out without being seduced?'
+author: zrymiller
+play:
+  url: https://silicon-seduction.vercel.app/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zrymiller--silicon-seduction--web/cover.webp
+genre: adventure
+tags:
+  - fable
+  - web
+  - narrative
+  - horror
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/ZryMiller/status/2119918766691954691），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: petergyang
+name: petergyang
+github: null
+x: petergyang
+website: null
+avatar: https://unavatar.io/x/petergyang
+claimed: false

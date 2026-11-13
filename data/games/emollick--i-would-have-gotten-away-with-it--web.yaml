@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: emollick--i-would-have-gotten-away-with-it--web
+slug: i-would-have-gotten-away-with-it
+kind: game
+status: published
+title:
+  zh: 我本来能脱身的
+  en: I Would Have Gotten Away With It
+summary:
+  zh: 反向《史酷比》：这次你演反派，任务是把多管闲事的小孩吓跑。连预告片、配乐和音效都是模型一起做的。
+  en: 'A reverse Scooby-Doo: you are the villain trying to scare off the meddling kids. The trailer, music and sound were generated too.'
+author: emollick
+play:
+  url: https://i-would-have-gotten-away-with-it.netlify.app/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/emollick--i-would-have-gotten-away-with-it--web/cover.webp
+genre: adventure
+tags:
+  - fable
+  - web
+  - horror-comedy
+  - scooby-doo
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/emollick/status/2119876449494540554），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: 0xchuckstock--brix-84--web
+slug: brix-84
+kind: game
+status: published
+title:
+  zh: BRIX ’84
+  en: BRIX '84
+summary:
+  zh: 一开始是熟悉的打砖块，吃到第二个道具之后就开始不讲道理了。
+  en: A block breaker that starts familiar and gets wild right after the second power-up.
+author: 0xchuckstock
+play:
+  url: https://remix.gg/g/brix-84
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/0xchuckstock--brix-84--web/cover.webp
+genre: arcade
+tags:
+  - fable
+  - web
+  - brick-breaker
+  - power-ups
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 清单标注作者为 @0xChuckstock，未找到作者本人推文；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

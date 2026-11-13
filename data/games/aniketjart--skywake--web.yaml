@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: aniketjart--skywake--web
+slug: skywake
+kind: game
+status: published
+title:
+  zh: SKYWAKE
+  en: SKYWAKE
+summary:
+  zh: 飞行冒险游戏，Fable 5.2、Opus 5.5、Crayon 和 three.js 一起做的。
+  en: A flying quest game made with Fable 5.2, Opus 5.5, Crayon and three.js.
+author: aniketjart
+play:
+  url: https://app.usecrayon.ai/play/992c2130-43da-416b-a577-aed9514d3057
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/aniketjart--skywake--web/cover.webp
+genre: adventure
+tags:
+  - fable
+  - web
+  - flying
+  - three.js
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/aniketjart/status/2120378493729222700），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

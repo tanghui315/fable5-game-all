@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: lexnlin--feed-the-backrooms--web
+slug: feed-the-backrooms
+kind: game
+status: published
+title:
+  zh: 喂养后室
+  en: Feed the Backrooms
+summary:
+  zh: 倒过来的「后室」：这次你是住在那里的东西，任务是把走进来的人一个个抓住。
+  en: 'The Backrooms turned around: you are the monster, and the job is to catch the people who wander in.'
+author: lexnlin
+play:
+  url: https://feed-backrooms.vercel.app
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/lexnlin--feed-the-backrooms--web/cover.webp
+genre: horror
+tags:
+  - fable
+  - web
+  - backrooms
+  - monster
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/LexnLin/status/2119966127149429093），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'

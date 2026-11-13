@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: blackst0ck--survivors--web
+slug: survivors
+kind: game
+status: published
+title:
+  zh: 幸存者
+  en: Survivors
+summary:
+  zh: 带《魔兽世界》式升级和掉落的割草生存，单人或多达四人联机。
+  en: Vampire Survivors with WoW-style levelling and loot — solo or co-op for up to four.
+author: blackst0ck
+play:
+  url: https://remix.gg/g/survivors
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/blackst0ck--survivors--web/cover.webp
+genre: survival
+tags:
+  - fable
+  - web
+  - survivors
+  - co-op
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 上发布（https://x.com/BLACKST0CK/status/2120329788896498123），清单 awesome-fable-5.2 收录；2026-11-13 用真实浏览器（headed Chromium）实测：页面可打开、能进入游戏画面。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-13'
