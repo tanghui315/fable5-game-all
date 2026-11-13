@@ -160,7 +160,8 @@ export const zh: Record<MessageKey, string> = {
   'about.criteriaTitle': '收录标准',
   'about.criteria1': '浏览器直接可玩，无需安装；原地址可以访问。',
   'about.criteria2': '证据等级至少 L1。',
-  'about.criteria3': '不是仿冒现有商业游戏或 IP（名字、角色、美术、关卡），否则驳回。',
+  'about.criteria3':
+    '不是冒充现有商业游戏或 IP。同人复刻可以收录，但标题和简介要写明「同人复刻 / 非官方」并注明原作；冒充原作的直接驳回。',
   'about.criteria4': '没有恶意代码（挖矿、钓鱼、异常外联），没有成人内容。',
   'about.criteria5': '开源与否都收：没开源的只放线上地址，并标注“未开源”。',
   'about.evidenceTitle': '证据等级',

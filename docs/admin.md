@@ -13,7 +13,9 @@
    截图、探测结果、证据引用、风险和控制台错误。
 2. **真的能玩**：在浏览器打开 `play.url`，确认能加载、键盘/鼠标操作正常、没有登录墙。
    手机作品再看触屏。
-3. **不是仿冒 IP**：名字、角色、美术、关卡不能照搬现有商业游戏。拿不准就驳回（`reason:ip-clone`）。
+3. **不是冒充 IP**：同人复刻可以收，但标题和简介要写明「同人复刻 / 非官方」并注明原作（例如
+   `data/games/anxiangsir--wukong-tiger-engine--wukong-tiger-engine.yaml`）；冒充原作的驳回
+   （`reason:ip-clone`）。
 4. **证据等级**（design.md §2.2）：
    - L1：作者自述（推文、README、投稿声明）；
    - L2：可检查的痕迹（模型徽章、代码里出现 `claude-fable-5-2` 等模型 ID）；
