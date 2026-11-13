@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: itar3--fable2recompmac--docs
+slug: page-not-found-github-pages
+kind: game
+status: published
+title:
+  zh: Page not found · GitHub Pages
+  en: Page not found · GitHub Pages
+summary:
+  zh: "Play Fable 2 (Fable II) natively on Mac: a native macOS port for Apple Silicon (M1, M2, M3, M4), not an emulator. Metal renderer, 60 fps at Retina resolution, keyboard and mouse or controller. Needs your own Fable II disc image and its Title Update 1. Not affiliated with Microsoft."
+  en: "Play Fable 2 (Fable II) natively on Mac: a native macOS port for Apple Silicon (M1, M2, M3, M4), not an emulator. Metal renderer, 60 fps at Retina resolution, keyboard and mouse or controller. Needs your own Fable II disc image and its Title Update 1. Not affiliated with Microsoft."
+author: itar3
+repo:
+  url: https://github.com/itar3/fable2recompmac
+  path: docs
+  license: MIT
+play:
+  url: https://itar3.github.io/Fable2RecompMac/docs/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/itar3--fable2recompmac--docs/cover.webp
+genre: graphics-demo
+tags:
+  - apple-silicon
+  - arm64
+  - fable
+  - fable-2
+  - fable-ii
+  - game-port
+  - mac
+  - macos
+  - metal
+  - moltenvk
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README/描述引用：Fable2RecompMac: Fable 2 for Mac (Apple Silicon) | Play **Fable 2** (Fable II) natively on your Mac: a native macOS port for | [Download the latest release](https://github.com/itar3/Fable2RecompMac/releases/latest)**"
+generation:
+  prompt_url: https://github.com/itar3/fable2recompmac/blob/main/docs/NATIVE_RENDERER.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
