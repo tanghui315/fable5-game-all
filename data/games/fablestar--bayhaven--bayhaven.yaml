@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: fablestar--bayhaven--bayhaven
+slug: site-not-found-github-pages
+kind: game
+status: published
+title:
+  zh: Site not found · GitHub Pages
+  en: Site not found · GitHub Pages
+summary:
+  zh: "Bayhaven: an original open-world game, written live by Claude Fable 5.2. Every line, every commit."
+  en: "Bayhaven: an original open-world game, written live by Claude Fable 5.2. Every line, every commit."
+author: fablestar
+repo:
+  url: https://github.com/fablestar/bayhaven
+  license: MIT
+play:
+  url: https://fablestar.github.io/bayhaven/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/fablestar--bayhaven--bayhaven/cover.webp
+genre: racing
+tags:
+  - ai
+  - ai-agents
+  - browser-game
+  - claude
+  - game
+  - open-source
+  - open-world
+  - threejs
+  - bayhaven
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README/描述引用：Bayhaven: an original open-world game, written live by Claude Fable 5.2. Every line, every commit. | Watch Fable work:** [fablestar.games/watch](https://fablestar.games/watch.html). Every session streams as it happens. | The plan:** [the roadmap and the game bible](https://fablestar.games/plan/index.html). Fable reads the same files each session."
+generation:
+  prompt_url: https://github.com/fablestar/bayhaven/blob/main/plan/bible/radio/bayhaven-public-radio.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
