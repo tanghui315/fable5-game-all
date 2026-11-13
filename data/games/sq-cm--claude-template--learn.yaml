@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: sq-cm--claude-template--learn
+slug: site-not-found-github-pages
+kind: demo
+status: published
+title:
+  zh: Site not found · GitHub Pages
+  en: Site not found · GitHub Pages
+summary:
+  zh: Fable 5.x 网页作品：Site not found · GitHub Pages
+  en: Fable 5.x 网页作品：Site not found · GitHub Pages
+author: sq-cm
+repo:
+  url: https://github.com/sq-cm/claude-template
+  path: Resources/Learn
+play:
+  url: https://sq-cm.github.io/claude-template/Resources/Learn/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/sq-cm--claude-template--learn/cover.webp
+genre: procedural-demo
+tags:
+  - learn
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L2
+generation:
+  prompt_url: https://github.com/sq-cm/claude-template/blob/main/Resources/Learn/prompt-formula-cheat-sheet.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
