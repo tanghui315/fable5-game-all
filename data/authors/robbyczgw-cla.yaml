@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: robbyczgw-cla
+name: robbyczgw-cla
+github: robbyczgw-cla
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/239660374?v=4
+claimed: false

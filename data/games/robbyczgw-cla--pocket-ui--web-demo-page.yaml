@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: robbyczgw-cla--pocket-ui--web-demo-page
+slug: site-not-found-github-pages-3
+kind: demo
+status: published
+title:
+  zh: Site not found · GitHub Pages
+  en: Site not found · GitHub Pages
+summary:
+  zh: "A complete, free frontend for retro handhelds (ROCKNIX devices and the TrimUI Brick): every game in its real box, one pause menu from Game Boy to GameCube, instant resume and its own libretro player"
+  en: "A complete, free frontend for retro handhelds (ROCKNIX devices and the TrimUI Brick): every game in its real box, one pause menu from Game Boy to GameCube, instant resume and its own libretro player"
+author: robbyczgw-cla
+repo:
+  url: https://github.com/robbyczgw-cla/pocket-ui
+  path: web/demo/page
+  license: GPL-2.0
+play:
+  url: https://robbyczgw-cla.github.io/pocket-ui/web/demo/page/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/robbyczgw-cla--pocket-ui--web-demo-page/cover.webp
+genre: procedural-demo
+tags:
+  - emulation
+  - frontend
+  - handheld
+  - launcher
+  - libretro
+  - retro-gaming
+  - retroid-pocket
+  - rocknix
+  - rust
+  - trimui
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13

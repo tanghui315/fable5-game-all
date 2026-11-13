@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: robbyczgw-cla--pocket-ui--phone-upload
+slug: site-not-found-github-pages
+kind: game
+status: published
+title:
+  zh: Site not found · GitHub Pages
+  en: Site not found · GitHub Pages
+summary:
+  zh: "A complete, free frontend for retro handhelds (ROCKNIX devices and the TrimUI Brick): every game in its real box, one pause menu from Game Boy to GameCube, instant resume and its own libretro player"
+  en: "A complete, free frontend for retro handhelds (ROCKNIX devices and the TrimUI Brick): every game in its real box, one pause menu from Game Boy to GameCube, instant resume and its own libretro player"
+author: robbyczgw-cla
+repo:
+  url: https://github.com/robbyczgw-cla/pocket-ui
+  path: assets/phone-upload
+  license: GPL-2.0
+play:
+  url: https://robbyczgw-cla.github.io/pocket-ui/assets/phone-upload/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/robbyczgw-cla--pocket-ui--phone-upload/cover.webp
+genre: procedural-demo
+tags:
+  - emulation
+  - frontend
+  - handheld
+  - launcher
+  - libretro
+  - retro-gaming
+  - retroid-pocket
+  - rocknix
+  - rust
+  - trimui
+controls:
+  - keyboard
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/robbyczgw-cla/pocket-ui/blob/main/docs/PHONE-UPLOAD.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
