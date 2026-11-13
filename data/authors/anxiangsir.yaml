@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: anxiangsir
+name: Xiang An
+github: anxiangsir
+x: null
+website: https://www.anxiangsir.com
+avatar: https://avatars.githubusercontent.com/u/31175974?v=4
+claimed: false

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: anxiangsir--wukong-tiger-engine--wukong-tiger-engine
+slug: tiger-vanguard
+kind: game
+status: published
+title:
+  zh: '黑神话：悟空 · 虎先锋（同人复刻）'
+  en: 'Tiger Vanguard (a Wukong fan remake)'
+summary:
+  zh: '非官方同人复刻：《黑神话：悟空》第二回卧虎寺的虎先锋战，轻棍重棍、闪身识破、定身法、变身与精魄都在，首次加载约 82 MB。'
+  en: "An unofficial fan remake of Black Myth: Wukong's Tiger Vanguard fight at Crouching Tiger Temple — light and heavy staff, perfect dodges, immobilize, transformations and spirits; first load is about 82 MB."
+author: anxiangsir
+play:
+  url: https://www.anxiangsir.com/wukong-tiger-engine/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/anxiangsir--wukong-tiger-engine--wukong-tiger-engine/cover.webp
+genre: action
+tags:
+  - fable
+  - web
+  - action
+  - boss-fight
+  - wukong
+  - fan-remake
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 同人复刻，制作方式未公开：作者仓库 wukong-tiger-engine 目前无法访问；X 用户 @jiangjiangling 发文称「一句话丢给 Fable 5.2，虎先锋就能在浏览器里打了」并给出本页链接，暂据此记为 L1。
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-13
