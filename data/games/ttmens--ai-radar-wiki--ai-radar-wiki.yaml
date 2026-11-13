@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ttmens--ai-radar-wiki--ai-radar-wiki
+slug: nexsight
+kind: demo
+status: published
+title:
+  zh: 智瞰 NexSight — 今日简报
+  en: 智瞰 NexSight — 今日简报
+summary:
+  zh: 🧠 Automated AI Knowledge Base for Product Managers — 4-pillar system with self-evolving knowledge graph. Updates every 4h.
+  en: 🧠 Automated AI Knowledge Base for Product Managers — 4-pillar system with self-evolving knowledge graph. Updates every 4h.
+author: ttmens
+repo:
+  url: https://github.com/ttmens/ai-radar-wiki
+  license: MIT
+play:
+  url: http://archwang.top/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/ttmens--ai-radar-wiki--ai-radar-wiki/cover.webp
+genre: tech-demo
+tags:
+  - agent-discovery
+  - ai-agent
+  - ai-knowledge
+  - ai-product-management
+  - ai-radar
+  - ai-trends
+  - arxiv-monitor
+  - automated-wiki
+  - hacker-news-ai
+  - knowledge-graph
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/ttmens/ai-radar-wiki/blob/main/entities/agents-need-control-flow-not-more-prompts.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
