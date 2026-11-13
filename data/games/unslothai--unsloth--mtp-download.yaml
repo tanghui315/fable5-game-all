@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: unslothai--unsloth--mtp-download
+slug: site-not-found-github-pages-2
+kind: demo
+status: published
+title:
+  zh: Site not found · GitHub Pages
+  en: Site not found · GitHub Pages
+summary:
+  zh: Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4.1, MiniMax-H3, Gemma 4, FLUX and more.
+  en: Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4.1, MiniMax-H3, Gemma 4, FLUX and more.
+author: unslothai
+repo:
+  url: https://github.com/unslothai/unsloth
+  path: studio/frontend/tests/fixtures/mtp-download
+  license: Apache-2.0
+play:
+  url: https://unslothai.github.io/unsloth/studio/frontend/tests/fixtures/mtp-download/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/unslothai--unsloth--mtp-download/cover.webp
+genre: audio-demo
+tags:
+  - agent
+  - ai
+  - chatgpt
+  - deepseek
+  - fine-tuning
+  - gemma
+  - image-generation
+  - llama
+  - llm
+  - llms
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/unslothai/unsloth/blob/main/.github/scripts/ci-connect-prompt.txt
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
