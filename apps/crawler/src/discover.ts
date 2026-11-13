@@ -32,6 +32,8 @@ export interface CandidateSignals {
   gameHint?: boolean;
   /** Repository text looks like an agent/library/tooling repo. */
   toolHint?: boolean;
+  /** Repository text looks like a curated list/aggregator rather than one game. */
+  listHint?: boolean;
 }
 
 export interface CandidateScore {
@@ -70,18 +72,28 @@ export function scoreCandidate(signals: CandidateSignals): CandidateScore {
     score += 10;
     reasons.push('index.html');
   }
-  if (signals.gameHint === true) {
+  if (signals.gameHint === true && signals.listHint !== true) {
     score += 20;
     reasons.push('game/webgl hint');
   }
+  if (signals.listHint === true) {
+    // Curated lists/awesome-lists aggregate many projects; they are not a game
+    // themselves, even when their name or description mentions "game".
+    score -= 35;
+    reasons.push('aggregator/list repo');
+  }
   if (signals.toolHint === true) {
-    score -= 30;
+    score -= 45;
     reasons.push('tool/library repo');
   }
-  const starBonus = Math.min(Math.max(signals.stars, 0), 100) / 5;
-  if (starBonus > 0) {
-    score += starBonus;
-    reasons.push(`${signals.stars} stars`);
+  // Star counts are evidence that a *game* is popular; popular tooling or
+  // aggregator repos would otherwise drown out the actual games.
+  if (signals.toolHint !== true && signals.listHint !== true) {
+    const starBonus = Math.min(Math.max(signals.stars, 0), 100) / 5;
+    if (starBonus > 0) {
+      score += starBonus;
+      reasons.push(`${signals.stars} stars`);
+    }
   }
   return { score: Math.round(score * 10) / 10, reasons };
 }
@@ -96,6 +108,75 @@ export interface Candidate {
   signals: CandidateSignals;
   score: number;
   reasons: string[];
+}
+
+/** Shorter descriptions are too generic to prove two repos are the same game. */
+const CLONE_DESCRIPTION_MIN_LENGTH = 24;
+
+/** Lowercase, strip punctuation/symbols and collapse whitespace. */
+function normalizeCloneText(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Repo name (after `owner/`) + description, or null when too generic. */
+function cloneGroupKey(candidate: Candidate): string | null {
+  const slash = candidate.repo.indexOf('/');
+  const name = slash === -1 ? candidate.repo : candidate.repo.slice(slash + 1);
+  const description = normalizeCloneText(candidate.description ?? '');
+  if (description.length < CLONE_DESCRIPTION_MIN_LENGTH) return null;
+  return `${normalizeCloneText(name)}\u0000${description}`;
+}
+
+/** Best clone first: score, stars, earliest push (the original), repo name. */
+function compareCloneKeep(a: Candidate, b: Candidate): number {
+  if (b.score !== a.score) return b.score - a.score;
+  if (b.stars !== a.stars) return b.stars - a.stars;
+  if (a.pushedAt !== b.pushedAt) {
+    if (a.pushedAt === null) return 1;
+    if (b.pushedAt === null) return -1;
+    return a.pushedAt < b.pushedAt ? -1 : 1;
+  }
+  return a.repo.localeCompare(b.repo);
+}
+
+/**
+ * Collapse the same game pushed to several repos into one candidate.
+ *
+ * Repos are grouped by normalized name + normalized description. Only
+ * descriptions of at least 24 characters participate, so generic text cannot
+ * merge unrelated projects. The best candidate is kept (see
+ * {@link compareCloneKeep}); its reasons gain `N clone(s) merged`, and the
+ * dropped candidates are annotated in place with `duplicate of <repo>` before
+ * being filtered out of the result.
+ */
+export function dedupeClones(candidates: Candidate[]): Candidate[] {
+  const groups = new Map<string, Candidate[]>();
+  for (const candidate of candidates) {
+    const key = cloneGroupKey(candidate);
+    if (key === null) continue;
+    const group = groups.get(key);
+    if (group === undefined) groups.set(key, [candidate]);
+    else group.push(candidate);
+  }
+
+  const dropped = new Set<Candidate>();
+  for (const group of groups.values()) {
+    if (group.length < 2) continue;
+    const [best, ...clones] = [...group].sort(compareCloneKeep);
+    if (best === undefined) continue;
+    for (const clone of clones) {
+      dropped.add(clone);
+      const reason = `duplicate of ${best.repo}`;
+      if (!clone.reasons.includes(reason)) clone.reasons.push(reason);
+    }
+    const merged = `${clones.length} clone(s) merged`;
+    if (!best.reasons.includes(merged)) best.reasons.push(merged);
+  }
+  return candidates.filter((candidate) => !dropped.has(candidate));
 }
 
 export interface DiscoverOptions {
@@ -233,20 +314,59 @@ function rejectedRepos(rootDir: string): Set<string> {
   return new Set(loadRejectedFile(file).map((item) => normalizeUrl(item.repo)));
 }
 
+/**
+ * Detect curated lists / aggregators (awesome-lists, indexes, collections).
+ * These are not a single game, even when their text also mentions "game".
+ */
+function looksLikeList(repo: string, description: string | null): boolean {
+  const slash = repo.lastIndexOf('/');
+  const name = (slash === -1 ? repo : repo.slice(slash + 1)).toLowerCase();
+  // Repo names use separators like `awesome-fable5.2-game`; split them into
+  // words so the English markers respect word boundaries (`playlist` != `list`).
+  const nameWords = name.replace(/[^a-z0-9]+/g, ' ');
+  if (
+    /\b(?:awesome|collection|collections|curated|index|directory|list|catalog|hub)\b/.test(
+      nameWords,
+    )
+  ) {
+    return true;
+  }
+  if (/合集|大全|索引|汇总/.test(name)) return true;
+  if (description === null) return false;
+  const text = description.toLowerCase();
+  if (/\b(?:awesome|curated)\b/.test(text)) return true;
+  if (/\b(?:collection|list|index|catalog|directory)\s+of\b/.test(text)) return true;
+  if (/合集|大全|汇总|索引|收录/.test(description)) return true;
+  // Aggregate claims such as "3031 source-verified games from 2724 repos".
+  if (/\b\d[\d,]*\b[^.]{0,60}?\bgames?\b[^.]{0,20}?\bfrom\b[^.]{0,20}?\b\d[\d,]*\b/i.test(text)) {
+    return true;
+  }
+  return false;
+}
+
 function toCandidate(item: MutableCandidate): Candidate {
   const text = `${item.repo} ${item.description ?? ''}`;
-  const gameHint =
+  const rawGameHint =
     /\b(game|games|webgl|three(?:js)?|fps|shader|canvas|platformer|puzzle|arcade|playable|demo)\b/i.test(
       text,
     );
+  const listHint = looksLikeList(item.repo, item.description);
+  // An awesome-list about games is still a list: it gets the list penalty,
+  // not game-hint credit (and `scoreCandidate` also enforces this).
+  const gameHint = rawGameHint && !listHint;
   const toolHint =
-    (/\b(agents?|assistants?|tools?|toolkit|editors?|coding|sdk|library|framework|documentation|docs|cli|compiler|proxy|api|tokens?|infrastructure|databases?|harness(?:es)?|terminals?|\bide\b|prompts?|leaks?|engineering|chatbots?)\b/i.test(
+    (/\b(agents?|assistants?|tools?|toolkit|editors?|coding|sdk|library|framework|documentation|docs|cli|compiler|proxy|api|gateway|tokens?|infrastructure|databases?|harness(?:es)?|terminals?|\bide\b|prompts?|leaks?|engineering|chatbots?)\b/i.test(
       text,
     ) ||
       /notebook|robotics|research|skills|\btil\b|yolo|segmentation|classification|detection|tracking|benchmark|dataset|awesome/i.test(
         text,
-      )) &&
-    !gameHint;
+      ) ||
+      // Chinese-language tooling repos (API gateways, cracked clients, account
+      // pools) share no English markers; these words are specific enough to
+      // stay clear of game descriptions.
+      /逆向|网关|中转|号池|破解|抓包|注册机|协议兼容|上游服务|接口兼容/.test(text)) &&
+    !rawGameHint &&
+    !listHint;
   const signals: CandidateSignals = {
     sources: [...item.sources].sort(),
     modelIdHit: item.modelIdHit,
@@ -259,6 +379,7 @@ function toCandidate(item: MutableCandidate): Candidate {
     stars: item.stars,
     gameHint,
     toolHint,
+    listHint,
   };
   const { score, reasons } = scoreCandidate(signals);
   return {
@@ -405,8 +526,9 @@ export async function collectCandidates(options: DiscoverOptions): Promise<Candi
     if (!needsReevaluation(seen[item.repo], item.pushedAt)) continue;
     kept.push(toCandidate(item));
   }
-  kept.sort((a, b) => b.score - a.score || b.stars - a.stars || a.repo.localeCompare(b.repo));
-  return kept;
+  const deduped = dedupeClones(kept);
+  deduped.sort((a, b) => b.score - a.score || b.stars - a.stars || a.repo.localeCompare(b.repo));
+  return deduped;
 }
 
 function printCandidates(
