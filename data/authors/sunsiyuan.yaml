@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: sunsiyuan
+name: sunsiyuan
+github: sunsiyuan
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/5067813?v=4
+claimed: false

@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: sunsiyuan--awesome-claude-3d-videos--awesome-claude-3d-videos
+slug: ultramotion-make-the-video-you-just-scrolled-past
+kind: game
+status: published
+title:
+  zh: ultramotion — make the video you just scrolled past
+  en: ultramotion — make the video you just scrolled past
+summary:
+  zh: "Awesome list of 3D scenes, worlds, games and films made by Claude (Opus 5.5, Fable): 500+ code-rendered 3D videos with the original posts and 100+ prompts. Updated on every model launch."
+  en: "Awesome list of 3D scenes, worlds, games and films made by Claude (Opus 5.5, Fable): 500+ code-rendered 3D videos with the original posts and 100+ prompts. Updated on every model launch."
+author: sunsiyuan
+repo:
+  url: https://github.com/sunsiyuan/awesome-claude-3d-videos
+  license: NOASSERTION
+play:
+  url: https://ultramotion.ai/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/sunsiyuan--awesome-claude-3d-videos--awesome-claude-3d-videos/cover.webp
+genre: audio-demo
+tags:
+  - 3d
+  - ai-video
+  - anthropic
+  - awesome
+  - awesome-list
+  - blender
+  - claude
+  - claude-code
+  - opus
+  - threejs
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.5
+  evidence: L1
+  evidence_notes: "README/描述引用：Awesome list of 3D scenes, worlds, games and films made by Claude (Opus 5.5, Fable): 500+ code-rendered 3D videos with the original posts and 100+ prompts. Updated on every model launch. | Claude Fable 5.5 and the next Opus are reported to be close, with early demos in Three.js and Blender. First 3D works from launch day go here."
+generation:
+  prompt_url: https://github.com/sunsiyuan/awesome-claude-3d-videos/blob/main/prompts/0xcodez-474136.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-13
