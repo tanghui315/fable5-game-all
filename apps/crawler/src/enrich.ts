@@ -139,44 +139,52 @@ function promptCandidates(treePaths: readonly string[], entryKey: string): strin
   );
 }
 
-function writeDraftFiles(
-  outDir: string,
+/** Files a draft adds to the data tree, without touching the filesystem. */
+function draftFiles(
   drafts: readonly GameDraft[],
   existingAuthorIds: ReadonlySet<string>,
 ): DraftFile[] {
   const files: DraftFile[] = [];
   const seenAuthors = new Set<string>();
   for (const draft of drafts) {
-    const gamePath = path.join(outDir, 'data', 'games', `${draft.id}.yaml`);
-    mkdirSync(path.dirname(gamePath), { recursive: true });
-    writeFileSync(gamePath, `${GAME_SCHEMA_HEADER}${stringifyYaml(draft.game, { lineWidth: 0 })}`);
-    files.push({
-      path: `data/games/${draft.id}.yaml`,
-      content: `${GAME_SCHEMA_HEADER}${stringifyYaml(draft.game, { lineWidth: 0 })}`,
-    });
-
-    const coverPath = path.join(outDir, draft.coverPath);
-    mkdirSync(path.dirname(coverPath), { recursive: true });
-    writeFileSync(coverPath, draft.coverBytes);
+    const gameText = `${GAME_SCHEMA_HEADER}${stringifyYaml(draft.game, { lineWidth: 0 })}`;
+    files.push({ path: `data/games/${draft.id}.yaml`, content: gameText });
     files.push({ path: draft.coverPath, content: draft.coverBytes });
 
     if (draft.previewPath !== null && draft.previewBytes !== null) {
-      const previewPath = path.join(outDir, draft.previewPath);
-      mkdirSync(path.dirname(previewPath), { recursive: true });
-      writeFileSync(previewPath, draft.previewBytes);
       files.push({ path: draft.previewPath, content: draft.previewBytes });
     }
 
     if (!seenAuthors.has(draft.author.id) && !existingAuthorIds.has(draft.author.id)) {
       seenAuthors.add(draft.author.id);
       const authorText = `${AUTHOR_SCHEMA_HEADER}${stringifyYaml(draft.author, { lineWidth: 0 })}`;
-      const authorPath = path.join(outDir, 'data', 'authors', `${draft.author.id}.yaml`);
-      mkdirSync(path.dirname(authorPath), { recursive: true });
-      writeFileSync(authorPath, authorText);
       files.push({ path: `data/authors/${draft.author.id}.yaml`, content: authorText });
     }
   }
   return files;
+}
+
+function writeDraftFiles(
+  outDir: string,
+  drafts: readonly GameDraft[],
+  existingAuthorIds: ReadonlySet<string>,
+): DraftFile[] {
+  const files = draftFiles(drafts, existingAuthorIds);
+  for (const file of files) {
+    const target = path.join(outDir, file.path);
+    mkdirSync(path.dirname(target), { recursive: true });
+    writeFileSync(target, file.content);
+  }
+  return files;
+}
+
+/**
+ * Entries a candidate PR may include: only URLs the probe actually reached.
+ * Drafts for unreachable entries stay in the local output for debugging but
+ * never enter a branch, where `validate --online` could not pass.
+ */
+export function reachableEntries(entries: readonly ReviewEntry[]): ReviewEntry[] {
+  return entries.filter((item) => item.probe.reachable);
 }
 
 function highestEvidence(entries: readonly ReviewEntry[]): string {
@@ -509,45 +517,70 @@ async function finishEnrichment(input: FinishInput): Promise<EnrichResult> {
 
   const outDir = options.outDir ?? mkdtempSync(path.join(os.tmpdir(), 'fable5-crawler-'));
   mkdirSync(outDir, { recursive: true });
-  const files = mergeAuthorFiles(
-    writeDraftFiles(outDir, drafts, authorExists ? new Set([authorId]) : new Set()),
-  );
+  writeDraftFiles(outDir, drafts, authorExists ? new Set([authorId]) : new Set());
   writeFileSync(path.join(outDir, 'review.md'), reviewMarkdown);
   log(`enrich: wrote ${drafts.length} draft(s) to ${outDir}`);
 
   let pr: EnrichResult['pr'] = null;
   if (options.pr === true) {
-    const repository = process.env.GITHUB_REPOSITORY;
-    if (repository === undefined || !repository.includes('/')) {
-      throw new Error('GITHUB_REPOSITORY must be set (owner/repo) when using --pr');
+    // A PR is only worth opening when at least one entry actually loads:
+    // `validate --online` fetches every play.url, so an unreachable entry
+    // makes the check red no matter what a reviewer does.
+    const prEntries = reachableEntries(reviewEntries);
+    const excluded = reviewEntries.filter((item) => !item.probe.reachable);
+    if (prEntries.length === 0) {
+      log('enrich: no reachable entries — candidate PR skipped');
+    } else {
+      const repository = process.env.GITHUB_REPOSITORY;
+      if (repository === undefined || !repository.includes('/')) {
+        throw new Error('GITHUB_REPOSITORY must be set (owner/repo) when using --pr');
+      }
+      const [targetOwner, targetRepo] = repository.split('/');
+      if (targetOwner === undefined || targetRepo === undefined) {
+        throw new Error(`invalid GITHUB_REPOSITORY: ${repository}`);
+      }
+      const prDrafts = prEntries.map((item) => item.draft);
+      const prFiles = mergeAuthorFiles(
+        draftFiles(prDrafts, authorExists ? new Set([authorId]) : new Set()),
+      );
+      const prMarkdown = buildReviewMarkdown({
+        owner,
+        repo: repoName,
+        repoUrl: input.repoUrlValue,
+        description: input.metadata?.description ?? null,
+        stars: input.metadata?.stars ?? null,
+        license: input.metadata?.license ?? null,
+        entries: prEntries,
+        excluded,
+        issueNumber: options.issueNumber ?? null,
+        generatedAt: discoveredAt,
+      });
+      const labels = dedupeStrings([
+        'candidate',
+        `evidence:${highestEvidence(prEntries)}`,
+        ...prEntries.map((item) => `kind:${item.draft.game.kind}`),
+      ]);
+      const branchName = candidateBranchName(owner, repoName);
+      const result = await createCandidatePr({
+        client: input.octokit,
+        owner: targetOwner,
+        repo: targetRepo,
+        branch: branchName,
+        files: prFiles,
+        title: `Candidate: ${owner}/${repoName} (${prDrafts.length} entr${
+          prDrafts.length === 1 ? 'y' : 'ies'
+        })`,
+        body: prMarkdown,
+        labels,
+      });
+      pr = {
+        number: result.number,
+        url: result.url,
+        branch: result.branch,
+        created: result.created,
+      };
+      log(`enrich: ${result.created ? 'opened' : 'updated'} PR ${result.url}`);
     }
-    const [targetOwner, targetRepo] = repository.split('/');
-    if (targetOwner === undefined || targetRepo === undefined) {
-      throw new Error(`invalid GITHUB_REPOSITORY: ${repository}`);
-    }
-    const labels = dedupeStrings([
-      'candidate',
-      `evidence:${highestEvidence(reviewEntries)}`,
-      ...reviewEntries.map((item) => `kind:${item.draft.game.kind}`),
-    ]);
-    const branchName = candidateBranchName(owner, repoName);
-    const result = await createCandidatePr({
-      client: input.octokit,
-      owner: targetOwner,
-      repo: targetRepo,
-      branch: branchName,
-      files,
-      title: `Candidate: ${owner}/${repoName} (${drafts.length} entr${drafts.length === 1 ? 'y' : 'ies'})`,
-      body: reviewMarkdown,
-      labels,
-    });
-    pr = {
-      number: result.number,
-      url: result.url,
-      branch: result.branch,
-      created: result.created,
-    };
-    log(`enrich: ${result.created ? 'opened' : 'updated'} PR ${result.url}`);
   }
 
   return {

@@ -7,6 +7,10 @@
 候选 PR 由 `submission.yml`（投稿）或 `discover.yml`（自动发现）创建，正文就是 crawler 生成的
 `review.md`。一个仓库一个 PR；同一仓库有新提交时会更新原 PR，不会重复开。
 
+PR 里只会放进探测能打开的入口：`play.url` 404 或打不开的条目会列在正文的「已排除」里，
+不写进分支，也不开 PR（一个都打不开时直接跳过，日志里会写 `no reachable entries`）。
+这样 `validate --online` 的红色永远代表真的有问题，而不是「作者还没部署」。
+
 逐项检查：
 
 1. **PR 正文与标签**：有 `candidate`、`evidence:L1/L2/L3`、`kind:game|demo`；正文含入口表格、
