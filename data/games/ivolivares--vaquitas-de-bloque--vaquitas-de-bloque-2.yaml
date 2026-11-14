@@ -34,5 +34,5 @@ model:
   evidence: L1
   evidence_notes: README/描述引用：Just for fun Claude Fable 5.2 game.
 source:
-  discovered_by: github-search
+  discovered_by: manual
   discovered_at: 2026-11-14
