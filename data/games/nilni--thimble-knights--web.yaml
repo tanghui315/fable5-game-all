@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/nilni--thimble-knights--web/cover.webp
+  preview: media/nilni--thimble-knights--web/preview.webp
 genre: card-battle
 tags:
   - fable

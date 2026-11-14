@@ -21,6 +21,7 @@ play:
 
 media:
   cover: media/fedifianto--shuttlestrike--shuttlestrike/cover.webp
+  preview: media/fedifianto--shuttlestrike--shuttlestrike/preview.webp
 
 genre: sports
 tags: [badminton, first-person, webcam, motion-control, webgl]

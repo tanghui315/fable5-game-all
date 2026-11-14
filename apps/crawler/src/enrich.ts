@@ -15,6 +15,7 @@ import {
 import { reviewEntry, type AiContext } from './ai.js';
 import { readConfig, type CrawlerConfig } from './config.js';
 import { buildGameDraft, type GameDraft } from './draft.js';
+import { DEFAULT_PREVIEW } from './preview.js';
 import {
   branchExists,
   createOctokit,
@@ -52,6 +53,8 @@ export interface EnrichOptions {
   outDir?: string | undefined;
   pr?: boolean;
   useAi?: boolean;
+  /** Record an animated preview for every entry (default true). */
+  preview?: boolean;
   force?: boolean;
   issueNumber?: number | null;
   discoveredBy?: DiscoveredBy;
@@ -156,6 +159,13 @@ function writeDraftFiles(
     mkdirSync(path.dirname(coverPath), { recursive: true });
     writeFileSync(coverPath, draft.coverBytes);
     files.push({ path: draft.coverPath, content: draft.coverBytes });
+
+    if (draft.previewPath !== null && draft.previewBytes !== null) {
+      const previewPath = path.join(outDir, draft.previewPath);
+      mkdirSync(path.dirname(previewPath), { recursive: true });
+      writeFileSync(previewPath, draft.previewBytes);
+      files.push({ path: draft.previewPath, content: draft.previewBytes });
+    }
 
     if (!seenAuthors.has(draft.author.id) && !existingAuthorIds.has(draft.author.id)) {
       seenAuthors.add(draft.author.id);
@@ -401,11 +411,17 @@ async function finishEnrichment(input: FinishInput): Promise<EnrichResult> {
       continue;
     }
     log(`enrich: probing ${entry.playUrl}`);
-    const probe: ProbeResult = await probeEntry(entry.playUrl, { config: config.probe });
+    const probe: ProbeResult = await probeEntry(entry.playUrl, {
+      config: config.probe,
+      preview: options.preview !== false ? DEFAULT_PREVIEW : null,
+    });
     log(
       `enrich: ${entry.path || '.'} HTTP ${probe.status ?? '—'} ` +
         `reachable=${probe.reachable} embeddable=${probe.embeddable} ` +
-        `consoleErrors=${probe.consoleErrors.length} cover=${Math.round(probe.coverBytes / 1024)}KB`,
+        `consoleErrors=${probe.consoleErrors.length} cover=${Math.round(probe.coverBytes / 1024)}KB` +
+        (probe.previewBytes > 0
+          ? ` preview=${Math.round(probe.previewBytes / 1024)}KB motion=${probe.previewMotion.toFixed(1)}`
+          : ''),
     );
     const context: AiContext = {
       owner,

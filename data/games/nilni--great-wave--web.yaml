@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/nilni--great-wave--web/cover.webp
+  preview: media/nilni--great-wave--web/preview.webp
 genre: adventure
 tags:
   - fable

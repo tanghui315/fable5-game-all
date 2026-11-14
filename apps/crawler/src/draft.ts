@@ -19,7 +19,10 @@ export interface DraftInput {
   license: string | null;
   branch: string;
   entry: PlayableEntry;
-  probe: Pick<ProbeResult, 'embeddable' | 'coverWebp'>;
+  probe: Pick<ProbeResult, 'embeddable' | 'coverWebp'> & {
+    previewWebp?: Buffer | null;
+    previewStatic?: boolean;
+  };
   review: EntryReview;
   modelName: string;
   discoveredBy: DiscoveredBy;
@@ -41,6 +44,9 @@ export interface GameDraft {
   slug: string;
   coverPath: string;
   coverBytes: Buffer;
+  /** Animated preview, when the probe recorded real motion. */
+  previewPath: string | null;
+  previewBytes: Buffer | null;
 }
 
 export function gameId(owner: string, repo: string, entryKey: string): string {
@@ -108,6 +114,8 @@ export function buildGameDraft(input: DraftInput): GameDraft {
     ...(review.duration_min !== undefined ? { duration_min: review.duration_min } : {}),
   };
   const generation = Object.keys(generationValues).length > 0 ? generationValues : undefined;
+  const previewBytes = input.probe.previewWebp ?? null;
+  const hasPreview = previewBytes !== null && input.probe.previewStatic !== true;
   const evidenceNotes =
     review.evidence_quotes.length > 0
       ? `README/描述引用：${review.evidence_quotes.join(' | ')}`.slice(0, 500)
@@ -159,6 +167,7 @@ export function buildGameDraft(input: DraftInput): GameDraft {
     },
     media: {
       cover: `media/${id}/cover.webp`,
+      ...(hasPreview ? { preview: `media/${id}/preview.webp` } : {}),
     },
     genre: review.genre,
     tags: review.tags,
@@ -185,5 +194,7 @@ export function buildGameDraft(input: DraftInput): GameDraft {
     slug,
     coverPath: `media/${id}/cover.webp`,
     coverBytes: input.probe.coverWebp,
+    previewPath: hasPreview ? `media/${id}/preview.webp` : null,
+    previewBytes: hasPreview ? previewBytes : null,
   };
 }

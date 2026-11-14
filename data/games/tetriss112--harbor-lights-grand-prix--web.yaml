@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/tetriss112--harbor-lights-grand-prix--web/cover.webp
+  preview: media/tetriss112--harbor-lights-grand-prix--web/preview.webp
 genre: driving
 tags:
   - fable

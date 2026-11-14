@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/petergyang--turbo-tails--web/cover.webp
+  preview: media/petergyang--turbo-tails--web/preview.webp
 genre: driving
 tags:
   - fable

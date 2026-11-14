@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/jev-chat--cloud-stunt-3d--web/cover.webp
+  preview: media/jev-chat--cloud-stunt-3d--web/preview.webp
 genre: arcade
 tags:
   - fable

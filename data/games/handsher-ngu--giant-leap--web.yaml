@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/handsher-ngu--giant-leap--web/cover.webp
+  preview: media/handsher-ngu--giant-leap--web/preview.webp
 genre: arcade
 tags:
   - fable

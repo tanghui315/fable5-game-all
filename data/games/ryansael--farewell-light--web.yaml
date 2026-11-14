@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/ryansael--farewell-light--web/cover.webp
+  preview: media/ryansael--farewell-light--web/preview.webp
 genre: action
 tags:
   - fable

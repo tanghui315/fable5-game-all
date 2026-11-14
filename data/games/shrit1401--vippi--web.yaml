@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/shrit1401--vippi--web/cover.webp
+  preview: media/shrit1401--vippi--web/preview.webp
 genre: horror
 tags:
   - fable

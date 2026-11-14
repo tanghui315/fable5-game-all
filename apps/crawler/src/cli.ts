@@ -3,9 +3,11 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { Command } from 'commander';
 import type { DiscoveredBy } from '@fable5/schema';
+import { backfillPreviews } from './backfill-preview.js';
 import { discover } from './discover.js';
 import { enrich, findRepoRoot } from './enrich.js';
 import { healthCheck } from './health.js';
+import { DEFAULT_PREVIEW } from './preview.js';
 import { rejectFromPr } from './reject.js';
 import { processSubmission } from './submission.js';
 
@@ -47,6 +49,7 @@ program
   .option('--root <dir>', 'repository root used for dedupe/state (default: discovered from cwd)')
   .option('--pr', 'commit drafts to a candidate branch and open/update a PR', false)
   .option('--no-ai', 'skip AI review and use deterministic heuristics')
+  .option('--no-preview', 'skip recording the animated preview')
   .option('--force', 're-evaluate even when seen.json says the revision is processed', false)
   .option('--issue <number>', 'submission issue number to reference in the PR body')
   .option('--discovered-by <kind>', 'seed | github-search | submission | hn | manual')
@@ -59,6 +62,7 @@ program
       outDir: typeof options.out === 'string' ? path.resolve(options.out) : undefined,
       pr: options.pr === true,
       useAi: options.ai !== false,
+      preview: options.preview !== false,
       force: options.force === true,
       issueNumber: parseIssueNumber(typeof options.issue === 'string' ? options.issue : undefined),
       discoveredBy: discoveredBy(
@@ -95,6 +99,44 @@ program
           `${result.processed.filter((item) => item.pr !== null).length} PR(s)`,
       );
     }
+  });
+
+program
+  .command('preview')
+  .description('Record an animated preview for entries that do not have one yet')
+  .option('--root <dir>', 'repository root (default: discovered from cwd)')
+  .option('--id <id...>', 'only these game ids')
+  .option('--kind <kind>', 'game | demo | all', 'game')
+  .option('--limit <number>', 'stop after N entries')
+  .option('--concurrency <number>', 'pages recorded in parallel', '3')
+  .option('--seconds <number>', 'preview length in seconds')
+  .option('--fps <number>', 'frames per second')
+  .option('--force', 're-record entries that already have a preview', false)
+  .option('--headed', 'open real browser windows (WebGL-heavy entries)', false)
+  .option('--dry-run', 'list the candidates without recording', false)
+  .action(async (options: Record<string, unknown>) => {
+    const kind = String(options.kind ?? 'game');
+    if (kind !== 'game' && kind !== 'demo' && kind !== 'all') {
+      throw new Error(`invalid --kind: ${kind}`);
+    }
+    const preview = { ...DEFAULT_PREVIEW };
+    if (typeof options.seconds === 'string') preview.seconds = Number(options.seconds);
+    if (typeof options.fps === 'string') preview.fps = Number(options.fps);
+    const result = await backfillPreviews({
+      rootDir:
+        typeof options.root === 'string' ? path.resolve(options.root) : findRepoRoot(process.cwd()),
+      ids: Array.isArray(options.id) ? (options.id as string[]) : [],
+      kind,
+      limit: options.limit === undefined ? undefined : Number(options.limit),
+      concurrency: Number(options.concurrency ?? 3),
+      force: options.force === true,
+      dryRun: options.dryRun === true,
+      headed: options.headed === true,
+      preview,
+    });
+    if (result.failed.length > 0) process.exitCode = 1;
+    // Playwright keeps handles alive after a wedged page; do not wait on them.
+    setTimeout(() => process.exit(process.exitCode ?? 0), 250).unref();
   });
 
 program

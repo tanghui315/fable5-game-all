@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/goncalo-canhoto--cozy-bakery--web/cover.webp
+  preview: media/goncalo-canhoto--cozy-bakery--web/preview.webp
 genre: co-op
 tags:
   - fable

@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/nilni--handful-island-god--web/cover.webp
+  preview: media/nilni--handful-island-god--web/preview.webp
 genre: puzzle
 tags:
   - fable

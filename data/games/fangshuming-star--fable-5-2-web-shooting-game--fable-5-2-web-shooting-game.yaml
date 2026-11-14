@@ -18,6 +18,7 @@ play:
   mirror_url: null
 media:
   cover: media/fangshuming-star--fable-5-2-web-shooting-game--fable-5-2-web-shooting-game/cover.webp
+  preview: media/fangshuming-star--fable-5-2-web-shooting-game--fable-5-2-web-shooting-game/preview.webp
 genre: shooter
 tags:
   - fable

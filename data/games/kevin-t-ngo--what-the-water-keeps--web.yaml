@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/kevin-t-ngo--what-the-water-keeps--web/cover.webp
+  preview: media/kevin-t-ngo--what-the-water-keeps--web/preview.webp
 genre: adventure
 tags:
   - fable

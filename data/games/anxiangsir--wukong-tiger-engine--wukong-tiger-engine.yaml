@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/anxiangsir--wukong-tiger-engine--wukong-tiger-engine/cover.webp
+  preview: media/anxiangsir--wukong-tiger-engine--wukong-tiger-engine/preview.webp
 genre: action
 tags:
   - fable

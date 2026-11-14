@@ -214,7 +214,8 @@ claimed: false        # 作者是否认领过（P2）
 3. **找可玩入口**：`homepageUrl`、gh-pages 分支、仓库里的 `**/index.html`（排除 `node_modules`、构建产物），推算出 Pages 地址。
 4. **Playwright 探测**（对每个入口）：
    - HTTP 是否可达；响应头 `X-Frame-Options`、CSP `frame-ancestors` 是否禁止嵌入；
-   - 等待渲染后截图做封面，录几秒做动态预览（WebP，封面 ≤150 KB，预览 ≤1 MB）；
+   - 等待渲染后截图做封面，录几秒做动态预览（WebP，封面 ≤150 KB，预览 ≤1 MB；整段没有运动的
+     直接丢弃，`--no-preview` 可关；历史条目用 `crawler preview` 补录）；
    - 记录控制台报错和外部请求域名（用来发现可疑外联）。
 5. **AI 预审**：把 README 摘要、目录结构、探测结果交给 Claude，要求**结构化输出**：
    - `kind`（game / demo / 非游戏）、`genre`、`tags`、`controls`、`mobile`

@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/mylifcc--tilt-labyrinth--web/cover.webp
+  preview: media/mylifcc--tilt-labyrinth--web/preview.webp
 genre: puzzle
 tags:
   - fable

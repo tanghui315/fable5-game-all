@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/goncalo-canhoto--cozy-lisbon--web/cover.webp
+  preview: media/goncalo-canhoto--cozy-lisbon--web/preview.webp
 genre: adventure
 tags:
   - fable

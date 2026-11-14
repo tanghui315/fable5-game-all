@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/global-techgirl--save-the-world--web/cover.webp
+  preview: media/global-techgirl--save-the-world--web/preview.webp
 genre: adventure
 tags:
   - fable

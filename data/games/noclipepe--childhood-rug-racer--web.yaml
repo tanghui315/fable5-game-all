@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/noclipepe--childhood-rug-racer--web/cover.webp
+  preview: media/noclipepe--childhood-rug-racer--web/preview.webp
 genre: driving
 tags:
   - fable

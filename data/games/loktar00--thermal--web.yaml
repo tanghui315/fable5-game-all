@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/loktar00--thermal--web/cover.webp
+  preview: media/loktar00--thermal--web/preview.webp
 genre: arcade
 tags:
   - fable

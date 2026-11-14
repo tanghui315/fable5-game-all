@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/blendibyl--patchwork-quilt--web/cover.webp
+  preview: media/blendibyl--patchwork-quilt--web/preview.webp
 genre: adventure
 tags:
   - fable

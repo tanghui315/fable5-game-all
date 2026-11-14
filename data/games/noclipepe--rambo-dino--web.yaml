@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/noclipepe--rambo-dino--web/cover.webp
+  preview: media/noclipepe--rambo-dino--web/preview.webp
 genre: runner
 tags:
   - fable

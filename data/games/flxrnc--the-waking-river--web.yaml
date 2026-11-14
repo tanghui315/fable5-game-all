@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/flxrnc--the-waking-river--web/cover.webp
+  preview: media/flxrnc--the-waking-river--web/preview.webp
 genre: adventure
 tags:
   - fable

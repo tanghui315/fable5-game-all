@@ -22,6 +22,7 @@ play:
 
 media:
   cover: media/op7418--guizang-game-skill--guizang-game-skill/cover.webp
+  preview: media/op7418--guizang-game-skill--guizang-game-skill/preview.webp
 
 genre: action
 tags: [wuxia, threejs, webgl, boss-fight, single-file]

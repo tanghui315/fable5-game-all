@@ -22,6 +22,7 @@ play:
 
 media:
   cover: media/themizeguy--fable-5-2-potatobench--fable-5-2-potatobench/cover.webp
+  preview: media/themizeguy--fable-5-2-potatobench--fable-5-2-potatobench/preview.webp
 
 genre: strategy
 tags: [farming, management, economy, single-file, browser]

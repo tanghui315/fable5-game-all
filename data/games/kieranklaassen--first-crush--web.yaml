@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/kieranklaassen--first-crush--web/cover.webp
+  preview: media/kieranklaassen--first-crush--web/preview.webp
 genre: simulation
 tags:
   - fable

@@ -21,6 +21,7 @@ play:
 
 media:
   cover: media/dndnoob--emberdeep--emberdeep/cover.webp
+  preview: media/dndnoob--emberdeep--emberdeep/preview.webp
 
 genre: dungeon-crawler
 tags: [first-person, roguelike, procedural, dungeon-crawler, single-file]

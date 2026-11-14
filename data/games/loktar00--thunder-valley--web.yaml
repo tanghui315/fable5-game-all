@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/loktar00--thunder-valley--web/cover.webp
+  preview: media/loktar00--thunder-valley--web/preview.webp
 genre: action
 tags:
   - fable

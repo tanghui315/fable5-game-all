@@ -7,6 +7,7 @@ import { chromium, type Browser } from 'playwright';
 import sharp from 'sharp';
 import type { ProbeConfig } from './config.js';
 import { parseEmbeddable } from './embeddable.js';
+import { recordPreview, type PreviewConfig } from './preview.js';
 import { hostOf } from './util.js';
 
 export interface ProbeResult {
@@ -18,6 +19,12 @@ export interface ProbeResult {
   title: string | null;
   coverWebp: Buffer;
   coverBytes: number;
+  /** Animated preview frames, when the probe was asked to record them. */
+  previewWebp: Buffer | null;
+  previewBytes: number;
+  /** Motion score of the recording; a static clip is discarded by callers. */
+  previewMotion: number;
+  previewStatic: boolean;
   consoleErrors: string[];
   externalHosts: string[];
   elapsedMs: number;
@@ -90,15 +97,25 @@ export function findChromiumExecutable(): string | undefined {
 }
 
 let cachedBrowser: Browser | null = null;
+let cachedHeadless: boolean | null = null;
 
-async function getBrowser(): Promise<Browser> {
-  if (cachedBrowser !== null && cachedBrowser.isConnected()) return cachedBrowser;
+async function getBrowser(headless = true): Promise<Browser> {
+  if (cachedBrowser !== null && cachedBrowser.isConnected() && cachedHeadless === headless) {
+    return cachedBrowser;
+  }
+  if (cachedBrowser !== null) {
+    await cachedBrowser.close().catch(() => undefined);
+    cachedBrowser = null;
+  }
   const executablePath = findChromiumExecutable();
   cachedBrowser = await chromium.launch({
-    headless: true,
+    headless,
     ...(executablePath !== undefined ? { executablePath } : {}),
-    args: SWIFTSHADER_ARGS,
+    // SwiftShader keeps headless runs deterministic; a real window should use
+    // the GPU, otherwise heavy scenes render at a crawl.
+    args: headless ? SWIFTSHADER_ARGS : ['--disable-dev-shm-usage'],
   });
+  cachedHeadless = headless;
   return cachedBrowser;
 }
 
@@ -199,6 +216,10 @@ interface ProbeOptions {
   config: ProbeConfig;
   /** Extra wait after the first non-black frame (ms). */
   settleMs?: number;
+  /** Record an animated preview; `null`/omitted skips it. */
+  preview?: PreviewConfig | null;
+  /** Run a real browser window (needed by a few WebGL-heavy entries). */
+  headless?: boolean;
 }
 
 /** Probe one playable URL. Never throws; failures are reported in the result. */
@@ -209,7 +230,7 @@ export async function probeEntry(url: string, options: ProbeOptions): Promise<Pr
   const externalHosts = new Set<string>();
   let browser: Browser;
   try {
-    browser = await getBrowser();
+    browser = await getBrowser(options.headless ?? true);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const cover = await makeFallbackCover(new URL(url).pathname, config, 'browser launch failed');
@@ -222,6 +243,10 @@ export async function probeEntry(url: string, options: ProbeOptions): Promise<Pr
       title: null,
       coverWebp: cover,
       coverBytes: cover.length,
+      previewWebp: null,
+      previewBytes: 0,
+      previewMotion: 0,
+      previewStatic: false,
       consoleErrors: [],
       externalHosts: [],
       elapsedMs: Date.now() - started,
@@ -301,6 +326,11 @@ export async function probeEntry(url: string, options: ProbeOptions): Promise<Pr
 
   const title = await page.title().catch(() => null);
   const verdict = parseEmbeddable(headers);
+
+  let preview: Awaited<ReturnType<typeof recordPreview>> = null;
+  if (reachable && screenshot !== null && options.preview) {
+    preview = await recordPreview(page, options.preview).catch(() => null);
+  }
   await context.close().catch(() => undefined);
 
   const cover =
@@ -322,6 +352,10 @@ export async function probeEntry(url: string, options: ProbeOptions): Promise<Pr
     title: finalTitle,
     coverWebp: cover,
     coverBytes: cover.length,
+    previewWebp: preview?.webp ?? null,
+    previewBytes: preview?.bytes ?? 0,
+    previewMotion: preview?.motion ?? 0,
+    previewStatic: preview?.static ?? false,
     consoleErrors,
     externalHosts: [...externalHosts].sort(),
     elapsedMs: Date.now() - started,

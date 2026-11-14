@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/rehan-shei--ringfall--web/cover.webp
+  preview: media/rehan-shei--ringfall--web/preview.webp
 genre: shooter
 tags:
   - fable

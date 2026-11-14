@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/mattshumer--mirror-earth--web/cover.webp
+  preview: media/mattshumer--mirror-earth--web/preview.webp
 genre: sandbox
 tags:
   - fable

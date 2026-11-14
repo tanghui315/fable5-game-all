@@ -38,6 +38,22 @@
      改完等 validate 重新通过再合并。
 8. **合并 = 上架**。PR 正文里的 `Closes #N` 会自动关闭投稿 Issue；合并后 deploy 会自动更新站点。
 
+## 动图预览
+
+`media.preview` 是首页大图和卡片悬停时播放的 5 秒动画（640×400，≤1 MB）。`crawler enrich` 默认会录，
+`--no-preview` 关掉；录完如果整段没有运动（标题页、还在加载），会直接丢弃，不会写进 YAML。
+
+历史条目补录：
+
+```bash
+pnpm --filter crawler crawler preview --headed --concurrency 3
+```
+
+- `--headed` 用真实窗口和 GPU，加载快、WebGL 作品也能录；无头模式只适合轻量页面。
+- `--dry-run` 先看会处理哪些条目；`--id <id>` 只补指定的几个；`--kind all` 连 demo 一起补。
+- 失败的（例如资源太大、headless 下渲染卡死）会列在最后的 `failed` 计数里，换 `--headed` 重跑即可。
+
+
 ## 驳回
 
 1. 在 PR 上先加 `rejected`，再**加且只加一个** `reason:*` 标签：

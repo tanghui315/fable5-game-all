@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/lexnlin--feed-the-backrooms--web/cover.webp
+  preview: media/lexnlin--feed-the-backrooms--web/preview.webp
 genre: horror
 tags:
   - fable

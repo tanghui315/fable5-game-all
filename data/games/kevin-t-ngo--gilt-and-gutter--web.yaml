@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/kevin-t-ngo--gilt-and-gutter--web/cover.webp
+  preview: media/kevin-t-ngo--gilt-and-gutter--web/preview.webp
 genre: shooter
 tags:
   - fable

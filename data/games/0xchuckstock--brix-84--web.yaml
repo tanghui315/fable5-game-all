@@ -16,6 +16,7 @@ play:
   mirror_url: null
 media:
   cover: media/0xchuckstock--brix-84--web/cover.webp
+  preview: media/0xchuckstock--brix-84--web/preview.webp
 genre: arcade
 tags:
   - fable
