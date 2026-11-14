@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: gavilanbe--makinamon-pulso--makinamon-pulso
+slug: makinamon-versio-n-pulso
+kind: game
+status: published
+title:
+  zh: MAKINAMON · Versión Pulso
+  en: MAKINAMON · Versión Pulso
+summary:
+  zh: "🔋 MAKINAMON · Versión Pulso — RPG de criaturas-máquina estilo Game Boy Color: 10 capítulos, 50 Makinamon, 50 ataques con animación propia y un compañero que te sigue. Hecho con Claude Fable 5.2"
+  en: "🔋 MAKINAMON · Versión Pulso — RPG de criaturas-máquina estilo Game Boy Color: 10 capítulos, 50 Makinamon, 50 ataques con animación propia y un compañero que te sigue. Hecho con Claude Fable 5.2"
+author: gavilanbe
+repo:
+  url: https://github.com/gavilanbe/makinamon-pulso
+play:
+  url: https://gavilanbe.github.io/makinamon-pulso/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/gavilanbe--makinamon-pulso--makinamon-pulso/cover.webp
+genre: procedural-demo
+tags:
+  - makinamon
+  - pulso
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README/描述引用：🔋 MAKINAMON · Versión Pulso — RPG de criaturas-máquina estilo Game Boy Color: 10 capítulos, 50 Makinamon, 50 ataques con animación propia y un compañero que te sigue. Hecho con Claude Fable 5.2 | Hecho con Claude Fable 5.2."
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-14
