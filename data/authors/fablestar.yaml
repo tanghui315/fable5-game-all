@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: fablestar
+name: fablestar
+github: fablestar
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/355451609?v=4
+claimed: false
