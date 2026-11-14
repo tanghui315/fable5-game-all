@@ -407,88 +407,92 @@ async function finishEnrichment(input: FinishInput): Promise<EnrichResult> {
   const authorId = idSegment(owner);
   const authorExists = safeExistingAuthorIds(input.rootDir).has(authorId);
 
-  for (const entry of entries) {
-    const repoPathKey =
-      input.repoUrlValue === null ? null : `${normalizeUrl(input.repoUrlValue)}#${entry.path}`;
-    if (repoPathKey !== null && existingRepoPaths.has(repoPathKey)) {
-      log(`enrich: skip ${entry.path || '.'} — already in data/games`);
-      continue;
+  try {
+    for (const entry of entries) {
+      const repoPathKey =
+        input.repoUrlValue === null ? null : `${normalizeUrl(input.repoUrlValue)}#${entry.path}`;
+      if (repoPathKey !== null && existingRepoPaths.has(repoPathKey)) {
+        log(`enrich: skip ${entry.path || '.'} — already in data/games`);
+        continue;
+      }
+      if (existingPlayUrls.has(normalizeUrl(entry.playUrl))) {
+        log(`enrich: skip ${entry.path || '.'} — play.url already in data/games`);
+        continue;
+      }
+      log(`enrich: probing ${entry.playUrl}`);
+      const probe: ProbeResult = await probeEntry(entry.playUrl, {
+        config: config.probe,
+        preview: options.preview !== false ? DEFAULT_PREVIEW : null,
+      });
+      log(
+        `enrich: ${entry.path || '.'} HTTP ${probe.status ?? '—'} ` +
+          `reachable=${probe.reachable} embeddable=${probe.embeddable} ` +
+          `consoleErrors=${probe.consoleErrors.length} cover=${Math.round(probe.coverBytes / 1024)}KB` +
+          (probe.previewBytes > 0
+            ? ` preview=${Math.round(probe.previewBytes / 1024)}KB motion=${probe.previewMotion.toFixed(1)}`
+            : ''),
+      );
+      const context: AiContext = {
+        owner,
+        repo: repoName,
+        branch: input.branch,
+        repoName,
+        description: input.metadata?.description ?? null,
+        readme: input.readme,
+        topics: input.metadata?.topics ?? [],
+        entryKey: entry.key,
+        entryPath: entry.path,
+        pageTitle: probe.title,
+        probe,
+        promptCandidates: promptCandidates(input.promptTreePaths, entry.key),
+        submissionEvidence: options.submissionEvidence ?? null,
+        playUrl: entry.playUrl,
+        embedReason: probe.embedReason,
+        status: probe.status,
+        consoleErrors: probe.consoleErrors,
+        externalHosts: probe.externalHosts,
+      };
+      const outcome = await reviewEntry(context, {
+        useAi: input.useAi,
+        aiConfig: config.ai,
+        ...(apiKey !== undefined ? { apiKey } : {}),
+      });
+      if (outcome.review.kind === 'not-game') {
+        log(`enrich: skip ${entry.path || '.'} — AI classified it as not-game`);
+        continue;
+      }
+      const draft = buildGameDraft({
+        owner,
+        repoName,
+        repoUrlValue: input.repoUrlValue,
+        license: input.metadata?.license ?? null,
+        branch: input.branch,
+        entry,
+        probe,
+        review: outcome.review,
+        modelName,
+        discoveredBy,
+        discoveredAt: discoveredAt.toISOString().slice(0, 10),
+        reservedSlugs,
+        ownerProfile: input.metadata?.ownerProfile,
+      });
+      drafts.push(draft);
+      reviewEntries.push({
+        entryKey: entry.key,
+        path: entry.path,
+        playUrl: entry.playUrl,
+        probe,
+        review: outcome.review,
+        draft,
+        reviewMode: outcome.mode,
+        note: outcome.note,
+      });
     }
-    if (existingPlayUrls.has(normalizeUrl(entry.playUrl))) {
-      log(`enrich: skip ${entry.path || '.'} — play.url already in data/games`);
-      continue;
-    }
-    log(`enrich: probing ${entry.playUrl}`);
-    const probe: ProbeResult = await probeEntry(entry.playUrl, {
-      config: config.probe,
-      preview: options.preview !== false ? DEFAULT_PREVIEW : null,
-    });
-    log(
-      `enrich: ${entry.path || '.'} HTTP ${probe.status ?? '—'} ` +
-        `reachable=${probe.reachable} embeddable=${probe.embeddable} ` +
-        `consoleErrors=${probe.consoleErrors.length} cover=${Math.round(probe.coverBytes / 1024)}KB` +
-        (probe.previewBytes > 0
-          ? ` preview=${Math.round(probe.previewBytes / 1024)}KB motion=${probe.previewMotion.toFixed(1)}`
-          : ''),
-    );
-    const context: AiContext = {
-      owner,
-      repo: repoName,
-      branch: input.branch,
-      repoName,
-      description: input.metadata?.description ?? null,
-      readme: input.readme,
-      topics: input.metadata?.topics ?? [],
-      entryKey: entry.key,
-      entryPath: entry.path,
-      pageTitle: probe.title,
-      probe,
-      promptCandidates: promptCandidates(input.promptTreePaths, entry.key),
-      submissionEvidence: options.submissionEvidence ?? null,
-      playUrl: entry.playUrl,
-      embedReason: probe.embedReason,
-      status: probe.status,
-      consoleErrors: probe.consoleErrors,
-      externalHosts: probe.externalHosts,
-    };
-    const outcome = await reviewEntry(context, {
-      useAi: input.useAi,
-      aiConfig: config.ai,
-      ...(apiKey !== undefined ? { apiKey } : {}),
-    });
-    if (outcome.review.kind === 'not-game') {
-      log(`enrich: skip ${entry.path || '.'} — AI classified it as not-game`);
-      continue;
-    }
-    const draft = buildGameDraft({
-      owner,
-      repoName,
-      repoUrlValue: input.repoUrlValue,
-      license: input.metadata?.license ?? null,
-      branch: input.branch,
-      entry,
-      probe,
-      review: outcome.review,
-      modelName,
-      discoveredBy,
-      discoveredAt: discoveredAt.toISOString().slice(0, 10),
-      reservedSlugs,
-      ownerProfile: input.metadata?.ownerProfile,
-    });
-    drafts.push(draft);
-    reviewEntries.push({
-      entryKey: entry.key,
-      path: entry.path,
-      playUrl: entry.playUrl,
-      probe,
-      review: outcome.review,
-      draft,
-      reviewMode: outcome.mode,
-      note: outcome.note,
-    });
+  } finally {
+    // A throw mid-loop must not leave Playwright's browser alive: its open
+    // handle keeps the process (and a CI job) running until the job timeout.
+    await closeBrowser().catch(() => undefined);
   }
-
-  await closeBrowser().catch(() => undefined);
 
   if (drafts.length === 0) {
     log('enrich: nothing new to draft');

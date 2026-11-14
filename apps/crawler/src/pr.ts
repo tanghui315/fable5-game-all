@@ -85,6 +85,59 @@ async function refSha(
   }
 }
 
+interface TreeEntry {
+  path: string;
+  mode: '100644';
+  type: 'blob';
+  sha: string | null;
+}
+
+/** Paths a candidate branch owns; anything else in the branch is left alone. */
+function isDraftPath(path: string): boolean {
+  return (
+    path.startsWith('data/games/') ||
+    path.startsWith('data/authors/') ||
+    path.startsWith('media/')
+  );
+}
+
+async function listBlobPaths(
+  client: OctokitLike,
+  owner: string,
+  repo: string,
+  treeSha: string,
+): Promise<string[]> {
+  const { data } = await client.git.getTree({ owner, repo, tree_sha: treeSha, recursive: '1' });
+  return data.tree
+    .filter((entry) => entry.type === 'blob')
+    .map((entry) => entry.path ?? '')
+    .filter((path) => path !== '');
+}
+
+/**
+ * Draft files a regenerated branch should drop. The branch is reused across
+ * crawler runs, so drafts for entries that no longer probe (or are deduped)
+ * would otherwise survive beside the new ones and fail `validate --online`.
+ * Only files the branch added on top of the base branch are touched, so a
+ * maintainer's own commits and main's own data stay as they are.
+ */
+async function staleDraftPaths(
+  client: OctokitLike,
+  owner: string,
+  repo: string,
+  input: { branchTree: string; baseTree: string; keep: ReadonlySet<string> },
+): Promise<string[]> {
+  if (input.branchTree === input.baseTree) return [];
+  const [branchPaths, basePaths] = await Promise.all([
+    listBlobPaths(client, owner, repo, input.branchTree),
+    listBlobPaths(client, owner, repo, input.baseTree),
+  ]);
+  const onBase = new Set(basePaths);
+  return branchPaths.filter(
+    (path) => !onBase.has(path) && !input.keep.has(path) && isDraftPath(path),
+  );
+}
+
 /** Commit every draft file to the candidate branch using the Git data API. */
 export async function commitDrafts(input: CandidatePrInput): Promise<{
   parentSha: string;
@@ -109,7 +162,7 @@ export async function commitDrafts(input: CandidatePrInput): Promise<{
     createdBranch = true;
   }
 
-  const blobs: Array<{ path: string; sha: string; mode: '100644'; type: 'blob' }> = [];
+  const blobs: TreeEntry[] = [];
   for (const file of input.files) {
     const content = Buffer.isBuffer(file.content)
       ? file.content
@@ -124,6 +177,18 @@ export async function commitDrafts(input: CandidatePrInput): Promise<{
   }
 
   const parentCommit = await client.git.getCommit({ owner, repo, commit_sha: parentSha });
+  if (!createdBranch) {
+    const baseCommit = await client.git.getCommit({ owner, repo, commit_sha: baseSha });
+    const stale = await staleDraftPaths(client, owner, repo, {
+      branchTree: parentCommit.data.tree.sha,
+      baseTree: baseCommit.data.tree.sha,
+      keep: new Set(input.files.map((file) => file.path)),
+    });
+    for (const path of stale) {
+      // `sha: null` removes the path from the tree.
+      blobs.push({ path, mode: '100644', type: 'blob', sha: null });
+    }
+  }
   const tree = await client.git.createTree({
     owner,
     repo,

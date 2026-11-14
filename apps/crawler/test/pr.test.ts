@@ -42,7 +42,34 @@ function mockClient(
         calls.createRef.push(params);
         return { data: {} };
       }),
-      getCommit: vi.fn(async () => ({ data: { tree: { sha: 'base-tree-sha' } } })),
+      getCommit: vi.fn(async ({ commit_sha }: { commit_sha: string }) => ({
+        data: { tree: { sha: commit_sha === 'existing-head' ? 'branch-tree-sha' : 'base-tree-sha' } },
+      })),
+      getTree: vi.fn(async ({ tree_sha }: { tree_sha: string }) => {
+        if (tree_sha === 'branch-tree-sha') {
+          return {
+            data: {
+              tree: [
+                { path: 'data/games/foo.yaml', type: 'blob', sha: 'b1' },
+                { path: 'data/games/stale.yaml', type: 'blob', sha: 'b2' },
+                { path: 'data/authors/wquguru.yaml', type: 'blob', sha: 'b3' },
+                { path: 'media/old/cover.webp', type: 'blob', sha: 'b4' },
+                { path: 'media', type: 'tree', sha: 't1' },
+                { path: 'README.md', type: 'blob', sha: 'b5' },
+              ],
+            },
+          };
+        }
+        return {
+          data: {
+            tree: [
+              { path: 'data/authors/wquguru.yaml', type: 'blob', sha: 'b3' },
+              { path: 'data/games/merged.yaml', type: 'blob', sha: 'b6' },
+              { path: 'README.md', type: 'blob', sha: 'b5' },
+            ],
+          },
+        };
+      }),
       createBlob: vi.fn(async (params: unknown) => {
         calls.blobs.push(params);
         blobIndex += 1;
@@ -140,6 +167,11 @@ describe('createCandidatePr', () => {
     );
     expect(calls.trees).toHaveLength(1);
     expect((calls.trees[0] as { base_tree: string }).base_tree).toBe('base-tree-sha');
+    expect(
+      (calls.trees[0] as { tree: Array<{ sha: string | null }> }).tree.every(
+        (entry) => entry.sha !== null,
+      ),
+    ).toBe(true);
     expect((calls.commits[0] as { parents: string[] }).parents).toEqual(['base-sha']);
     expect((calls.updates[0] as { sha: string }).sha).toBe('new-commit-sha');
     expect(calls.createLabel).toHaveLength(3);
@@ -172,6 +204,13 @@ describe('createCandidatePr', () => {
     expect(result).toMatchObject({ number: 7, created: false });
     expect(calls.createRef).toHaveLength(0);
     expect((calls.commits[0] as { parents: string[] }).parents).toEqual(['existing-head']);
+    // Draft files left over from an earlier run are removed from the branch;
+    // files main owns (README.md, data/games/merged.yaml) stay untouched.
+    expect(
+      (calls.trees[0] as { tree: Array<{ path: string; sha: string | null }> }).tree
+        .filter((entry) => entry.sha === null)
+        .map((entry) => entry.path),
+    ).toEqual(['data/games/stale.yaml', 'media/old/cover.webp']);
     expect(calls.pullsCreate).toHaveLength(0);
     expect((calls.pullsUpdate[0] as { pull_number: number }).pull_number).toBe(7);
     expect((calls.addLabels[0] as { issue_number: number }).issue_number).toBe(7);

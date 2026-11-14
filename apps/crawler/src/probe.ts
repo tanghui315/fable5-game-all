@@ -43,6 +43,23 @@ function sleep(ms: number): Promise<void> {
 }
 
 /**
+ * Cap a Playwright call from our side. `timeout` options do not fire when a
+ * page's renderer stops answering — WebGL under SwiftShader does this — and an
+ * unbounded `page.screenshot` then wedges the whole enrich run.
+ */
+async function bounded<T>(work: Promise<T>, ms: number): Promise<T | null> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const limit = new Promise<null>((resolve) => {
+    timer = setTimeout(() => resolve(null), ms);
+  });
+  try {
+    return await Promise.race([work, limit]);
+  } finally {
+    if (timer !== undefined) clearTimeout(timer);
+  }
+}
+
+/**
  * Playwright's bundled browser revision may be missing in a local cache
  * (e.g. the package was upgraded without `playwright install`). Fall back to
  * any Chromium build already present instead of failing the whole run.
@@ -302,7 +319,10 @@ export async function probeEntry(url: string, options: ProbeOptions): Promise<Pr
     let lastImage: Buffer | null = null;
     let lastWasNonBlack = false;
     while (Date.now() < deadline) {
-      const image = await page.screenshot({ type: 'png', timeout: 10_000 }).catch(() => null);
+      const image = await bounded(
+        page.screenshot({ type: 'png', timeout: 10_000 }).catch(() => null),
+        12_000,
+      );
       if (image !== null) {
         lastImage = image;
         const stats = await screenshotStats(image);
@@ -320,18 +340,31 @@ export async function probeEntry(url: string, options: ProbeOptions): Promise<Pr
     screenshot = best?.image ?? (lastWasNonBlack ? lastImage : null);
     if (screenshot !== null && (options.settleMs ?? 0) > 0) {
       await sleep(options.settleMs ?? 0);
-      screenshot = await page.screenshot({ type: 'png', timeout: 10_000 }).catch(() => screenshot);
+      screenshot =
+        (await bounded(
+          page.screenshot({ type: 'png', timeout: 10_000 }).catch(() => null),
+          12_000,
+        )) ?? screenshot;
     }
   }
 
-  const title = await page.title().catch(() => null);
+  const title = await bounded(
+    page.title().catch(() => null),
+    5_000,
+  );
   const verdict = parseEmbeddable(headers);
 
   let preview: Awaited<ReturnType<typeof recordPreview>> = null;
   if (reachable && screenshot !== null && options.preview) {
-    preview = await recordPreview(page, options.preview).catch(() => null);
+    preview = await bounded(
+      recordPreview(page, options.preview).catch(() => null),
+      60_000,
+    );
   }
-  await context.close().catch(() => undefined);
+  await bounded(
+    context.close().catch(() => undefined),
+    5_000,
+  );
 
   const cover =
     screenshot !== null
