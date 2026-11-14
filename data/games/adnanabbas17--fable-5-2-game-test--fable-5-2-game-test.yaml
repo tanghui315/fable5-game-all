@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: adnanabbas17--fable-5-2-game-test--fable-5-2-game-test
+slug: site-not-found-github-pages
+kind: game
+status: published
+title:
+  zh: Site not found · GitHub Pages
+  en: Site not found · GitHub Pages
+summary:
+  zh: Fable 5.x 网页作品：Site not found · GitHub Pages
+  en: Fable 5.x 网页作品：Site not found · GitHub Pages
+author: adnanabbas17
+repo:
+  url: https://github.com/adnanabbas17/fable-5.2-game-test
+play:
+  url: https://adnanabbas17.github.io/fable-5.2-game-test/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/adnanabbas17--fable-5-2-game-test--fable-5-2-game-test/cover.webp
+genre: arcade
+tags:
+  - fable
+  - game
+  - test
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-14
