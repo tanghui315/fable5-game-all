@@ -144,6 +144,15 @@ export const RejectedSchema = z
 
 export const RejectedFileSchema = z.array(RejectedSchema);
 
+/**
+ * `data/featured.yaml` — the ordered hero rotation on the home page. Each
+ * entry is a game id; the site falls back to the newest entries with a preview
+ * when the file is empty or lists fewer than two usable games.
+ */
+export const FeaturedFileSchema = z
+  .array(z.string().regex(GAME_ID_PATTERN, 'must be a game id (owner--repo--entry)'))
+  .max(12, 'the hero shows at most 12 slides');
+
 /** `data/_generated/repos.json` — keyed by repository URL. */
 export const RepoRecordSchema = z
   .object({
@@ -191,6 +200,7 @@ export type GameInput = z.input<typeof GameSchema>;
 export type Author = z.infer<typeof AuthorSchema>;
 export type AuthorInput = z.input<typeof AuthorSchema>;
 export type Rejected = z.infer<typeof RejectedSchema>;
+export type Featured = z.infer<typeof FeaturedFileSchema>;
 export type RepoRecord = z.infer<typeof RepoRecordSchema>;
 export type ReposFile = z.infer<typeof ReposFileSchema>;
 export type HealthRecord = z.infer<typeof HealthRecordSchema>;

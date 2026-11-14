@@ -86,7 +86,7 @@ export const zh: Record<MessageKey, string> = {
   'evidence.labelNotes': '证据等级 {level}（{name}）：{notes}',
 
   'home.allGames': '全部作品',
-  'home.featured': '本周推荐',
+  'home.featured': '精选',
   'home.nowPlaying': '正在放映',
   'home.noscript': '筛选和排序需要 JavaScript；全部作品已列出。',
   'home.emptyTitle': '还没有收录作品',

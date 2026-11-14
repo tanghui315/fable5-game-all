@@ -1,0 +1,8 @@
+# 首页封面轮换（按顺序播放）。
+# 只放已上架、有封面的条目；带动图的会动，没有动图的停在封面上。
+# 留空或不足两个可用条目时，站点自动取「最新且有动图」的几个兜底。
+- nipale-ai--fable-5-1-one-prompt-game--fable
+- anxiangsir--wukong-tiger-engine--wukong-tiger-engine
+- emollick--dread-and-district--web
+- blendibyl--oil-paint--web
+- 0xchuckstock--hoppy-meadow--web

@@ -1,0 +1,19 @@
+id: alpha--repo--one
+slug: alpha-one
+kind: game
+status: published
+title: { zh: 阿尔法一, en: Alpha One }
+summary:
+  zh: 测试条目一。
+  en: Test entry one.
+author: alpha
+play: { url: "https://example.com/alpha/", embeddable: true, mirror_url: null }
+media:
+  cover: media/alpha--repo--one/cover.webp
+  preview: media/alpha--repo--one/preview.webp
+genre: arcade
+tags: [arcade]
+controls: [keyboard]
+mobile: false
+model: { name: fable-5.2, evidence: L1 }
+source: { discovered_by: manual, discovered_at: 2026-01-01 }

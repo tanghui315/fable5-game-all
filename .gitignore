@@ -20,6 +20,7 @@ blob-report/
 
 # test scratch space
 packages/schema/test/.tmp/
+apps/site/test/.tmp/
 
 # misc
 .DS_Store

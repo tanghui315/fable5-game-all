@@ -565,11 +565,33 @@ ol {
 
 .hero-panel {
   position: relative;
+  display: grid;
   min-height: 600px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--surface);
   isolation: isolate;
+}
+
+/* Every slide occupies the same grid cell so the panel keeps the tallest
+   slide's height while the others fade in place. */
+.hero-slide {
+  position: relative;
+  grid-area: 1 / 1;
+  /* Stretch (rather than grow to content) so a long receipt cannot widen the
+     panel past the viewport. */
+  min-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 700ms ease,
+    visibility 0s linear 700ms;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 700ms ease;
 }
 
 .hero-media {
@@ -587,7 +609,7 @@ ol {
 }
 
 /* The only gradient in the system: the hero scrim that keeps copy readable. */
-.hero-panel::after {
+.hero-slide::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -697,6 +719,46 @@ ol {
   padding: 12px 16px;
 }
 
+/* Rotation dots: small, out of the copy's way, and still a real button. */
+.hero-dots {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 4;
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 999px;
+  background: rgba(17, 16, 22, 0.38);
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(237, 233, 225, 0.4);
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.hero-dot:hover {
+  background: rgba(237, 233, 225, 0.75);
+}
+
+.hero-dot.is-active {
+  background: var(--hero-copy);
+  transform: scale(1.35);
+}
+
+.hero-dot:focus-visible {
+  outline: 2px solid var(--hero-copy);
+  outline-offset: 4px;
+}
+
 @media (max-width: 1100px) {
   .hero-copy {
     max-width: 52%;
@@ -732,13 +794,18 @@ ol {
 
   .hero-panel {
     min-height: 0;
-    padding-top: 190px;
     border-radius: 12px;
+  }
+
+  /* The image sits behind the whole slide, so the air above the copy lives on
+     the slide: padding on the panel would leave it outside the picture. */
+  .hero-slide {
+    padding-top: 190px;
   }
 
   /* The stacked hero copy spans the full width, so the scrim turns vertical:
      dark from the bottom up through the copy, image clear at the top. */
-  .hero-panel::after {
+  .hero-slide::after {
     background: linear-gradient(
       0deg,
       rgba(17, 16, 22, 0.96) 0%,

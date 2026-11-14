@@ -53,6 +53,16 @@ pnpm --filter crawler crawler preview --headed --concurrency 3
 - `--dry-run` 先看会处理哪些条目；`--id <id>` 只补指定的几个；`--kind all` 连 demo 一起补。
 - 失败的（例如资源太大、headless 下渲染卡死）会列在最后的 `failed` 计数里，换 `--headed` 重跑即可。
 
+## 首页轮播
+
+首页大图按 `data/featured.yaml` 的顺序轮播，8 秒换一张。鼠标悬停、键盘聚焦到轮播里、切到别的标签页时暂停；
+点圆点会直接跳到那张并停 30 秒。系统开了「减少动态效果」或浏览器开了省流量模式时不自动轮播，只显示第一张。
+
+- 文件里写游戏 id（`owner--repo--entry`），最多 12 条，一般放 3–5 条。
+- 只有「已上架 + 有封面 + 有动图」的条目才进轮播：id 写错、条目下架、动图被丢弃时会被跳过，
+  文件里剩不到两张时自动用「最新且有动图」的条目补齐。
+- 改完跑 `pnpm validate`：重复 id、找不到的 id、非 published 的条目都会报错。
+
 
 ## 驳回
 

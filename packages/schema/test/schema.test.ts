@@ -1,7 +1,14 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { GameSchema, loadData, parseAuthorYaml, parseGameYaml, parseRejectedYaml } from '../src/index';
+import {
+  GameSchema,
+  loadData,
+  parseAuthorYaml,
+  parseFeaturedYaml,
+  parseGameYaml,
+  parseRejectedYaml,
+} from '../src/index';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -109,8 +116,28 @@ source: { discovered_by: seed, discovered_at: 2026-11-12 }
     expect(data).toEqual({
       authors: [],
       games: [],
+      featured: [],
       rejected: [],
       generated: { repos: {}, health: {} },
     });
+  });
+
+  it('parses a featured list in order', () => {
+    const featured = parseFeaturedYaml('- a--b--c\n- d--e--f\n');
+    expect(featured).toEqual(['a--b--c', 'd--e--f']);
+  });
+
+  it('parses an empty featured list', () => {
+    expect(parseFeaturedYaml('')).toEqual([]);
+    expect(parseFeaturedYaml('[]')).toEqual([]);
+  });
+
+  it('rejects malformed featured ids', () => {
+    expect(() => parseFeaturedYaml('- not-an-id\n')).toThrow(/featured/);
+  });
+
+  it('caps the featured list at 12 slides', () => {
+    const ids = Array.from({ length: 13 }, (_, index) => `o--r--e${index}`);
+    expect(() => parseFeaturedYaml(ids.map((id) => `- ${id}`).join('\n'))).toThrow(/12/);
   });
 });

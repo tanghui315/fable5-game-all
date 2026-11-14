@@ -44,6 +44,8 @@ export interface GameView {
 export interface SiteData {
   authors: Author[];
   games: GameView[];
+  /** `data/featured.yaml`: ordered game ids for the home hero. */
+  featured: string[];
   bySlug: Map<string, GameView>;
   byId: Map<string, GameView>;
   authorById: Map<string, Author>;
@@ -53,7 +55,7 @@ let cached: SiteData | undefined;
 
 export function getSiteData(): SiteData {
   if (cached) return cached;
-  const { authors, games, generated } = loadData(DATA_ROOT);
+  const { authors, games, generated, featured } = loadData(DATA_ROOT);
   const authorById = new Map(authors.map((author) => [author.id, author]));
   const views: GameView[] = games.map((game) => {
     const health = generated.health[game.play.url] ?? null;
@@ -79,6 +81,7 @@ export function getSiteData(): SiteData {
   cached = {
     authors,
     games: views,
+    featured,
     bySlug: new Map(views.map((view) => [view.game.slug, view])),
     byId: new Map(views.map((view) => [view.game.id, view])),
     authorById,
@@ -149,6 +152,48 @@ export function featuredGame(): GameView | null {
 /** False when the entry references art the build could not find. */
 export function hasCoverArt(view: GameView): boolean {
   return view.coverUrl !== COVER_PLACEHOLDER;
+}
+
+/** The most slides the hero will rotate through. */
+export const HERO_SLIDE_LIMIT = 5;
+
+/** Games the hero may show: real cover art plus an animated preview. */
+function heroCandidates(): GameView[] {
+  return listedGames()
+    .filter(
+      (view) =>
+        view.game.kind === 'game' && hasCoverArt(view) && view.previewUrl !== null,
+    )
+    .sort(byLatest);
+}
+
+/**
+ * Slides for the home hero, in the order `data/featured.yaml` lists them.
+ *
+ * A curated id is skipped when the entry is archived, broken, hidden or has no
+ * preview, so the file can keep listing something that is temporarily down.
+ * When fewer than two curated slides survive — or the file is empty — the
+ * newest entries with a preview fill the gap. Falls back to `featuredGame()`
+ * so a repository with no previews at all still shows a cover.
+ */
+export function heroSlides(limit = HERO_SLIDE_LIMIT): GameView[] {
+  const candidates = heroCandidates();
+  const byId = new Map(candidates.map((view) => [view.game.id, view]));
+  const chosen: GameView[] = [];
+  for (const id of getSiteData().featured) {
+    const view = byId.get(id);
+    if (view !== undefined && !chosen.includes(view)) chosen.push(view);
+  }
+  if (chosen.length < 2) {
+    const target = Math.max(4, limit);
+    for (const view of candidates) {
+      if (chosen.length >= target) break;
+      if (!chosen.includes(view)) chosen.push(view);
+    }
+  }
+  if (chosen.length > 0) return chosen.slice(0, limit);
+  const fallback = featuredGame();
+  return fallback === null ? [] : [fallback];
 }
 
 export function authorName(view: GameView): string {

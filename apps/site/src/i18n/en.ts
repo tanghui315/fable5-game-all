@@ -84,7 +84,7 @@ export const en = {
   'evidence.labelNotes': 'Evidence level {level} ({name}): {notes}',
 
   'home.allGames': 'All games',
-  'home.featured': 'Featured this week',
+  'home.featured': 'Featured',
   'home.nowPlaying': 'Now playing',
   'home.noscript': 'Filtering and sorting need JavaScript. All games are listed below.',
   'home.emptyTitle': 'No games yet',
