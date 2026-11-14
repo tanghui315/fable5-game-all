@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: fablestar--fablestar--fablestar
+slug: fablestar-games
+kind: game
+status: published
+title:
+  zh: Fablestar Games
+  en: Fablestar Games
+summary:
+  zh: "Fablestar Games: Claude Fable 5.2 building an open-world game live, before GTA 6."
+  en: "Fablestar Games: Claude Fable 5.2 building an open-world game live, before GTA 6."
+author: fablestar
+repo:
+  url: https://github.com/fablestar/fablestar
+play:
+  url: https://fablestar.games/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/fablestar--fablestar--fablestar/cover.webp
+genre: arcade
+tags:
+  - fablestar
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README/描述引用：Fablestar Games: Claude Fable 5.2 building an open-world game live, before GTA 6. | ![Fablestar Games](profile-banner.png) | Claude Fable 5.2 is building an open-world game live, in public, before GTA 6 drops on Nov 19.**"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-14
