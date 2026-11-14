@@ -4,6 +4,12 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-12T09:02:00Z"
   },
+  "adnanabbas17/fable-5.2-game-test": {
+    "repo": "adnanabbas17/fable-5.2-game-test",
+    "last_seen": "2026-11-14T10:35:34.147Z",
+    "pushed_at": "2026-11-11T12:29:24Z",
+    "last_pr": 19
+  },
   "andreteow/farm-ca": {
     "repo": "andreteow/farm-ca",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -47,6 +53,18 @@
     "pushed_at": "2026-11-13T06:28:22Z",
     "last_pr": 7
   },
+  "fablestar/bayhaven": {
+    "repo": "fablestar/bayhaven",
+    "last_seen": "2026-11-14T10:31:40.119Z",
+    "pushed_at": "2026-11-12T20:13:09Z",
+    "last_pr": 13
+  },
+  "fablestar/fablestar": {
+    "repo": "fablestar/fablestar",
+    "last_seen": "2026-11-14T10:32:28.539Z",
+    "pushed_at": "2026-11-11T17:20:02Z",
+    "last_pr": 15
+  },
   "fangshuming-star/fable-5.2-web-shooting-game": {
     "repo": "fangshuming-star/fable-5.2-web-shooting-game",
     "last_seen": "2026-11-13T12:39:21.246Z",
@@ -68,6 +86,12 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-11T07:02:42Z"
   },
+  "gavilanbe/makinamon-pulso": {
+    "repo": "gavilanbe/makinamon-pulso",
+    "last_seen": "2026-11-14T10:31:17.324Z",
+    "pushed_at": "2026-11-14T08:20:34Z",
+    "last_pr": 12
+  },
   "github30/fable52-gta6": {
     "repo": "github30/fable52-gta6",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -83,6 +107,12 @@
     "last_seen": "2026-11-13T12:37:12.701Z",
     "pushed_at": "2026-11-12T17:49:23Z",
     "last_pr": 5
+  },
+  "ivolivares/vaquitas-de-bloque": {
+    "repo": "ivolivares/vaquitas-de-bloque",
+    "last_seen": "2026-11-14T10:32:59.727Z",
+    "pushed_at": "2026-11-13T05:55:49Z",
+    "last_pr": 16
   },
   "jbang2004/long-wind": {
     "repo": "jbang2004/long-wind",
@@ -140,6 +170,12 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-09-01T19:37:29Z"
   },
+  "nipale-ai/glm-5-3-one-prompt-game": {
+    "repo": "nipale-ai/glm-5-3-one-prompt-game",
+    "last_seen": "2026-11-14T10:35:21.758Z",
+    "pushed_at": "2026-09-01T19:58:17Z",
+    "last_pr": 18
+  },
   "op7418/guizang-game-skill": {
     "repo": "op7418/guizang-game-skill",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -177,6 +213,12 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-12T06:32:07Z"
   },
+  "taarichandaria/car-game-fable-5-test": {
+    "repo": "taarichandaria/car-game-fable-5-test",
+    "last_seen": "2026-11-14T10:34:07.249Z",
+    "pushed_at": "2026-06-09T19:15:46Z",
+    "last_pr": 17
+  },
   "themizeguy/fable-5.2-potatobench": {
     "repo": "themizeguy/fable-5.2-potatobench",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -192,6 +234,18 @@
     "repo": "ummydev/awesome-claude-fable-games",
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-13T02:40:39Z"
+  },
+  "unslothai/unsloth": {
+    "repo": "unslothai/unsloth",
+    "last_seen": "2026-11-14T10:30:41.333Z",
+    "pushed_at": "2026-11-14T10:29:05Z",
+    "last_pr": 11
+  },
+  "vibefin/wormhole": {
+    "repo": "vibefin/wormhole",
+    "last_seen": "2026-11-14T10:31:57.982Z",
+    "pushed_at": "2026-09-20T06:03:07Z",
+    "last_pr": 14
   },
   "virattt/ai-hedge-fund": {
     "repo": "virattt/ai-hedge-fund",
