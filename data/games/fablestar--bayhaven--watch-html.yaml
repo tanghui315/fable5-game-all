@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: fablestar--bayhaven--watch-html
+slug: watch-fable-work-fablestar-games
+kind: game
+status: published
+title:
+  zh: Watch Fable work | Fablestar Games
+  en: Watch Fable work | Fablestar Games
+summary:
+  zh: "Bayhaven: an original open-world game, written live by Claude Fable 5.2. Every line, every commit."
+  en: "Bayhaven: an original open-world game, written live by Claude Fable 5.2. Every line, every commit."
+author: fablestar
+repo:
+  url: https://github.com/fablestar/bayhaven
+  path: watch.html
+  license: MIT
+play:
+  url: https://fablestar.games/watch.html/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/fablestar--bayhaven--watch-html/cover.webp
+genre: racing
+tags:
+  - ai
+  - ai-agents
+  - browser-game
+  - claude
+  - game
+  - open-source
+  - open-world
+  - threejs
+  - watch
+  - html
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README/描述引用：Bayhaven: an original open-world game, written live by Claude Fable 5.2. Every line, every commit. | Watch Fable work:** [fablestar.games/watch](https://fablestar.games/watch.html). Every session streams as it happens. | The plan:** [the roadmap and the game bible](https://fablestar.games/plan/index.html). Fable reads the same files each session."
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-14
