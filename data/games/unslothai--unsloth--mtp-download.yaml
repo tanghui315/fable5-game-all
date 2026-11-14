@@ -42,4 +42,4 @@ generation:
   prompt_url: https://github.com/unslothai/unsloth/blob/main/.github/scripts/ci-connect-prompt.txt
 source:
   discovered_by: github-search
-  discovered_at: 2026-11-13
+  discovered_at: 2026-11-14
