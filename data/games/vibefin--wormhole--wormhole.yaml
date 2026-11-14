@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: vibefin--wormhole--wormhole
+slug: portal-2-omgithub
+kind: game
+status: published
+title:
+  zh: Portal 2 — OmGithub
+  en: Portal 2 — OmGithub
+summary:
+  zh: A first-person horror portal-puzzle game. Built in one prompt with Claude Fable 5
+  en: A first-person horror portal-puzzle game. Built in one prompt with Claude Fable 5
+author: vibefin
+repo:
+  url: https://github.com/vibefin/wormhole
+  path: VibeFin/Wormhole
+play:
+  url: https://omgithub.com/VibeFin/Wormhole/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/vibefin--wormhole--wormhole/cover.webp
+genre: shooter
+tags:
+  - wormhole
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：A first-person horror portal-puzzle game. Built in one prompt with Claude Fable 5
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-14

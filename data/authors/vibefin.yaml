@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: vibefin
+name: vibefin
+github: vibefin
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/7095563?v=4
+claimed: false
