@@ -41,5 +41,5 @@ model:
   evidence: L1
   evidence_notes: "README/描述引用：Bayhaven: an original open-world game, written live by Claude Fable 5.2. Every line, every commit. | Watch Fable work:** [fablestar.games/watch](https://fablestar.games/watch.html). Every session streams as it happens. | The plan:** [the roadmap and the game bible](https://fablestar.games/plan/index.html). Fable reads the same files each session."
 source:
-  discovered_by: github-search
+  discovered_by: manual
   discovered_at: 2026-11-14
