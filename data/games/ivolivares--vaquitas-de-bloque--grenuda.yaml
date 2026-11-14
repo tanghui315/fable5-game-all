@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ivolivares--vaquitas-de-bloque--grenuda
+slug: site-not-found-github-pages-2
+kind: game
+status: published
+title:
+  zh: Site not found · GitHub Pages
+  en: Site not found · GitHub Pages
+summary:
+  zh: Just for fun Claude Fable 5.2 game.
+  en: Just for fun Claude Fable 5.2 game.
+author: ivolivares
+repo:
+  url: https://github.com/ivolivares/vaquitas-de-bloque
+  path: public/premio/grenuda
+  license: MIT
+play:
+  url: https://ivolivares.github.io/vaquitas-de-bloque/public/premio/grenuda/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/ivolivares--vaquitas-de-bloque--grenuda/cover.webp
+genre: audio-demo
+tags:
+  - grenuda
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Just for fun Claude Fable 5.2 game.
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-14
