@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: finiyang
+name: Fini.Yang
+github: ZSeven-W
+x: FiniYang
+website: https://www.zseven.tech/
+avatar: https://github.com/ZSeven-W.png
+claimed: false
