@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=../../packages/schema/json/game.schema.json
 id: taarichandaria--car-game-fable-5-test--car-game-fable-5-test
-slug: sunset-drive
+slug: car-game-fable-5-test
 kind: game
 status: published
 title:
-  zh: Sunset Drive
-  en: Sunset Drive
+  zh: car-game-fable-5-test
+  en: car-game-fable-5-test
 summary:
   zh: "Simple 3D car game to test Claude Fable 5's capabilities. Main app was one shotted from the prompt: \"Can you please code a 3D car game where I can drive a car around a city at sunset. Make the graphics beautiful.\""
   en: "Simple 3D car game to test Claude Fable 5's capabilities. Main app was one shotted from the prompt: \"Can you please code a 3D car game where I can drive a car around a city at sunset. Make the graphics beautiful.\""
