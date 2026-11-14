@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: taarichandaria--car-game-fable-5-test--sunset-drive
+slug: site-not-found-github-pages
+kind: game
+status: published
+title:
+  zh: Site not found · GitHub Pages
+  en: Site not found · GitHub Pages
+summary:
+  zh: "Simple 3D car game to test Claude Fable 5's capabilities. Main app was one shotted from the prompt: \"Can you please code a 3D car game where I can drive a car around a city at sunset. Make the graphics beautiful.\""
+  en: "Simple 3D car game to test Claude Fable 5's capabilities. Main app was one shotted from the prompt: \"Can you please code a 3D car game where I can drive a car around a city at sunset. Make the graphics beautiful.\""
+author: taarichandaria
+repo:
+  url: https://github.com/taarichandaria/car-game-fable-5-test
+  path: sunset-drive
+play:
+  url: https://taarichandaria.github.io/car-game-fable-5-test/sunset-drive/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/taarichandaria--car-game-fable-5-test--sunset-drive/cover.webp
+genre: procedural-demo
+tags:
+  - sunset
+  - drive
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README/描述引用：Simple 3D car game to test Claude Fable 5's capabilities. Main app was one shotted from the prompt: \"Can you please code a 3D car game where I can drive a car around a city at sunset. Make the graphics beautiful.\" | Fable 5 successfully one shotted the implementation in less than 10 minutes on Claude Code with no graphical or functional mistakes. This is the first time this has happened with a frontier model."
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-14
