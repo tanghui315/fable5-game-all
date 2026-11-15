@@ -31,7 +31,7 @@ mobile: true
 model:
   name: fable-5.2
   evidence: L1
-  evidence_notes: 仓库描述：Thirty Days: a 3D game about Jensen Huang's NVIDIA journey, built with Claude Fable 5.2。
+  evidence_notes: "仓库描述：Thirty Days: a 3D game about Jensen Huang's NVIDIA journey, built with Claude Fable 5.2。"
 source:
   discovered_by: github-search
   discovered_at: 2026-11-15
