@@ -1,0 +1,19 @@
+id: beta--repo--two
+slug: beta-two
+kind: game
+status: published
+title: { zh: 贝塔二, en: Beta Two }
+summary:
+  zh: 测试条目二。
+  en: Test entry two.
+author: alpha
+play: { url: "https://example.com/beta/", embeddable: true, mirror_url: null }
+media:
+  cover: media/beta--repo--two/cover.webp
+  preview: media/beta--repo--two/preview.webp
+genre: arcade
+tags: [arcade]
+controls: [keyboard]
+mobile: false
+model: { name: fable-5.2, evidence: L1 }
+source: { discovered_by: manual, discovered_at: 2026-03-01 }

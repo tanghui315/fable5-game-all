@@ -18,6 +18,7 @@ play:
 
 media:
   cover: media/emollick--portals-endless-worlds--web/cover.webp
+  preview: media/emollick--portals-endless-worlds--web/preview.webp
 
 genre: showcase
 tags: [procedural, threejs, webgl, space, generative]

@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: argofowl
+name: argofowl
+github: null
+x: argofowl
+website: null
+avatar: https://unavatar.io/x/argofowl
+claimed: false

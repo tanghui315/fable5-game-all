@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: finiyang--sanguo--web
+slug: sanguo-guyan-ruye
+kind: game
+status: published
+title:
+  zh: 暗黑三国 · 孤枪入夜
+  en: Dark Three Kingdoms · Lone Spear at Night
+summary:
+  zh: 俯视角暗黑三国动作肉鸽。黄巾搜村、乡民失散，常山赵子龙持银枪入夜救人；首章「黄天」公开试玩。
+  en: A top-down dark Three Kingdoms action roguelite. Zhao Yun takes up his spear at night to bring scattered villagers home in the first chapter, "Yellow Heaven".
+author: finiyang
+play:
+  url: https://sanguo.finiyang.com/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/finiyang--sanguo--web/cover.webp
+genre: action
+tags:
+  - fable
+  - three.js
+  - action
+  - roguelite
+  - three-kingdoms
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者本人在 X 公布作品与试玩（https://x.com/FiniYang/status/2121212247515287740），制作过程连载见 https://x.com/FiniYang/status/2118983092811833549；模型分工中 Claude Fable 5.2 负责复杂 Shader（作者教程整理：https://x.com/Dav338876/status/2121216487797207381），同一项目也用了 Opus 5.5、GPT-6、Gemini 4，建模用 Tripo。
+source:
+  discovered_by: manual
+  discovered_at: '2026-11-14'

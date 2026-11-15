@@ -18,6 +18,7 @@ play:
 
 media:
   cover: media/luminabench--lumina-zombies--web/cover.webp
+  preview: media/luminabench--lumina-zombies--web/preview.webp
 
 genre: shooter
 tags: [fps, zombies, wave-survival, webgl, easter-eggs]

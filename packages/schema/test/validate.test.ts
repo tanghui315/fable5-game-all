@@ -1,4 +1,12 @@
-import { cpSync, mkdirSync, mkdtempSync, rmSync, truncateSync } from 'node:fs';
+import {
+  cpSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  truncateSync,
+  writeFileSync,
+} from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -123,6 +131,49 @@ describe('validateData', () => {
   it('reports invalid generated data', async () => {
     const result = await runFixture('invalid-generated');
     expect(messages(result)).toContain('checked_at');
+  });
+
+  describe('data/featured.yaml', () => {
+    const gameId = 'wquguru--fable52-fps-repro--04-fps';
+    const gameFile = path.join('data', 'games', `${gameId}.yaml`);
+
+    /** A copy of the valid fixture with `featured.yaml` holding `ids`. */
+    function withFeatured(ids: string[]): string {
+      const root = copyFixture('valid');
+      const body = ids.map((id) => `- ${id}`).join('\n');
+      writeFileSync(path.join(root, 'data', 'featured.yaml'), `${body}\n`);
+      return root;
+    }
+
+    it('passes when every id is a published entry', async () => {
+      const result = await validateData({ rootDir: withFeatured([gameId]) });
+      expect(result.ok).toBe(true);
+      expect(result.games).toBe(1);
+    });
+
+    it('reports duplicate ids', async () => {
+      const result = await validateData({ rootDir: withFeatured([gameId, gameId]) });
+      expect(messages(result)).toContain(`duplicate id "${gameId}"`);
+    });
+
+    it('reports an id with no matching game', async () => {
+      const result = await validateData({ rootDir: withFeatured(['ghost--repo--entry']) });
+      expect(messages(result)).toContain('id "ghost--repo--entry" not found in data/games');
+    });
+
+    it('reports an id that is not published', async () => {
+      const root = withFeatured([gameId]);
+      const file = path.join(root, gameFile);
+      writeFileSync(file, readFileSync(file, 'utf8').replace('status: published', 'status: archived'));
+      const result = await validateData({ rootDir: root });
+      expect(messages(result)).toContain('the hero only shows published entries');
+    });
+
+    it('reports an id that is not a game id', async () => {
+      const result = await validateData({ rootDir: withFeatured(['not-a-game-id']) });
+      expect(messages(result)).toContain('featured.yaml');
+      expect(result.ok).toBe(false);
+    });
   });
 
   describe('--online', () => {

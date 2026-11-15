@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ivolivares--vaquitas-de-bloque--vaquitas-de-bloque-2
+slug: vaquitas-de-bloque-arma-3-vacas-de-bloques-y-gana-tu-peluche
+kind: game
+status: published
+title:
+  zh: Vaquitas de Bloque — arma 3 vacas de bloques y gana tu peluche
+  en: Vaquitas de Bloque — arma 3 vacas de bloques y gana tu peluche
+summary:
+  zh: Just for fun Claude Fable 5.2 game.
+  en: Just for fun Claude Fable 5.2 game.
+author: ivolivares
+repo:
+  url: https://github.com/ivolivares/vaquitas-de-bloque
+  license: MIT
+play:
+  url: https://vaquitas-de-bloque.vercel.app/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/ivolivares--vaquitas-de-bloque--vaquitas-de-bloque-2/cover.webp
+genre: audio-demo
+tags:
+  - vaquitas
+  - de
+  - bloque
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Just for fun Claude Fable 5.2 game.
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-14

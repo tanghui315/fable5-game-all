@@ -18,6 +18,7 @@ export const en = {
   'header.demos': 'Tech demos',
   'header.submit': 'Submit a game',
   'header.about': 'About',
+  'header.githubLabel': 'Source on GitHub',
   'header.langLabel': 'Language',
   'header.langEn': 'EN',
   'header.langZh': '中文',
@@ -32,6 +33,7 @@ export const en = {
   'footer.submit': 'Submit a game',
   'footer.takedown': 'Request removal',
   'footer.form': 'Submission form',
+  'footer.repo': 'Source on GitHub',
 
   'action.play': 'Play',
   'action.playNow': 'Play now',
@@ -82,7 +84,7 @@ export const en = {
   'evidence.labelNotes': 'Evidence level {level} ({name}): {notes}',
 
   'home.allGames': 'All games',
-  'home.featured': 'Featured this week',
+  'home.featured': 'Featured',
   'home.nowPlaying': 'Now playing',
   'home.noscript': 'Filtering and sorting need JavaScript. All games are listed below.',
   'home.emptyTitle': 'No games yet',
@@ -159,7 +161,7 @@ export const en = {
   'about.criteria1': 'Playable in the browser with no install, and the original URL is reachable.',
   'about.criteria2': 'Evidence level L1 or higher.',
   'about.criteria3':
-    'Not a clone of an existing commercial game or IP (name, characters, art, levels). Clones are rejected.',
+    'Not a copy of an existing commercial game or IP. Fan remakes are accepted when the title and summary say so and credit the original work; anything that passes itself off as the original is rejected.',
   'about.criteria4':
     'No malicious code (mining, phishing, unexpected outbound requests) and no adult content.',
   'about.criteria5':

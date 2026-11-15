@@ -1,0 +1,5 @@
+# Order matters: the hero starts on the first id.
+- alpha--repo--one
+- ghost--repo--missing
+- gamma--repo--three
+- delta--repo--four

@@ -23,6 +23,8 @@ export interface ReviewReportInput {
   stars: number | null;
   license: string | null;
   entries: readonly ReviewEntry[];
+  /** Entries that were probed but never reached; listed, never written. */
+  excluded?: readonly ReviewEntry[];
   issueNumber?: number | null;
   generatedAt?: Date;
 }
@@ -133,6 +135,20 @@ export function buildReviewMarkdown(input: ReviewReportInput): string {
       lines.push(`> ${item.note}`);
       lines.push('');
     }
+  }
+
+  const excluded = input.excluded ?? [];
+  if (excluded.length > 0) {
+    lines.push('## 已排除');
+    lines.push('');
+    lines.push('以下入口探测不可达，没有写进这个 PR：');
+    lines.push('');
+    for (const item of excluded) {
+      lines.push(
+        `- ${code(item.path || '.')} · ${code(item.playUrl)} · HTTP ${item.probe.status ?? '—'}`,
+      );
+    }
+    lines.push('');
   }
 
   const notes = input.entries

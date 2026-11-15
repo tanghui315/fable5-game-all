@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: blendibyl
+name: BlendiByl
+github: null
+x: BlendiByl
+website: null
+avatar: https://unavatar.io/x/BlendiByl
+claimed: false

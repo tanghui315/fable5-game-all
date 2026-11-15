@@ -7,13 +7,19 @@
 候选 PR 由 `submission.yml`（投稿）或 `discover.yml`（自动发现）创建，正文就是 crawler 生成的
 `review.md`。一个仓库一个 PR；同一仓库有新提交时会更新原 PR，不会重复开。
 
+PR 里只会放进探测能打开的入口：`play.url` 404 或打不开的条目会列在正文的「已排除」里，
+不写进分支，也不开 PR（一个都打不开时直接跳过，日志里会写 `no reachable entries`）。
+这样 `validate --online` 的红色永远代表真的有问题，而不是「作者还没部署」。
+
 逐项检查：
 
 1. **PR 正文与标签**：有 `candidate`、`evidence:L1/L2/L3`、`kind:game|demo`；正文含入口表格、
    截图、探测结果、证据引用、风险和控制台错误。
 2. **真的能玩**：在浏览器打开 `play.url`，确认能加载、键盘/鼠标操作正常、没有登录墙。
    手机作品再看触屏。
-3. **不是仿冒 IP**：名字、角色、美术、关卡不能照搬现有商业游戏。拿不准就驳回（`reason:ip-clone`）。
+3. **不是冒充 IP**：同人复刻可以收，但标题和简介要写明「同人复刻 / 非官方」并注明原作（例如
+   `data/games/anxiangsir--wukong-tiger-engine--wukong-tiger-engine.yaml`）；冒充原作的驳回
+   （`reason:ip-clone`）。
 4. **证据等级**（design.md §2.2）：
    - L1：作者自述（推文、README、投稿声明）；
    - L2：可检查的痕迹（模型徽章、代码里出现 `claude-fable-5-2` 等模型 ID）；
@@ -35,6 +41,46 @@
    - 媒体：封面 ≤150 KB、预览 ≤1 MB。
      改完等 validate 重新通过再合并。
 8. **合并 = 上架**。PR 正文里的 `Closes #N` 会自动关闭投稿 Issue；合并后 deploy 会自动更新站点。
+
+## 查 X 证据
+
+审核时可以查作者自己的发帖，命令走 FixTweet 的公开 JSON 接口，不需要 API key：
+
+```bash
+pnpm --filter crawler crawler x "@FiniYang"                 # 作者资料
+pnpm --filter crawler crawler x sanguo.finiyang.com          # 搜提到这个地址的帖子
+pnpm --filter crawler crawler x https://x.com/FiniYang/status/2121212247515287740
+```
+
+`--limit` 控制条数（默认 10，最多 50），`--json` 输出原始结果。命中的帖子会标出
+`fable` / `claude` / `gpt` / `shader` 等关键词，方便抄进 `model.evidence_notes`。
+接口是非官方的，可能限流、也搜不到很旧的帖子；要长期批量抓取就用 X 官方的
+`xurl`（`npm i -g @xdevplatform/xurl`，需要 API 计费），别拿主号跑 scraper 类的 MCP。
+
+## 动图预览
+
+`media.preview` 是首页大图和卡片悬停时播放的 5 秒动画（640×400，≤1 MB）。`crawler enrich` 默认会录，
+`--no-preview` 关掉；录完如果整段没有运动（标题页、还在加载），会直接丢弃，不会写进 YAML。
+
+历史条目补录：
+
+```bash
+pnpm --filter crawler crawler preview --headed --concurrency 3
+```
+
+- `--headed` 用真实窗口和 GPU，加载快、WebGL 作品也能录；无头模式只适合轻量页面。
+- `--dry-run` 先看会处理哪些条目；`--id <id>` 只补指定的几个；`--kind all` 连 demo 一起补。
+- 失败的（例如资源太大、headless 下渲染卡死）会列在最后的 `failed` 计数里，换 `--headed` 重跑即可。
+
+## 首页轮播
+
+首页大图按 `data/featured.yaml` 的顺序轮播，8 秒换一张。鼠标悬停、键盘聚焦到轮播里、切到别的标签页时暂停；
+点圆点会直接跳到那张并停 30 秒。系统开了「减少动态效果」或浏览器开了省流量模式时不自动轮播，只显示第一张。
+
+- 文件里写游戏 id（`owner--repo--entry`），最多 12 条，一般放 3–5 条。
+- 只有「已上架 + 有封面 + 有动图」的条目才进轮播：id 写错、条目下架、动图被丢弃时会被跳过，
+  文件里剩不到两张时自动用「最新且有动图」的条目补齐。
+- 改完跑 `pnpm validate`：重复 id、找不到的 id、非 published 的条目都会报错。
 
 ## 驳回
 

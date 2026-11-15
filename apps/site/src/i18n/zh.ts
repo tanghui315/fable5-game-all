@@ -20,6 +20,7 @@ export const zh: Record<MessageKey, string> = {
   'header.demos': '技术演示',
   'header.submit': '提交游戏',
   'header.about': '关于',
+  'header.githubLabel': 'GitHub 源码',
   'header.langLabel': '语言',
   'header.langEn': 'EN',
   'header.langZh': '中文',
@@ -34,6 +35,7 @@ export const zh: Record<MessageKey, string> = {
   'footer.submit': '提交游戏',
   'footer.takedown': '申请下架',
   'footer.form': '投稿表单',
+  'footer.repo': 'GitHub 源码',
 
   'action.play': '开始游戏',
   'action.playNow': '开始游戏',
@@ -84,7 +86,7 @@ export const zh: Record<MessageKey, string> = {
   'evidence.labelNotes': '证据等级 {level}（{name}）：{notes}',
 
   'home.allGames': '全部作品',
-  'home.featured': '本周推荐',
+  'home.featured': '精选',
   'home.nowPlaying': '正在放映',
   'home.noscript': '筛选和排序需要 JavaScript；全部作品已列出。',
   'home.emptyTitle': '还没有收录作品',
@@ -158,7 +160,8 @@ export const zh: Record<MessageKey, string> = {
   'about.criteriaTitle': '收录标准',
   'about.criteria1': '浏览器直接可玩，无需安装；原地址可以访问。',
   'about.criteria2': '证据等级至少 L1。',
-  'about.criteria3': '不是仿冒现有商业游戏或 IP（名字、角色、美术、关卡），否则驳回。',
+  'about.criteria3':
+    '不是冒充现有商业游戏或 IP。同人复刻可以收录，但标题和简介要写明「同人复刻 / 非官方」并注明原作；冒充原作的直接驳回。',
   'about.criteria4': '没有恶意代码（挖矿、钓鱼、异常外联），没有成人内容。',
   'about.criteria5': '开源与否都收：没开源的只放线上地址，并标注“未开源”。',
   'about.evidenceTitle': '证据等级',

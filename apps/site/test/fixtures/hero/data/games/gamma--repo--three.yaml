@@ -1,0 +1,18 @@
+id: gamma--repo--three
+slug: gamma-three
+kind: game
+status: published
+title: { zh: 伽马三, en: Gamma Three }
+summary:
+  zh: 测试条目三，没有动图。
+  en: Test entry three, no preview.
+author: alpha
+play: { url: "https://example.com/gamma/", embeddable: true, mirror_url: null }
+media:
+  cover: media/gamma--repo--three/cover.webp
+genre: arcade
+tags: [arcade]
+controls: [keyboard]
+mobile: false
+model: { name: fable-5.2, evidence: L1 }
+source: { discovered_by: manual, discovered_at: 2026-02-15 }

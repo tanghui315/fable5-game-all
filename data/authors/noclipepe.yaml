@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: noclipepe
+name: noclipepe
+github: null
+x: noclipepe
+website: null
+avatar: https://unavatar.io/x/noclipepe
+claimed: false

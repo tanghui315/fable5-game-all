@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: jev-chat
+name: jev_chat
+github: null
+x: jev_chat
+website: null
+avatar: https://unavatar.io/x/jev_chat
+claimed: false

@@ -1,0 +1,19 @@
+id: delta--repo--four
+slug: delta-four
+kind: game
+status: published
+title: { zh: 德尔塔四, en: Delta Four }
+summary:
+  zh: 测试条目四。
+  en: Test entry four.
+author: alpha
+play: { url: "https://example.com/delta/", embeddable: true, mirror_url: null }
+media:
+  cover: media/delta--repo--four/cover.webp
+  preview: media/delta--repo--four/preview.webp
+genre: arcade
+tags: [arcade]
+controls: [keyboard]
+mobile: false
+model: { name: fable-5.2, evidence: L1 }
+source: { discovered_by: manual, discovered_at: 2026-02-01 }

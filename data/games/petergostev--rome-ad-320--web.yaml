@@ -18,6 +18,7 @@ play:
 
 media:
   cover: media/petergostev--rome-ad-320--web/cover.webp
+  preview: media/petergostev--rome-ad-320--web/preview.webp
 
 genre: showcase
 tags: [rome, history, city, threejs, webgl, procedural]

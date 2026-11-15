@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: global-techgirl
+name: global_techgirl
+github: null
+x: global_techgirl
+website: null
+avatar: https://unavatar.io/x/global_techgirl
+claimed: false

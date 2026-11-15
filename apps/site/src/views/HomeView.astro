@@ -5,8 +5,8 @@ import Receipt from '../components/Receipt.astro';
 import FilterBar from '../components/FilterBar';
 import {
   cardMeta,
-  featuredGame,
   gameSummary,
+  heroSlides,
   gameTitle,
   latestGames,
   type GameView,
@@ -20,13 +20,17 @@ interface Props {
 const { lang } = Astro.props;
 
 const games = latestGames();
-const hero = featuredGame();
-const heroMeta = hero ? cardMeta(hero, lang) : null;
-const heroTitle = hero ? gameTitle(hero, lang) : '';
-const heroSummary = hero ? gameSummary(hero, lang) : '';
-const heroPreview = hero?.previewUrl ?? hero?.coverUrl ?? null;
-const heroHref = hero ? localePath(lang, gamePath(hero.game.slug)) : '#';
-const authorHref = hero?.author ? localePath(lang, `/a/${hero.author.id}`) : null;
+const slides = heroSlides().map((view) => ({
+  view,
+  href: localePath(lang, gamePath(view.game.slug)),
+  title: gameTitle(view, lang),
+  summary: gameSummary(view, lang),
+  meta: cardMeta(view, lang),
+  authorHref: view.author ? localePath(lang, `/a/${view.author.id}`) : null,
+  cover: view.coverUrl,
+  preview: view.previewUrl,
+  repoUrl: view.game.repo?.url ?? null,
+}));
 const items = games.map((view: GameView) => ({
   id: view.game.id,
   kind: view.game.kind,
@@ -65,54 +69,91 @@ const filterStrings = {
 
 <BaseLayout title={t(lang, 'site.name')} lang={lang} path="/" isHome>
   {
-    hero && heroMeta ? (
-      <section class="hero" aria-labelledby="hero-title">
+    slides.length > 0 ? (
+      <section class="hero" aria-labelledby="hero-title" data-hero>
         <div class="hero-panel">
-          <a class="hero-media" href={heroHref} tabindex="-1" aria-hidden="true">
-            <img
-              class="hero-bg"
-              src={heroPreview ?? hero.coverUrl}
-              data-cover-src={hero.previewUrl ? hero.coverUrl : undefined}
-              alt=""
-              width="1600"
-              height="1000"
-              loading="eager"
-              decoding="async"
-            />
-          </a>
-          <div class="hero-copy">
-            <p class="hero-kicker">
-              <span>{t(lang, 'home.featured')}</span>
-              <span class="hero-kicker-separator" aria-hidden="true">·</span>
-              {authorHref ? (
-                <a href={authorHref}>{t(lang, 'common.byAuthor', { author: heroMeta.author })}</a>
-              ) : (
-                <span>{t(lang, 'common.byAuthor', { author: heroMeta.author })}</span>
-              )}
-            </p>
-            <h1 class="hero-title marquee" id="hero-title">
-              <a href={heroHref}>{heroTitle}</a>
-            </h1>
-            <p class="hero-summary">{heroSummary}</p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href={heroHref}>{t(lang, 'action.playNow')}</a>
-              {
-                hero.game.repo && (
-                  <a
-                    class="btn btn-ghost"
-                    href={hero.game.repo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t(lang, 'action.viewSource')}
+          {slides.map((slide, index) => (
+            <div
+              class:list={['hero-slide', index === 0 && 'is-active']}
+              data-hero-slide
+              data-slide-index={index}
+              aria-hidden={index === 0 ? undefined : 'true'}
+              inert={index === 0 ? undefined : true}
+            >
+              <a class="hero-media" href={slide.href} tabindex="-1" aria-hidden="true">
+                <img
+                  class="hero-bg"
+                  src={index === 0 ? (slide.preview ?? slide.cover) : undefined}
+                  data-src={index === 0 ? undefined : (slide.preview ?? slide.cover)}
+                  data-cover-src={slide.cover}
+                  alt=""
+                  width="640"
+                  height="400"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </a>
+              <div class="hero-copy">
+                <p class="hero-kicker">
+                  <span>{t(lang, 'home.featured')}</span>
+                  <span class="hero-kicker-separator" aria-hidden="true">·</span>
+                  {slide.authorHref ? (
+                    <a href={slide.authorHref}>
+                      {t(lang, 'common.byAuthor', { author: slide.meta.author })}
+                    </a>
+                  ) : (
+                    <span>{t(lang, 'common.byAuthor', { author: slide.meta.author })}</span>
+                  )}
+                </p>
+                {index === 0 ? (
+                  <h1 class="hero-title marquee" id="hero-title">
+                    <a href={slide.href}>{slide.title}</a>
+                  </h1>
+                ) : (
+                  <p class="hero-title marquee">
+                    <a href={slide.href}>{slide.title}</a>
+                  </p>
+                )}
+                <p class="hero-summary">{slide.summary}</p>
+                <div class="hero-actions">
+                  <a class="btn btn-primary" href={slide.href}>
+                    {t(lang, 'action.playNow')}
                   </a>
-                )
-              }
+                  {slide.repoUrl && (
+                    <a
+                      class="btn btn-ghost"
+                      href={slide.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {t(lang, 'action.viewSource')}
+                    </a>
+                  )}
+                </div>
+              </div>
+              <div class="hero-ticket">
+                <Receipt game={slide.view.game} lang={lang} variant="hero" />
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="hero-ticket">
-          <Receipt game={hero.game} lang={lang} variant="hero" />
+          ))}
+          {slides.length > 1 && (
+            <div
+              class="hero-dots"
+              role="group"
+              aria-label={t(lang, 'home.featured')}
+              data-hero-dots
+            >
+              {slides.map((slide, index) => (
+                <button
+                  type="button"
+                  class:list={['hero-dot', index === 0 && 'is-active']}
+                  data-hero-dot={index}
+                  aria-label={slide.title}
+                  aria-current={index === 0 ? 'true' : undefined}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     ) : (
@@ -158,10 +199,114 @@ const filterStrings = {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   if (reduceMotion.matches) {
-    document.querySelectorAll<HTMLImageElement>('img[data-cover-src]').forEach((image) => {
-      const cover = image.dataset.coverSrc;
-      if (cover) image.src = cover;
-    });
+    // Only the visible slide has a src; the rest are lazy and stay untouched.
+    document
+      .querySelectorAll<HTMLImageElement>('img[data-cover-src]:not([data-src])')
+      .forEach((image) => {
+        const cover = image.dataset.coverSrc;
+        if (cover) image.src = cover;
+      });
+  }
+
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  if (hero) {
+    const slides = [...hero.querySelectorAll<HTMLElement>('[data-hero-slide]')];
+    const dots = [...hero.querySelectorAll<HTMLButtonElement>('[data-hero-dot]')];
+
+    if (slides.length > 1) {
+      const INTERVAL_MS = 8_000;
+      const DOT_PAUSE_MS = 30_000;
+      const connection = (navigator as Navigator & { connection?: { saveData?: boolean } })
+        .connection;
+      const saveData = connection?.saveData === true;
+
+      let current = 0;
+      let pausedUntil = 0;
+      let pointerInside = false;
+      let focusInside = false;
+
+      const slideImage = (index: number): HTMLImageElement | null =>
+        slides[index]?.querySelector<HTMLImageElement>('img.hero-bg') ?? null;
+
+      const loadImage = (index: number): void => {
+        const image = slideImage(index);
+        if (image === null || image.getAttribute('src')) return;
+        const source = reduceMotion.matches
+          ? (image.dataset.coverSrc ?? image.dataset.src)
+          : image.dataset.src;
+        if (source) image.src = source;
+      };
+
+      const warm = (index: number): void => {
+        // Nothing rotates under reduced motion, so there is nothing to warm.
+        if (reduceMotion.matches) return;
+        const image = slideImage(index);
+        const source = image?.dataset.src;
+        if (!source || image?.getAttribute('src')) return;
+        // Preload through a detached image so the slide stays unrendered.
+        new Image().src = source;
+      };
+
+      const idle = (callback: () => void): void => {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(callback, { timeout: 3000 });
+        } else {
+          window.setTimeout(callback, 1200);
+        }
+      };
+
+      const show = (index: number): void => {
+        if (index === current || slides[index] === undefined) return;
+        loadImage(index);
+        slides[current].classList.remove('is-active');
+        slides[current].setAttribute('aria-hidden', 'true');
+        slides[current].setAttribute('inert', '');
+        current = index;
+        slides[current].classList.add('is-active');
+        slides[current].removeAttribute('aria-hidden');
+        slides[current].removeAttribute('inert');
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle('is-active', dotIndex === current);
+          if (dotIndex === current) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
+        });
+        idle(() => warm((current + 1) % slides.length));
+      };
+
+      const canRotate = (): boolean =>
+        !reduceMotion.matches &&
+        !saveData &&
+        !pointerInside &&
+        !focusInside &&
+        !document.hidden &&
+        Date.now() >= pausedUntil;
+
+      window.setInterval(() => {
+        if (canRotate()) show((current + 1) % slides.length);
+      }, INTERVAL_MS);
+
+      hero.addEventListener('pointerenter', () => {
+        pointerInside = true;
+      });
+      hero.addEventListener('pointerleave', () => {
+        pointerInside = false;
+      });
+      hero.addEventListener('focusin', () => {
+        focusInside = true;
+      });
+      hero.addEventListener('focusout', () => {
+        focusInside = false;
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          show(index);
+          pausedUntil = Date.now() + DOT_PAUSE_MS;
+        });
+      });
+
+      idle(() => warm(1 % slides.length));
+    }
   }
 
   if (finePointer.matches && !reduceMotion.matches) {

@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: odinlovis
+name: OdinLovis
+github: null
+x: OdinLovis
+website: null
+avatar: https://unavatar.io/x/OdinLovis
+claimed: false

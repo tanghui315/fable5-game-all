@@ -4,12 +4,14 @@ import { parse as parseYaml } from 'yaml';
 import type { ZodType, ZodTypeDef } from 'zod';
 import {
   AuthorSchema,
+  FeaturedFileSchema,
   GameSchema,
   HealthFileSchema,
   RejectedFileSchema,
   ReposFileSchema,
   formatZodIssues,
   type Author,
+  type Featured,
   type Game,
   type HealthFile,
   type Rejected,
@@ -33,6 +35,8 @@ export interface LoadedData {
   authors: Author[];
   games: Game[];
   rejected: Rejected[];
+  /** Ordered game ids for the home hero; empty means "pick automatically". */
+  featured: Featured;
   generated: {
     repos: ReposFile;
     health: HealthFile;
@@ -100,6 +104,19 @@ export function loadRejectedFile(file: string): Rejected[] {
   return parseRejected(parseYamlText(readText(file), file), file);
 }
 
+export function parseFeatured(value: unknown, file = '<featured>'): Featured {
+  return parseWith(FeaturedFileSchema, value, file, []);
+}
+
+export function parseFeaturedYaml(text: string, file = '<featured>'): Featured {
+  return parseFeatured(parseYamlText(text, file), file);
+}
+
+export function loadFeaturedFile(file: string): Featured {
+  if (!existsSync(file)) return [];
+  return parseFeaturedYaml(readText(file), file);
+}
+
 function parseJsonFile<T>(file: string, schema: ZodType<T, ZodTypeDef, unknown>, fallback: T): T {
   if (!existsSync(file)) return fallback;
   let value: unknown;
@@ -140,6 +157,7 @@ export function loadData(rootDir: string): LoadedData {
     authors: listYamlFiles(path.join(dataDir, 'authors')).map(loadAuthorFile),
     games: listYamlFiles(path.join(dataDir, 'games')).map(loadGameFile),
     rejected: loadRejectedFile(path.join(dataDir, 'rejected.yaml')),
+    featured: loadFeaturedFile(path.join(dataDir, 'featured.yaml')),
     generated: {
       repos: loadReposFile(path.join(dataDir, '_generated', 'repos.json')),
       health: loadHealthFile(path.join(dataDir, '_generated', 'health.json')),

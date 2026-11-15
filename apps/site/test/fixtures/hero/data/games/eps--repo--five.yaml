@@ -1,0 +1,19 @@
+id: eps--repo--five
+slug: eps-five
+kind: game
+status: archived
+title: { zh: 艾普西龙五, en: Epsilon Five }
+summary:
+  zh: 测试条目五，已下架。
+  en: Test entry five, archived.
+author: alpha
+play: { url: "https://example.com/eps/", embeddable: true, mirror_url: null }
+media:
+  cover: media/eps--repo--five/cover.webp
+  preview: media/eps--repo--five/preview.webp
+genre: arcade
+tags: [arcade]
+controls: [keyboard]
+mobile: false
+model: { name: fable-5.2, evidence: L1 }
+source: { discovered_by: manual, discovered_at: 2026-04-01 }

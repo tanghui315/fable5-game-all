@@ -1,4 +1,4 @@
-import { readdirSync, writeFileSync, existsSync } from 'node:fs';
+import { readdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -33,6 +33,10 @@ function counterpart(url) {
 
 function escapeXml(value) {
   return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function readSitemapIndex(outDir) {
+  return readFileSync(path.join(outDir, 'sitemap-index.xml'), 'utf8');
 }
 
 export default function sitemapIntegration() {
@@ -87,6 +91,10 @@ export default function sitemapIntegration() {
             '',
           ].join('\n'),
         );
+
+        // `/sitemap.xml` is the name people and SEO tools try first; it is the
+        // same index, so write both rather than relying on the longer name.
+        writeFileSync(path.join(outDir, 'sitemap.xml'), readSitemapIndex(outDir));
 
         const robots = path.join(outDir, 'robots.txt');
         if (!existsSync(robots)) {

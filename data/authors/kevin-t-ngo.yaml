@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: kevin-t-ngo
+name: kevin_t_ngo
+github: null
+x: kevin_t_ngo
+website: null
+avatar: https://unavatar.io/x/kevin_t_ngo
+claimed: false

@@ -18,6 +18,7 @@ play:
 
 media:
   cover: media/lextoumbourou--aidens-revenge--web/cover.webp
+  preview: media/lextoumbourou--aidens-revenge--web/preview.webp
 
 genre: beat-em-up
 tags: [pixel-art, co-op, side-scroller, retro, boss-fight]

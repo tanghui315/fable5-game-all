@@ -15,6 +15,7 @@ import {
 import { reviewEntry, type AiContext } from './ai.js';
 import { readConfig, type CrawlerConfig } from './config.js';
 import { buildGameDraft, type GameDraft } from './draft.js';
+import { DEFAULT_PREVIEW } from './preview.js';
 import {
   branchExists,
   createOctokit,
@@ -52,6 +53,8 @@ export interface EnrichOptions {
   outDir?: string | undefined;
   pr?: boolean;
   useAi?: boolean;
+  /** Record an animated preview for every entry (default true). */
+  preview?: boolean;
   force?: boolean;
   issueNumber?: number | null;
   discoveredBy?: DiscoveredBy;
@@ -136,37 +139,52 @@ function promptCandidates(treePaths: readonly string[], entryKey: string): strin
   );
 }
 
-function writeDraftFiles(
-  outDir: string,
+/** Files a draft adds to the data tree, without touching the filesystem. */
+function draftFiles(
   drafts: readonly GameDraft[],
   existingAuthorIds: ReadonlySet<string>,
 ): DraftFile[] {
   const files: DraftFile[] = [];
   const seenAuthors = new Set<string>();
   for (const draft of drafts) {
-    const gamePath = path.join(outDir, 'data', 'games', `${draft.id}.yaml`);
-    mkdirSync(path.dirname(gamePath), { recursive: true });
-    writeFileSync(gamePath, `${GAME_SCHEMA_HEADER}${stringifyYaml(draft.game, { lineWidth: 0 })}`);
-    files.push({
-      path: `data/games/${draft.id}.yaml`,
-      content: `${GAME_SCHEMA_HEADER}${stringifyYaml(draft.game, { lineWidth: 0 })}`,
-    });
-
-    const coverPath = path.join(outDir, draft.coverPath);
-    mkdirSync(path.dirname(coverPath), { recursive: true });
-    writeFileSync(coverPath, draft.coverBytes);
+    const gameText = `${GAME_SCHEMA_HEADER}${stringifyYaml(draft.game, { lineWidth: 0 })}`;
+    files.push({ path: `data/games/${draft.id}.yaml`, content: gameText });
     files.push({ path: draft.coverPath, content: draft.coverBytes });
+
+    if (draft.previewPath !== null && draft.previewBytes !== null) {
+      files.push({ path: draft.previewPath, content: draft.previewBytes });
+    }
 
     if (!seenAuthors.has(draft.author.id) && !existingAuthorIds.has(draft.author.id)) {
       seenAuthors.add(draft.author.id);
       const authorText = `${AUTHOR_SCHEMA_HEADER}${stringifyYaml(draft.author, { lineWidth: 0 })}`;
-      const authorPath = path.join(outDir, 'data', 'authors', `${draft.author.id}.yaml`);
-      mkdirSync(path.dirname(authorPath), { recursive: true });
-      writeFileSync(authorPath, authorText);
       files.push({ path: `data/authors/${draft.author.id}.yaml`, content: authorText });
     }
   }
   return files;
+}
+
+function writeDraftFiles(
+  outDir: string,
+  drafts: readonly GameDraft[],
+  existingAuthorIds: ReadonlySet<string>,
+): DraftFile[] {
+  const files = draftFiles(drafts, existingAuthorIds);
+  for (const file of files) {
+    const target = path.join(outDir, file.path);
+    mkdirSync(path.dirname(target), { recursive: true });
+    writeFileSync(target, file.content);
+  }
+  return files;
+}
+
+/**
+ * Entries a candidate PR may include: only URLs the probe actually reached.
+ * Drafts for unreachable entries stay in the local output for debugging but
+ * never enter a branch, where `validate --online` could not pass.
+ */
+export function reachableEntries(entries: readonly ReviewEntry[]): ReviewEntry[] {
+  return entries.filter((item) => item.probe.reachable);
 }
 
 function highestEvidence(entries: readonly ReviewEntry[]): string {
@@ -389,82 +407,92 @@ async function finishEnrichment(input: FinishInput): Promise<EnrichResult> {
   const authorId = idSegment(owner);
   const authorExists = safeExistingAuthorIds(input.rootDir).has(authorId);
 
-  for (const entry of entries) {
-    const repoPathKey =
-      input.repoUrlValue === null ? null : `${normalizeUrl(input.repoUrlValue)}#${entry.path}`;
-    if (repoPathKey !== null && existingRepoPaths.has(repoPathKey)) {
-      log(`enrich: skip ${entry.path || '.'} — already in data/games`);
-      continue;
+  try {
+    for (const entry of entries) {
+      const repoPathKey =
+        input.repoUrlValue === null ? null : `${normalizeUrl(input.repoUrlValue)}#${entry.path}`;
+      if (repoPathKey !== null && existingRepoPaths.has(repoPathKey)) {
+        log(`enrich: skip ${entry.path || '.'} — already in data/games`);
+        continue;
+      }
+      if (existingPlayUrls.has(normalizeUrl(entry.playUrl))) {
+        log(`enrich: skip ${entry.path || '.'} — play.url already in data/games`);
+        continue;
+      }
+      log(`enrich: probing ${entry.playUrl}`);
+      const probe: ProbeResult = await probeEntry(entry.playUrl, {
+        config: config.probe,
+        preview: options.preview !== false ? DEFAULT_PREVIEW : null,
+      });
+      log(
+        `enrich: ${entry.path || '.'} HTTP ${probe.status ?? '—'} ` +
+          `reachable=${probe.reachable} embeddable=${probe.embeddable} ` +
+          `consoleErrors=${probe.consoleErrors.length} cover=${Math.round(probe.coverBytes / 1024)}KB` +
+          (probe.previewBytes > 0
+            ? ` preview=${Math.round(probe.previewBytes / 1024)}KB motion=${probe.previewMotion.toFixed(1)}`
+            : ''),
+      );
+      const context: AiContext = {
+        owner,
+        repo: repoName,
+        branch: input.branch,
+        repoName,
+        description: input.metadata?.description ?? null,
+        readme: input.readme,
+        topics: input.metadata?.topics ?? [],
+        entryKey: entry.key,
+        entryPath: entry.path,
+        pageTitle: probe.title,
+        probe,
+        promptCandidates: promptCandidates(input.promptTreePaths, entry.key),
+        submissionEvidence: options.submissionEvidence ?? null,
+        playUrl: entry.playUrl,
+        embedReason: probe.embedReason,
+        status: probe.status,
+        consoleErrors: probe.consoleErrors,
+        externalHosts: probe.externalHosts,
+      };
+      const outcome = await reviewEntry(context, {
+        useAi: input.useAi,
+        aiConfig: config.ai,
+        ...(apiKey !== undefined ? { apiKey } : {}),
+      });
+      if (outcome.review.kind === 'not-game') {
+        log(`enrich: skip ${entry.path || '.'} — AI classified it as not-game`);
+        continue;
+      }
+      const draft = buildGameDraft({
+        owner,
+        repoName,
+        repoUrlValue: input.repoUrlValue,
+        license: input.metadata?.license ?? null,
+        branch: input.branch,
+        entry,
+        probe,
+        review: outcome.review,
+        modelName,
+        discoveredBy,
+        discoveredAt: discoveredAt.toISOString().slice(0, 10),
+        reservedSlugs,
+        ownerProfile: input.metadata?.ownerProfile,
+      });
+      drafts.push(draft);
+      reviewEntries.push({
+        entryKey: entry.key,
+        path: entry.path,
+        playUrl: entry.playUrl,
+        probe,
+        review: outcome.review,
+        draft,
+        reviewMode: outcome.mode,
+        note: outcome.note,
+      });
     }
-    if (existingPlayUrls.has(normalizeUrl(entry.playUrl))) {
-      log(`enrich: skip ${entry.path || '.'} — play.url already in data/games`);
-      continue;
-    }
-    log(`enrich: probing ${entry.playUrl}`);
-    const probe: ProbeResult = await probeEntry(entry.playUrl, { config: config.probe });
-    log(
-      `enrich: ${entry.path || '.'} HTTP ${probe.status ?? '—'} ` +
-        `reachable=${probe.reachable} embeddable=${probe.embeddable} ` +
-        `consoleErrors=${probe.consoleErrors.length} cover=${Math.round(probe.coverBytes / 1024)}KB`,
-    );
-    const context: AiContext = {
-      owner,
-      repo: repoName,
-      branch: input.branch,
-      repoName,
-      description: input.metadata?.description ?? null,
-      readme: input.readme,
-      topics: input.metadata?.topics ?? [],
-      entryKey: entry.key,
-      entryPath: entry.path,
-      pageTitle: probe.title,
-      probe,
-      promptCandidates: promptCandidates(input.promptTreePaths, entry.key),
-      submissionEvidence: options.submissionEvidence ?? null,
-      playUrl: entry.playUrl,
-      embedReason: probe.embedReason,
-      status: probe.status,
-      consoleErrors: probe.consoleErrors,
-      externalHosts: probe.externalHosts,
-    };
-    const outcome = await reviewEntry(context, {
-      useAi: input.useAi,
-      aiConfig: config.ai,
-      ...(apiKey !== undefined ? { apiKey } : {}),
-    });
-    if (outcome.review.kind === 'not-game') {
-      log(`enrich: skip ${entry.path || '.'} — AI classified it as not-game`);
-      continue;
-    }
-    const draft = buildGameDraft({
-      owner,
-      repoName,
-      repoUrlValue: input.repoUrlValue,
-      license: input.metadata?.license ?? null,
-      branch: input.branch,
-      entry,
-      probe,
-      review: outcome.review,
-      modelName,
-      discoveredBy,
-      discoveredAt: discoveredAt.toISOString().slice(0, 10),
-      reservedSlugs,
-      ownerProfile: input.metadata?.ownerProfile,
-    });
-    drafts.push(draft);
-    reviewEntries.push({
-      entryKey: entry.key,
-      path: entry.path,
-      playUrl: entry.playUrl,
-      probe,
-      review: outcome.review,
-      draft,
-      reviewMode: outcome.mode,
-      note: outcome.note,
-    });
+  } finally {
+    // A throw mid-loop must not leave Playwright's browser alive: its open
+    // handle keeps the process (and a CI job) running until the job timeout.
+    await closeBrowser().catch(() => undefined);
   }
-
-  await closeBrowser().catch(() => undefined);
 
   if (drafts.length === 0) {
     log('enrich: nothing new to draft');
@@ -493,45 +521,70 @@ async function finishEnrichment(input: FinishInput): Promise<EnrichResult> {
 
   const outDir = options.outDir ?? mkdtempSync(path.join(os.tmpdir(), 'fable5-crawler-'));
   mkdirSync(outDir, { recursive: true });
-  const files = mergeAuthorFiles(
-    writeDraftFiles(outDir, drafts, authorExists ? new Set([authorId]) : new Set()),
-  );
+  writeDraftFiles(outDir, drafts, authorExists ? new Set([authorId]) : new Set());
   writeFileSync(path.join(outDir, 'review.md'), reviewMarkdown);
   log(`enrich: wrote ${drafts.length} draft(s) to ${outDir}`);
 
   let pr: EnrichResult['pr'] = null;
   if (options.pr === true) {
-    const repository = process.env.GITHUB_REPOSITORY;
-    if (repository === undefined || !repository.includes('/')) {
-      throw new Error('GITHUB_REPOSITORY must be set (owner/repo) when using --pr');
+    // A PR is only worth opening when at least one entry actually loads:
+    // `validate --online` fetches every play.url, so an unreachable entry
+    // makes the check red no matter what a reviewer does.
+    const prEntries = reachableEntries(reviewEntries);
+    const excluded = reviewEntries.filter((item) => !item.probe.reachable);
+    if (prEntries.length === 0) {
+      log('enrich: no reachable entries — candidate PR skipped');
+    } else {
+      const repository = process.env.GITHUB_REPOSITORY;
+      if (repository === undefined || !repository.includes('/')) {
+        throw new Error('GITHUB_REPOSITORY must be set (owner/repo) when using --pr');
+      }
+      const [targetOwner, targetRepo] = repository.split('/');
+      if (targetOwner === undefined || targetRepo === undefined) {
+        throw new Error(`invalid GITHUB_REPOSITORY: ${repository}`);
+      }
+      const prDrafts = prEntries.map((item) => item.draft);
+      const prFiles = mergeAuthorFiles(
+        draftFiles(prDrafts, authorExists ? new Set([authorId]) : new Set()),
+      );
+      const prMarkdown = buildReviewMarkdown({
+        owner,
+        repo: repoName,
+        repoUrl: input.repoUrlValue,
+        description: input.metadata?.description ?? null,
+        stars: input.metadata?.stars ?? null,
+        license: input.metadata?.license ?? null,
+        entries: prEntries,
+        excluded,
+        issueNumber: options.issueNumber ?? null,
+        generatedAt: discoveredAt,
+      });
+      const labels = dedupeStrings([
+        'candidate',
+        `evidence:${highestEvidence(prEntries)}`,
+        ...prEntries.map((item) => `kind:${item.draft.game.kind}`),
+      ]);
+      const branchName = candidateBranchName(owner, repoName);
+      const result = await createCandidatePr({
+        client: input.octokit,
+        owner: targetOwner,
+        repo: targetRepo,
+        branch: branchName,
+        files: prFiles,
+        title: `Candidate: ${owner}/${repoName} (${prDrafts.length} entr${
+          prDrafts.length === 1 ? 'y' : 'ies'
+        })`,
+        body: prMarkdown,
+        labels,
+      });
+      pr = {
+        number: result.number,
+        url: result.url,
+        branch: result.branch,
+        created: result.created,
+      };
+      log(`enrich: ${result.created ? 'opened' : 'updated'} PR ${result.url}`);
     }
-    const [targetOwner, targetRepo] = repository.split('/');
-    if (targetOwner === undefined || targetRepo === undefined) {
-      throw new Error(`invalid GITHUB_REPOSITORY: ${repository}`);
-    }
-    const labels = dedupeStrings([
-      'candidate',
-      `evidence:${highestEvidence(reviewEntries)}`,
-      ...reviewEntries.map((item) => `kind:${item.draft.game.kind}`),
-    ]);
-    const branchName = candidateBranchName(owner, repoName);
-    const result = await createCandidatePr({
-      client: input.octokit,
-      owner: targetOwner,
-      repo: targetRepo,
-      branch: branchName,
-      files,
-      title: `Candidate: ${owner}/${repoName} (${drafts.length} entr${drafts.length === 1 ? 'y' : 'ies'})`,
-      body: reviewMarkdown,
-      labels,
-    });
-    pr = {
-      number: result.number,
-      url: result.url,
-      branch: result.branch,
-      created: result.created,
-    };
-    log(`enrich: ${result.created ? 'opened' : 'updated'} PR ${result.url}`);
   }
 
   return {

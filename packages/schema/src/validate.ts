@@ -2,7 +2,7 @@
 import { existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DataFileError, listYamlFiles, loadAuthorFile, loadGameFile, loadHealthFile, loadRejectedFile, loadReposFile } from './load.js';
+import { DataFileError, listYamlFiles, loadAuthorFile, loadFeaturedFile, loadGameFile, loadHealthFile, loadRejectedFile, loadReposFile } from './load.js';
 import type { Author, Game, HealthFile, Rejected, ReposFile } from './schema.js';
 
 /** Upper bound for `media/<id>/cover.webp` (150 KB). */
@@ -194,6 +194,29 @@ export async function validateData(options: ValidateOptions = {}): Promise<Valid
     }
   }
   errors.push(...mediaErrors);
+
+  // `data/featured.yaml` drives the home hero; every id must exist and be
+  // publishable, otherwise the cover silently drops to an empty slot.
+  const featuredFile = path.join(dataDir, 'featured.yaml');
+  if (existsSync(featuredFile)) {
+    let featured: string[] = [];
+    try {
+      featured = loadFeaturedFile(featuredFile);
+    } catch (error) {
+      addLoadError(error, featuredFile);
+    }
+    const seen = new Set<string>();
+    for (const id of featured) {
+      if (seen.has(id)) addIssue(featuredFile, `duplicate id "${id}"`);
+      seen.add(id);
+      const game = games.find((candidate) => candidate.id === id);
+      if (game === undefined) {
+        addIssue(featuredFile, `id "${id}" not found in data/games`);
+      } else if (game.status !== 'published') {
+        addIssue(featuredFile, `id "${id}" is ${game.status}, the hero only shows published entries`);
+      }
+    }
+  }
 
   let rejected: Rejected[] = [];
   try {

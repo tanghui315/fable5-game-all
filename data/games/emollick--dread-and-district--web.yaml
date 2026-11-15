@@ -18,6 +18,7 @@ play:
 
 media:
   cover: media/emollick--dread-and-district--web/cover.webp
+  preview: media/emollick--dread-and-district--web/preview.webp
 
 genre: management
 tags: [transport, management, fantasy, narrative, single-file]
