@@ -29,9 +29,9 @@ controls:
   - mouse
 mobile: false
 model:
-  name: fable-5
+  name: fable-5.2
   evidence: L1
-  evidence_notes: 仓库 README：A first-person horror portal-puzzle game. Built in one prompt with Claude Fable 5。
+  evidence_notes: 仓库 README：A first-person horror portal-puzzle game. Built in one prompt with Claude Fable 5（原文没写小版本号，按当前 Fable 5.x 记为 5.2）。
 source:
   discovered_by: github-search
   discovered_at: 2026-11-14
