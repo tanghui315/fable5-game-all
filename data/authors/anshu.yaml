@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: anshu
+name: Anshu Chimala
+github: achimala
+x: anshuc
+website: https://anshu.dev/
+avatar: https://avatars.githubusercontent.com/u/1448366?v=4
+claimed: false

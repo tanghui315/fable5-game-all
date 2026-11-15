@@ -94,6 +94,28 @@ source: { discovered_by: seed, discovered_at: 2026-11-12 }
     }
   });
 
+  it('accepts model names outside the Fable family', () => {
+    const game = parseGameYaml(`
+id: wquguru--fable52-fps-repro--04-fps
+slug: sublevel-07
+kind: game
+status: published
+title: { zh: SUBLEVEL 07, en: SUBLEVEL 07 }
+summary: { zh: 单文件 FPS, en: Single-file FPS }
+author: wquguru
+play: { url: "https://example.com/game/", embeddable: true }
+media: { cover: media/x/cover.webp }
+genre: shooter
+tags: [fps]
+controls: [keyboard, mouse]
+mobile: false
+model: { name: gpt-6, evidence: L1 }
+source: { discovered_by: manual, discovered_at: 2026-11-15 }
+`);
+
+    expect(game.model.name).toBe('gpt-6');
+  });
+
   it('defaults author.claimed to false', () => {
     const author = parseAuthorYaml('id: someone\nname: someone\n');
     expect(author.claimed).toBe(false);

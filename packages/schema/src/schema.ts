@@ -6,8 +6,8 @@ export const GAME_ID_PATTERN = /^[a-z0-9][a-z0-9-]*--[a-z0-9][a-z0-9-]*--[a-z0-9
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 /** Author id, matches `data/authors/<id>.yaml`. */
 export const AUTHOR_ID_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
-/** Model names look like `fable-5.2` (optionally `fable-5.2.1`). */
-export const MODEL_NAME_PATTERN = /^fable-5(?:\.[0-9]+)+$/;
+/** Model names look like `fable-5.2` or `gpt-6` (optionally with a patch level). */
+export const MODEL_NAME_PATTERN = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*-[0-9]+(?:\.[0-9]+)*$/;
 /** Dates are stored as `YYYY-MM-DD` strings. */
 export const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -70,7 +70,7 @@ export const MediaSchema = z
 
 export const ModelSchema = z
   .object({
-    name: z.string().regex(MODEL_NAME_PATTERN, 'must look like fable-5.2'),
+    name: z.string().regex(MODEL_NAME_PATTERN, 'must look like fable-5.2 or gpt-6'),
     evidence: EvidenceLevelSchema,
     evidence_notes: z.string().min(1).optional(),
   })

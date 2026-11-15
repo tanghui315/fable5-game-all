@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: achimala--dream-loop--vesper
+slug: vesper-drowned-cathedral
+kind: demo
+status: published
+title:
+  zh: Vesper — The Drowned Cathedral
+  en: Vesper — The Drowned Cathedral
+summary:
+  zh: 沉没大教堂里的实时场景研究：等距视角、湿地面反射与手绘羽毛笔光标，点地面走动、拖拽旋转、滚轮缩放。作者用 dream-loop 技能让模型先画目标图、再自我评审，循环逼近。
+  en: A realtime study of a drowned cathedral — isometric camera, wet-floor reflections and an ink-quill cursor. Click to walk, drag to rotate, scroll to zoom; built by the author's dream-loop skill, which draws a target image then critiques its own screenshots until they match.
+author: anshu
+repo:
+  url: https://github.com/achimala/dream-loop
+play:
+  url: https://dream-loop-demo.anshu.dev/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/achimala--dream-loop--vesper/cover.webp
+genre: showcase
+tags:
+  - 3d
+  - threejs
+  - webgl
+  - lighting
+  - water
+  - atmospheric
+controls:
+  - mouse
+mobile: false
+model:
+  name: gpt-6
+  evidence: L1
+  evidence_notes: 仓库 README 的示例写明由 "GPT-6 Astra on high effort in Codex" 生成，并注明 Fable 5.1 "can likely work too"；本条是本目录唯一的非 Fable 条目（用户决定破例收录）。
+generation:
+  tool: Codex
+  prompt_url: https://github.com/achimala/dream-loop#example
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-15
