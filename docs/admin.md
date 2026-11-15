@@ -42,6 +42,21 @@ PR 里只会放进探测能打开的入口：`play.url` 404 或打不开的条�
      改完等 validate 重新通过再合并。
 8. **合并 = 上架**。PR 正文里的 `Closes #N` 会自动关闭投稿 Issue；合并后 deploy 会自动更新站点。
 
+## 查 X 证据
+
+审核时可以查作者自己的发帖，命令走 FixTweet 的公开 JSON 接口，不需要 API key：
+
+```bash
+pnpm --filter crawler crawler x "@FiniYang"                 # 作者资料
+pnpm --filter crawler crawler x sanguo.finiyang.com          # 搜提到这个地址的帖子
+pnpm --filter crawler crawler x https://x.com/FiniYang/status/2121212247515287740
+```
+
+`--limit` 控制条数（默认 10，最多 50），`--json` 输出原始结果。命中的帖子会标出
+`fable` / `claude` / `gpt` / `shader` 等关键词，方便抄进 `model.evidence_notes`。
+接口是非官方的，可能限流、也搜不到很旧的帖子；要长期批量抓取就用 X 官方的
+`xurl`（`npm i -g @xdevplatform/xurl`，需要 API 计费），别拿主号跑 scraper 类的 MCP。
+
 ## 动图预览
 
 `media.preview` 是首页大图和卡片悬停时播放的 5 秒动画（640×400，≤1 MB）。`crawler enrich` 默认会录，
@@ -66,7 +81,6 @@ pnpm --filter crawler crawler preview --headed --concurrency 3
 - 只有「已上架 + 有封面 + 有动图」的条目才进轮播：id 写错、条目下架、动图被丢弃时会被跳过，
   文件里剩不到两张时自动用「最新且有动图」的条目补齐。
 - 改完跑 `pnpm validate`：重复 id、找不到的 id、非 published 的条目都会报错。
-
 
 ## 驳回
 

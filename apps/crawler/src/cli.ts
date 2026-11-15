@@ -10,6 +10,7 @@ import { healthCheck } from './health.js';
 import { DEFAULT_PREVIEW } from './preview.js';
 import { rejectFromPr } from './reject.js';
 import { processSubmission } from './submission.js';
+import { formatPost, lookupX } from './x.js';
 
 const DISCOVERED_BY = new Set<DiscoveredBy>([
   'seed',
@@ -73,6 +74,42 @@ program
       console.log(`enrich: PR ${result.pr.created ? 'created' : 'updated'}: ${result.pr.url}`);
     }
     if (result.skipped !== null) console.log(`enrich: skipped — ${result.skipped}`);
+  });
+
+program
+  .command('x')
+  .description('read-only X lookups for review: profile (@handle), status URL, or post search')
+  .argument('<query>', 'search text, @handle, or x.com status URL')
+  .option('--limit <number>', 'maximum posts to print', '10')
+  .option('--json', 'print the JSON result instead of text', false)
+  .action(async (query: string, options: Record<string, unknown>) => {
+    const limit = Number(options.limit ?? 10);
+    if (!Number.isInteger(limit) || limit <= 0) {
+      throw new Error(`invalid --limit: ${String(options.limit)}`);
+    }
+    const result = await lookupX(query, { limit });
+    if (options.json === true) {
+      console.log(JSON.stringify(result, null, 2));
+      return;
+    }
+    if (result.kind === 'profile') {
+      const profile = result.profile;
+      if (profile === null) throw new Error(`no X profile found for ${query}`);
+      console.log(`@${profile.handle} (${profile.name})`);
+      if (profile.bio !== '') console.log(profile.bio);
+      if (profile.website !== null) console.log(`website: ${profile.website}`);
+      console.log(`followers ${profile.followers ?? '—'} · posts ${profile.posts ?? '—'}`);
+      return;
+    }
+    if (result.posts.length === 0) {
+      console.log(`x: no posts found for "${result.query}"`);
+      return;
+    }
+    console.log(`x: ${result.posts.length} post(s) for "${result.query}"`);
+    for (const post of result.posts) {
+      console.log('');
+      for (const line of formatPost(post)) console.log(line);
+    }
   });
 
 program

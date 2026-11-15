@@ -69,6 +69,12 @@ pnpm --filter crawler crawler discover --limit 10 --dry-run
 GITHUB_REPOSITORY=tanghui315/fable5-game-all BOT_TOKEN=... \
   pnpm --filter crawler crawler discover --limit 10
 
+# Review helper: read an X profile, one post, or search posts (no API key;
+# FixTweet's public JSON API). `--limit` caps results, `--json` prints raw data.
+pnpm --filter crawler crawler x @FiniYang
+pnpm --filter crawler crawler x sanguo.finiyang.com
+pnpm --filter crawler crawler x https://x.com/FiniYang/status/2121212247515287740
+
 # Health check, writing data/_generated
 pnpm --filter crawler crawler health --write
 
@@ -163,14 +169,14 @@ gh secret set ANTHROPIC_API_KEY        # optional; without it only heuristics ru
 gh variable set CF_PAGES_PROJECT --body fable5-game-all
 ```
 
-| Secret / variable              | Used by                      | Purpose                                                                                                                                                                                                 | If missing                                                                  |
-| ------------------------------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `CLOUDFLARE_API_TOKEN`         | deploy.yml                   | Deploy to Pages                                                                                                                                                                                         | Builds, then fails the job with an explicit error — nothing is published |
-| `CLOUDFLARE_ACCOUNT_ID`        | deploy.yml                   | Selects the Cloudflare account                                                                                                                                                                          | Same as above                                                               |
-| `BOT_TOKEN`                    | submission.yml, discover.yml | Creates branches/PRs as the bot so `pull_request` triggers validate; a fine-grained PAT or GitHub App token with `Contents` + `Pull requests` + `Issues` write on this repository only                   | Falls back to `GITHUB_TOKEN`: the PR still appears, but CI does not run automatically; trigger validate by hand |
-| `GH_SEARCH_TOKEN`              | discover.yml                 | Read-only PAT that gives code/repository search its own quota                                                                                                                                           | Falls back to `GITHUB_TOKEN`; search works but shares that quota             |
-| `ANTHROPIC_API_KEY`            | submission.yml, discover.yml | AI pre-review                                                                                                                                                                                           | Deterministic heuristics are used and the PR body says so                    |
-| `CF_PAGES_PROJECT` (variable)  | deploy.yml                   | Pages project name                                                                                                                                                                                      | Defaults to `fable5-game-all`                                                |
+| Secret / variable             | Used by                      | Purpose                                                                                                                                                                                | If missing                                                                                                      |
+| ----------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `CLOUDFLARE_API_TOKEN`        | deploy.yml                   | Deploy to Pages                                                                                                                                                                        | Builds, then fails the job with an explicit error — nothing is published                                        |
+| `CLOUDFLARE_ACCOUNT_ID`       | deploy.yml                   | Selects the Cloudflare account                                                                                                                                                         | Same as above                                                                                                   |
+| `BOT_TOKEN`                   | submission.yml, discover.yml | Creates branches/PRs as the bot so `pull_request` triggers validate; a fine-grained PAT or GitHub App token with `Contents` + `Pull requests` + `Issues` write on this repository only | Falls back to `GITHUB_TOKEN`: the PR still appears, but CI does not run automatically; trigger validate by hand |
+| `GH_SEARCH_TOKEN`             | discover.yml                 | Read-only PAT that gives code/repository search its own quota                                                                                                                          | Falls back to `GITHUB_TOKEN`; search works but shares that quota                                                |
+| `ANTHROPIC_API_KEY`           | submission.yml, discover.yml | AI pre-review                                                                                                                                                                          | Deterministic heuristics are used and the PR body says so                                                       |
+| `CF_PAGES_PROJECT` (variable) | deploy.yml                   | Pages project name                                                                                                                                                                     | Defaults to `fable5-game-all`                                                                                   |
 
 > Why `BOT_TOKEN`: branches pushed and PRs opened with `GITHUB_TOKEN` do **not** trigger `pull_request` workflows. The bot therefore writes PRs with a bot token. Its direct pushes to `data/` on main still use `GITHUB_TOKEN`, which is why deploy.yml also listens for `workflow_run`.
 
