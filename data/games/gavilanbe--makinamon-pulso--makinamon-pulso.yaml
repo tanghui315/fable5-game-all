@@ -7,8 +7,8 @@ title:
   zh: MAKINAMON · Versión Pulso
   en: MAKINAMON · Versión Pulso
 summary:
-  zh: Game Boy Color 风格的机械生物 RPG，160×144 分辨率跑在浏览器里：10 章剧情、50 只 Makinamon、50 种带独立动画的攻击，还有一只跟着你走的伙伴。
-  en: "A Game Boy Color-style creature RPG at 160x144 in the browser: 10 chapters, 50 Makinamon, 50 attacks with hand-made animations, and a companion that follows you. Made with Claude Fable 5.2."
+  zh: "🔋 MAKINAMON · Versión Pulso — RPG de criaturas-máquina estilo Game Boy Color: 10 capítulos, 50 Makinamon, 50 ataques con animación propia y un compañero que te sigue. Hecho con Claude Fable 5.2"
+  en: "🔋 MAKINAMON · Versión Pulso — RPG de criaturas-máquina estilo Game Boy Color: 10 capítulos, 50 Makinamon, 50 ataques con animación propia y un compañero que te sigue. Hecho con Claude Fable 5.2"
 author: gavilanbe
 repo:
   url: https://github.com/gavilanbe/makinamon-pulso
@@ -18,19 +18,19 @@ play:
   mirror_url: null
 media:
   cover: media/gavilanbe--makinamon-pulso--makinamon-pulso/cover.webp
-genre: rpg
+genre: procedural-demo
 tags:
-  - rpg
-  - gameboy
-  - pixel-art
-  - creatures
+  - makinamon
+  - pulso
+  - game
 controls:
   - keyboard
+  - mouse
 mobile: false
 model:
   name: fable-5.2
   evidence: L1
-  evidence_notes: 仓库 README 末尾：Hecho con Claude Fable 5.2。
+  evidence_notes: "README/描述引用：🔋 MAKINAMON · Versión Pulso — RPG de criaturas-máquina estilo Game Boy Color: 10 capítulos, 50 Makinamon, 50 ataques con animación propia y un compañero que te sigue. Hecho con Claude Fable 5.2 | Hecho con Claude Fable 5.2."
 source:
   discovered_by: github-search
-  discovered_at: 2026-11-14
+  discovered_at: 2026-11-15
