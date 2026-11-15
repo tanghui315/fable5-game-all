@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: hilaytrivedi--thirty-days--thirty-days
+slug: thirty-days
+kind: game
+status: published
+title:
+  zh: Thirty Days
+  en: Thirty Days
+summary:
+  zh: "Thirty Days: a 3D game about Jensen Huang's NVIDIA journey, built with Claude Fable 5.2"
+  en: "Thirty Days: a 3D game about Jensen Huang's NVIDIA journey, built with Claude Fable 5.2"
+author: hilaytrivedi
+repo:
+  url: https://github.com/hilaytrivedi/thirty-days
+play:
+  url: https://hilaytrivedi.github.io/thirty-days/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/hilaytrivedi--thirty-days--thirty-days/cover.webp
+genre: audio-demo
+tags:
+  - thirty
+  - days
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README/描述引用：Thirty Days: a 3D game about Jensen Huang's NVIDIA journey, built with Claude Fable 5.2"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-15
