@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: tuki0918--maze-exit--maze-exit-2
+slug: liquid-labyrinth
+kind: game
+status: published
+title:
+  zh: Liquid Labyrinth
+  en: Liquid Labyrinth
+summary:
+  zh: Fable 5.2 sample game
+  en: Fable 5.2 sample game
+author: tuki0918
+repo:
+  url: https://github.com/tuki0918/maze-exit
+play:
+  url: https://maze.bbbit.cc/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/tuki0918--maze-exit--maze-exit-2/cover.webp
+genre: arcade
+tags:
+  - maze
+  - exit
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Fable 5.2 sample game
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-15
