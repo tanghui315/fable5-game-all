@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: hilaytrivedi--thirty-days--thirty-days
+slug: thirty-days
+kind: game
+status: published
+title:
+  zh: Thirty Days
+  en: Thirty Days
+summary:
+  zh: 以黄仁勋与 NVIDIA 创业史为题的 3D 开放世界致敬作：从 1993 年创立到 AI 时代，筹钱、造芯片、扛过危机、押上关键一注。
+  en: "A 3D open-world tribute game: live through Jensen Huang's struggle to build NVIDIA, from founding in 1993 to the AI era. Raise the money, build the chips, survive the crises, make the bet."
+author: hilaytrivedi
+repo:
+  url: https://github.com/hilaytrivedi/thirty-days
+play:
+  url: https://hilaytrivedi.github.io/thirty-days/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/hilaytrivedi--thirty-days--thirty-days/cover.webp
+genre: adventure
+tags:
+  - open-world
+  - 3d
+  - biography
+  - tribute
+controls:
+  - keyboard
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "仓库描述：Thirty Days: a 3D game about Jensen Huang's NVIDIA journey, built with Claude Fable 5.2。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-15
