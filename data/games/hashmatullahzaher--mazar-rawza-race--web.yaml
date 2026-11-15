@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: hashmatullahzaher--mazar-rawza-race--web
+slug: rawza-ring
+kind: game
+status: published
+title:
+  zh: Rawza Ring — 马扎里沙里夫街头赛
+  en: Rawza Ring
+summary:
+  zh: 绕着蓝色清真寺的真实街道跑三圈：351 条街、8046 栋建筑来自 OpenStreetMap，还有三位对手和实时小地图。单提示词生成，游戏代码基本保持模型原样，手机触控是作者后来补的。
+  en: Three laps on the real streets around the Blue Mosque at golden hour — 351 streets and 8,046 building footprints from OpenStreetMap. One prompt, the game code published as the model wrote it; the phone controls were added afterwards.
+author: hashmatullahzaher
+repo:
+  url: https://github.com/Hashmatullahzaher/mazar-rawza-race
+play:
+  url: https://hashmatullahzaher.github.io/mazar-rawza-race/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/hashmatullahzaher--mazar-rawza-race--web/cover.webp
+genre: racing
+tags:
+  - racing
+  - driving
+  - 3d
+  - threejs
+  - mobile
+controls:
+  - keyboard
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README 写明「Built by Claude Fable 5.2 from a single prompt, in about 40 minutes」，并说明哪些部分是作者事后手补的（手机触控、全屏、广告牌）。
+generation:
+  tool: Claude Code
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-15

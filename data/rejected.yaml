@@ -120,3 +120,63 @@
 - repo: https://github.com/fablestar/fablestar
   reason: duplicate
   date: 2026-11-15
+- repo: https://github.com/adnanabbas17/fable-5.2-game-test
+  reason: broken
+  note: Pages 首页是 GitHub 的 Site not found，没有可玩的游戏。
+  date: 2026-11-15
+- repo: https://github.com/gamingnews5/awesome-opus-5.5-games
+  reason: not-a-game
+  note: AI 游戏索引站（3000 多条聚合），本身不是游戏。
+  date: 2026-11-15
+- repo: https://github.com/itar3/fable2recompmac
+  reason: not-a-game
+  note: Fable 2 的 macOS 移植文档站，不是浏览器游戏，也不是 AI 生成的内容。
+  date: 2026-11-15
+- repo: https://github.com/mofa-si/awesome-fable-5-2-videos
+  reason: not-a-game
+  note: 视频与提示词合集，入口是 drama.so 的列表页。
+  date: 2026-11-15
+- repo: https://github.com/sunsiyuan/awesome-claude-3d-videos
+  reason: not-a-game
+  note: 3D 视频合集，入口是 ultramotion.ai，不是可玩的游戏。
+  date: 2026-11-15
+- repo: https://github.com/unslothai/unsloth
+  reason: not-a-game
+  note: LLM 训练库，不是游戏。
+  date: 2026-11-15
+- repo: https://github.com/vibefin/wormhole
+  reason: duplicate
+  note: AidanHT 的 WORMHOLE 的改版，已收录原版。
+  date: 2026-11-15
+- repo: https://github.com/zqingdut/awesome-fable5.2-game
+  reason: not-a-game
+  note: 游戏索引站，本身不是游戏。
+  date: 2026-11-15
+- repo: https://github.com/torchwood4201/wormhole
+  reason: duplicate
+  note: WORMHOLE 的克隆，代码搜索已标记为 fork，原版已收录。
+  date: 2026-11-15
+- repo: https://github.com/sorrycc/fable-arcade
+  reason: ip-clone
+  note: 收录的是 Mario 1-1、Mario Kart、Flappy Bird 等任天堂与商业 IP 的复刻。
+  date: 2026-11-15
+- repo: https://github.com/antebm/fabled-games
+  reason: no-evidence
+  note: 两个游戏的真实提交日期是 2026-06-11 与 06-12，早于 Fable 5 发布，无法确认用的是哪个模型。
+  date: 2026-11-15
+- repo: https://github.com/masugus/fable5.2-5min-game
+  reason: no-evidence
+  note: 只有仓库名提到 fable5.2，README、仓库描述和提交说明都没写模型。
+  date: 2026-11-15
+- repo: https://github.com/Achraf921/boondocks
+  reason: broken
+  note: README 只给了本地 127.0.0.1 地址，没有线上可玩页面。
+  date: 2026-11-15
+- repo: https://github.com/jreinach-alt/sf-gt
+  reason: broken
+  note: SNES 赛车，需要 SuperForge 生成 ROM，没有浏览器版本。
+  date: 2026-11-15
+- repo: https://github.com/rafiulm/fable-52-game-3d
+  reason: broken
+  note: 单文件 Three.js 游戏，但仓库没开 Pages，也没有其他线上地址。
+  date: 2026-11-15

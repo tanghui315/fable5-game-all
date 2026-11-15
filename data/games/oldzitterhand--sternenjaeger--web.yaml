@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: oldzitterhand--sternenjaeger--web
+slug: sternenjaeger
+kind: game
+status: published
+title:
+  zh: Sternenjäger
+  en: Sternenjäger
+summary:
+  zh: 德语的太空街机射击：12 个星区、3 个 Boss，飞船自己开火，你只管飞、捡武器、护盾和多倍率；手机拖动、PC 键鼠、手柄都能玩。
+  en: "A German-language space shooter: 12 sectors and 3 bosses, a ship that fires on its own, and pickups for weapon, shield and multiplier while you fly. Touch, keyboard and mouse, or a gamepad."
+author: oldzitterhand
+repo:
+  url: https://github.com/oldzitterhand/sternenjaeger
+play:
+  url: https://oldzitterhand.github.io/sternenjaeger/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/oldzitterhand--sternenjaeger--web/cover.webp
+genre: shooter
+tags:
+  - shooter
+  - space
+  - arcade
+  - mobile
+  - gamepad
+controls:
+  - keyboard
+  - mouse
+  - touch
+  - gamepad
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 仓库描述写的是「browser game created with Fable 5.2 - zero effort prompt」；仓库没有 README，模型信息只来自描述。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-15

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: wongh26--claude-fps--web
+slug: riftline
+kind: game
+status: published
+title:
+  zh: Riftline
+  en: Riftline
+summary:
+  zh: 浏览器里的第一人称英雄射击：跟机器人练枪，或者和朋友点对点联机 1v1。双枪点射、短距传送、把位置和血量一起倒回三秒前，还有一枚贴上去就炸的粘性炸弹。
+  en: "A browser hero shooter: practise against bots, or duel a friend peer-to-peer. Twin pistols, a short teleport, a rewind that snaps position, health and ammo back three seconds, and a sticky charge that blows up after a beat."
+author: wongh26
+repo:
+  url: https://github.com/wongh26/claude_fps
+play:
+  url: https://wongh26.github.io/claude_fps/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/wongh26--claude-fps--web/cover.webp
+genre: shooter
+tags:
+  - fps
+  - shooter
+  - multiplayer
+  - first-person
+  - 3d
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 仓库描述写的是「testing Claude Fable 5.2 for game dev」。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-15

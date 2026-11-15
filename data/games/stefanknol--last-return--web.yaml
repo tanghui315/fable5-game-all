@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: stefanknol--last-return--web
+slug: last-return
+kind: game
+status: published
+title:
+  zh: Last Return
+  en: Last Return
+summary:
+  zh: 手电筒之外什么都没有，LiDAR 扫描仪是唯一的光：在 1987 年封死、地下 212 米的泵站里找回三卷测量胶片，追你的东西从不显形，只在你扫过时以点云停在你眼前。
+  en: There is no light but what the handheld LiDAR scanner touches. Descend into a pumping annex sealed in 1987, 212 metres below grade, recover three survey spools — and the thing following you exists only as the point cloud your scan freezes on it.
+author: stefanknol
+repo:
+  url: https://github.com/StefanKnol/Last-Return
+play:
+  url: https://last-return.sknol.com/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/stefanknol--last-return--web/cover.webp
+genre: horror
+tags:
+  - horror
+  - first-person
+  - 3d
+  - atmospheric
+  - audio
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 仓库描述写的是「Claude Fable 5.2 test, started with minimal prompt; 'make me a 3d LiDAR horror game'」。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-15

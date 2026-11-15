@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: oldzitterhand
+name: Patrick Metz
+github: oldzitterhand
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/23557970?v=4
+claimed: false

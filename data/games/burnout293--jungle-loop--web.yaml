@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: burnout293--jungle-loop--web
+slug: jungle-loop
+kind: game
+status: published
+title:
+  zh: Jungle Loop
+  en: Jungle Loop
+summary:
+  zh: 法语的像素跑酷：偷了神庙遗物之后，丛林不打算放你走。一路捡金币升级、解锁坐骑、完成挑战，手机横屏可以装到桌面。
+  en: "A pixel-art endless runner in French: you stole the temple relic and the jungle is not letting you leave. Collect coins for upgrades, unlock mounts and clear challenges; plays in landscape and installs on a phone."
+author: burnout293
+repo:
+  url: https://github.com/burnout293/Jungle-Loop
+play:
+  url: https://burnout293.github.io/Jungle-Loop/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/burnout293--jungle-loop--web/cover.webp
+genre: runner
+tags:
+  - pixel-art
+  - platformer
+  - runner
+  - mobile
+controls:
+  - keyboard
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 仓库描述写的是「Petit jeu fais avec Fable 5.2」。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-15
