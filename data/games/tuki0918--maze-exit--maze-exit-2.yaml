@@ -7,8 +7,8 @@ title:
   zh: Liquid Labyrinth
   en: Liquid Labyrinth
 summary:
-  zh: Fable 5.2 sample game
-  en: Fable 5.2 sample game
+  zh: 倾斜 3D 迷宫，让重力把小球引到出口；分享同一个种子，就能和朋友跑同一张图比速度。
+  en: Tilt a 3D maze and let gravity guide the drop to the exit. Share a seed to race friends on the same maze.
 author: tuki0918
 repo:
   url: https://github.com/tuki0918/maze-exit
@@ -18,11 +18,12 @@ play:
   mirror_url: null
 media:
   cover: media/tuki0918--maze-exit--maze-exit-2/cover.webp
-genre: arcade
+genre: puzzle
 tags:
   - maze
-  - exit
-  - game
+  - 3d
+  - physics
+  - seed-sharing
 controls:
   - keyboard
   - mouse
@@ -30,7 +31,7 @@ mobile: false
 model:
   name: fable-5.2
   evidence: L1
-  evidence_notes: README/描述引用：Fable 5.2 sample game
+  evidence_notes: 仓库描述：Fable 5.2 sample game；站点标题与说明与之一致。
 source:
   discovered_by: github-search
   discovered_at: 2026-11-15
