@@ -6,9 +6,9 @@ import type { MessageKey } from './en';
  */
 export const zh: Record<MessageKey, string> = {
   'site.name': '票根',
-  'site.tagline': 'Fable 5.x 网页游戏收录',
+  'site.tagline': 'AI 网页游戏收录',
   'site.description':
-    '非官方社区收录：用 Fable 5.x 生成的网页游戏，可以直接在浏览器里试玩，并查看提示词、轮数和成本。',
+    '非官方社区收录：用 AI 模型（以 Fable 5.x 为主）生成的网页游戏，可以直接在浏览器里试玩，并查看提示词、轮数和成本。',
   'site.skip': '跳到主要内容',
   'site.url': 'https://stubhall.com',
 
@@ -91,7 +91,7 @@ export const zh: Record<MessageKey, string> = {
   'home.noscript': '筛选和排序需要 JavaScript；全部作品已列出。',
   'home.emptyTitle': '还没有收录作品',
   'home.emptyBody':
-    '这里会收录用 Fable 5.x 生成、可以直接在浏览器里玩的网页游戏，并展示提示词、轮数和成本。第一批作品正在整理中。',
+    '这里会收录用 AI 模型（以 Fable 5.x 为主）生成、可以直接在浏览器里玩的网页游戏，并展示提示词、轮数和成本。第一批作品正在整理中。',
   'home.emptyAbout': '了解收录标准',
 
   'filter.kindLabel': '类型',
@@ -133,12 +133,12 @@ export const zh: Record<MessageKey, string> = {
 
   'detail.related': '同仓库的其他作品',
 
-  'author.description': '{name} 用 Fable 5.x 生成的网页游戏。',
+  'author.description': '{name} 用 AI 模型生成的网页游戏。',
   'author.games': '作品',
   'author.empty': '这个作者还没有可展示的作品。',
 
   'search.title': '搜索',
-  'search.description': '搜索收录的 Fable 5.x 网页游戏。',
+  'search.description': '搜索收录的 AI 网页游戏。',
   'search.inputLabel': '搜索游戏',
   'search.placeholder': '搜索标题、作者或标签',
   'search.loading': '正在搜索……',
@@ -153,7 +153,7 @@ export const zh: Record<MessageKey, string> = {
   'about.title': '关于',
   'about.description': '票根的收录标准、证据等级、下架方式和非官方声明。',
   'about.lede':
-    '票根是一个非官方的社区收录站，集中整理用 Fable 5.x 生成的网页游戏。每个作品都挂作者信息、开源地址和生成过程（提示词、轮数、成本），默认嵌入作者自己的原地址，流量归作者。',
+    '票根是一个非官方的社区收录站，集中整理用 AI 模型（以 Fable 5.x 为主）生成的网页游戏。每个作品都挂作者信息、开源地址和生成过程（提示词、轮数、成本），默认嵌入作者自己的原地址，流量归作者。',
   'about.introBefore': '本站没有数据库和账号系统。收录、修改和下架都在',
   'about.introLink': 'GitHub 仓库',
   'about.introAfter': '上通过 Issue 和 Pull Request 完成，审核记录公开可查。',
@@ -166,8 +166,8 @@ export const zh: Record<MessageKey, string> = {
   'about.criteria5': '开源与否都收：没开源的只放线上地址，并标注“未开源”。',
   'about.evidenceTitle': '证据等级',
   'about.evidenceIntro':
-    '“是不是用 Fable 5.x 做的”没法百分百验证，所以按证据分级，并在每个作品页公开展示。',
-  'about.evidenceL1': '作者自述：推文、README 或投稿声明里写明用 Fable 5.x 制作。',
+    '“是不是用页面标注的模型做的”没法百分百验证，所以按证据分级，并在每个作品页公开展示。',
+  'about.evidenceL1': '作者自述：推文、README 或投稿声明里写明所用的模型。',
   'about.evidenceL2':
     '有可检查的痕迹：README 有模型徽章，或代码、脚本里出现模型 ID（如 claude-fable-5-2）。',
   'about.evidenceL3': '公开了生成过程：有提示词原文，或运行日志、轮数、成本等数据。',
@@ -189,12 +189,12 @@ export const zh: Record<MessageKey, string> = {
     '本站是非官方社区收录，与 Anthropic 没有任何关联，也不代表 Anthropic 的立场。作品中提到的 Fable、Claude 等名称归其各自所有者。所有作品的版权归原作者所有，本站只做链接和嵌入。',
 
   'submit.title': '提交游戏',
-  'submit.description': '通过 GitHub Issue 向票根提交用 Fable 5.x 生成的网页游戏。',
+  'submit.description': '通过 GitHub Issue 向票根提交用 AI 模型生成的网页游戏。',
   'submit.lede': '投稿通过 GitHub Issue 完成，不需要账号系统，也不需要上传文件。',
   'submit.check':
-    '提交前请先确认：作品可以直接在浏览器里玩，原地址可以访问，并且能说明是用 Fable 5.x 制作的。',
+    '提交前请先确认：作品可以直接在浏览器里玩，原地址可以访问，并且能说明用的是什么模型。',
   'submit.fields':
-    '表单里需要填写在线地址（必填）、仓库地址、作者联系方式，以及“用 Fable 5.x 做的”依据。如果你不是作者本人，也请注明来源。',
+    '表单里需要填写在线地址（必填）、仓库地址、作者联系方式，以及“用哪个模型做的”依据。如果你不是作者本人，也请注明来源。',
   'submit.about': '查看收录标准',
   'submit.repoBefore': '投稿表单托管在',
   'submit.repoLink': 'GitHub 仓库',

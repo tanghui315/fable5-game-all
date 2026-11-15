@@ -7,7 +7,7 @@ English | [简体中文](README.zh-CN.md)
 > Repository: `fable5-game-all`
 > Live site: <https://stubhall.com>
 
-An **unofficial** community collection of browser games made with Fable 5.x (Anthropic's model). Each entry is playable in place and shows the author, the source repository and how the game was made: prompt, turns, cost and evidence level.
+An **unofficial** community collection of browser games made with AI models, mostly Fable 5.x (Anthropic's). Each entry is playable in place and shows the author, the source repository and how the game was made: prompt, turns, cost and evidence level.
 
 No database and no server. Submission, review, publishing and health checks all happen on GitHub:
 

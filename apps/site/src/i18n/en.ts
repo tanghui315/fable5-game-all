@@ -4,9 +4,9 @@
  */
 export const en = {
   'site.name': 'Stub',
-  'site.tagline': 'Fable 5.x browser games, with their receipts',
+  'site.tagline': 'AI-made browser games, with their receipts',
   'site.description':
-    'An unofficial community collection of browser games made with Fable 5.x — play them in place, then read the prompt, turns and cost.',
+    'An unofficial community collection of browser games made with AI models, mostly Fable 5.x — play them in place, then read the prompt, turns and cost.',
   'site.skip': 'Skip to main content',
   'site.url': 'https://stubhall.com',
 
@@ -89,7 +89,7 @@ export const en = {
   'home.noscript': 'Filtering and sorting need JavaScript. All games are listed below.',
   'home.emptyTitle': 'No games yet',
   'home.emptyBody':
-    'This is a collection of browser games made with Fable 5.x, playable right here, with the prompt, turns and cost on show. The first entries are being prepared.',
+    'This is a collection of browser games made with AI models, mostly Fable 5.x, playable right here, with the prompt, turns and cost on show. The first entries are being prepared.',
   'home.emptyAbout': 'Read the inclusion criteria',
 
   'filter.kindLabel': 'Kind',
@@ -131,12 +131,12 @@ export const en = {
 
   'detail.related': 'More from this repository',
 
-  'author.description': 'Browser games made with Fable 5.x by {name}.',
+  'author.description': 'Browser games made with AI models by {name}.',
   'author.games': 'Games',
   'author.empty': "This author doesn't have any games to show yet.",
 
   'search.title': 'Search',
-  'search.description': 'Search the collected Fable 5.x browser games.',
+  'search.description': 'Search the collected AI-made browser games.',
   'search.inputLabel': 'Search games',
   'search.placeholder': 'Search titles, authors or tags',
   'search.loading': 'Searching…',
@@ -152,7 +152,7 @@ export const en = {
   'about.description':
     'Inclusion criteria, evidence levels, removal and the unofficial disclaimer for Stub.',
   'about.lede':
-    "Stub is an unofficial community collection of browser games made with Fable 5.x. Every entry lists the author, the source and how it was made — prompt, turns and cost — and embeds the author's own page by default, so visits go to them.",
+    "Stub is an unofficial community collection of browser games made with AI models, mostly Fable 5.x. Every entry lists the author, the source and how it was made — prompt, turns and cost — and embeds the author's own page by default, so visits go to them.",
   'about.introBefore':
     'This site has no database and no accounts. Entries, edits and removals are handled through issues and pull requests on the ',
   'about.introLink': 'GitHub repository',
@@ -168,9 +168,9 @@ export const en = {
     'Open and closed source are both accepted. Closed-source entries link only to the live URL and are marked “Not open source”.',
   'about.evidenceTitle': 'Evidence levels',
   'about.evidenceIntro':
-    'There is no way to prove with certainty that a game was made with Fable 5.x, so entries carry an evidence level, shown on every game page.',
+    'There is no way to prove with certainty which model made a game, so entries carry an evidence level, shown on every game page.',
   'about.evidenceL1':
-    'The author says so: a post, README or submission states the game was made with Fable 5.x.',
+    'The author says so: a post, README or submission states which model made the game.',
   'about.evidenceL2':
     'Checkable traces: the README has a model badge, or the code and scripts contain a model ID (such as claude-fable-5-2).',
   'about.evidenceL3':
@@ -195,13 +195,13 @@ export const en = {
 
   'submit.title': 'Submit a game',
   'submit.description':
-    'Submit a browser game made with Fable 5.x to Stub through a GitHub issue.',
+    'Submit a browser game made with an AI model to Stub through a GitHub issue.',
   'submit.lede':
     'Submissions go through a GitHub issue. There are no accounts and no files to upload.',
   'submit.check':
-    'Before you submit, check that the game runs in a browser, the original URL is reachable, and you can show it was made with Fable 5.x.',
+    'Before you submit, check that the game runs in a browser, the original URL is reachable, and you can show which model made it.',
   'submit.fields':
-    'The form asks for the live URL (required), the repository, author contact details and the evidence that it was made with Fable 5.x. If you are not the author, note where you found it.',
+    'The form asks for the live URL (required), the repository, author contact details and the evidence for the model that made it. If you are not the author, note where you found it.',
   'submit.about': 'Read the inclusion criteria',
   'submit.repoBefore': 'The submission form is hosted in the ',
   'submit.repoLink': 'GitHub repository',
