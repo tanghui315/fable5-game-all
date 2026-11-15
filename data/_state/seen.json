@@ -4,11 +4,22 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-12T09:02:00Z"
   },
+  "achraf921/boondocks": {
+    "repo": "achraf921/boondocks",
+    "last_seen": "2026-11-15T11:01:49.225Z",
+    "pushed_at": "2026-11-15T01:29:41Z"
+  },
   "adnanabbas17/fable-5.2-game-test": {
     "repo": "adnanabbas17/fable-5.2-game-test",
     "last_seen": "2026-11-14T10:35:34.147Z",
     "pushed_at": "2026-11-11T12:29:24Z",
     "last_pr": 19
+  },
+  "aidanht/wormhole": {
+    "repo": "aidanht/wormhole",
+    "last_seen": "2026-11-15T11:02:27.246Z",
+    "pushed_at": "2026-06-14T18:04:31Z",
+    "last_pr": 24
   },
   "andreteow/farm-ca": {
     "repo": "andreteow/farm-ca",
@@ -88,8 +99,8 @@
   },
   "gavilanbe/makinamon-pulso": {
     "repo": "gavilanbe/makinamon-pulso",
-    "last_seen": "2026-11-14T10:31:17.324Z",
-    "pushed_at": "2026-11-14T08:20:34Z",
+    "last_seen": "2026-11-15T11:01:44.077Z",
+    "pushed_at": "2026-11-14T12:57:55Z",
     "last_pr": 12
   },
   "github30/fable52-gta6": {
@@ -97,10 +108,21 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-12T04:17:58Z"
   },
+  "harleycoops/math-to-manim": {
+    "repo": "harleycoops/math-to-manim",
+    "last_seen": "2026-11-15T11:01:19.497Z",
+    "pushed_at": "2026-11-14T05:31:45Z"
+  },
   "hero88go/melee-unlocked": {
     "repo": "hero88go/melee-unlocked",
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-13T03:18:45Z"
+  },
+  "hilaytrivedi/thirty-days": {
+    "repo": "hilaytrivedi/thirty-days",
+    "last_seen": "2026-11-15T11:03:06.133Z",
+    "pushed_at": "2026-11-14T22:17:44Z",
+    "last_pr": 26
   },
   "ilien-dev/quiron": {
     "repo": "ilien-dev/quiron",
@@ -213,6 +235,11 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-12T06:32:07Z"
   },
+  "stefanknol/no-return": {
+    "repo": "stefanknol/no-return",
+    "last_seen": "2026-11-15T11:01:24.205Z",
+    "pushed_at": "2026-11-15T10:51:07Z"
+  },
   "taarichandaria/car-game-fable-5-test": {
     "repo": "taarichandaria/car-game-fable-5-test",
     "last_seen": "2026-11-14T10:34:07.249Z",
@@ -229,6 +256,12 @@
     "last_seen": "2026-11-13T12:38:08.049Z",
     "pushed_at": "2026-11-13T00:05:30Z",
     "last_pr": 8
+  },
+  "tuki0918/maze-exit": {
+    "repo": "tuki0918/maze-exit",
+    "last_seen": "2026-11-15T11:02:45.578Z",
+    "pushed_at": "2026-11-15T07:45:21Z",
+    "last_pr": 25
   },
   "ummydev/awesome-claude-fable-games": {
     "repo": "ummydev/awesome-claude-fable-games",
