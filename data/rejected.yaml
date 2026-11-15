@@ -117,3 +117,6 @@
 - repo: https://github.com/nipale-ai/glm-5-3-one-prompt-game
   reason: no-evidence
   date: 2026-11-15
+- repo: https://github.com/fablestar/fablestar
+  reason: duplicate
+  date: 2026-11-15
