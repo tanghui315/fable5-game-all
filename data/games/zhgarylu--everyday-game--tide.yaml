@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--tide
+slug: tide
+kind: game
+status: published
+title:
+  zh: 回声 · 清潮
+  en: Tide
+summary:
+  zh: 回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩
+  en: 回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: tide
+play:
+  url: https://zhgarylu.github.io/everyday-game/tide/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--tide/cover.webp
+genre: audio-demo
+tags:
+  - tide
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩 | 这里的 12 个游戏全部由 Claude Fable 5.2 制作。** 人只负责出题和提意见（“做个搓澡的”“太简单了”“导航不够明显”），代码、玩法、画面、音效、配音台词和首页都是 Fable 在 Claude Code 里写出来、自己截图检查、再一轮轮改出来的。 | Fable 做了什么
+generation:
+  prompt_url: https://github.com/zhgarylu/everyday-game/blob/main/tide/assets/ALLY_IDEAS.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-16
