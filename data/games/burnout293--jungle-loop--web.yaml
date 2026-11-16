@@ -18,6 +18,7 @@ play:
   mirror_url: null
 media:
   cover: media/burnout293--jungle-loop--web/cover.webp
+  preview: media/burnout293--jungle-loop--web/preview.webp
 genre: runner
 tags:
   - pixel-art

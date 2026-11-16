@@ -18,6 +18,7 @@ play:
   mirror_url: null
 media:
   cover: media/gavilanbe--ceba--web/cover.webp
+  preview: media/gavilanbe--ceba--web/preview.webp
 genre: rpg
 tags:
   - 3d
