@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: pasco-xai
+name: pasco-xai
+github: pasco-xai
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/221626263?v=4
+claimed: false
