@@ -180,3 +180,7 @@
   reason: broken
   note: 单文件 Three.js 游戏，但仓库没开 Pages，也没有其他线上地址。
   date: 2026-11-15
+- repo: https://github.com/fablestar/bayhaven
+  reason: broken
+  note: 域名 fablestar.games 的 DNS 已停在 parked.nsone.net，整站打不开（2026-11-16 起）；页面恢复后可重新收录。
+  date: 2026-11-16

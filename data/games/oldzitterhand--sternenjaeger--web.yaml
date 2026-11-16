@@ -18,6 +18,7 @@ play:
   mirror_url: null
 media:
   cover: media/oldzitterhand--sternenjaeger--web/cover.webp
+  preview: media/oldzitterhand--sternenjaeger--web/preview.webp
 genre: shooter
 tags:
   - shooter

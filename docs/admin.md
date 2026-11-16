@@ -77,9 +77,11 @@ pnpm --filter crawler crawler preview --headed --concurrency 3
 首页大图按 `data/featured.yaml` 的顺序轮播，8 秒换一张。鼠标悬停、键盘聚焦到轮播里、切到别的标签页时暂停；
 点圆点会直接跳到那张并停 30 秒。系统开了「减少动态效果」或浏览器开了省流量模式时不自动轮播，只显示第一张。
 
-- 文件里写游戏 id（`owner--repo--entry`），最多 12 条，一般放 3–5 条。
-- 只有「已上架 + 有封面 + 有动图」的条目才进轮播：id 写错、条目下架、动图被丢弃时会被跳过，
-  文件里剩不到两张时自动用「最新且有动图」的条目补齐。
+- 文件里写游戏 id（`owner--repo--entry`），最多 12 条。这里只放**常驻**的几张（一般 3 条），
+  剩下的名额每次构建自动用「最新且有动图」的条目补齐，新游戏不用改文件就会进轮播。
+- 只有「已上架 + 有封面 + 有动图」的条目才进轮播：id 写错、条目下架、动图被丢弃时会被跳过。
+- 动图由 `crawler preview` 录制；`discover` 工作流每天顺手补 6 条缺动图的条目并把结果提交回 main，
+  所以轮播会自己更新。想立刻补：`pnpm --filter crawler crawler preview --kind all`。
 - 改完跑 `pnpm validate`：重复 id、找不到的 id、非 published 的条目都会报错。
 
 ## 驳回

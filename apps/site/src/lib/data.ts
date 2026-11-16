@@ -168,30 +168,30 @@ function heroCandidates(): GameView[] {
 }
 
 /**
- * Slides for the home hero, in the order `data/featured.yaml` lists them.
+ * Slides for the home hero: `data/featured.yaml` first, then the newest
+ * entries that have a preview.
  *
  * A curated id is skipped when the entry is archived, broken, hidden or has no
  * preview, so the file can keep listing something that is temporarily down.
- * When fewer than two curated slides survive — or the file is empty — the
- * newest entries with a preview fill the gap. Falls back to `featuredGame()`
- * so a repository with no previews at all still shows a cover.
+ * The list is deliberately shorter than the slide limit: the remaining slots
+ * take the newest previewed entries, so new games rotate in on their own
+ * without anyone editing the file. Falls back to `featuredGame()` so a
+ * repository with no previews at all still shows a cover.
  */
 export function heroSlides(limit = HERO_SLIDE_LIMIT): GameView[] {
   const candidates = heroCandidates();
   const byId = new Map(candidates.map((view) => [view.game.id, view]));
   const chosen: GameView[] = [];
   for (const id of getSiteData().featured) {
+    if (chosen.length >= limit) break;
     const view = byId.get(id);
     if (view !== undefined && !chosen.includes(view)) chosen.push(view);
   }
-  if (chosen.length < 2) {
-    const target = Math.max(4, limit);
-    for (const view of candidates) {
-      if (chosen.length >= target) break;
-      if (!chosen.includes(view)) chosen.push(view);
-    }
+  for (const view of candidates) {
+    if (chosen.length >= limit) break;
+    if (!chosen.includes(view)) chosen.push(view);
   }
-  if (chosen.length > 0) return chosen.slice(0, limit);
+  if (chosen.length > 0) return chosen;
   const fallback = featuredGame();
   return fallback === null ? [] : [fallback];
 }

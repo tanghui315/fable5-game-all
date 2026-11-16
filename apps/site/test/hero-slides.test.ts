@@ -18,12 +18,14 @@ describe('heroSlides', () => {
     delete process.env.DATA_ROOT;
   });
 
-  it('follows the curated order and skips ids it cannot show', async () => {
-    // The fixture lists alpha, an unknown id, gamma (no preview) and delta.
+  it('follows the curated order, skips ids it cannot show, then tops up', async () => {
+    // The fixture lists alpha, an unknown id, gamma (no preview) and delta;
+    // beta is not curated, so it fills the next free slot.
     const { heroSlides } = await loadDataModule(fixture);
     expect(heroSlides().map((view) => view.game.id)).toEqual([
       'alpha--repo--one',
       'delta--repo--four',
+      'beta--repo--two',
     ]);
   });
 
