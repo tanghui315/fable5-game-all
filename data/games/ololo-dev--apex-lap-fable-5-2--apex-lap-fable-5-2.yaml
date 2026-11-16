@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ololo-dev--apex-lap-fable-5-2--apex-lap-fable-5-2
+slug: apex-lap
+kind: game
+status: published
+title:
+  zh: Apex Lap
+  en: Apex Lap
+summary:
+  zh: Apex Lap, a 3D racing game built by Claude Fable 5.2 in one ololo session
+  en: Apex Lap, a 3D racing game built by Claude Fable 5.2 in one ololo session
+author: ololo-dev
+repo:
+  url: https://github.com/ololo-dev/apex-lap-fable-5-2
+play:
+  url: https://ololo-dev.github.io/apex-lap-fable-5-2/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/ololo-dev--apex-lap-fable-5-2--apex-lap-fable-5-2/cover.webp
+genre: racing
+tags:
+  - apex
+  - lap
+  - fable
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Apex Lap, a 3D racing game built by Claude Fable 5.2 in one ololo session | Apex Lap — Claude Fable 5.2 | A 3D racing game built by **Claude Fable 5.2** in one [ololo](https://ololo.dev) session
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-16
