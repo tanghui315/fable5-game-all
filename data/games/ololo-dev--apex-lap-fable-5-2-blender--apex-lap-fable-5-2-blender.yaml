@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ololo-dev--apex-lap-fable-5-2-blender--apex-lap-fable-5-2-blender
+slug: apex-lap-tarn-hollow
+kind: game
+status: published
+title:
+  zh: Apex Lap - Tarn Hollow
+  en: Apex Lap - Tarn Hollow
+summary:
+  zh: Apex Lap, a 3D racing game built by Claude Fable 5.2 with Blender in one ololo session
+  en: Apex Lap, a 3D racing game built by Claude Fable 5.2 with Blender in one ololo session
+author: ololo-dev
+repo:
+  url: https://github.com/ololo-dev/apex-lap-fable-5-2-blender
+play:
+  url: https://ololo-dev.github.io/apex-lap-fable-5-2-blender/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/ololo-dev--apex-lap-fable-5-2-blender--apex-lap-fable-5-2-blender/cover.webp
+genre: procedural-demo
+tags:
+  - apex
+  - lap
+  - fable
+  - blender
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Apex Lap, a 3D racing game built by Claude Fable 5.2 with Blender in one ololo session | Apex Lap — Claude Fable 5.2 with Blender | A 3D racing game built by **Claude Fable 5.2 with Blender** in one [ololo](https://ololo.dev) session
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-16
