@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--como-funciona-la-ia
+slug: co-mo-funciona-la-ia-para-nin-os-primera-clase-interactiva-1
+kind: demo
+status: published
+title:
+  zh: "Cómo Funciona la IA para Niños: Primera Clase Interactiva (10–17 años)"
+  en: "Cómo Funciona la IA para Niños: Primera Clase Interactiva (10–17 años)"
+summary:
+  zh: "Fable 5.x 网页作品：Cómo Funciona la IA para Niños: Primera Clase Interactiva (10–17 años)"
+  en: "Fable 5.x 网页作品：Cómo Funciona la IA para Niños: Primera Clase Interactiva (10–17 años)"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: es/clases-de-ia-para-ninos/como-funciona-la-ia
+play:
+  url: https://aicoachalex.com/es/clases-de-ia-para-ninos/como-funciona-la-ia/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--como-funciona-la-ia/cover.webp
+genre: procedural-demo
+tags:
+  - como
+  - funciona
+  - la
+  - ia
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

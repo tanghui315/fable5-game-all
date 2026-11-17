@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--design-and-fashion
+slug: ai-for-creative-kids-teens-design-fashion-and-art-ages-10-17
+kind: demo
+status: published
+title:
+  zh: "AI for Creative Kids & Teens: Design, Fashion and Art (Ages 10–17)"
+  en: "AI for Creative Kids & Teens: Design, Fashion and Art (Ages 10–17)"
+summary:
+  zh: "Fable 5.x 网页作品：AI for Creative Kids & Teens: Design, Fashion and Art (Ages 10–17)"
+  en: "Fable 5.x 网页作品：AI for Creative Kids & Teens: Design, Fashion and Art (Ages 10–17)"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: ai-lessons-for-kids/design-and-fashion
+play:
+  url: https://aicoachalex.com/ai-lessons-for-kids/design-and-fashion/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--design-and-fashion/cover.webp
+genre: procedural-demo
+tags:
+  - design
+  - and
+  - fashion
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

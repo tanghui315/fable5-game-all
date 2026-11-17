@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--clases-de-ia-para-ninos
+slug: clases-de-ia-para-ninos
+kind: demo
+status: published
+title:
+  zh: clases-de-ia-para-ninos
+  en: clases-de-ia-para-ninos
+summary:
+  zh: Fable 5.x 网页作品：clases-de-ia-para-ninos
+  en: Fable 5.x 网页作品：clases-de-ia-para-ninos
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: es/clases-de-ia-para-ninos
+play:
+  url: https://aicoachalex.com/es/clases-de-ia-para-ninos/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--clases-de-ia-para-ninos/cover.webp
+genre: procedural-demo
+tags:
+  - clases
+  - de
+  - ia
+  - para
+  - ninos
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--seguridad-online
+slug: seguridad-con-ia-para-nin-os-y-adolescentes-privacidad-deepf
+kind: demo
+status: published
+title:
+  zh: "Seguridad con IA para Niños y Adolescentes: Privacidad, Deepfakes y Criterio (10–17 años)"
+  en: "Seguridad con IA para Niños y Adolescentes: Privacidad, Deepfakes y Criterio (10–17 años)"
+summary:
+  zh: "Fable 5.x 网页作品：Seguridad con IA para Niños y Adolescentes: Privacidad, Deepfakes y Criterio (10–17 años)"
+  en: "Fable 5.x 网页作品：Seguridad con IA para Niños y Adolescentes: Privacidad, Deepfakes y Criterio (10–17 años)"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: es/clases-de-ia-para-ninos/seguridad-online
+play:
+  url: https://aicoachalex.com/es/clases-de-ia-para-ninos/seguridad-online/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--seguridad-online/cover.webp
+genre: procedural-demo
+tags:
+  - seguridad
+  - online
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

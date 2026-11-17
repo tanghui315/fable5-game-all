@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--clinicas-dentales
+slug: ia-para-cli-nicas-dentales-automatizacio-n-segura-de-seguros
+kind: demo
+status: published
+title:
+  zh: "IA para Clínicas Dentales: Automatización Segura de Seguros, Protocolos y Reuniones"
+  en: "IA para Clínicas Dentales: Automatización Segura de Seguros, Protocolos y Reuniones"
+summary:
+  zh: "Fable 5.x 网页作品：IA para Clínicas Dentales: Automatización Segura de Seguros, Protocolos y Reuniones"
+  en: "Fable 5.x 网页作品：IA para Clínicas Dentales: Automatización Segura de Seguros, Protocolos y Reuniones"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: es/con-quien-trabajo/clinicas-dentales
+play:
+  url: https://aicoachalex.com/es/con-quien-trabajo/clinicas-dentales/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--clinicas-dentales/cover.webp
+genre: procedural-demo
+tags:
+  - clinicas
+  - dentales
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

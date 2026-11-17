@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--how-ai-works
+slug: how-ai-works-for-kids-interactive-first-lesson-ages-10-17
+kind: demo
+status: published
+title:
+  zh: "How AI Works for Kids: Interactive First Lesson (Ages 10–17)"
+  en: "How AI Works for Kids: Interactive First Lesson (Ages 10–17)"
+summary:
+  zh: "Fable 5.x 网页作品：How AI Works for Kids: Interactive First Lesson (Ages 10–17)"
+  en: "Fable 5.x 网页作品：How AI Works for Kids: Interactive First Lesson (Ages 10–17)"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: ai-lessons-for-kids/how-ai-works
+play:
+  url: https://aicoachalex.com/ai-lessons-for-kids/how-ai-works/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--how-ai-works/cover.webp
+genre: procedural-demo
+tags:
+  - how
+  - ai
+  - works
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

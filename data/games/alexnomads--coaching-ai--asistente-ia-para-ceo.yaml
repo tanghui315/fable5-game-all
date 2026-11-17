@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--asistente-ia-para-ceo
+slug: asistente-de-ia-para-ceos-informes-de-ventas-presentaciones
+kind: demo
+status: published
+title:
+  zh: "Asistente de IA para CEOs: Informes de Ventas, Presentaciones y un Briefing Diario"
+  en: "Asistente de IA para CEOs: Informes de Ventas, Presentaciones y un Briefing Diario"
+summary:
+  zh: "Fable 5.x 网页作品：Asistente de IA para CEOs: Informes de Ventas, Presentaciones y un Briefing Diario"
+  en: "Fable 5.x 网页作品：Asistente de IA para CEOs: Informes de Ventas, Presentaciones y un Briefing Diario"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: es/con-quien-trabajo/asistente-ia-para-ceo
+play:
+  url: https://aicoachalex.com/es/con-quien-trabajo/asistente-ia-para-ceo/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--asistente-ia-para-ceo/cover.webp
+genre: procedural-demo
+tags:
+  - asistente
+  - ia
+  - para
+  - ceo
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

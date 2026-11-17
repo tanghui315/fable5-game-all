@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--ai-lessons-for-kids
+slug: ai-lessons-for-kids-teens-10-17-online-1-1-and-small-groups
+kind: demo
+status: published
+title:
+  zh: "AI Lessons for Kids & Teens (10–17): Online 1:1 and Small Groups | AI Coach Alex"
+  en: "AI Lessons for Kids & Teens (10–17): Online 1:1 and Small Groups | AI Coach Alex"
+summary:
+  zh: "Fable 5.x 网页作品：AI Lessons for Kids & Teens (10–17): Online 1:1 and Small Groups | AI Coach Alex"
+  en: "Fable 5.x 网页作品：AI Lessons for Kids & Teens (10–17): Online 1:1 and Small Groups | AI Coach Alex"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: ai-lessons-for-kids
+play:
+  url: https://aicoachalex.com/ai-lessons-for-kids/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--ai-lessons-for-kids/cover.webp
+genre: procedural-demo
+tags:
+  - ai
+  - lessons
+  - for
+  - kids
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

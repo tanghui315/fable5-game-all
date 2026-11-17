@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--con-quien-trabajo
+slug: con-quie-n-trabajo-clientes-de-coaching-de-ia-por-sector-ai
+kind: demo
+status: published
+title:
+  zh: "Con Quién Trabajo: Clientes de Coaching de IA por Sector | AI Coach Alex"
+  en: "Con Quién Trabajo: Clientes de Coaching de IA por Sector | AI Coach Alex"
+summary:
+  zh: "Fable 5.x 网页作品：Con Quién Trabajo: Clientes de Coaching de IA por Sector | AI Coach Alex"
+  en: "Fable 5.x 网页作品：Con Quién Trabajo: Clientes de Coaching de IA por Sector | AI Coach Alex"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: es/con-quien-trabajo
+play:
+  url: https://aicoachalex.com/es/con-quien-trabajo/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--con-quien-trabajo/cover.webp
+genre: procedural-demo
+tags:
+  - con
+  - quien
+  - trabajo
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

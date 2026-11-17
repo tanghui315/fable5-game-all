@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--online-safety
+slug: ai-safety-for-kids-teens-privacy-deepfakes-and-good-judgemen
+kind: demo
+status: published
+title:
+  zh: "AI Safety for Kids & Teens: Privacy, Deepfakes and Good Judgement (Ages 10–17)"
+  en: "AI Safety for Kids & Teens: Privacy, Deepfakes and Good Judgement (Ages 10–17)"
+summary:
+  zh: "Fable 5.x 网页作品：AI Safety for Kids & Teens: Privacy, Deepfakes and Good Judgement (Ages 10–17)"
+  en: "Fable 5.x 网页作品：AI Safety for Kids & Teens: Privacy, Deepfakes and Good Judgement (Ages 10–17)"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: ai-lessons-for-kids/online-safety
+play:
+  url: https://aicoachalex.com/ai-lessons-for-kids/online-safety/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--online-safety/cover.webp
+genre: procedural-demo
+tags:
+  - online
+  - safety
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

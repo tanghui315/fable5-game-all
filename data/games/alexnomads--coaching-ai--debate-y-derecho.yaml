@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--debate-y-derecho
+slug: ia-para-adolescentes-que-aman-el-derecho-y-el-debate-13-17-a
+kind: demo
+status: published
+title:
+  zh: IA para Adolescentes que Aman el Derecho y el Debate (13–17 años)
+  en: IA para Adolescentes que Aman el Derecho y el Debate (13–17 años)
+summary:
+  zh: Fable 5.x 网页作品：IA para Adolescentes que Aman el Derecho y el Debate (13–17 años)
+  en: Fable 5.x 网页作品：IA para Adolescentes que Aman el Derecho y el Debate (13–17 años)
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: es/clases-de-ia-para-ninos/debate-y-derecho
+play:
+  url: https://aicoachalex.com/es/clases-de-ia-para-ninos/debate-y-derecho/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--debate-y-derecho/cover.webp
+genre: procedural-demo
+tags:
+  - debate
+  - derecho
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

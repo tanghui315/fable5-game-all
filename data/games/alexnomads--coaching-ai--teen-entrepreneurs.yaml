@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--teen-entrepreneurs
+slug: ai-for-teen-entrepreneurs-pricing-instagram-customers-ages-1
+kind: demo
+status: published
+title:
+  zh: "AI for Teen Entrepreneurs: Pricing, Instagram & Customers (Ages 12–17)"
+  en: "AI for Teen Entrepreneurs: Pricing, Instagram & Customers (Ages 12–17)"
+summary:
+  zh: "Fable 5.x 网页作品：AI for Teen Entrepreneurs: Pricing, Instagram & Customers (Ages 12–17)"
+  en: "Fable 5.x 网页作品：AI for Teen Entrepreneurs: Pricing, Instagram & Customers (Ages 12–17)"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: ai-lessons-for-kids/teen-entrepreneurs
+play:
+  url: https://aicoachalex.com/ai-lessons-for-kids/teen-entrepreneurs/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--teen-entrepreneurs/cover.webp
+genre: procedural-demo
+tags:
+  - teen
+  - entrepreneurs
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

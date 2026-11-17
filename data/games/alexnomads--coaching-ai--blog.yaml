@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--blog
+slug: ai-era-career-blog-ai-coach-alex
+kind: demo
+status: published
+title:
+  zh: AI Era Career Blog — AI Coach Alex
+  en: AI Era Career Blog — AI Coach Alex
+summary:
+  zh: Fable 5.x 网页作品：AI Era Career Blog — AI Coach Alex
+  en: Fable 5.x 网页作品：AI Era Career Blog — AI Coach Alex
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: blog
+play:
+  url: https://aicoachalex.com/blog/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--blog/cover.webp
+genre: procedural-demo
+tags:
+  - blog
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--agentes-inmobiliarios
+slug: ia-para-agentes-inmobiliarios-ordena-tus-datos-y-luego-activ
+kind: demo
+status: published
+title:
+  zh: "IA para Agentes Inmobiliarios: Ordena tus Datos y Luego Activa tus Contactos"
+  en: "IA para Agentes Inmobiliarios: Ordena tus Datos y Luego Activa tus Contactos"
+summary:
+  zh: "Fable 5.x 网页作品：IA para Agentes Inmobiliarios: Ordena tus Datos y Luego Activa tus Contactos"
+  en: "Fable 5.x 网页作品：IA para Agentes Inmobiliarios: Ordena tus Datos y Luego Activa tus Contactos"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: es/con-quien-trabajo/agentes-inmobiliarios
+play:
+  url: https://aicoachalex.com/es/con-quien-trabajo/agentes-inmobiliarios/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--agentes-inmobiliarios/cover.webp
+genre: procedural-demo
+tags:
+  - agentes
+  - inmobiliarios
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

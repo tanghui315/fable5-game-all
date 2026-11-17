@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--debate-and-law
+slug: ai-for-teens-interested-in-law-debate-argue-check-win-ages-1
+kind: demo
+status: published
+title:
+  zh: "AI for Teens Interested in Law & Debate: Argue, Check, Win (Ages 13–17)"
+  en: "AI for Teens Interested in Law & Debate: Argue, Check, Win (Ages 13–17)"
+summary:
+  zh: "Fable 5.x 网页作品：AI for Teens Interested in Law & Debate: Argue, Check, Win (Ages 13–17)"
+  en: "Fable 5.x 网页作品：AI for Teens Interested in Law & Debate: Argue, Check, Win (Ages 13–17)"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: ai-lessons-for-kids/debate-and-law
+play:
+  url: https://aicoachalex.com/ai-lessons-for-kids/debate-and-law/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--debate-and-law/cover.webp
+genre: procedural-demo
+tags:
+  - debate
+  - and
+  - law
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

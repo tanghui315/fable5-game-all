@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: alexnomads--coaching-ai--school-subjects
+slug: ai-for-school-subjects-study-smarter-without-cheating-ages-1
+kind: demo
+status: published
+title:
+  zh: "AI for School Subjects: Study Smarter Without Cheating (Ages 10–17)"
+  en: "AI for School Subjects: Study Smarter Without Cheating (Ages 10–17)"
+summary:
+  zh: "Fable 5.x 网页作品：AI for School Subjects: Study Smarter Without Cheating (Ages 10–17)"
+  en: "Fable 5.x 网页作品：AI for School Subjects: Study Smarter Without Cheating (Ages 10–17)"
+author: alexnomads
+repo:
+  url: https://github.com/alexnomads/coaching-ai
+  path: ai-lessons-for-kids/school-subjects
+play:
+  url: https://aicoachalex.com/ai-lessons-for-kids/school-subjects/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/alexnomads--coaching-ai--school-subjects/cover.webp
+genre: procedural-demo
+tags:
+  - school
+  - subjects
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17
