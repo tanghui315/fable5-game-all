@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: nilbuild--developer-roadmap--developer-roadmap
+slug: developer-roadmaps-roadmap-sh
+kind: demo
+status: published
+title:
+  zh: Developer Roadmaps - roadmap.sh
+  en: Developer Roadmaps - roadmap.sh
+summary:
+  zh: Interactive roadmaps, guides and other educational content to help developers grow in their careers.
+  en: Interactive roadmaps, guides and other educational content to help developers grow in their careers.
+author: nilbuild
+repo:
+  url: https://github.com/nilbuild/developer-roadmap
+  license: NOASSERTION
+play:
+  url: https://roadmap.sh/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/nilbuild--developer-roadmap--developer-roadmap/cover.webp
+genre: tech-demo
+tags:
+  - angular-roadmap
+  - backend-roadmap
+  - blockchain-roadmap
+  - computer-science
+  - dba-roadmap
+  - developer-roadmap
+  - devops-roadmap
+  - frontend-roadmap
+  - go-roadmap
+  - java-roadmap
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/nilbuild/developer-roadmap/blob/master/roadmaps/ai-agents/content/fine-tuning-vs-prompt-engineering@5OW_6o286mj470ElFyJ_5.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17
