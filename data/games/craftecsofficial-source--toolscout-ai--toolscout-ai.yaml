@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: craftecsofficial-source--toolscout-ai--toolscout-ai
+slug: toolscout-the-quiet-way-to-find-the-right-ai-tool
+kind: demo
+status: published
+title:
+  zh: ToolScout – The quiet way to find the right AI tool
+  en: ToolScout – The quiet way to find the right AI tool
+summary:
+  zh: Fable 5.x 网页作品：ToolScout – The quiet way to find the right AI tool
+  en: Fable 5.x 网页作品：ToolScout – The quiet way to find the right AI tool
+author: craftecsofficial-source
+repo:
+  url: https://github.com/craftecsofficial-source/toolscout-ai
+play:
+  url: https://toolscout-ai-nu.vercel.app/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/craftecsofficial-source--toolscout-ai--toolscout-ai/cover.webp
+genre: tech-demo
+tags:
+  - toolscout
+  - ai
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

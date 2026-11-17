@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: craftecsofficial-source
+name: craftecsofficial-source
+github: craftecsofficial-source
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/284960514?v=4
+claimed: false
