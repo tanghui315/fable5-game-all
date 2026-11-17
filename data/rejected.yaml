@@ -184,3 +184,6 @@
   reason: broken
   note: 域名 fablestar.games 的 DNS 已停在 parked.nsone.net，整站打不开（2026-11-16 起）；页面恢复后可重新收录。
   date: 2026-11-16
+- repo: https://github.com/nilbuild/developer-roadmap
+  reason: not-a-game
+  date: 2026-11-17
