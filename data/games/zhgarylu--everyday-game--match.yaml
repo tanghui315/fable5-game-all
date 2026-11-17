@@ -5,10 +5,10 @@ kind: game
 status: published
 title:
   zh: 回声 · 相亲角速配
-  en: Match
+  en: Blind Date Corner
 summary:
-  zh: 回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩
-  en: 回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩
+  zh: "公园相亲角，大妈报出择偶条件，候选人一张张出来：全都符合往右划，有一条不符合往左划。"
+  en: "At the park's matchmaking corner an auntie lists her criteria and candidates appear one by one: swipe right if they match every line, left if even one is off."
 author: zhgarylu
 repo:
   url: https://github.com/zhgarylu/everyday-game
@@ -19,18 +19,20 @@ play:
   mirror_url: null
 media:
   cover: media/zhgarylu--everyday-game--match/cover.webp
-genre: audio-demo
+genre: puzzle
 tags:
-  - match
-  - game
+  - puzzle
+  - reaction
+  - comedy
+  - mobile
 controls:
-  - keyboard
   - mouse
-mobile: false
+  - touch
+mobile: true
 model:
   name: fable-5.2
   evidence: L1
-  evidence_notes: README/描述引用：回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩 | 这里的 13 个游戏全部由 Claude Fable 5.2 制作。** 人只负责出题和提意见（“做个搓澡的”“太简单了”“导航不够明显”），代码、玩法、画面、音效、配音台词和首页都是 Fable 在 Claude Code 里写出来、自己截图检查、再一轮轮改出来的。 | Fable 做了什么
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
 source:
   discovered_by: github-search
   discovered_at: 2026-11-17

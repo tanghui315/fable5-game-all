@@ -5,10 +5,10 @@ kind: game
 status: published
 title:
   zh: 回声 · 吃啥拉啥
-  en: Eat
+  en: Snack Cannon
 summary:
-  zh: 回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩
-  en: 回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩
+  zh: "小兽吞吞一路狂奔，吃到什么就拉出什么：辣椒喷火、冰淇淋冰冻、西瓜拉出巨无霸，再用它们砸翻身后追来的馋嘴怪。"
+  en: "A little beast sprints along dropping whatever it eats: peppers breathe fire, ice cream freezes, watermelon drops a giant — all of it used to smash the gluttons chasing behind."
 author: zhgarylu
 repo:
   url: https://github.com/zhgarylu/everyday-game
@@ -19,18 +19,20 @@ play:
   mirror_url: null
 media:
   cover: media/zhgarylu--everyday-game--eat/cover.webp
-genre: audio-demo
+genre: runner
 tags:
-  - eat
-  - game
+  - runner
+  - arcade
+  - comedy
+  - mobile
 controls:
-  - keyboard
   - mouse
-mobile: false
+  - touch
+mobile: true
 model:
   name: fable-5.2
   evidence: L1
-  evidence_notes: README/描述引用：回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩 | 这里的 13 个游戏全部由 Claude Fable 5.2 制作。** 人只负责出题和提意见（“做个搓澡的”“太简单了”“导航不够明显”），代码、玩法、画面、音效、配音台词和首页都是 Fable 在 Claude Code 里写出来、自己截图检查、再一轮轮改出来的。 | Fable 做了什么
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
 source:
   discovered_by: github-search
   discovered_at: 2026-11-17

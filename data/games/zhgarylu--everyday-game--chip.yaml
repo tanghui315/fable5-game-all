@@ -5,10 +5,10 @@ kind: game
 status: published
 title:
   zh: 回声 · 皮衣老黄
-  en: Chip
+  en: Leather Jacket Huang
 summary:
-  zh: 回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩
-  en: 回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩
+  zh: "芯片公司核弹厂市值垫底，创始人老黄被请回来救场：12 个季度里搞研发、抢产能、在版图上一格一格抢地盘。人物和公司纯属虚构。"
+  en: "A chipmaker at the bottom of the market calls its founder back to rescue it: 12 quarters of R&D, capacity grabs and a land war on the market map. Characters and companies are fictional."
 author: zhgarylu
 repo:
   url: https://github.com/zhgarylu/everyday-game
@@ -19,18 +19,20 @@ play:
   mirror_url: null
 media:
   cover: media/zhgarylu--everyday-game--chip/cover.webp
-genre: audio-demo
+genre: strategy
 tags:
-  - chip
-  - game
+  - strategy
+  - turn-based
+  - satire
+  - mobile
 controls:
-  - keyboard
   - mouse
-mobile: false
+  - touch
+mobile: true
 model:
   name: fable-5.2
   evidence: L1
-  evidence_notes: README/描述引用：回声游戏厅：每天一个小游戏。11 个网页小游戏全部由 Claude Fable 5.2 制作，打开就能玩 | 这里的 13 个游戏全部由 Claude Fable 5.2 制作。** 人只负责出题和提意见（“做个搓澡的”“太简单了”“导航不够明显”），代码、玩法、画面、音效、配音台词和首页都是 Fable 在 Claude Code 里写出来、自己截图检查、再一轮轮改出来的。 | Fable 做了什么
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
 source:
   discovered_by: github-search
   discovered_at: 2026-11-17
