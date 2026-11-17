@@ -7,8 +7,8 @@ title:
   zh: Apex Lap
   en: Apex Lap
 summary:
-  zh: Apex Lap, a 3D racing game built by Claude Fable 5.2 in one ololo session
-  en: Apex Lap, a 3D racing game built by Claude Fable 5.2 in one ololo session
+  zh: 一条提示词、一个会话做出来的 3D 赛车：三圈、三名对手，Shift 加速、R 重开，带实时小地图和圈速表。
+  en: "A 3D racing game built in one ololo session: three laps against three rivals, with a live minimap, lap timer and best-lap board. Shift to boost, R to race again."
 author: ololo-dev
 repo:
   url: https://github.com/ololo-dev/apex-lap-fable-5-2
@@ -20,13 +20,11 @@ media:
   cover: media/ololo-dev--apex-lap-fable-5-2--apex-lap-fable-5-2/cover.webp
 genre: racing
 tags:
-  - apex
-  - lap
-  - fable
-  - game
+  - racing
+  - driving
+  - 3d
 controls:
   - keyboard
-  - mouse
 mobile: false
 model:
   name: fable-5.2
