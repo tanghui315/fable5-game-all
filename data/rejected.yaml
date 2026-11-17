@@ -187,3 +187,11 @@
 - repo: https://github.com/nilbuild/developer-roadmap
   reason: not-a-game
   date: 2026-11-17
+- repo: https://github.com/pasco-xai/wormhole
+  reason: duplicate
+  note: omgithub.com 上的 WORMHOLE 镜像，原版 aidanht/Wormhole 已收录。
+  date: 2026-11-17
+- repo: https://github.com/alexnomads/coaching-ai
+  reason: not-a-game
+  note: 20 个入口全是 AI 教学演示（课程、辩论、设计），没有可玩的游戏。
+  date: 2026-11-17

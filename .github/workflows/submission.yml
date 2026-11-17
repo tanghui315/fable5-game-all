@@ -106,29 +106,31 @@ jobs:
           REASON=$(node -e 'const labels = JSON.parse(process.env.LABELS || "[]"); const hit = labels.find((name) => name.startsWith("reason:")); process.stdout.write(hit ? hit.slice(7) : "not-a-game");')
           echo "reason=$REASON" >> "$GITHUB_OUTPUT"
 
-      - name: Append to data/rejected.yaml
-        run: >
-          pnpm --filter crawler crawler reject-from-pr
-          --body-file "$RUNNER_TEMP/pr-body.md"
-          --reason "${{ steps.reason.outputs.reason }}"
-
-      - name: Commit rejection to main
+      - name: Append to data/rejected.yaml and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/rejected.yaml
-          if git diff --cached --quiet; then
-            echo "data/rejected.yaml unchanged"
-          else
-            git commit -m "chore: record rejected submission"
-            for attempt in 1 2; do
-              git pull --rebase origin main
-              if git push origin main; then
-                exit 0
-              fi
-              echo "::warning::push failed (attempt $attempt); rebasing and retrying"
-              sleep 5
-            done
-            echo "::error::failed to push data/rejected.yaml after 2 attempts"
-            exit 1
-          fi
+          # Rejections for different PRs run concurrently and all append to the
+          # same file, so a plain `git pull --rebase` conflicts when two land at
+          # once. Instead reset to the latest main and re-append on top of it:
+          # `reject-from-pr` is idempotent, so this never loses the other entry.
+          for attempt in 1 2 3; do
+            git fetch -q origin main
+            git reset -q --hard FETCH_HEAD
+            pnpm --filter crawler crawler reject-from-pr \
+              --body-file "$RUNNER_TEMP/pr-body.md" \
+              --reason "${{ steps.reason.outputs.reason }}"
+            git add data/rejected.yaml
+            if git diff --cached --quiet; then
+              echo "data/rejected.yaml already has this repository"
+              exit 0
+            fi
+            git commit -q -m "chore: record rejected submission"
+            if git push -q origin HEAD:main; then
+              exit 0
+            fi
+            echo "::warning::push failed (attempt $attempt); re-applying on the latest main"
+            sleep 5
+          done
+          echo "::error::failed to push data/rejected.yaml after 3 attempts"
+          exit 1
