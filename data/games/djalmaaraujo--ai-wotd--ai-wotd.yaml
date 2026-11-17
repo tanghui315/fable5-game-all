@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: djalmaaraujo--ai-wotd--ai-wotd
+slug: no-word-2026-11-16-ai-wotd
+kind: demo
+status: published
+title:
+  zh: No word — 2026-11-16 · AI WOTD
+  en: No word — 2026-11-16 · AI WOTD
+summary:
+  zh: A public hub that surfaces the single AI term being hyped each day, built entirely on GitHub
+  en: A public hub that surfaces the single AI term being hyped each day, built entirely on GitHub
+author: djalmaaraujo
+repo:
+  url: https://github.com/djalmaaraujo/ai-wotd
+  path: ai-wotd
+  license: MIT
+play:
+  url: https://djalmaaraujo.github.io/ai-wotd/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/djalmaaraujo--ai-wotd--ai-wotd/cover.webp
+genre: procedural-demo
+tags:
+  - ai
+  - wotd
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17
