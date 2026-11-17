@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: furkiozknn--cini-ustasi--cini-ustasi
+slug: c-ini-ustas
+kind: game
+status: published
+title:
+  zh: Çini Ustası
+  en: Çini Ustası
+summary:
+  zh: "Iznik tile puzzle in 3D: rotate and swap hand-painted tiles until every motif connects. Browser game built by Claude Fable 5.1 · Çini Ustası: İznik çinilerini çevir, desenleri birleştir, fırınla. Claude Fable 5.1 yaptı."
+  en: "Iznik tile puzzle in 3D: rotate and swap hand-painted tiles until every motif connects. Browser game built by Claude Fable 5.1 · Çini Ustası: İznik çinilerini çevir, desenleri birleştir, fırınla. Claude Fable 5.1 yaptı."
+author: furkiozknn
+repo:
+  url: https://github.com/furkiozknn/cini-ustasi
+  license: MIT
+play:
+  url: https://furkiozknn.github.io/cini-ustasi/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/furkiozknn--cini-ustasi--cini-ustasi/cover.webp
+genre: audio-demo
+tags:
+  - browser-game
+  - claude-game-arena
+  - game
+  - threejs
+  - cini
+  - ustasi
+controls:
+  - keyboard
+  - mouse
+mobile: true
+model:
+  name: fable-5.1
+  evidence: L1
+  evidence_notes: 'README/描述引用：Iznik tile puzzle in 3D: rotate and swap hand-painted tiles until every motif connects. Browser game built by Claude Fable 5.1 · Çini Ustası: İznik çinilerini çevir, desenleri birleştir, fırınla. Claude Fable 5.1 yaptı. | <img src="https://img.shields.io/badge/built_by-Claude_Fable_5.1-D9452B?style=for-the-badge&logo=claude&logoColor=white&labelColor=2B2A3D" alt="Built by Claude Fable 5.1"> | Upgraded by **Claude Fable 5.1** with Claude Code from [prompts/cini-ustasi-v2.md](prompts/c'
+generation:
+  prompt_url: https://github.com/furkiozknn/cini-ustasi/blob/main/prompts/cini-ustasi-v2.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17
