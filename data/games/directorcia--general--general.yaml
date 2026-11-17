@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: directorcia--general--general
+slug: computer-information-agency
+kind: demo
+status: published
+title:
+  zh: Computer Information Agency
+  en: Computer Information Agency
+summary:
+  zh: Free Microsoft 365 and Microsoft Cloud resources from CIAOPS, including Copilot, Defender, Sentinel, Essential Eight, incident response, Power Platform and PowerShell material, MS-900 and SC-900 study notes, and presentations.
+  en: Free Microsoft 365 and Microsoft Cloud resources from CIAOPS, including Copilot, Defender, Sentinel, Essential Eight, incident response, Power Platform and PowerShell material, MS-900 and SC-900 study notes, and presentations.
+author: directorcia
+repo:
+  url: https://github.com/directorcia/general
+play:
+  url: https://www.ciaops.com/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/directorcia--general--general/cover.webp
+genre: graphics-demo
+tags:
+  - microsoft365
+  - securit
+  - general
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17
