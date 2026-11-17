@@ -21,6 +21,12 @@
     "pushed_at": "2026-06-14T18:04:31Z",
     "last_pr": 24
   },
+  "alexnomads/coaching-ai": {
+    "repo": "alexnomads/coaching-ai",
+    "last_seen": "2026-11-17T02:18:55.910Z",
+    "pushed_at": null,
+    "last_pr": 40
+  },
   "andreteow/farm-ca": {
     "repo": "andreteow/farm-ca",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -97,11 +103,22 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-11T07:02:42Z"
   },
+  "furkiozknn/cini-ustasi": {
+    "repo": "furkiozknn/cini-ustasi",
+    "last_seen": "2026-11-17T02:09:55.387Z",
+    "pushed_at": "2026-11-17T02:07:13Z",
+    "last_pr": 39
+  },
   "gavilanbe/makinamon-pulso": {
     "repo": "gavilanbe/makinamon-pulso",
     "last_seen": "2026-11-15T11:01:44.077Z",
     "pushed_at": "2026-11-14T12:57:55Z",
     "last_pr": 12
+  },
+  "gavinlorio/fable-5.2-random-game": {
+    "repo": "gavinlorio/fable-5.2-random-game",
+    "last_seen": "2026-11-17T02:15:32.773Z",
+    "pushed_at": "2026-11-16T14:54:12Z"
   },
   "github30/fable52-gta6": {
     "repo": "github30/fable52-gta6",
@@ -182,6 +199,12 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-10-04T13:43:08Z"
   },
+  "nilbuild/developer-roadmap": {
+    "repo": "nilbuild/developer-roadmap",
+    "last_seen": "2026-11-17T02:08:54.082Z",
+    "pushed_at": "2026-11-16T18:38:13Z",
+    "last_pr": 38
+  },
   "nipale-ai/blocks-openworld": {
     "repo": "nipale-ai/blocks-openworld",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -221,6 +244,11 @@
     "pushed_at": "2026-10-19T22:46:47Z",
     "last_pr": 36
   },
+  "rikinshah787/game-fable-5.2": {
+    "repo": "rikinshah787/game-fable-5.2",
+    "last_seen": "2026-11-17T02:15:35.995Z",
+    "pushed_at": "2026-11-16T19:25:41Z"
+  },
   "robbyczgw-cla/pocket-ui": {
     "repo": "robbyczgw-cla/pocket-ui",
     "last_seen": "2026-11-13T12:36:32.197Z",
@@ -255,8 +283,8 @@
   },
   "stefanknol/last-return": {
     "repo": "stefanknol/last-return",
-    "last_seen": "2026-11-16T11:30:34.368Z",
-    "pushed_at": "2026-11-16T10:51:29Z"
+    "last_seen": "2026-11-17T02:15:24.456Z",
+    "pushed_at": "2026-11-17T00:44:30Z"
   },
   "stefanknol/no-return": {
     "repo": "stefanknol/no-return",
@@ -321,8 +349,8 @@
   },
   "zhgarylu/everyday-game": {
     "repo": "zhgarylu/everyday-game",
-    "last_seen": "2026-11-16T11:30:28.213Z",
-    "pushed_at": "2026-11-16T08:14:54Z",
+    "last_seen": "2026-11-17T02:15:22.153Z",
+    "pushed_at": "2026-11-16T14:27:24Z",
     "last_pr": 35
   }
 }
