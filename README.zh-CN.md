@@ -13,7 +13,7 @@
 
 - 上架 = 合并候选 PR，审核记录公开可查；
 - 站点是 Astro 静态站，合并后自动部署到 Cloudflare Pages；
-- 每周巡检坏链，连续失败的作品自动从列表隐藏并开 Issue。
+- 每天巡检坏链，连续失败的作品自动从列表隐藏并开 Issue。
 
 站点默认英文（`/`），中文镜像在 `/zh/`；每个作品的标题和简介都有中英两版，Pagefind 会分别建立两个语言的索引。
 
@@ -90,7 +90,7 @@ pnpm --filter crawler crawler submission --body /tmp/issue.md --issue 42 --pr
                                                               ▼
                      main 分支推送 / 机器人推送完成 ──► deploy.yml ──► Cloudflare Pages
                                                               ▲
-                     每周 healthcheck ──► data/_generated ──────┘
+                     每日 healthcheck ──► data/_generated ──────┘
                        （连续失败两次：列表隐藏 + 开 Issue）
 ```
 
@@ -122,7 +122,7 @@ gh label create submission --description "投稿 Issue" --color 0e8a16 --force
 gh label create takedown   --description "下架 / 纠错申请" --color b60205 --force
 gh label create candidate  --description "机器人生成的候选 PR" --color fbca04 --force
 gh label create rejected   --description "驳回；关闭后写入 data/rejected.yaml" --color 5319e7 --force
-gh label create healthcheck --description "每周巡检失败" --color B60205 --force
+gh label create healthcheck --description "每日巡检失败" --color B60205 --force
 
 for reason in not-a-game no-evidence ip-clone broken malicious duplicate author-optout; do
   gh label create "reason:$reason" --description "驳回原因：$reason" --color e99695 --force

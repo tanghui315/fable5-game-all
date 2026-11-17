@@ -2,7 +2,7 @@ name: healthcheck
 
 on:
   schedule:
-    - cron: '23 4 * * 1'
+    - cron: '23 4 * * *'
   workflow_dispatch:
 
 permissions: {}
@@ -76,7 +76,7 @@ jobs:
             exit 0
           fi
           gh label create healthcheck \
-            --description "Weekly health check failures" \
+            --description "Daily health check failures" \
             --color B60205 --force || true
           existing=$(gh issue list --state open --label healthcheck --limit 100 \
             --json number,title \
@@ -87,7 +87,7 @@ jobs:
             exit 0
           fi
           {
-            echo "The weekly health check found games that failed two checks in a row."
+            echo "The daily health check found games that failed two checks in a row."
             echo ""
             echo "| id | title | play.url | HTTP | consecutive failures |"
             echo "|---|---|---|---|---|"
