@@ -13,7 +13,7 @@ No database and no server. Submission, review, publishing and health checks all 
 
 - Publishing means merging a candidate PR, and the review trail is public.
 - The site is a static Astro build that deploys to Cloudflare Pages on merge.
-- A weekly health check finds dead links; games that fail twice are hidden from listings and an issue is opened.
+- A daily health check finds dead links; games that fail twice are hidden from listings and an issue is opened.
 
 The site defaults to English at `/`, with a Chinese mirror under `/zh/`. Every game has an English and a Chinese title and summary, and both locales are indexed by Pagefind.
 
@@ -97,7 +97,7 @@ daily GitHub/HN search ──► discover.yml ───────────�
                                                               ▼
                      push to main / bot push completes ──► deploy.yml ──► Cloudflare Pages
                                                               ▲
-                     weekly healthcheck ──► data/_generated ───┘
+                     daily healthcheck ──► data/_generated ───┘
                        (two failures in a row: hide from listings + open an issue)
 ```
 
@@ -128,7 +128,7 @@ gh label create submission --description "Submission issue" --color 0e8a16 --for
 gh label create takedown   --description "Removal / correction request" --color b60205 --force
 gh label create candidate  --description "Candidate PR opened by the bot" --color fbca04 --force
 gh label create rejected   --description "Rejected; closing writes data/rejected.yaml" --color 5319e7 --force
-gh label create healthcheck --description "Weekly health check failure" --color B60205 --force
+gh label create healthcheck --description "Daily health check failure" --color B60205 --force
 
 for reason in not-a-game no-evidence ip-clone broken malicious duplicate author-optout; do
   gh label create "reason:$reason" --description "Rejection reason: $reason" --color e99695 --force

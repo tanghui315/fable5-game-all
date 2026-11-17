@@ -120,9 +120,9 @@ pnpm --filter crawler crawler preview --headed --concurrency 3
 - 涉及恶意代码/版权投诉时优先处理：可以直接合并一个只做删除的 PR，事后再补说明。
 - 处理后关闭 Issue，并告知处理结果。
 
-## 每周健康巡检
+## 每日健康巡检
 
-`healthcheck.yml` 每周一运行，写入 `data/_generated/health.json` 和 `repos.json`。连续两次失败的
+`healthcheck.yml` 每天运行，写入 `data/_generated/health.json` 和 `repos.json`。连续两次失败的
 作品在列表里自动隐藏（详情页显示原地址不可访问），并在失败达到两次时开一个带 `healthcheck`
 标签的 Issue（已存在则不重复开）。
 
