@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--metro
+slug: metro
+kind: game
+status: published
+title:
+  zh: 回声 · 挤地铁
+  en: Rush-Hour Squeeze
+summary:
+  zh: "早高峰站台，按住拖动推手把乘客一铲一铲塞进车厢：要下车的先放出来，关门前没塞够就被投诉。"
+  en: "On a rush-hour platform, drag the pusher to shovel passengers into the carriage: let off the ones getting out first, and load enough before the doors close."
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: metro
+play:
+  url: https://zhgarylu.github.io/everyday-game/metro/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--metro/cover.webp
+genre: puzzle
+tags:
+  - puzzle
+  - physics
+  - comedy
+  - mobile
+controls:
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

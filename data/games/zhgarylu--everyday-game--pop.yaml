@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--pop
+slug: pop
+kind: game
+status: published
+title:
+  zh: 回声 · 捏泡泡纸
+  en: Bubble Wrap
+summary:
+  zh: "手指划过去，泡泡啪啪啪地爆：金泡加时间，连环泡炸一片，厚泡要捏两下，臭屁泡千万别碰。"
+  en: "Swipe and the bubbles pop: gold ones add time, chains blow a whole sheet, thick ones need two hits, and never touch the stink bubbles."
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: pop
+play:
+  url: https://zhgarylu.github.io/everyday-game/pop/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--pop/cover.webp
+genre: arcade
+tags:
+  - arcade
+  - casual
+  - mobile
+controls:
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

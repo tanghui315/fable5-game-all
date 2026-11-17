@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--eat
+slug: eat
+kind: game
+status: published
+title:
+  zh: 回声 · 吃啥拉啥
+  en: Snack Cannon
+summary:
+  zh: "小兽吞吞一路狂奔，吃到什么就拉出什么：辣椒喷火、冰淇淋冰冻、西瓜拉出巨无霸，再用它们砸翻身后追来的馋嘴怪。"
+  en: "A little beast sprints along dropping whatever it eats: peppers breathe fire, ice cream freezes, watermelon drops a giant — all of it used to smash the gluttons chasing behind."
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: eat
+play:
+  url: https://zhgarylu.github.io/everyday-game/eat/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--eat/cover.webp
+genre: runner
+tags:
+  - runner
+  - arcade
+  - comedy
+  - mobile
+controls:
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

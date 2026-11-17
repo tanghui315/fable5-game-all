@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--td
+slug: td
+kind: game
+status: published
+title:
+  zh: 回声 · 晶塔守卫
+  en: Crystal Tower Defense
+summary:
+  zh: "沿路摆下九种防御塔守住晶塔，攒满能量就放陨星、雷霆、冰封六个大招；四张地图逐关解锁，一局约 15 分钟。"
+  en: "Nine defensive towers along the road and six ultimates to clear a wave — four maps unlocked one by one in a run of about 15 minutes."
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: td
+play:
+  url: https://zhgarylu.github.io/everyday-game/td/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--td/cover.webp
+genre: strategy
+tags:
+  - tower-defense
+  - strategy
+  - 3d
+  - threejs
+controls:
+  - keyboard
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

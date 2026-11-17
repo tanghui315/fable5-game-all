@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--gz
+slug: gz
+kind: game
+status: published
+title:
+  zh: 回声 · 广州漂移
+  en: Guangzhou Drift
+summary:
+  zh: "雨夜骑电鸡在广州甩尾送外卖：从猎德大桥进珠江新城，过海珠桥钻进骑楼老街，再绕回广州塔脚下；漂移攒小费，松手喷出去。"
+  en: "Sling an e-bike through rainy Guangzhou delivering food: over Liede Bridge into Zhujiang New Town, across Haizhu Bridge into the arcades, and back beneath Canton Tower. Drift for tips, release to boost."
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: gz
+play:
+  url: https://zhgarylu.github.io/everyday-game/gz/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--gz/cover.webp
+genre: racing
+tags:
+  - racing
+  - driving
+  - 3d
+  - mobile
+controls:
+  - keyboard
+  - touch
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

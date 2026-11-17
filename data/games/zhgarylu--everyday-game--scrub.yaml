@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--scrub
+slug: scrub
+kind: game
+status: published
+title:
+  zh: 回声 · 搓澡大师
+  en: Scrub Master
+summary:
+  zh: "按住拖动搓澡巾，把顾客背上的泥搓成一根根泥条；躲开痛点、限时搓干净拿小费，三个差评就关门。"
+  en: "Hold and drag the loofah to roll a customer's back dirt into long noodles: dodge the sore spots, finish in time for a tip, and three bad reviews close the bathhouse."
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: scrub
+play:
+  url: https://zhgarylu.github.io/everyday-game/scrub/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--scrub/cover.webp
+genre: arcade
+tags:
+  - arcade
+  - casual
+  - mobile
+controls:
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

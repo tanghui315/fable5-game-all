@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--smash
+slug: smash
+kind: game
+status: published
+title:
+  zh: 回声 · 怒砸办公室
+  en: Office Smash
+summary:
+  zh: "点哪砸哪，显示器、奖杯、打卡机、老板椅、保险柜全部碎成渣；连砸涨倍数，保安到之前尽量砸。"
+  en: "Click and trash: monitors, trophies, punch clocks, the boss's chair and the safe all shatter. Chains multiply the score — smash as much as you can before security arrives."
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: smash
+play:
+  url: https://zhgarylu.github.io/everyday-game/smash/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--smash/cover.webp
+genre: action
+tags:
+  - action
+  - arcade
+  - destruction
+  - mobile
+controls:
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

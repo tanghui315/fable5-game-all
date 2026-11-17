@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--match
+slug: match
+kind: game
+status: published
+title:
+  zh: 回声 · 相亲角速配
+  en: Blind Date Corner
+summary:
+  zh: "公园相亲角，大妈报出择偶条件，候选人一张张出来：全都符合往右划，有一条不符合往左划。"
+  en: "At the park's matchmaking corner an auntie lists her criteria and candidates appear one by one: swipe right if they match every line, left if even one is off."
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: match
+play:
+  url: https://zhgarylu.github.io/everyday-game/match/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--match/cover.webp
+genre: puzzle
+tags:
+  - puzzle
+  - reaction
+  - comedy
+  - mobile
+controls:
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17

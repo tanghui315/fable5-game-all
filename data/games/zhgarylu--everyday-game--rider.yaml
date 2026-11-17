@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhgarylu--everyday-game--rider
+slug: rider
+kind: game
+status: published
+title:
+  zh: 回声 · 骑手
+  en: Delivery Rider
+summary:
+  zh: "骑电动车在老城送外卖，从上午跑到深夜：平台时限越来越紧，红灯闯不闯、暴雨天接不接单自己掂量。"
+  en: "Deliver food by e-bike through the old town from morning to midnight: the platform's time limits keep tightening, and whether to run a red light or take that order in the rain is up to you."
+author: zhgarylu
+repo:
+  url: https://github.com/zhgarylu/everyday-game
+  path: rider
+play:
+  url: https://zhgarylu.github.io/everyday-game/rider/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/zhgarylu--everyday-game--rider/cover.webp
+genre: simulation
+tags:
+  - driving
+  - simulation
+  - open-world
+  - 3d
+  - mobile
+controls:
+  - keyboard
+  - touch
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: "README 写明「这里的 13 个游戏全部由 Claude Fable 5.2 制作」，并逐条列出 Fable 负责的代码、画面、音效、玩法和自测。"
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-17
