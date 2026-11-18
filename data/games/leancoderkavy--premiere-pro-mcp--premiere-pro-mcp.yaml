@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: leancoderkavy--premiere-pro-mcp--premiere-pro-mcp
+slug: adobe-premiere-pro-mcp-free-independent-local
+kind: demo
+status: published
+title:
+  zh: Adobe Premiere Pro MCP | Free, Independent & Local
+  en: Adobe Premiere Pro MCP | Free, Independent & Local
+summary:
+  zh: Adobe Premiere Pro MCP — independent, local-first server for supported workflows. Connect Claude, Codex, or Cursor through a local CEP bridge.
+  en: Adobe Premiere Pro MCP — independent, local-first server for supported workflows. Connect Claude, Codex, or Cursor through a local CEP bridge.
+author: leancoderkavy
+repo:
+  url: https://github.com/leancoderkavy/premiere-pro-mcp
+  license: MIT
+play:
+  url: https://premiere-pro-mcp.com/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/leancoderkavy--premiere-pro-mcp--premiere-pro-mcp/cover.webp
+genre: procedural-demo
+tags:
+  - adobe
+  - adobe-premiere-pro
+  - ai-video-editing
+  - cep
+  - claude
+  - claude-desktop
+  - codex
+  - creative-cloud
+  - cursor
+  - extendscript
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.1
+  evidence: L2
+  evidence_notes: README/描述引用：After the server is enabled, select Claude Fable 5.1 in Cursor when you want a | longer-horizon session. See [Claude Fable 5.1 workflows](docs/claude-fable-5-1.md). | Claude Fable 5.1
+generation:
+  prompt_url: https://github.com/leancoderkavy/premiere-pro-mcp/blob/main/claude-plugins/premiere-pro/skills/develop-premiere-pro-mcp/SKILL.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-18
