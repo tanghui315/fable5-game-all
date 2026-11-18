@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: nosqlnull
+name: nosqlnull
+github: nosqlnull
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/171443539?v=4
+claimed: false
