@@ -48,6 +48,11 @@
     "pushed_at": "2026-11-13T04:45:07Z",
     "last_pr": 4
   },
+  "chen-006/meow-llm-detector": {
+    "repo": "chen-006/meow-llm-detector",
+    "last_seen": "2026-11-18T11:49:03.338Z",
+    "pushed_at": "2026-10-03T14:00:49Z"
+  },
   "craftecsofficial-source/toolscout-ai": {
     "repo": "craftecsofficial-source/toolscout-ai",
     "last_seen": "2026-11-17T11:58:17.192Z",
@@ -75,6 +80,12 @@
     "repo": "dwarkeshsp/clocktower",
     "last_seen": "2026-11-17T11:57:26.376Z",
     "pushed_at": "2026-11-12T00:44:28Z"
+  },
+  "ebullioscopic/atoll": {
+    "repo": "ebullioscopic/atoll",
+    "last_seen": "2026-11-18T11:50:19.084Z",
+    "pushed_at": "2026-11-18T00:13:02Z",
+    "last_pr": 48
   },
   "emollick/fable-refinery": {
     "repo": "emollick/fable-refinery",
@@ -148,6 +159,16 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-12T04:17:58Z"
   },
+  "google-pytorch/torch_tpu": {
+    "repo": "google-pytorch/torch_tpu",
+    "last_seen": "2026-11-18T11:50:33.459Z",
+    "pushed_at": "2026-11-18T09:52:40Z"
+  },
+  "grid2op/grid2op": {
+    "repo": "grid2op/grid2op",
+    "last_seen": "2026-11-18T11:50:44.708Z",
+    "pushed_at": "2026-11-13T08:03:26Z"
+  },
   "harleycoops/math-to-manim": {
     "repo": "harleycoops/math-to-manim",
     "last_seen": "2026-11-16T11:23:35.955Z",
@@ -201,6 +222,12 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-11T20:15:30Z"
   },
+  "leancoderkavy/premiere-pro-mcp": {
+    "repo": "leancoderkavy/premiere-pro-mcp",
+    "last_seen": "2026-11-18T11:49:23.734Z",
+    "pushed_at": "2026-11-18T11:14:46Z",
+    "last_pr": 46
+  },
   "loktar00/lanternfall": {
     "repo": "loktar00/lanternfall",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -243,6 +270,12 @@
     "last_seen": "2026-11-14T10:35:21.758Z",
     "pushed_at": "2026-09-01T19:58:17Z",
     "last_pr": 18
+  },
+  "nosqlnull/sparkai-chatgpt-aiweb": {
+    "repo": "nosqlnull/sparkai-chatgpt-aiweb",
+    "last_seen": "2026-11-18T11:49:46.684Z",
+    "pushed_at": "2026-09-28T20:54:49Z",
+    "last_pr": 47
   },
   "ololo-dev/apex-lap-fable-5-2": {
     "repo": "ololo-dev/apex-lap-fable-5-2",
@@ -313,6 +346,12 @@
     "repo": "stefanknol/no-return",
     "last_seen": "2026-11-15T11:01:24.205Z",
     "pushed_at": "2026-11-15T10:51:07Z"
+  },
+  "szczyglis-dev/py-gpt": {
+    "repo": "szczyglis-dev/py-gpt",
+    "last_seen": "2026-11-18T11:49:00.211Z",
+    "pushed_at": "2026-10-06T02:37:46Z",
+    "last_pr": 45
   },
   "taarichandaria/car-game-fable-5-test": {
     "repo": "taarichandaria/car-game-fable-5-test",
