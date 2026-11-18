@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: szczyglis-dev--py-gpt--py-gpt
+slug: pygpt-open-source-desktop-ai-assistant-with-agents-rag-tools
+kind: demo
+status: published
+title:
+  zh: PyGPT - Open-Source Desktop AI Assistant with Agents, RAG & Tools
+  en: PyGPT - Open-Source Desktop AI Assistant with Agents, RAG & Tools
+summary:
+  zh: Desktop AI Assistant powered by GPT, Gemini, Claude, Grok, Ollama, DeepSeek, Perplexity, and more - chat, agents, tools, MCP, plugins, RAG, vision, voice, image and video generation, speech synthesis and speech recognition, web search, memory, presets, canvas, assistants, themes, computer use. Windows, Linux, and Mac.
+  en: Desktop AI Assistant powered by GPT, Gemini, Claude, Grok, Ollama, DeepSeek, Perplexity, and more - chat, agents, tools, MCP, plugins, RAG, vision, voice, image and video generation, speech synthesis and speech recognition, web search, memory, presets, canvas, assistants, themes, computer use. Windows, Linux, and Mac.
+author: szczyglis-dev
+repo:
+  url: https://github.com/szczyglis-dev/py-gpt
+  license: NOASSERTION
+play:
+  url: https://pygpt.net/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/szczyglis-dev--py-gpt--py-gpt/cover.webp
+genre: audio-demo
+tags:
+  - agents
+  - ai
+  - ai-assistant
+  - artificial-intelligence
+  - autonomous-agent
+  - chatbot
+  - claude
+  - deepseek
+  - desktop-app
+  - gemini
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.1
+  evidence: L2
+  evidence_notes: README/描述引用：`claude-fable-5` (Anthropic) | `claude-fable-5-1` (Anthropic)
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-18
