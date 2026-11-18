@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: ebullioscopic
+name: ebullioscopic
+github: ebullioscopic
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/83903166?v=4
+claimed: false

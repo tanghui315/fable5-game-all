@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ebullioscopic--atoll--atoll
+slug: atoll-labs
+kind: demo
+status: published
+title:
+  zh: Atoll Labs
+  en: Atoll Labs
+summary:
+  zh: Dynamic Island for macOS
+  en: Dynamic Island for macOS
+author: ebullioscopic
+repo:
+  url: https://github.com/ebullioscopic/atoll
+  license: GPL-3.0
+play:
+  url: https://getatoll.app/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/ebullioscopic--atoll--atoll/cover.webp
+genre: audio-demo
+tags:
+  - dynamicisland
+  - hacktoberfest
+  - macbook
+  - macos
+  - atoll
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-18
