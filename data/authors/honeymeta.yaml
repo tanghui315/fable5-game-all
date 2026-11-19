@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: honeymeta
+name: honeymeta
+github: honeymeta
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/49389168?v=4
+claimed: false

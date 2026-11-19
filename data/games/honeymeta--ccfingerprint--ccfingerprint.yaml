@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: honeymeta--ccfingerprint--ccfingerprint
+slug: honeymeta-mes-easyidea
+kind: demo
+status: published
+title:
+  zh: 蜂元科技 HoneyMeta | 工业软件与智能制造服务：智能 MES、虚拟工厂实训平台、EasyIdea
+  en: 蜂元科技 HoneyMeta | 工业软件与智能制造服务：智能 MES、虚拟工厂实训平台、EasyIdea
+summary:
+  zh: 🔍 AI Model Identity Fingerprinting – detect model downgrades with capability probes + deterministic local scoring | AI 模型身份指纹识别：能力探针 + 本地确定性评分，检测模型降智/偷换
+  en: 🔍 AI Model Identity Fingerprinting – detect model downgrades with capability probes + deterministic local scoring | AI 模型身份指纹识别：能力探针 + 本地确定性评分，检测模型降智/偷换
+author: honeymeta
+repo:
+  url: https://github.com/honeymeta/ccfingerprint
+  path: ccfingerprint
+  license: MIT
+play:
+  url: https://honeymeta.com/ccfingerprint/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/honeymeta--ccfingerprint--ccfingerprint/cover.webp
+genre: procedural-demo
+tags:
+  - agent-skills
+  - ai
+  - claude-code
+  - cli-tool
+  - codex
+  - cursor
+  - fingerprint
+  - llm
+  - model-identification
+  - nodejs
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L2
+  evidence_notes: README/描述引用：身份表更新到 2026 年 11 月**：Claude Fable 5.2（2026-11 发布，官方知识截止 2026-06）、Mythos 5.x、Gemini 3.7/3.8、Grok 4.7、DeepSeek V4.1、Qwen 3.8、Kimi K3.1、GLM-5.2/5.3、MiniMax M3/M3.1。v2.3 里 `claude-fable-5-2` 匹配不到任何身份。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-19
