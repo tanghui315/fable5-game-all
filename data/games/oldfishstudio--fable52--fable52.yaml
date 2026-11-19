@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: oldfishstudio--fable52--fable52
+slug: fable-5-2
+kind: game
+status: published
+title:
+  zh: Fable 5.2 游戏图鉴
+  en: Fable 5.2 游戏图鉴
+summary:
+  zh: Fable 5.2 game gallery
+  en: Fable 5.2 game gallery
+author: oldfishstudio
+repo:
+  url: https://github.com/oldfishstudio/fable52
+play:
+  url: https://oldfishstudio.github.io/fable52/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/oldfishstudio--fable52--fable52/cover.webp
+genre: arcade
+tags:
+  - fable52
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Fable 5.2 game gallery | Fable 5.2 游戏图鉴 | [在线图鉴](https://oldfishstudio.github.io/fable52/)
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-19
