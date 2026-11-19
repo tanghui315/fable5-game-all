@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ztaer--ai-game-analysis-saltline--ai-game-analysis-saltline
+slug: ai-game-analysis-saltline
+kind: game
+status: published
+title:
+  zh: 万我工作室 · 游戏展厅
+  en: Ai Game Analysis Saltline
+summary:
+  zh: 基于saltline-fable-5.2的WEB游戏3A画质项目分析，构造了React+threeJS项目可维护性源代码，附项目架构详细文档
+  en: 基于saltline-fable-5.2的WEB游戏3A画质项目分析，构造了React+threeJS项目可维护性源代码，附项目架构详细文档
+author: ztaer
+repo:
+  url: https://github.com/ztaer/ai-game-analysis__saltline
+  path: ai-game-analysis__saltline
+play:
+  url: https://ztaer.github.io/ai-game-analysis__saltline/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/ztaer--ai-game-analysis-saltline--ai-game-analysis-saltline/cover.webp
+genre: audio-demo
+tags:
+  - ai
+  - game
+  - analysis
+  - saltline
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：基于saltline-fable-5.2的WEB游戏3A画质项目分析，构造了React+threeJS项目可维护性源代码，附项目架构详细文档 | 原 `saltline-fable-5.2` 第一人称射击游戏的 React 工程化重构，目标是保留原版玩法、数值、画面与交互。玩家需要切断三个中继并抵达船只；React 管理应用与菜单，Three.js 游戏模块负责场景、玩家、武器、敌人及音频，配置与启动流程按职责拆分，附有中文维护文档。 | [在线试玩](https://ztaer.github.io/ai-game-analysis__saltline/saltline/) · [项目说明与源码入口](saltline-fable-5.2-react/README.md) · [研发声明](saltline-fable-5.2-react/研发声明.md) · [维护指南](saltline-fable-5.2-react/docs/MAINTENANCE.md)
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-19
