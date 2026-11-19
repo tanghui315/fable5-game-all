@@ -15,6 +15,11 @@
     "pushed_at": "2026-11-11T12:29:24Z",
     "last_pr": 19
   },
+  "adrianco/retort": {
+    "repo": "adrianco/retort",
+    "last_seen": "2026-11-19T11:55:45.504Z",
+    "pushed_at": "2026-11-18T16:07:53Z"
+  },
   "aidanht/wormhole": {
     "repo": "aidanht/wormhole",
     "last_seen": "2026-11-15T11:02:27.246Z",
@@ -47,6 +52,11 @@
     "last_seen": "2026-11-13T12:36:53.618Z",
     "pushed_at": "2026-11-13T04:45:07Z",
     "last_pr": 4
+  },
+  "chen-006/meow-ai-arena": {
+    "repo": "chen-006/meow-ai-arena",
+    "last_seen": "2026-11-19T11:55:35.181Z",
+    "pushed_at": "2026-11-16T11:54:17Z"
   },
   "chen-006/meow-llm-detector": {
     "repo": "chen-006/meow-llm-detector",
@@ -185,6 +195,12 @@
     "pushed_at": "2026-11-14T22:17:44Z",
     "last_pr": 26
   },
+  "honeymeta/ccfingerprint": {
+    "repo": "honeymeta/ccfingerprint",
+    "last_seen": "2026-11-19T11:57:31.904Z",
+    "pushed_at": "2026-11-12T10:23:45Z",
+    "last_pr": 52
+  },
   "ilien-dev/quiron": {
     "repo": "ilien-dev/quiron",
     "last_seen": "2026-11-13T12:37:12.701Z",
@@ -201,6 +217,12 @@
     "repo": "jbang2004/long-wind",
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-02T08:02:55Z"
+  },
+  "junhan2/oh-my-fable": {
+    "repo": "junhan2/oh-my-fable",
+    "last_seen": "2026-11-19T11:56:04.707Z",
+    "pushed_at": "2026-11-10T15:45:56Z",
+    "last_pr": 49
   },
   "kdayinsummer/saltline-fable-5.2": {
     "repo": "kdayinsummer/saltline-fable-5.2",
@@ -277,6 +299,12 @@
     "pushed_at": "2026-09-28T20:54:49Z",
     "last_pr": 47
   },
+  "oldfishstudio/fable52": {
+    "repo": "oldfishstudio/fable52",
+    "last_seen": "2026-11-19T11:56:23.716Z",
+    "pushed_at": "2026-11-17T14:36:19Z",
+    "last_pr": 50
+  },
   "ololo-dev/apex-lap-fable-5-2": {
     "repo": "ololo-dev/apex-lap-fable-5-2",
     "last_seen": "2026-11-16T11:24:26.486Z",
@@ -288,6 +316,16 @@
     "last_seen": "2026-11-16T11:25:06.910Z",
     "pushed_at": "2026-11-16T07:22:14Z",
     "last_pr": 34
+  },
+  "omerbenamram/evtx": {
+    "repo": "omerbenamram/evtx",
+    "last_seen": "2026-11-19T11:55:41.059Z",
+    "pushed_at": "2026-11-14T21:35:00Z"
+  },
+  "omerbenamram/mft": {
+    "repo": "omerbenamram/mft",
+    "last_seen": "2026-11-19T11:55:38.133Z",
+    "pushed_at": "2026-11-14T21:36:32Z"
   },
   "op7418/guizang-game-skill": {
     "repo": "op7418/guizang-game-skill",
@@ -414,5 +452,11 @@
     "last_seen": "2026-11-17T02:15:22.153Z",
     "pushed_at": "2026-11-16T14:27:24Z",
     "last_pr": 35
+  },
+  "ztaer/ai-game-analysis__saltline": {
+    "repo": "ztaer/ai-game-analysis__saltline",
+    "last_seen": "2026-11-19T11:56:45.158Z",
+    "pushed_at": "2026-11-19T04:36:53Z",
+    "last_pr": 51
   }
 }
