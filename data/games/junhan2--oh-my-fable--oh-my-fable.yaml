@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: junhan2--oh-my-fable--oh-my-fable
+slug: oh-my-fable-claude-fable-5-2-5-1-claude-code
+kind: demo
+status: published
+title:
+  zh: oh-my-fable | Claude Fable 5.2·5.1 프롬프팅 가이드를 Claude Code 플러그인으로
+  en: oh-my-fable | Claude Fable 5.2·5.1 프롬프팅 가이드를 Claude Code 플러그인으로
+summary:
+  zh: "Anthropic's Claude prompting guides (Fable 5.2, Opus 5.5) as a Claude Code plugin (KO/EN/ZH): always-on working rules, and /fable turns a rough request into goal, context, scope and done."
+  en: "Anthropic's Claude prompting guides (Fable 5.2, Opus 5.5) as a Claude Code plugin (KO/EN/ZH): always-on working rules, and /fable turns a rough request into goal, context, scope and done."
+author: junhan2
+repo:
+  url: https://github.com/junhan2/oh-my-fable
+  path: oh-my-fable
+  license: MIT
+play:
+  url: https://junhan2.github.io/oh-my-fable/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/junhan2--oh-my-fable--oh-my-fable/cover.webp
+genre: procedural-demo
+tags:
+  - ai-agents
+  - anthropic
+  - claude
+  - claude-code
+  - claude-code-plugin
+  - claude-skills
+  - fable-5
+  - fable-5-2
+  - fable5
+  - grok
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L2
+  evidence_notes: "README/描述引用：Anthropic's Claude prompting guides (Fable 5.2, Opus 5.5) as a Claude Code plugin (KO/EN/ZH): always-on working rules, and /fable turns a rough request into goal, context, scope and done. | oh-my-fable | 설치만 하면 세션마다 맞는 규칙이 들어가고, `/fable`은 막연한 요청을 목표·맥락·범위·완료 기준으로 바꿔 실행합니다."
+generation:
+  prompt_url: https://github.com/junhan2/oh-my-fable/blob/main/evals/assessment-no-edit/prompt.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-19
