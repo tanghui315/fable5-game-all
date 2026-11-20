@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: furkiozknn--bogaz-vapuru--bogaz-vapuru
+slug: bogaz-vapuru
+kind: game
+status: published
+title:
+  zh: Boğaz Vapuru
+  en: Boğaz Vapuru
+summary:
+  zh: 在低多边形的博斯普鲁斯海峡当渡轮船长：在 Eminönü、Karaköy、Üsküdar 等六个码头之间按时刻表靠岸，顶住水流与风，别撞上油轮，尽量多载乘客。有连续班次、每日挑战、船长日志和星级结算，桌面和手机都能玩。
+  en: "Captain a low-poly city ferry on the Bosphorus: work six piers between Eminönü, Karaköy and Üsküdar on the timetable, hold against current and wind, keep clear of tankers and carry as many passengers as you can. Endless shifts, a daily challenge and a captain's log, on desktop and phone."
+author: furkiozknn
+repo:
+  url: https://github.com/furkiozknn/bogaz-vapuru
+  license: MIT
+play:
+  url: https://furkiozknn.github.io/bogaz-vapuru/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/furkiozknn--bogaz-vapuru--bogaz-vapuru/cover.webp
+genre: simulation
+tags:
+  - simulation
+  - 3d
+  - ferry
+  - istanbul
+  - mobile
+  - threejs
+controls:
+  - keyboard
+  - touch
+mobile: true
+model:
+  name: fable-5.1
+  evidence: L1
+  evidence_notes: 仓库描述与 README 徽章都写明「Browser game built by Claude Fable 5.1」，仓库里保留了 prompts/bogaz-vapuru.md。
+generation:
+  prompt_url: https://github.com/furkiozknn/bogaz-vapuru/blob/main/prompts/bogaz-vapuru.md
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-20

@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: drew879
+name: Drew McCalmont
+github: drew879
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/1972676?v=4
+claimed: false

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: dquanbui--shutterpine--shutterpine
+slug: shutterpine
+kind: game
+status: published
+title:
+  zh: SHUTTERPINE
+  en: SHUTTERPINE
+summary:
+  zh: 带一点恐怖的第一人称叙事悬疑：Peter Hale 回到 Shutterpine 国家森林，寻找一年前失踪的姐姐——她是自然摄影师，遗物里只剩一卷没冲洗的胶片；每冲出一张，树林里的苍白高影就更近一步。沿着她的路线登山，复刻照片里的站位，只有透过取景器才能看见并阻止那个东西。
+  en: "A first-person narrative mystery with light horror. Peter Hale returns to Shutterpine National Forest a year after his photographer sister vanished; every frame he develops shows a tall pale figure closer than the last. Hike her route, match the photos on her final roll, and survive the thing that can only be seen — and stopped — through the lens."
+author: dquanbui
+repo:
+  url: https://github.com/DQuanBui/shutterpine
+play:
+  url: https://dquanbui.github.io/shutterpine/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/dquanbui--shutterpine--shutterpine/cover.webp
+genre: horror
+tags:
+  - horror
+  - narrative
+  - first-person
+  - mystery
+  - 3d
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README 末尾写明「Built with Claude (Fable 5.2) in VS Code.」
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-20

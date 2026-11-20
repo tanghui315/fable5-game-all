@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: robinduckett--boo-mas--boo-mas
+slug: boo-mas
+kind: game
+status: published
+title:
+  zh: Boo-mas
+  en: Boo-mas
+summary:
+  zh: 戴圣诞帽的小幽灵在一个雪球大小的星球上巡夜：拖着彩灯飞行，用灯串把树、小屋、路灯和雪人圈起来点亮，赶在午夜前把 Humbug 们缠成礼物。一个提示词、一次模型请求做出来的 three.js 圣诞小游戏。
+  en: "A small ghost in a Santa hat circles a snow-globe planet trailing fairy lights: draw loops around trees, cottages, lamp posts and snowmen to switch them on, and wrap the Humbugs into presents before midnight. A three.js Christmas game made from a single prompt."
+author: robinduckett
+repo:
+  url: https://github.com/robinduckett/boo-mas
+play:
+  url: https://robinduckett.github.io/boo-mas/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/robinduckett--boo-mas--boo-mas/cover.webp
+genre: arcade
+tags:
+  - christmas
+  - 3d
+  - threejs
+  - one-prompt
+  - cozy
+controls:
+  - mouse
+  - keyboard
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 作者在 Hacker News 的 Show HN 帖里写明「This was made using a single prompt to Fable 5.2 on max thinking」（https://news.ycombinator.com/item?id=50553152），并附完整提示词与用量。
+generation:
+  notes: 作者记录：一次提示词、123 次模型请求、61,514,232 tokens。
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-20

@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: viktorkav
+name: Victor Vasconcelos
+github: viktorkav
+x: null
+website: https://viktorkav.com.br
+avatar: https://avatars.githubusercontent.com/u/68311503?v=4
+claimed: false

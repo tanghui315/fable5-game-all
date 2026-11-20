@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: ethanplusai
+name: Ethan+
+github: ethanplusai
+x: ethanplusai
+website: https://ethanplus.ai
+avatar: https://avatars.githubusercontent.com/u/249879463?v=4
+claimed: false

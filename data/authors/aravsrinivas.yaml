@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: aravsrinivas
+name: Aravind Srinivas
+github: null
+x: AravSrinivas
+website: null
+avatar: https://unavatar.io/x/AravSrinivas
+claimed: false
