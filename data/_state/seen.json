@@ -161,8 +161,8 @@
   },
   "gavinlorio/fable-5.2-random-game": {
     "repo": "gavinlorio/fable-5.2-random-game",
-    "last_seen": "2026-11-17T02:15:32.773Z",
-    "pushed_at": "2026-11-16T14:54:12Z"
+    "last_seen": "2026-11-20T11:45:54.977Z",
+    "pushed_at": "2026-11-17T13:57:59Z"
   },
   "github30/fable52-gta6": {
     "repo": "github30/fable52-gta6",
@@ -200,6 +200,11 @@
     "last_seen": "2026-11-19T11:57:31.904Z",
     "pushed_at": "2026-11-12T10:23:45Z",
     "last_pr": 52
+  },
+  "hwywl/open-games": {
+    "repo": "hwywl/open-games",
+    "last_seen": "2026-11-20T11:45:27.874Z",
+    "pushed_at": null
   },
   "ilien-dev/quiron": {
     "repo": "ilien-dev/quiron",
@@ -254,6 +259,12 @@
     "repo": "loktar00/lanternfall",
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-11T06:43:51Z"
+  },
+  "lowenbjer/claude-terse": {
+    "repo": "lowenbjer/claude-terse",
+    "last_seen": "2026-11-20T11:45:48.741Z",
+    "pushed_at": "2026-11-14T00:10:01Z",
+    "last_pr": 55
   },
   "marvijo-code/leonida-stories-3d": {
     "repo": "marvijo-code/leonida-stories-3d",
@@ -377,8 +388,8 @@
   },
   "stefanknol/last-return": {
     "repo": "stefanknol/last-return",
-    "last_seen": "2026-11-17T11:57:48.015Z",
-    "pushed_at": "2026-11-17T11:54:25Z"
+    "last_seen": "2026-11-20T11:45:50.968Z",
+    "pushed_at": "2026-11-20T11:43:33Z"
   },
   "stefanknol/no-return": {
     "repo": "stefanknol/no-return",
@@ -452,6 +463,12 @@
     "last_seen": "2026-11-17T02:15:22.153Z",
     "pushed_at": "2026-11-16T14:27:24Z",
     "last_pr": 35
+  },
+  "zhukunpenglinyutong/jetbrains-cc-gui": {
+    "repo": "zhukunpenglinyutong/jetbrains-cc-gui",
+    "last_seen": "2026-11-20T11:45:14.540Z",
+    "pushed_at": "2026-11-20T07:03:34Z",
+    "last_pr": 54
   },
   "ztaer/ai-game-analysis__saltline": {
     "repo": "ztaer/ai-game-analysis__saltline",
