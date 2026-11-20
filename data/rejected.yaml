@@ -219,3 +219,6 @@
 - repo: https://github.com/honeymeta/ccfingerprint
   reason: not-a-game
   date: 2026-11-20
+- repo: https://github.com/ztaer/ai-game-analysis__saltline
+  reason: not-a-game
+  date: 2026-11-20
