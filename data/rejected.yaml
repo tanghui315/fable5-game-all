@@ -216,3 +216,6 @@
 - repo: https://github.com/junhan2/oh-my-fable
   reason: not-a-game
   date: 2026-11-20
+- repo: https://github.com/honeymeta/ccfingerprint
+  reason: not-a-game
+  date: 2026-11-20
