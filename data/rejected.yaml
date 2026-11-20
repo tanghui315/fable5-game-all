@@ -210,3 +210,6 @@
 - repo: https://github.com/szczyglis-dev/py-gpt
   reason: not-a-game
   date: 2026-11-20
+- repo: https://github.com/oldfishstudio/fable52
+  reason: not-a-game
+  date: 2026-11-20
