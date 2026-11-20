@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: robinduckett
+name: Robin Duckett
+github: robinduckett
+x: null
+website: https://robinduckett.com
+avatar: https://avatars.githubusercontent.com/u/17959?v=4
+claimed: false

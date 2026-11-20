@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: bitofastickler--duel-knights--duel-knights
+slug: duel-knights
+kind: game
+status: published
+title:
+  zh: Duel Knights
+  en: Duel Knights
+summary:
+  zh: 火把照亮的 3D 骑士决斗：选骑士、对手和场地，三局两胜；架势、重击和格挡各有代价。骑士、竞技场和音效都由 three.js 的基础几何体在代码里搭出来，不加载任何模型、贴图或音频文件。
+  en: "A torch-lit 3D sword duel: pick a knight, a foe and a battleground, then fight first to three rounds, with stances, heavy attacks and guard breaks that each cost you something. The knights, arena and sound are built in code from primitives with Three.js — no models, textures or audio files are loaded."
+author: bitofastickler
+repo:
+  url: https://github.com/bitofastickler/duel-knights
+  license: MIT
+play:
+  url: https://bitofastickler.github.io/duel-knights/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/bitofastickler--duel-knights--duel-knights/cover.webp
+  preview: media/bitofastickler--duel-knights--duel-knights/preview.webp
+genre: fighting
+tags:
+  - fighting
+  - 3d
+  - threejs
+  - medieval
+  - code-only
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README 写明「Duel Knights grew out of Ashen Crown, the Claude Fable 5.2 entry…」，并说明全部素材由代码生成。
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-20

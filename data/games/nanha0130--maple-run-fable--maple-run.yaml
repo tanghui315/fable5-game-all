@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: nanha0130--maple-run-fable--maple-run
+slug: maple-run
+kind: game
+status: published
+title:
+  zh: MAPLE RUN
+  en: MAPLE RUN
+summary:
+  zh: 枫叶最盛时节的铁路无尽跑酷：左右换轨、跳跃、翻滚收集枫叶，跑者本人和追赶的站长是 PINOC 高斯泼溅角色，树木、铁轨、车站、桥、贴图和音乐都在启动时用代码生成。需要 WebGPU，桌面 Chrome/Edge 或 Safari 26+。
+  en: "An endless runner down a country railway at peak maple season: switch tracks, jump, roll and collect maple leaves. The runner and the station master chasing them are PINOC Gaussian-splat characters; trees, track, station, bridge, textures and music are all generated in code at boot. Needs WebGPU — desktop Chrome, Edge or Safari 26+."
+author: nanha0130
+repo:
+  url: https://github.com/nanha0130/maple-run-fable
+play:
+  url: https://maple-run-fable.vercel.app
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/nanha0130--maple-run-fable--maple-run/cover.webp
+genre: runner
+tags:
+  - runner
+  - 3d
+  - webgpu
+  - gaussian-splatting
+  - endless
+controls:
+  - keyboard
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README 写明「built with Claude Fable 5.2」，并说明角色来自 PINOC 高斯泼溅与动作片段，其余内容在启动时由代码生成。
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-20

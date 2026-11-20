@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: ethanplusai--zombies--zombies
+slug: graveyard-shift
+kind: game
+status: published
+title:
+  zh: Graveyard Shift
+  en: Graveyard Shift
+summary:
+  zh: 回合制僵尸生存射击：守着一间公路尽头的餐馆和加油站熬过整夜，钉木板、赚分、开新区域、买墙上的枪、搜补给、恢复供电，每一回合来的僵尸都更多更硬。桌面用键鼠，手机有触屏。
+  en: "A round-based zombies shooter: hold out at a roadside diner and gas station through the night — board up windows, earn points, open new areas, buy weapons off the wall, search for loot and get the power back on while each round sends more and tougher zombies. Mouse and keyboard on desktop, touch controls on a phone."
+author: ethanplusai
+repo:
+  url: https://github.com/ethanplusai/zombies
+  license: MIT
+play:
+  url: https://zombies.ethanplus.ai/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/ethanplusai--zombies--zombies/cover.webp
+genre: shooter
+tags:
+  - zombies
+  - fps
+  - survival
+  - round-based
+  - threejs
+  - mobile
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README 写明「Built by Fable 5.2, prompted by Ethan (https://x.com/ethanplusai)」。
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-20

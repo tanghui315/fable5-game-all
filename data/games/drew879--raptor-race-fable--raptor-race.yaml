@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: drew879--raptor-race-fable--raptor-race
+slug: raptor-race
+kind: game
+status: published
+title:
+  zh: Raptor Race
+  en: Raptor Race
+summary:
+  zh: 竖屏 3D 跑酷，主角是带羽毛的恐龙，跑在它们真实生活过的地点和年代。这个版本用 Fable 5.2 重做了此前由 Opus 5.5 完成的 Raptor Race；恐龙模型由 Blender 脚本重新生成，为手机竖屏设计。
+  en: "A portrait 3D runner starring real feathered dinosaurs, set in the places and periods they lived. This build remakes the earlier Opus 5.5 Raptor Race with Fable 5.2; the dinosaurs are rebuilt from Blender scripts. Designed for a phone held upright."
+author: drew879
+repo:
+  url: https://github.com/drew879/raptor-race-fable
+play:
+  url: https://drew879.github.io/raptor-race-fable/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/drew879--raptor-race-fable--raptor-race/cover.webp
+genre: runner
+tags:
+  - dinosaurs
+  - runner
+  - 3d
+  - mobile
+  - portrait
+controls:
+  - touch
+  - keyboard
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 仓库描述写明「A remake of Raptor Race with Fable 5.2 instead of Opus 5.5」。
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-20

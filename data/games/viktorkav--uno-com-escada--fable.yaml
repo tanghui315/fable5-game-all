@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: viktorkav--uno-com-escada--fable
+slug: uno-com-escada
+kind: game
+status: published
+title:
+  zh: Uno com Escada
+  en: Uno com Escada
+summary:
+  zh: 1996 年的菲亚特 Uno Mille，车顶绑着一架铝梯，在 Serra da Mata 林间赛道跑圈。同一个提示词交给三家模型各做一遍，这是 Fable 5.2 版：车、赛道、树林、天空和引擎声全部由代码生成，没有游戏引擎、外部贴图或 3D 库，需要支持 WebGPU 的桌面 Chrome 或 Edge。
+  en: "A 1996 Fiat Uno Mille with an aluminium ladder strapped to the roof, lapping the Serra da Mata forest circuit. The same prompt was given to three models; this is the Fable 5.2 build. Car, track, woods, sky and engine note are all generated in code — no game engine, textures or 3D library. Needs WebGPU in desktop Chrome or Edge."
+author: viktorkav
+repo:
+  url: https://github.com/viktorkav/uno-com-escada
+play:
+  url: https://viktorkav.com.br/apoio/uno-com-escada/fable/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/viktorkav--uno-com-escada--fable/cover.webp
+genre: racing
+tags:
+  - racing
+  - 3d
+  - webgpu
+  - one-prompt
+  - code-only
+controls:
+  - keyboard
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: 仓库 README 写明同一个请求分别交给 Claude Fable 5.2、Opus 5.5 和 GPT-6.2 Astra，各自产出一个单文件 index.html，并给出三版的在线入口。
+source:
+  discovered_by: manual
+  discovered_at: 2026-11-20

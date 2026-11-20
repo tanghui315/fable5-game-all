@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: bitofastickler
+name: Dan Kendall
+github: bitofastickler
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/82474590?v=4
+claimed: false
