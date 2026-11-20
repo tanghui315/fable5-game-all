@@ -197,28 +197,45 @@
   date: 2026-11-17
 - repo: https://github.com/directorcia/general
   reason: not-a-game
+  note: ciaops.com 是 Computer Information Agency 的官网，没有可玩内容。
   date: 2026-11-20
 - repo: https://github.com/craftecsofficial-source/toolscout-ai
   reason: not-a-game
+  note: AI 工具导航站，不是游戏。
   date: 2026-11-20
 - repo: https://github.com/djalmaaraujo/ai-wotd
   reason: not-a-game
+  note: 每日 AI 模型展示页（AI WOTD），不是游戏。
   date: 2026-11-20
 - repo: https://github.com/leancoderkavy/premiere-pro-mcp
   reason: not-a-game
+  note: Premiere Pro 的 MCP 服务与文档站，不是游戏。
   date: 2026-11-20
 - repo: https://github.com/szczyglis-dev/py-gpt
   reason: not-a-game
+  note: PyGPT 桌面 AI 助手官网，不是浏览器游戏。
   date: 2026-11-20
 - repo: https://github.com/oldfishstudio/fable52
   reason: not-a-game
+  note: Fable 5.2 作品索引站，本身不是游戏；已作为候选来源使用。
   date: 2026-11-20
 - repo: https://github.com/junhan2/oh-my-fable
   reason: not-a-game
+  note: Claude Code 提示词插件文档站，不是游戏。
   date: 2026-11-20
 - repo: https://github.com/honeymeta/ccfingerprint
   reason: not-a-game
+  note: 蜂元科技官网上的模型指纹工具页，不是游戏。
   date: 2026-11-20
 - repo: https://github.com/ztaer/ai-game-analysis__saltline
   reason: not-a-game
+  note: Saltline 的 React 工程化重构与分析仓库，入口是作品展厅；原作 Saltline 已在驳回记录中。
+  date: 2026-11-20
+- repo: https://github.com/ebullioscopic/atoll
+  reason: not-a-game
+  note: Atoll Labs 产品官网，没有可玩内容。
+  date: 2026-11-20
+- repo: https://github.com/nosqlnull/sparkai-chatgpt-aiweb
+  reason: not-a-game
+  note: SparkAI AIGC 系统的文档站，不是游戏。
   date: 2026-11-20
