@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: zhukunpenglinyutong
+name: zhukunpenglinyutong
+github: zhukunpenglinyutong
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/31264015?v=4
+claimed: false

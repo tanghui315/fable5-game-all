@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: zhukunpenglinyutong--jetbrains-cc-gui--29342-cc-gui-claude-or-codex
+slug: cc-gui-claude-codex-and-more-plugin-for-jetbrains-ides-jetbr
+kind: demo
+status: published
+title:
+  zh: CC GUI (Claude, Codex and More) Plugin for JetBrains IDEs | JetBrains Marketplace
+  en: CC GUI (Claude, Codex and More) Plugin for JetBrains IDEs | JetBrains Marketplace
+summary:
+  zh: Jetbrains Claude Code and Codex GUI Plugin
+  en: Jetbrains Claude Code and Codex GUI Plugin
+author: zhukunpenglinyutong
+repo:
+  url: https://github.com/zhukunpenglinyutong/jetbrains-cc-gui
+  path: plugin/29342-cc-gui-claude-or-codex-
+  license: MIT
+play:
+  url: https://plugins.jetbrains.com/plugin/29342-cc-gui-claude-or-codex-/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/zhukunpenglinyutong--jetbrains-cc-gui--29342-cc-gui-claude-or-codex/cover.webp
+genre: procedural-demo
+tags:
+  - "29342"
+  - cc
+  - gui
+  - claude
+  - or
+  - codex
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/zhukunpenglinyutong/jetbrains-cc-gui/blob/main/docs/codex/docs/prompts.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-20
