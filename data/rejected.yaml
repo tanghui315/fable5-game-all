@@ -195,3 +195,6 @@
   reason: not-a-game
   note: 20 个入口全是 AI 教学演示（课程、辩论、设计），没有可玩的游戏。
   date: 2026-11-17
+- repo: https://github.com/directorcia/general
+  reason: not-a-game
+  date: 2026-11-20
