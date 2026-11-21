@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: mrgediao--shuorenhua--shuorenhua
+slug: shuorenhua
+kind: demo
+status: published
+title:
+  zh: shuorenhua
+  en: shuorenhua
+summary:
+  zh: 说人话｜中文优先的去 AI 味改写 skill：保事实、分场景、改完可直接发。Chinese-first rewrite skill for Codex
+  en: Claude Code / Cursor / ChatGPT — removes AI tone, preserves facts.
+author: mrgediao
+repo:
+  url: https://github.com/mrgediao/shuorenhua
+  path: MrGeDiao/shuorenhua
+  license: MIT
+play:
+  url: https://github.com/MrGeDiao/shuorenhua/#readme
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/mrgediao--shuorenhua--shuorenhua/cover.webp
+genre: procedural-demo
+tags:
+  - agent-skill
+  - ai-writing
+  - anti-slop
+  - chatgpt
+  - chinese
+  - claude-code
+  - codex
+  - cursor
+  - developer-tools
+  - openclaw
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L2
+  evidence_notes: README/描述引用：11 篇长文（5 篇 AI 味重的文章、3 篇维基新闻、2 篇人写的中文文本、1 篇本地授权文章）和三种撤销，在真实的 Claude Code 2.1.321（`claude-opus-5-5`）和 Codex CLI 0.167（`gpt-6.1-sol`）里各跑一次，规则文件由工具自己去读。请求都是上面例子里那一句。`claude-fable-5-2` 对其中 8 篇逐条盲审，它拿不准的条目一律算错：
+generation:
+  prompt_url: https://github.com/mrgediao/shuorenhua/blob/main/dist/shuorenhua-mini.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-21
