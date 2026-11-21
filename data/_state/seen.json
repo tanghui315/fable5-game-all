@@ -277,6 +277,18 @@
     "pushed_at": "2026-11-09T21:23:19Z",
     "last_pr": 1
   },
+  "mrgediao/shuorenhua": {
+    "repo": "mrgediao/shuorenhua",
+    "last_seen": "2026-11-21T11:10:06.813Z",
+    "pushed_at": "2026-11-21T08:45:13Z",
+    "last_pr": 57
+  },
+  "mythfinity/crash-quota-fable": {
+    "repo": "mythfinity/crash-quota-fable",
+    "last_seen": "2026-11-21T11:10:34.500Z",
+    "pushed_at": "2026-11-20T22:04:28Z",
+    "last_pr": 58
+  },
   "nickthelegend/hydra-minecraft": {
     "repo": "nickthelegend/hydra-minecraft",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -349,6 +361,11 @@
     "pushed_at": "2026-10-19T22:46:47Z",
     "last_pr": 36
   },
+  "pydantic/genai-prices": {
+    "repo": "pydantic/genai-prices",
+    "last_seen": "2026-11-21T11:09:22.085Z",
+    "pushed_at": "2026-11-21T00:50:12Z"
+  },
   "rikinshah787/game-fable-5.2": {
     "repo": "rikinshah787/game-fable-5.2",
     "last_seen": "2026-11-17T02:15:35.995Z",
@@ -359,6 +376,12 @@
     "last_seen": "2026-11-13T12:36:32.197Z",
     "pushed_at": "2026-11-13T06:57:05Z",
     "last_pr": 3
+  },
+  "rockbenben/free-llm-intel": {
+    "repo": "rockbenben/free-llm-intel",
+    "last_seen": "2026-11-21T11:09:46.831Z",
+    "pushed_at": "2026-11-21T10:50:51Z",
+    "last_pr": 56
   },
   "rossinek/cold-boot": {
     "repo": "rossinek/cold-boot",
@@ -388,8 +411,8 @@
   },
   "stefanknol/last-return": {
     "repo": "stefanknol/last-return",
-    "last_seen": "2026-11-20T11:45:50.968Z",
-    "pushed_at": "2026-11-20T11:43:33Z"
+    "last_seen": "2026-11-21T11:10:13.410Z",
+    "pushed_at": "2026-11-21T10:55:36Z"
   },
   "stefanknol/no-return": {
     "repo": "stefanknol/no-return",
