@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: mythfinity
+name: mythfinity
+github: mythfinity
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/275062383?v=4
+claimed: false
