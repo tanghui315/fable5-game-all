@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: mythfinity--crash-quota-fable--games-carmageddon-crash-quota-fable
+slug: carmageddon-by-claude-fable-5-2-smashi-arcade
+kind: game
+status: published
+title:
+  zh: Carmageddon by Claude Fable 5.2 · Smashi Arcade
+  en: Carmageddon by Claude Fable 5.2 · Smashi Arcade
+summary:
+  zh: Crash Quota — original browser vehicular-combat game by Claude Fable 5.2 (published on Smashi Arcade)
+  en: Crash Quota — original browser vehicular-combat game by Claude Fable 5.2 (published on Smashi Arcade)
+author: mythfinity
+repo:
+  url: https://github.com/mythfinity/crash-quota-fable
+  path: games/carmageddon/crash-quota-fable
+play:
+  url: https://smashi.app/games/carmageddon/crash-quota-fable/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/mythfinity--crash-quota-fable--games-carmageddon-crash-quota-fable/cover.webp
+genre: audio-demo
+tags:
+  - games
+  - carmageddon
+  - crash
+  - quota
+  - fable
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Crash Quota — original browser vehicular-combat game by Claude Fable 5.2 (published on Smashi Arcade) | Play:** https://smashi.app/arcade/crash-quota-fable/ | Build page:** https://smashi.app/games/carmageddon/crash-quota-fable/
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-21
