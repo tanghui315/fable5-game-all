@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: apimodels--claude-fable-5-2-prompts--claude-fable-5-2-prompts
+slug: 145-claude-fable-5-2-prompts-and-examples-blender-three-js-g
+kind: demo
+status: published
+title:
+  zh: "145 Claude Fable 5.2 Prompts and Examples: Blender, Three.js, Games, Music"
+  en: "145 Claude Fable 5.2 Prompts and Examples: Blender, Three.js, Games, Music"
+summary:
+  zh: "145 things people made with Claude Fable 5.2 in its first week: Blender films, Three.js scenes, games, music and paintings written in code. Each credited and linked, with the prompt where the creator published it. English and 简体中文."
+  en: "145 things people made with Claude Fable 5.2 in its first week: Blender films, Three.js scenes, games, music and paintings written in code. Each credited and linked, with the prompt where the creator published it. English and 简体中文."
+author: apimodels
+repo:
+  url: https://github.com/apimodels/claude-fable-5-2-prompts
+  path: claude-fable-5-2-prompts
+  license: CC-BY-4.0
+play:
+  url: https://apimodels.app/claude-fable-5-2-prompts/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/apimodels--claude-fable-5-2-prompts--claude-fable-5-2-prompts/cover.webp
+genre: audio-demo
+tags:
+  - anthropic
+  - blender
+  - claude
+  - claude-code
+  - claude-fable
+  - creative-coding
+  - fable-5-2
+  - prompt-engineering
+  - prompts
+  - threejs
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L2
+  evidence_notes: "README/描述引用：145 things people made with Claude Fable 5.2 in its first week: Blender films, Three.js scenes, games, music and paintings written in code. Each credited and linked, with the prompt where the creator published it. English and 简体中文. | Claude Fable 5.2 Prompts: 145 Creative Coding Cases | 5. [Small boat sailing through 8 worlds, with a Fable-made trailer score](cases/games/069-small-boat-sailing-through-8-worlds-with-a-fable-made.md) by @kevin_t_ngo, about 462K views (not published)"
+generation:
+  prompt_url: https://github.com/apimodels/claude-fable-5-2-prompts/blob/main/cases/blender/007-photoreal-bugatti-tourbillon-render-from-one-prompt-and-a.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-22
