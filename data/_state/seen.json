@@ -42,6 +42,12 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-10-09T03:47:41Z"
   },
+  "apimodels/claude-fable-5-2-prompts": {
+    "repo": "apimodels/claude-fable-5-2-prompts",
+    "last_seen": "2026-11-22T11:30:19.041Z",
+    "pushed_at": "2026-11-12T03:00:43Z",
+    "last_pr": 59
+  },
   "basemazab/tuktuk": {
     "repo": "basemazab/tuktuk",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -88,8 +94,8 @@
   },
   "dwarkeshsp/clocktower": {
     "repo": "dwarkeshsp/clocktower",
-    "last_seen": "2026-11-17T11:57:26.376Z",
-    "pushed_at": "2026-11-12T00:44:28Z"
+    "last_seen": "2026-11-22T11:30:26.103Z",
+    "pushed_at": "2026-11-18T08:53:26Z"
   },
   "ebullioscopic/atoll": {
     "repo": "ebullioscopic/atoll",
@@ -203,8 +209,8 @@
   },
   "hwywl/open-games": {
     "repo": "hwywl/open-games",
-    "last_seen": "2026-11-20T11:45:27.874Z",
-    "pushed_at": null
+    "last_seen": "2026-11-22T11:29:56.512Z",
+    "pushed_at": "2026-11-20T03:48:30Z"
   },
   "ilien-dev/quiron": {
     "repo": "ilien-dev/quiron",
@@ -233,6 +239,11 @@
     "repo": "kdayinsummer/saltline-fable-5.2",
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-12T02:40:49Z"
+  },
+  "kevinz917/superhuman-polytopia-bot": {
+    "repo": "kevinz917/superhuman-polytopia-bot",
+    "last_seen": "2026-11-22T11:30:33.266Z",
+    "pushed_at": "2026-11-12T14:22:34Z"
   },
   "killedbyapixel/littlejs-ai": {
     "repo": "killedbyapixel/littlejs-ai",
@@ -411,8 +422,8 @@
   },
   "stefanknol/last-return": {
     "repo": "stefanknol/last-return",
-    "last_seen": "2026-11-21T11:10:13.410Z",
-    "pushed_at": "2026-11-21T10:55:36Z"
+    "last_seen": "2026-11-22T11:30:28.390Z",
+    "pushed_at": "2026-11-22T11:03:11Z"
   },
   "stefanknol/no-return": {
     "repo": "stefanknol/no-return",
