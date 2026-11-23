@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: sashatchersunov6-rgb--lisenok-game--web
+slug: lisenok-game
+kind: game
+status: published
+title:
+  zh: 小狐狸与火橡果
+  en: The Little Fox and the Fire Acorn
+summary:
+  zh: 一只系着围巾的小狐狸，为追回被雷火点燃的橡果一路奔跑。整个平台跳跃游戏只有一个 HTML 文件，4 条消息、1,465 行，画面和音效都由代码现场生成。
+  en: A scarf-wearing fox chases a fire acorn through a one-file HTML platformer. Four messages, 1,465 lines, with every sprite and sound generated in code.
+author: sashatchersunov6-rgb
+repo:
+  url: https://github.com/sashatchersunov6-rgb/lisenok-game
+play:
+  url: https://sashatchersunov6-rgb.github.io/lisenok-game/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/sashatchersunov6-rgb--lisenok-game--web/cover.webp
+  preview: media/sashatchersunov6-rgb--lisenok-game--web/preview.webp
+genre: platformer
+tags:
+  - platformer
+  - single-file
+  - code-generated
+  - russian
+  - touch
+controls:
+  - keyboard
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L2
+  evidence_notes: README 写明游戏「целиком написанный нейросетью Claude Fable 5.2 в Syntx」（完全由 Claude Fable 5.2 在 Syntx 中编写），4 条消息、1,465 行、单 HTML 文件、零外部素材（L2）。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-23

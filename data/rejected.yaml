@@ -245,3 +245,23 @@
 - repo: https://github.com/xinpengfei520/xinpengfei520.github.io
   reason: not-a-game
   date: 2026-11-23
+- repo: https://github.com/lowenbjer/claude-terse
+  reason: not-a-game
+  note: 让 Claude 少说废话的提示词插件，不是可玩网页游戏。
+  date: 2026-11-23
+- repo: https://github.com/rockbenben/free-llm-intel
+  reason: not-a-game
+  note: AI 厂商动态 RSS 与免费额度汇总站，不是游戏。
+  date: 2026-11-23
+- repo: https://github.com/mrgediao/shuorenhua
+  reason: not-a-game
+  note: 中文去 AI 味的改写 skill，不是游戏。
+  date: 2026-11-23
+- repo: https://github.com/apimodels/claude-fable-5-2-prompts
+  reason: not-a-game
+  note: 145 个提示词案例的策展合集（awesome 类），不是单个作品；可作发现线索。
+  date: 2026-11-23
+- repo: https://github.com/iolanguage/io
+  reason: not-a-game
+  note: Io 编程语言的 19 个文档页，被搜索误命中，不是游戏。
+  date: 2026-11-23
