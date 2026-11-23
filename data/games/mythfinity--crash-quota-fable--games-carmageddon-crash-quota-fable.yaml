@@ -1,14 +1,14 @@
 # yaml-language-server: $schema=../../packages/schema/json/game.schema.json
 id: mythfinity--crash-quota-fable--games-carmageddon-crash-quota-fable
-slug: carmageddon-by-claude-fable-5-2-smashi-arcade
+slug: crash-quota
 kind: game
 status: published
 title:
-  zh: Carmageddon by Claude Fable 5.2 · Smashi Arcade
-  en: Carmageddon by Claude Fable 5.2 · Smashi Arcade
+  zh: Crash Quota
+  en: Crash Quota
 summary:
-  zh: Crash Quota — original browser vehicular-combat game by Claude Fable 5.2 (published on Smashi Arcade)
-  en: Crash Quota — original browser vehicular-combat game by Claude Fable 5.2 (published on Smashi Arcade)
+  zh: 向《Carmageddon》致敬的车辆战斗街机 demo（非官方同人，非原作复刻）：开着最后的真人试车员，在试验场撞飞失控的自动驾驶原型和逃跑的碰撞假人，靠撞车把倒计时续下去。Fable 5.2 用 Claude Code 做了 3 小时 29 分。
+  en: An unofficial Carmageddon-inspired vehicular-combat arcade demo. You are the last human test driver at a proving ground full of feral self-driving prototypes and runaway crash-test dummies, and every wreck buys more time. Fable 5.2 built it with Claude Code in 3 h 29 min.
 author: mythfinity
 repo:
   url: https://github.com/mythfinity/crash-quota-fable
@@ -19,22 +19,30 @@ play:
   mirror_url: null
 media:
   cover: media/mythfinity--crash-quota-fable--games-carmageddon-crash-quota-fable/cover.webp
-genre: audio-demo
+genre: driving
 tags:
-  - games
-  - carmageddon
-  - crash
-  - quota
-  - fable
-  - game
+  - vehicular-combat
+  - arcade
+  - driving
+  - demolition-derby
+  - 3d
+  - touch
+  - gamepad
+  - fan-remake
 controls:
   - keyboard
   - mouse
+  - touch
+  - gamepad
 mobile: true
 model:
   name: fable-5.2
-  evidence: L1
-  evidence_notes: README/描述引用：Crash Quota — original browser vehicular-combat game by Claude Fable 5.2 (published on Smashi Arcade) | Play:** https://smashi.app/arcade/crash-quota-fable/ | Build page:** https://smashi.app/games/carmageddon/crash-quota-fable/
+  evidence: L3
+  evidence_notes: README 与 Smashi 页面都写明由 Claude Fable 5.2（Max Ultracode）+ Claude Code 制作，3 小时 29 分 45 秒；公开了提示词「Create demo version of the carmageddon game.」和构建方式（L3）。
+generation:
+  tool: Claude Code
+  duration_min: 210
+  notes: 提示词为「Create demo version of the carmageddon game.」，随后要求发布到 GitHub 和 Smashi Arcade；模型以多智能体流程担任主程。非官方同人，原作《Carmageddon》版权归 Stainless Games / THQ Nordic。
 source:
   discovered_by: github-search
   discovered_at: 2026-11-21
