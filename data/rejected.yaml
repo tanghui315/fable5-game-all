@@ -239,3 +239,6 @@
   reason: not-a-game
   note: SparkAI AIGC 系统的文档站，不是游戏。
   date: 2026-11-20
+- repo: https://github.com/zhukunpenglinyutong/jetbrains-cc-gui
+  reason: not-a-game
+  date: 2026-11-23
