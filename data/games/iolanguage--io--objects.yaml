@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: iolanguage--io--objects
+slug: objects-io
+kind: demo
+status: published
+title:
+  zh: Objects – Io
+  en: Objects – Io
+summary:
+  zh: Io programming language. Inspired by Self, Smalltalk and LISP.
+  en: Io programming language. Inspired by Self, Smalltalk and LISP.
+author: iolanguage
+repo:
+  url: https://github.com/iolanguage/io
+  path: docs/Book/Objects
+  license: NOASSERTION
+play:
+  url: https://iolanguage.org/docs/Book/Objects/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/iolanguage--io--objects/cover.webp
+genre: tech-demo
+tags:
+  - objects
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/iolanguage/io/blob/master/docs/Book/Objects/_index.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-23

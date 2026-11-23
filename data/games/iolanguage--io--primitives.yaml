@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: iolanguage--io--primitives
+slug: primitives-io
+kind: demo
+status: published
+title:
+  zh: Primitives – Io
+  en: Primitives – Io
+summary:
+  zh: Io programming language. Inspired by Self, Smalltalk and LISP.
+  en: Io programming language. Inspired by Self, Smalltalk and LISP.
+author: iolanguage
+repo:
+  url: https://github.com/iolanguage/io
+  path: docs/Book/Primitives
+  license: NOASSERTION
+play:
+  url: https://iolanguage.org/docs/Book/Primitives/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/iolanguage--io--primitives/cover.webp
+genre: tech-demo
+tags:
+  - primitives
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/iolanguage/io/blob/master/docs/Book/Primitives/_index.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-23

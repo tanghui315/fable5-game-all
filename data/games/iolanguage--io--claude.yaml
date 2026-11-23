@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: iolanguage--io--claude
+slug: claude-io
+kind: demo
+status: published
+title:
+  zh: Claude – Io
+  en: Claude – Io
+summary:
+  zh: Io programming language. Inspired by Self, Smalltalk and LISP.
+  en: Io programming language. Inspired by Self, Smalltalk and LISP.
+author: iolanguage
+repo:
+  url: https://github.com/iolanguage/io
+  path: AI Reviews/Claude
+  license: NOASSERTION
+play:
+  url: https://iolanguage.org/AI%20Reviews/Claude/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/iolanguage--io--claude/cover.webp
+genre: tech-demo
+tags:
+  - claude
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/iolanguage/io/blob/master/AI Reviews/Claude/_index.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-23
