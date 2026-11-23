@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: xinpengfei520--xinpengfei520-github-io--201709242348
+slug: 51-c-ai
+kind: demo
+status: published
+title:
+  zh: 51单片机矩阵键盘C程序 | 飞飞的AI实验室
+  en: 51单片机矩阵键盘C程序 | 飞飞的AI实验室
+summary:
+  zh: 基于 Hexo 搭建的个人博客平台。
+  en: 基于 Hexo 搭建的个人博客平台。
+author: xinpengfei520
+repo:
+  url: https://github.com/xinpengfei520/xinpengfei520.github.io
+  path: 2017/09/24/201709242348
+play:
+  url: http://www.vance.xin/2017/09/24/201709242348/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/xinpengfei520--xinpengfei520-github-io--201709242348/cover.webp
+genre: tech-demo
+tags:
+  - hexo
+  - hexo-blog
+  - hexo-plugin
+  - hexo-site
+  - hexo-tag
+  - hexo-theme
+  - hexonet
+  - "201709242348"
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-23
