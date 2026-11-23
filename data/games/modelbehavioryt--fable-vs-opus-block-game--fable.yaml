@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: modelbehavioryt--fable-vs-opus-block-game--fable
+slug: loamlands
+kind: game
+status: published
+title:
+  zh: Loamlands
+  en: Loamlands
+summary:
+  zh: 同一个提示词，Fable 5.2 和 Opus 5.5 各做了一款方块建造生存游戏；这是 Fable 版的 Loamlands。挖土、垒墙、熬过第一夜，画面和音效全部由代码生成。
+  en: The Fable 5.2 half of a same-prompt block-building survival duel. Dig, build and survive the first night in a voxel sandbox where every asset and sound is generated in code.
+author: modelbehavioryt
+repo:
+  url: https://github.com/modelbehavioryt/fable-vs-opus-block-game
+  path: fable
+  license: MIT
+play:
+  url: https://modelbehavioryt.github.io/fable-vs-opus-block-game/fable/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/modelbehavioryt--fable-vs-opus-block-game--fable/cover.webp
+  preview: media/modelbehavioryt--fable-vs-opus-block-game--fable/preview.webp
+genre: sandbox
+tags:
+  - voxel
+  - survival
+  - sandbox
+  - 3d
+  - single-prompt
+  - model-duel
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: README 写明 Claude Fable 5.2 与 Opus 5.5 用同一提示词各做一款游戏，fable/ 目录的每个文件都由模型编写；同仓库公开了 prompts/prompt.txt（L3）。
+generation:
+  prompt_url: https://github.com/modelbehavioryt/fable-vs-opus-block-game/blob/main/prompts/prompt.txt
+  notes: 同仓库还有 Opus 5.5 的 Blockhaven；本条目只收录 Fable 5.2 版。手机操作键由作者在视频后补上。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-23

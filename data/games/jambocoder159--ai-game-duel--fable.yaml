@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: jambocoder159--ai-game-duel--fable
+slug: citrus-sunset-air-mail
+kind: game
+status: published
+title:
+  zh: 柑仔的晚霞航空信
+  en: Ganzi's Sunset Air Mail
+summary:
+  zh: 纸飞机邮差猫「柑仔」在港町的黄昏里收晚霞邮票，每五张寄出一封信；被雷云电到三次任务就结束，翻滚时无敌还能把雷云吹散。同一组素材下 GPT-6.2 Astra 与 Fable 5.2 的对决作品。
+  en: A paper-plane postcat gathers sunset stamps over a harbour town at dusk. Every five stamps sends a letter, three lightning hits end the run, and a mid-air roll is both invincible and enough to scatter the clouds. Fable 5.2's half of a same-assets duel against GPT-6.2 Astra.
+author: jambocoder159
+repo:
+  url: https://github.com/jambocoder159/ai-game-duel
+  path: versions/fable
+play:
+  url: https://jambocoder159.github.io/ai-game-duel/versions/fable/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/jambocoder159--ai-game-duel--fable/cover.webp
+  preview: media/jambocoder159--ai-game-duel--fable/preview.webp
+genre: arcade
+tags:
+  - arcade
+  - paper-plane
+  - cat
+  - pixel-art
+  - touch
+  - model-duel
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L2
+  evidence_notes: README 写明《柑仔的晚霞航空信》由 Claude Fable 5.2 只用同一组 5 张图写程序完成，6 分 35 秒、game.js 665 行；同页对手是 GPT-6.2 Astra 的《夕陽郵航》（L2）。
+generation:
+  duration_min: 6.6
+  notes: 同一组素材、同一题目的双模型对决；只收录 Fable 版，Astra 版未收录。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-23

@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: jambocoder159--ai-game-duel--r2-fable
+slug: lantern-drift
+kind: game
+status: published
+title:
+  zh: 天燈漂流
+  en: Lantern Drift
+summary:
+  zh: 分层剪纸风的灯笼漂流：在夜色山谷里托住天灯，躲开雨和风，看它能飘多远。Fable 5.2 用 GG-skills v4.0 从零做的一轮，跑到 47 分钟上限被停下，人工介入一次收尾。
+  en: A layered paper-cut lantern drift through a night valley. Keep the lanterns aloft, dodge the rain and see how far they travel. Built from scratch by Fable 5.2 with GG-skills v4.0; it hit the 47-minute cap and needed one human nudge to finish.
+author: jambocoder159
+repo:
+  url: https://github.com/jambocoder159/ai-game-duel
+  path: versions/r2-fable
+play:
+  url: https://jambocoder159.github.io/ai-game-duel/versions/r2-fable/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/jambocoder159--ai-game-duel--r2-fable/cover.webp
+  preview: media/jambocoder159--ai-game-duel--r2-fable/preview.webp
+genre: arcade
+tags:
+  - casual
+  - lantern
+  - paper-cut
+  - multilang
+  - touch
+  - model-duel
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L2
+  evidence_notes: README 写明第二轮《天燈漂流》由 Claude Fable 5.2 按 GG-skills v4.0 从零完成，React 19 + TypeScript、四语，47 分钟上限时人工介入一次收尾；同页对手是 GPT-6.2 Astra（L2）。
+generation:
+  duration_min: 47
+  notes: 与 GPT-6.2 Astra 同题对决的 Fable 版；美术由 Codex 调 GPT 图片生成后接入。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-23
