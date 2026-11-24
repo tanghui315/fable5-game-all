@@ -240,6 +240,11 @@
     "pushed_at": "2026-11-13T05:55:49Z",
     "last_pr": 16
   },
+  "jakozaur/sf_bay_area_transit_fable_5_2_game": {
+    "repo": "jakozaur/sf_bay_area_transit_fable_5_2_game",
+    "last_seen": "2026-11-24T13:52:55.666Z",
+    "pushed_at": "2026-11-11T16:28:13Z"
+  },
   "jambocoder159/ai-game-duel": {
     "repo": "jambocoder159/ai-game-duel",
     "last_seen": "2026-11-23T13:45:53.577Z",
@@ -297,6 +302,11 @@
     "last_seen": "2026-11-20T11:45:48.741Z",
     "pushed_at": "2026-11-14T00:10:01Z",
     "last_pr": 55
+  },
+  "markcastle/hopper": {
+    "repo": "markcastle/hopper",
+    "last_seen": "2026-11-24T13:52:59.194Z",
+    "pushed_at": "2026-06-11T01:09:33Z"
   },
   "marvijo-code/leonida-stories-3d": {
     "repo": "marvijo-code/leonida-stories-3d",
@@ -392,6 +402,11 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-11T18:22:31Z"
   },
+  "pandaemonium/psychedelia": {
+    "repo": "pandaemonium/psychedelia",
+    "last_seen": "2026-11-24T13:53:02.678Z",
+    "pushed_at": "2026-11-16T15:04:21Z"
+  },
   "pasco-xai/wormhole": {
     "repo": "pasco-xai/wormhole",
     "last_seen": "2026-11-16T11:30:59.547Z",
@@ -402,6 +417,12 @@
     "repo": "pydantic/genai-prices",
     "last_seen": "2026-11-21T11:09:22.085Z",
     "pushed_at": "2026-11-21T00:50:12Z"
+  },
+  "rgmarquez/claude-code-fable-game": {
+    "repo": "rgmarquez/claude-code-fable-game",
+    "last_seen": "2026-11-24T13:54:25.656Z",
+    "pushed_at": "2026-06-17T06:17:03Z",
+    "last_pr": 63
   },
   "rikinshah787/game-fable-5.2": {
     "repo": "rikinshah787/game-fable-5.2",
