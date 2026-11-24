@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: rgmarquez--claude-code-fable-game--claude-code-fable-game
+slug: vectoroids
+kind: game
+status: published
+title:
+  zh: VECTOROIDS
+  en: VECTOROIDS
+summary:
+  zh: Test one-shot prompt to have Claude Fable spec out 10 features and progressively implement each one autonomously.
+  en: Test one-shot prompt to have Claude Fable spec out 10 features and progressively implement each one autonomously.
+author: rgmarquez
+repo:
+  url: https://github.com/rgmarquez/claude-code-fable-game
+play:
+  url: https://rgmarquez.github.io/claude-code-fable-game/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/rgmarquez--claude-code-fable-game--claude-code-fable-game/cover.webp
+genre: audio-demo
+tags:
+  - claude
+  - code
+  - fable
+  - game
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Test one-shot prompt to have Claude Fable spec out 10 features and progressively implement each one autonomously.
+generation:
+  prompt_url: https://github.com/rgmarquez/claude-code-fable-game/blob/main/.notes/initial-prompt.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-24
