@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: petyok
+name: Petruha
+github: Petyok
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/68481804?v=4
+claimed: false

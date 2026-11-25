@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: jakozaur
+name: Jacek Migdal
+github: jakozaur
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/972989?v=4
+claimed: false

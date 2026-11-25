@@ -113,6 +113,11 @@
     "pushed_at": "2026-11-18T00:13:02Z",
     "last_pr": 48
   },
+  "eddizege/nightshift-fable": {
+    "repo": "eddizege/nightshift-fable",
+    "last_seen": "2026-11-25T12:53:31.451Z",
+    "pushed_at": "2026-11-11T19:10:31Z"
+  },
   "emollick/fable-refinery": {
     "repo": "emollick/fable-refinery",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -217,6 +222,11 @@
     "pushed_at": "2026-11-12T10:23:45Z",
     "last_pr": 52
   },
+  "huiskylabs/cold-smoke": {
+    "repo": "huiskylabs/cold-smoke",
+    "last_seen": "2026-11-25T12:53:31.452Z",
+    "pushed_at": "2026-11-25T00:57:41Z"
+  },
   "hwywl/open-games": {
     "repo": "hwywl/open-games",
     "last_seen": "2026-11-22T11:29:56.512Z",
@@ -242,7 +252,7 @@
   },
   "jakozaur/sf_bay_area_transit_fable_5_2_game": {
     "repo": "jakozaur/sf_bay_area_transit_fable_5_2_game",
-    "last_seen": "2026-11-24T13:52:55.666Z",
+    "last_seen": "2026-11-25T12:53:31.452Z",
     "pushed_at": "2026-11-11T16:28:13Z"
   },
   "jambocoder159/ai-game-duel": {
@@ -336,6 +346,11 @@
     "pushed_at": "2026-11-20T22:04:28Z",
     "last_pr": 58
   },
+  "mythfinity/saltline-brawl-fable": {
+    "repo": "mythfinity/saltline-brawl-fable",
+    "last_seen": "2026-11-25T12:53:31.452Z",
+    "pushed_at": "2026-11-20T17:19:54Z"
+  },
   "nickthelegend/hydra-minecraft": {
     "repo": "nickthelegend/hydra-minecraft",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -412,6 +427,11 @@
     "last_seen": "2026-11-16T11:30:59.547Z",
     "pushed_at": "2026-10-19T22:46:47Z",
     "last_pr": 36
+  },
+  "petyok/blameless": {
+    "repo": "petyok/blameless",
+    "last_seen": "2026-11-25T12:53:31.452Z",
+    "pushed_at": "2026-11-10T03:16:11Z"
   },
   "pydantic/genai-prices": {
     "repo": "pydantic/genai-prices",
@@ -493,6 +513,11 @@
     "last_seen": "2026-11-14T10:34:07.249Z",
     "pushed_at": "2026-06-09T19:15:46Z",
     "last_pr": 17
+  },
+  "tetriss22/unwritten": {
+    "repo": "tetriss22/unwritten",
+    "last_seen": "2026-11-25T12:53:31.452Z",
+    "pushed_at": "2026-11-25T11:34:06Z"
   },
   "themizeguy/fable-5.2-potatobench": {
     "repo": "themizeguy/fable-5.2-potatobench",

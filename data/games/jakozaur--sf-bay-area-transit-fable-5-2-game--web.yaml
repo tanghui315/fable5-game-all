@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: jakozaur--sf-bay-area-transit-fable-5-2-game--web
+slug: boring-game
+kind: game
+status: published
+title:
+  zh: Boring Game
+  en: Boring Game
+summary:
+  zh: 用真实地图和真实造价，把旧金山湾区的铁路修到 Fable 5.2 作者的总部：规划线路、挖隧道、建车站，在预算和审批里活下来。Fable 5.2 用 15 个提示词、约 15 小时、6.6 万行代码做完。
+  en: Plan rail through the real San Francisco Bay Area, bore tunnels and build stations to reach the Fable 5.2 authors' HQ — on a real map, with real prices, and a budget that fights back. Fable 5.2 wrote it from 15 prompts in about 15 hours and 66,000 lines.
+author: jakozaur
+repo:
+  url: https://github.com/jakozaur/sf_bay_area_transit_fable_5_2_game
+  path: apps/game
+play:
+  url: https://jakozaur.github.io/sf_bay_area_transit_fable_5_2_game/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/jakozaur--sf-bay-area-transit-fable-5-2-game--web/cover.webp
+genre: simulation
+tags:
+  - transit
+  - city-builder
+  - voxel
+  - san-francisco
+  - real-map
+  - 3d
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: "游戏页脚与 README 都写明「Built by Claude Fable 5.2 for about $700 at API prices: 15 prompts, 15 hours, 66,000 lines」，页面标题也是「a Fable 5.2 game from a few prompts」（L3）。"
+generation:
+  cost_usd: 700
+  duration_min: 900
+  notes: 15 个提示词、约 15 小时、66,000 行；地图用 OpenStreetMap，造价参考真实预算。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25

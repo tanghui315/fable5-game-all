@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: huiskylabs--cold-smoke--web
+slug: cold-smoke
+kind: game
+status: published
+title:
+  zh: 雪迹
+  en: Cold Smoke
+summary:
+  zh: 一个人、一座山，一路滑到山脚。没有贴图、模型或音频文件——雪山、极光、滑雪者和音乐全部由约 1.8 万行 JavaScript 与 shader 实时生成。作者玩一轮、说哪里不对，Claude（主要是 Fable 5.2）改一轮。
+  en: "One skier, one mountain, all the way down. No textures, models or audio files: the mountain, aurora, skier and music are generated live by about 18,000 lines of JavaScript and shaders. The author played, said what felt wrong, and Claude — mostly Fable 5.2 — rewrote it."
+author: huiskylabs
+repo:
+  url: https://github.com/huiskylabs/cold-smoke
+  license: MIT
+play:
+  url: https://huisky.xyz/cold-smoke/play
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/huiskylabs--cold-smoke--web/cover.webp
+genre: sports
+tags:
+  - skiing
+  - snow
+  - procedural
+  - 3d
+  - audio
+  - touch
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README 中英双语写明「整个游戏用 Claude（主要是 Claude Fable 5.2）做的」，按玩—反馈—改代码的循环迭代了几天；同时使用了其他 Claude 模型（L1）。
+generation:
+  notes: 作者先玩，再描述哪里不对，由模型改代码；约 1.8 万行纯 JavaScript 与 shader，无任何图片/音频/模型文件。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25
