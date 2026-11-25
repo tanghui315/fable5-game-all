@@ -265,3 +265,6 @@
   reason: not-a-game
   note: Io 编程语言的 19 个文档页，被搜索误命中，不是游戏。
   date: 2026-11-23
+- repo: https://github.com/rgmarquez/claude-code-fable-game
+  reason: no-evidence
+  date: 2026-11-25
