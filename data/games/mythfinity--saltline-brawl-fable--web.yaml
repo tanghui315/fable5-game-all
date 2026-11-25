@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: mythfinity--saltline-brawl-fable--web
+slug: saltline-brawl
+kind: game
+status: published
+title:
+  zh: Saltline Brawl
+  en: Saltline Brawl
+summary:
+  zh: 受《Cadillacs and Dinosaurs》启发的原创横版清版动作 demo（非官方，非原作复刻）：一名渡轮机械师在黄昏的九号码头一路打穿走私团伙，最后对上 Harbormaster。Fable 5.2 用 Claude Code 花了 7 分 26 秒。
+  en: An original side-scrolling brawler inspired by Cadillacs and Dinosaurs (unofficial, not a remake). A ferry mechanic fights a smuggler crew across Pier Nine at dusk and faces the Harbormaster. Fable 5.2 built it with Claude Code in 7 min 26 s.
+author: mythfinity
+repo:
+  url: https://github.com/mythfinity/saltline-brawl-fable
+  path: games/cadillacs-and-dinosaurs/saltline-brawl-fable
+play:
+  url: https://smashi.app/games/cadillacs-and-dinosaurs/saltline-brawl-fable/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/mythfinity--saltline-brawl-fable--web/cover.webp
+  preview: media/mythfinity--saltline-brawl-fable--web/preview.webp
+genre: beat-em-up
+tags:
+  - beat-em-up
+  - brawler
+  - arcade
+  - pixel-art
+  - ip-inspired
+controls:
+  - keyboard
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: README 与 Smashi 页面写明 Claude Fable 5.2（Medium effort）+ Claude Code，7 分 26 秒；公开提示词「Create demo version of the Cadillacs and Dinosaurs game.」，并声明角色、美术、音乐、关卡均为原创（L3）。
+generation:
+  tool: Claude Code
+  duration_min: 7.4
+  notes: 提示词要求做《Cadillacs and Dinosaurs》demo，成品是原创的清版动作游戏；非官方同人，原作版权归 Capcom 等权利人。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25

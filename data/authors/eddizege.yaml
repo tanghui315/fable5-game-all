@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: eddizege
+name: Ediz Ege Mercan
+github: EddizEge
+x: null
+website: https://edizegemercan.com
+avatar: https://avatars.githubusercontent.com/u/300900304?v=4
+claimed: false

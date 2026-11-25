@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: huiskylabs
+name: Huisky
+github: huiskylabs
+x: null
+website: https://huisky.xyz/
+avatar: https://avatars.githubusercontent.com/u/25194487?v=4
+claimed: false

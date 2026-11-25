@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: tetriss22--unwritten--web
+slug: unwritten
+kind: game
+status: published
+title:
+  zh: UNWRITTEN
+  en: UNWRITTEN
+summary:
+  zh: 世界正在一个字一个字地被删掉，你是最后的抄写员。没有墙的 ASCII 开放世界动作游戏：五片大陆，随便走、骑马、点火、打怪，把字母找回来重写世界。
+  en: "The world is being deleted one word at a time and you are the last Scribe. An ASCII open-world action game with no walls: five lands, a horse, campfires, monsters, and the letters you write back."
+author: tetriss22
+repo:
+  url: https://github.com/tetriss22/unwritten
+play:
+  url: https://tetriss22.github.io/unwritten/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/tetriss22--unwritten--web/cover.webp
+genre: action
+tags:
+  - ascii
+  - open-world
+  - action
+  - rpg
+  - touch
+controls:
+  - keyboard
+  - mouse
+  - touch
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README 明确写「Built with Claude Fable 5.2」，渲染只用 three.js；手机端有独立触控布局（L1）。
+generation:
+  notes: 全部角色、地图和界面都用文本字符绘制；持续更新中，作者在 11 月 24–25 日还在加地图和武器。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25

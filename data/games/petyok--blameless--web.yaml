@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: petyok--blameless--web
+slug: blameless
+kind: game
+status: published
+title:
+  zh: BLAMELESS
+  en: BLAMELESS
+summary:
+  zh: 凌晨 3:07，告警响了，prod 挂了。你坐在值班席上，一边清僵尸进程一边躲服务器里的东西——错误预算就是血条。Fable 5.2 从一句「你才 1 天大，随便做个游戏」开始，自己定故事、武器、音乐和手感。
+  en: At 03:07 the pager goes off and prod is down. You are on call, clearing zombie processes while something hunts you through the racks — and the error budget is your health bar. Fable 5.2 took one open-ended prompt and chose the story, weapons, music and feel itself.
+author: petyok
+repo:
+  url: https://github.com/petyok/blameless
+  license: MIT
+play:
+  url: https://blameless.petruha.ge/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/petyok--blameless--web/cover.webp
+genre: shooter
+tags:
+  - fps
+  - shooter
+  - devops
+  - horror
+  - three-js
+  - single-prompt
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L3
+  evidence_notes: README 公开了完整提示词（「Hello fable 5.2! You are 1 day old…」），并写明故事、画面、武器、音乐与手感全部由模型决定；代码 MIT，assets 为模型输出（L3）。
+generation:
+  notes: 提示词只给了开放式的创作方向，没有指定题材或玩法；作者另记录了音乐生成任务与乐器参数。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25

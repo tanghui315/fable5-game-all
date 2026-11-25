@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: eddizege--nightshift-fable--web
+slug: nightshift
+kind: game
+status: published
+title:
+  zh: NIGHTSHIFT
+  en: NIGHTSHIFT
+summary:
+  zh: 雨夜高速公路上的电影感驾驶游戏：在午夜前甩开追车、躲开事故，活到天亮。Fable 5.2 用约 16 小时 36 分从建模到关卡全部做完，期间还自己写浏览器测试脚本查 bug。
+  en: A cinematic rain-soaked highway chase. Outrun what follows you, dodge the wrecks and survive until midnight. Fable 5.2 built the car, the track and the systems in about 16 h 36 min, writing its own browser test harness along the way.
+author: eddizege
+repo:
+  url: https://github.com/eddizege/nightshift-fable
+play:
+  url: https://eddizege.github.io/nightshift-fable/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/eddizege--nightshift-fable--web/cover.webp
+genre: driving
+tags:
+  - racing
+  - driving
+  - rain
+  - night
+  - cinematic
+  - 3d
+controls:
+  - keyboard
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L2
+  evidence_notes: README 写明整款游戏由 Claude Fable 5.2（extra-high effort）在 Claude Code 里完成，约 16 h 36 min，含用 Blender Python 从零建模；人类只负责试玩和报 bug。作者同时公开了与 Gemini 4 Carbon 的同题对比文章（L2）。
+generation:
+  tool: Claude Code
+  duration_min: 996
+  notes: 同一份长提示词也交给了 Gemini 4 Carbon 做对比；Fable 把部分工作拆给 Opus 5.5 子代理，并自建浏览器测试与截图。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25
