@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: local-ai-zone--local-ai-zone-github-io--cpu
+slug: gguf-models-2026-complete-cpu-guide
+kind: demo
+status: published
+title:
+  zh: "GGUF Models 2026: Complete CPU Guide"
+  en: "GGUF Models 2026: Complete CPU Guide"
+summary:
+  zh: "My public AI learning journey — sharing what I learn, build, test, and discover across AI.                           Traffic: 7K+ monthly clicks · 150K+ AI citations/month · 5.5 average search position across search engines.   local-ai-zone.github.io"
+  en: "My public AI learning journey — sharing what I learn, build, test, and discover across AI.                           Traffic: 7K+ monthly clicks · 150K+ AI citations/month · 5.5 average search position across search engines.   local-ai-zone.github.io"
+author: local-ai-zone
+repo:
+  url: https://github.com/local-ai-zone/local-ai-zone.github.io
+  path: cpu
+  license: MIT
+play:
+  url: https://local-ai-zone.github.io/cpu/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/local-ai-zone--local-ai-zone-github-io--cpu/cover.webp
+genre: procedural-demo
+tags:
+  - deepseek
+  - deepseek-v4
+  - deepseek-v4-flash
+  - gguf
+  - gguf-models
+  - glm-5-3
+  - gpt-oss
+  - kimi-k3
+  - llama
+  - mimo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25

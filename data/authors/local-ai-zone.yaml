@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: local-ai-zone
+name: local-ai-zone
+github: local-ai-zone
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/223882646?v=4
+claimed: false
