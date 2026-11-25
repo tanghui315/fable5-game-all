@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: stevedekorte--colvmn--claude
+slug: claude-colvmn
+kind: demo
+status: published
+title:
+  zh: Claude – colvmn
+  en: Claude – colvmn
+summary:
+  zh: Minimal static-site layout engine. Pages described by _index.md/json, rendered to HTML at build time and in the browser.
+  en: Minimal static-site layout engine. Pages described by _index.md/json, rendered to HTML at build time and in the browser.
+author: stevedekorte
+repo:
+  url: https://github.com/stevedekorte/colvmn
+  path: AI Reviews/Claude
+  license: MIT
+play:
+  url: http://colvmn.dev/AI%20Reviews/Claude/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/stevedekorte--colvmn--claude/cover.webp
+genre: tech-demo
+tags:
+  - claude
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/stevedekorte/colvmn/blob/main/AI Reviews/Claude/_index.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25

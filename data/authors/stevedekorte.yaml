@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: stevedekorte
+name: stevedekorte
+github: stevedekorte
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/138?v=4
+claimed: false
