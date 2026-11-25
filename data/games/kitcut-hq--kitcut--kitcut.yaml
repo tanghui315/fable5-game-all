@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: kitcut-hq--kitcut--kitcut
+slug: claude-video-maker-opus-5-5-videos-from-one-prompt-kitcut
+kind: demo
+status: published
+title:
+  zh: "Claude Video Maker: Opus 5.5 Videos from One Prompt | KitCut"
+  en: "Claude Video Maker: Opus 5.5 Videos from One Prompt | KitCut"
+summary:
+  zh: Ask Claude Code to edit your video. Multicam sync, captions, vertical shorts, dubbing, PII blurring, upload. Local, no timeline.
+  en: Ask Claude Code to edit your video. Multicam sync, captions, vertical shorts, dubbing, PII blurring, upload. Local, no timeline.
+author: kitcut-hq
+repo:
+  url: https://github.com/kitcut-hq/kitcut
+play:
+  url: https://kitcut.ai/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/kitcut-hq--kitcut--kitcut/cover.webp
+genre: audio-demo
+tags:
+  - kitcut
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/kitcut-hq/kitcut/blob/main/projects/kitcut-launch/journal.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25
