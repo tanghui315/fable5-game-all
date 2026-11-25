@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: padi--20-coffee-shops--20-coffee-shops
+slug: twenty-coffee-shops
+kind: demo
+status: published
+title:
+  zh: Twenty Coffee Shops
+  en: Twenty Coffee Shops
+summary:
+  zh: 20 Coffee Shop Website Concepts
+  en: 20 Coffee Shop Website Concepts
+author: padi
+repo:
+  url: https://github.com/padi/20-coffee-shops
+play:
+  url: https://padi.github.io/20-coffee-shops/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/padi--20-coffee-shops--20-coffee-shops/cover.webp
+genre: procedural-demo
+tags:
+  - coffee
+  - coffee-shop
+  - "20"
+  - shops
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25

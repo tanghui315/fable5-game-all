@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../packages/schema/json/author.schema.json
+id: padi
+name: padi
+github: padi
+x: null
+website: null
+avatar: https://avatars.githubusercontent.com/u/807110?v=4
+claimed: false
