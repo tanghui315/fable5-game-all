@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: centminmod--my-claude-code-setup--george-sl-liu
+slug: threads-log-in
+kind: demo
+status: published
+title:
+  zh: Threads • Log in
+  en: Threads • Log in
+summary:
+  zh: Shared starter template configuration and CLAUDE.md memory bank system for Claude Code
+  en: Shared starter template configuration and CLAUDE.md memory bank system for Claude Code
+author: centminmod
+repo:
+  url: https://github.com/centminmod/my-claude-code-setup
+  path: "@george_sl_liu"
+  license: MIT
+play:
+  url: https://www.threads.com/@george_sl_liu/
+  embeddable: false
+  mirror_url: null
+media:
+  cover: media/centminmod--my-claude-code-setup--george-sl-liu/cover.webp
+genre: procedural-demo
+tags:
+  - claude
+  - claude-ai
+  - claude-code
+  - claudecode-config
+  - claudecode-hooks
+  - claudecode-subagents
+  - subagents
+  - george
+  - sl
+  - liu
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/centminmod/my-claude-code-setup/blob/master/.claude/commands/anthropic/convert-to-todowrite-tasklist-prompt.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-25
