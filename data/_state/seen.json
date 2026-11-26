@@ -302,6 +302,12 @@
     "pushed_at": "2026-11-18T11:14:46Z",
     "last_pr": 46
   },
+  "linxiaotao/fuckclaude": {
+    "repo": "linxiaotao/fuckclaude",
+    "last_seen": "2026-11-26T12:45:31.532Z",
+    "pushed_at": "2026-11-26T10:21:57Z",
+    "last_pr": 72
+  },
   "loktar00/lanternfall": {
     "repo": "loktar00/lanternfall",
     "last_seen": "2026-11-13T04:12:35Z",
@@ -322,6 +328,11 @@
     "repo": "marvijo-code/leonida-stories-3d",
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-09-02T07:59:46Z"
+  },
+  "maurdekye/orgtree": {
+    "repo": "maurdekye/orgtree",
+    "last_seen": "2026-11-26T12:40:43.545Z",
+    "pushed_at": "2026-11-23T01:07:26Z"
   },
   "maxbittker/runebench": {
     "repo": "maxbittker/runebench",
@@ -435,8 +446,8 @@
   },
   "pydantic/genai-prices": {
     "repo": "pydantic/genai-prices",
-    "last_seen": "2026-11-21T11:09:22.085Z",
-    "pushed_at": "2026-11-21T00:50:12Z"
+    "last_seen": "2026-11-26T12:45:34.647Z",
+    "pushed_at": "2026-11-26T10:28:06Z"
   },
   "rgmarquez/claude-code-fable-game": {
     "repo": "rgmarquez/claude-code-fable-game",
@@ -471,6 +482,12 @@
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-10T16:08:27Z"
   },
+  "saschb2b/mega-man-battle-network-cyberworld-endless": {
+    "repo": "saschb2b/mega-man-battle-network-cyberworld-endless",
+    "last_seen": "2026-11-26T12:45:10.693Z",
+    "pushed_at": "2026-11-26T09:56:14Z",
+    "last_pr": 71
+  },
   "sashatchersunov6-rgb/lisenok-game": {
     "repo": "sashatchersunov6-rgb/lisenok-game",
     "last_seen": "2026-11-23T13:45:53.577Z",
@@ -494,8 +511,8 @@
   },
   "stefanknol/last-return": {
     "repo": "stefanknol/last-return",
-    "last_seen": "2026-11-22T11:30:28.390Z",
-    "pushed_at": "2026-11-22T11:03:11Z"
+    "last_seen": "2026-11-26T12:45:43.718Z",
+    "pushed_at": "2026-11-26T11:19:08Z"
   },
   "stefanknol/no-return": {
     "repo": "stefanknol/no-return",
@@ -562,6 +579,12 @@
     "repo": "webking021/dustfall",
     "last_seen": "2026-11-13T04:12:35Z",
     "pushed_at": "2026-11-10T09:01:45Z"
+  },
+  "wendystar0628/ai-all-round-bench": {
+    "repo": "wendystar0628/ai-all-round-bench",
+    "last_seen": "2026-11-26T12:44:24.649Z",
+    "pushed_at": "2026-11-26T01:03:44Z",
+    "last_pr": 65
   },
   "wonkylamp/inside-job": {
     "repo": "wonkylamp/inside-job",
