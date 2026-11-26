@@ -20,7 +20,7 @@ play:
   mirror_url: null
 media:
   cover: media/wendystar0628--ai-all-round-bench--floating-isles-game-ui/cover.webp
-genre: arcade
+genre: procedural-demo
 tags:
   - agentic-coding
   - ai-agents
@@ -43,4 +43,4 @@ generation:
   prompt_url: https://github.com/wendystar0628/ai-all-round-bench/blob/main/website/topics/decathlon/publish/zero-reasons-prompt.md
 source:
   discovered_by: github-search
-  discovered_at: 2026-11-25
+  discovered_at: 2026-11-26
