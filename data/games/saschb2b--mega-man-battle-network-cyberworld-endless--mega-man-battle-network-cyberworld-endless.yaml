@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: saschb2b--mega-man-battle-network-cyberworld-endless--mega-man-battle-network-cyberworld-endless
+slug: cyberworld-endless-a-mega-man-battle-network-6-roguelike-onl
+kind: game
+status: published
+title:
+  zh: Cyberworld Endless · a Mega Man Battle Network 6 roguelike, online
+  en: Cyberworld Endless · a Mega Man Battle Network 6 roguelike, online
+summary:
+  zh: "A Battle Network roguelike: a new net every run, with viruses and Navis from BN4, BN5 and BN6 and their chips in one folder. NetBattle, trade and dive together in the online Net Square. It plays the original games from your own ROMs, on PC, phones, handhelds, consoles and the browser."
+  en: "A Battle Network roguelike: a new net every run, with viruses and Navis from BN4, BN5 and BN6 and their chips in one folder. NetBattle, trade and dive together in the online Net Square. It plays the original games from your own ROMs, on PC, phones, handhelds, consoles and the browser."
+author: saschb2b
+repo:
+  url: https://github.com/saschb2b/mega-man-battle-network-cyberworld-endless
+  path: Mega-Man-Battle-Network-Cyberworld-Endless
+  license: MIT
+play:
+  url: https://saschb2b.github.io/Mega-Man-Battle-Network-Cyberworld-Endless/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/saschb2b--mega-man-battle-network-cyberworld-endless--mega-man-battle-network-cyberworld-endless/cover.webp
+genre: audio-demo
+tags:
+  - battle-network
+  - emulation
+  - game-boy-advance
+  - gba
+  - handheld
+  - mega-man-battle-network
+  - megaman
+  - mgba
+  - portmaster
+  - procedural-generation
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/saschb2b/mega-man-battle-network-cyberworld-endless/blob/main/.claude/skills/game-design/references/interface/input-prompts.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-26
