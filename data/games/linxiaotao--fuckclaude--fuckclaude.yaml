@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: linxiaotao--fuckclaude--fuckclaude
+slug: fuck-claude-are-you-a-claude-china-user
+kind: demo
+status: published
+title:
+  zh: Fuck Claude | Are You a Claude "China User"?
+  en: Fuck Claude | Are You a Claude "China User"?
+summary:
+  zh: Fable 5.x 网页作品：Fuck Claude | Are You a Claude "China User"?
+  en: Fable 5.x 网页作品：Fuck Claude | Are You a Claude "China User"?
+author: linxiaotao
+repo:
+  url: https://github.com/linxiaotao/fuckclaude
+  license: MIT
+play:
+  url: https://fuck-claude.vercel.app/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/linxiaotao--fuckclaude--fuckclaude/cover.webp
+genre: procedural-demo
+tags:
+  - fuckclaude
+  - demo
+controls:
+  - mouse
+mobile: true
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：Built with **Claude Fable 5**. | 本网站使用 **Claude Fable 5** 开发。
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-26
