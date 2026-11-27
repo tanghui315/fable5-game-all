@@ -135,6 +135,11 @@
     "pushed_at": "2026-11-13T06:28:22Z",
     "last_pr": 7
   },
+  "eyeb0l/catslop": {
+    "repo": "eyeb0l/catslop",
+    "last_seen": "2026-11-27T12:24:29.820Z",
+    "pushed_at": "2026-11-17T19:22:29Z"
+  },
   "fablestar/bayhaven": {
     "repo": "fablestar/bayhaven",
     "last_seen": "2026-11-14T10:31:40.119Z",
@@ -446,8 +451,8 @@
   },
   "pydantic/genai-prices": {
     "repo": "pydantic/genai-prices",
-    "last_seen": "2026-11-26T12:45:34.647Z",
-    "pushed_at": "2026-11-26T10:28:06Z"
+    "last_seen": "2026-11-27T12:24:07.255Z",
+    "pushed_at": "2026-11-27T00:48:04Z"
   },
   "rgmarquez/claude-code-fable-game": {
     "repo": "rgmarquez/claude-code-fable-game",
