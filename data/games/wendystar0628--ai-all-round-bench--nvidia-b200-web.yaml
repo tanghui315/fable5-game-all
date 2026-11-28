@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: wendystar0628--ai-all-round-bench--nvidia-b200-web
+slug: nvidia-b200-web-art-creative-web-design-ai-aesthetics
+kind: game
+status: published
+title:
+  zh: NVIDIA B200 Web Art · Creative Web Design │ AI Aesthetics
+  en: NVIDIA B200 Web Art · Creative Web Design │ AI Aesthetics
+summary:
+  zh: "AI全能测评 | AI All-Round Bench: timed challenge benchmarks for AI coding agents, organized into topics. Live: AI Decathlon — 13 tasks across 10 categories (Lean proofs, competition math, CUDA/CPU optimization, game AI, 3D/web apps, nested OS), 60–100 min each, no human help. Coming: AI Aesthetics."
+  en: "AI全能测评 | AI All-Round Bench: timed challenge benchmarks for AI coding agents, organized into topics. Live: AI Decathlon — 13 tasks across 10 categories (Lean proofs, competition math, CUDA/CPU optimization, game AI, 3D/web apps, nested OS), 60–100 min each, no human help. Coming: AI Aesthetics."
+author: wendystar0628
+repo:
+  url: https://github.com/wendystar0628/ai-all-round-bench
+  path: aesthetics/en/tasks/nvidia-b200-web
+  license: MIT
+play:
+  url: http://octathlon.wendystars.com/aesthetics/en/tasks/nvidia-b200-web/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/wendystar0628--ai-all-round-bench--nvidia-b200-web/cover.webp
+genre: procedural-demo
+tags:
+  - agentic-coding
+  - ai-agents
+  - ai-benchmark
+  - benchmark
+  - claude-code
+  - codex
+  - coding-agents
+  - cuda
+  - leaderboard
+  - lean4
+controls:
+  - keyboard
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+generation:
+  prompt_url: https://github.com/wendystar0628/ai-all-round-bench/blob/main/website/topics/decathlon/publish/zero-reasons-prompt.md
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-28
