@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../packages/schema/json/game.schema.json
+id: cj-bc--webxr-fable-demo--webxr-fable-demo-2
+slug: mr
+kind: demo
+status: published
+title:
+  zh: MR プレイルーム
+  en: MR プレイルーム
+summary:
+  zh: demo program by fable 5.2 using WebXR
+  en: demo program by fable 5.2 using WebXR
+author: cj-bc
+repo:
+  url: https://github.com/cj-bc/webxr-fable-demo
+play:
+  url: https://webxr-fable-demo.cj-bc-sd.workers.dev/
+  embeddable: true
+  mirror_url: null
+media:
+  cover: media/cj-bc--webxr-fable-demo--webxr-fable-demo-2/cover.webp
+genre: audio-demo
+tags:
+  - webxr
+  - fable
+  - demo
+controls:
+  - mouse
+mobile: false
+model:
+  name: fable-5.2
+  evidence: L1
+  evidence_notes: README/描述引用：demo program by fable 5.2 using WebXR
+source:
+  discovered_by: github-search
+  discovered_at: 2026-11-28
