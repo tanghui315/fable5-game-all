@@ -66,13 +66,19 @@
   },
   "chen-006/meow-ai-arena": {
     "repo": "chen-006/meow-ai-arena",
-    "last_seen": "2026-11-19T11:55:35.181Z",
-    "pushed_at": "2026-11-16T11:54:17Z"
+    "last_seen": "2026-11-28T11:54:51.220Z",
+    "pushed_at": "2026-11-28T05:56:42Z"
   },
   "chen-006/meow-llm-detector": {
     "repo": "chen-006/meow-llm-detector",
     "last_seen": "2026-11-18T11:49:03.338Z",
     "pushed_at": "2026-10-03T14:00:49Z"
+  },
+  "cj-bc/webxr-fable-demo": {
+    "repo": "cj-bc/webxr-fable-demo",
+    "last_seen": "2026-11-28T11:55:19.467Z",
+    "pushed_at": "2026-11-28T10:43:45Z",
+    "last_pr": 73
   },
   "craftecsofficial-source/toolscout-ai": {
     "repo": "craftecsofficial-source/toolscout-ai",
@@ -451,8 +457,8 @@
   },
   "pydantic/genai-prices": {
     "repo": "pydantic/genai-prices",
-    "last_seen": "2026-11-27T12:24:07.255Z",
-    "pushed_at": "2026-11-27T00:48:04Z"
+    "last_seen": "2026-11-28T11:54:53.898Z",
+    "pushed_at": "2026-11-28T00:44:31Z"
   },
   "rgmarquez/claude-code-fable-game": {
     "repo": "rgmarquez/claude-code-fable-game",
@@ -587,8 +593,8 @@
   },
   "wendystar0628/ai-all-round-bench": {
     "repo": "wendystar0628/ai-all-round-bench",
-    "last_seen": "2026-11-26T12:44:24.649Z",
-    "pushed_at": "2026-11-26T01:03:44Z",
+    "last_seen": "2026-11-28T11:54:46.282Z",
+    "pushed_at": "2026-11-26T23:23:11Z",
     "last_pr": 65
   },
   "wonkylamp/inside-job": {
